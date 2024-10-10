@@ -1,0 +1,1562 @@
+.My_Parent {
+  // --- 1 - Navbar ---
+  .Parent_Navbar_Whole {
+    position: relative;
+    border: 0px solid transparent;
+    padding: 0em 0em 0.1em 0em;
+    background: url("../../assets/bg.jpg") no-repeat center center;
+    background-size: cover;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.884);
+      z-index: 1;
+    }
+
+    .Sub_Parent_Navbar_Whole {
+      position: relative;
+      z-index: 2;
+      border: 0px solid transparent;
+      padding: 0em 0em 0.1em 0em;
+
+      // 1 - Navbar Main
+      .Navbar_Main {
+        border: 0px solid transparent;
+        padding: 0.5em 0.2em 0.5em 0.2em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+        .Navbar_Main_Part_1 {
+          border: 0px solid transparent;
+          width: 10%;
+
+          img {
+            border: 0px solid transparent;
+            width: 70%;
+            display: block;
+            margin: 0em auto;
+          }
+        }
+
+        .Navbar_Main_Part_2 {
+          border: 0px solid transparent;
+          width: 30%;
+          padding: 0.2em 0.2em 0.2em 0.2em;
+
+          ul {
+            border: 0px solid transparent;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0.2em 0.2em 0.2em 0.2em;
+
+            li {
+              border: 0px solid transparent;
+              color: white;
+              padding: 0.2em 0.2em 0.2em 0.2em;
+              font-weight: 700;
+              letter-spacing: 0.5px;
+              transition: border-bottom 0.3s ease;
+            }
+            li:hover {
+              cursor: pointer;
+              border-bottom: 1px solid white;
+            }
+            #Special_Li {
+              border-bottom: 2px solid white;
+            }
+          }
+        }
+
+        .Navbar_Main_Part_3 {
+          border: 0px solid transparent;
+          padding: 0.2em 0.2em 0.2em 0.2em;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          width: 20%;
+
+          .Navbar_Main_Part_3_A {
+            border: 0px solid transparent;
+            padding: 0.2em 0.2em 0.2em 0.2em;
+
+            .Navbar_Main_Part_3_A_Box {
+              border: 0.1px solid white;
+              padding: 0.55em 1em 0.75em 1em;
+              border-radius: 50%;
+              transition: background-color 0.3s ease, transform 0.3s ease; /* Transition for background and scale */
+
+              i {
+                font-size: 1em;
+                color: white;
+              }
+            }
+
+            .Navbar_Main_Part_3_A_Box:hover {
+              background-color: rgba(255, 255, 255, 0.116);
+              cursor: pointer;
+              transform: scale(1.05); /* Slightly scale up on hover */
+            }
+          }
+
+          .Navbar_Main_Part_3_B {
+            border: 0px solid transparent;
+            padding: 0.2em 0.2em 0.2em 0.2em;
+
+            /* - Lighting Button - */
+            #My_Btn {
+              position: relative;
+              border: 0px solid transparent;
+              padding: 0.3em 1.8em;
+              background-color: #0652dd;
+              color: white;
+              font-size: 1em;
+              text-decoration: none;
+              letter-spacing: 0.2em;
+              border-radius: 5px;
+              display: block;
+              overflow: hidden;
+              transition: 0.5s;
+              cursor: pointer;
+            }
+            #My_Btn:hover {
+              color: white;
+              font-weight: bold;
+              background: #ff0000;
+              box-shadow: 0 0 10px #ff0000, 0 0 40px #ff0000, 0 0 80px #ff0000;
+              transition-delay: 1s;
+            }
+            /* Line Movement Button */
+            #My_Btn span {
+              position: absolute;
+              display: block;
+            }
+            /* -- Span 1 --  */
+            #My_Btn span:nth-child(1) {
+              top: 0;
+              left: -100%;
+              width: 100%;
+              height: 2px;
+              background: linear-gradient(90deg, transparent, #ff0000);
+            }
+            #My_Btn:hover span:nth-child(1) {
+              left: 100%;
+              transition: 1s;
+            }
+            /* -- Span 3 --  */
+            #My_Btn span:nth-child(3) {
+              bottom: 0;
+              right: -100%;
+              width: 100%;
+              height: 2px;
+              background: linear-gradient(270deg, transparent, #ff0000);
+            }
+            #My_Btn:hover span:nth-child(3) {
+              right: 100%;
+              transition: 1s;
+              transition-delay: 0.5s;
+            }
+            /* -- Span 2 --  */
+            #My_Btn span:nth-child(2) {
+              top: -100%;
+              right: 0;
+              width: 2px;
+              height: 100%;
+              background: linear-gradient(180deg, transparent, #ff0000);
+            }
+            #My_Btn:hover span:nth-child(2) {
+              top: 100%;
+              transition: 1s;
+              transition-delay: 0.25s;
+            }
+            /* -- Span 4 --  */
+            #My_Btn span:nth-child(4) {
+              bottom: -100%;
+              left: 0;
+              width: 2px;
+              height: 100%;
+              background: linear-gradient(360deg, transparent, #ff0000);
+            }
+            #My_Btn:hover span:nth-child(4) {
+              bottom: 100%;
+              transition: 1s;
+              transition-delay: 0.75s;
+            }
+            /* ------------------------ */
+          }
+          .Navbar_Main_Part_4 {
+            display: none;
+            visibility: hidden;
+          }
+        }
+      }
+
+      // 2 - Background Txt
+      .Background_Txt_Parent {
+        border: 0px solid transparent;
+        padding: 9em 1em 9em 1em;
+
+        h1 {
+          border: 0px solid transparent;
+          padding: 0.1em 0.1em 0.1em 0.3em;
+          font-size: 3.3em;
+          font-weight: bold;
+          letter-spacing: 3px;
+          width: 55%;
+          margin: 0em auto;
+          color: white;
+          text-shadow: 2px 2px 5px rgb(0, 0, 0);
+          text-transform: uppercase;
+          text-align: center;
+        }
+
+        p {
+          border: 0px solid transparent;
+          padding: 0.3em 0.1em 0.3em 1em;
+          font-size: 0.8em;
+          letter-spacing: 3.2px;
+          width: 45%;
+          margin: 0em auto;
+          color: white;
+          text-transform: capitalize;
+          text-shadow: 1px 1px 4px rgba(0, 0, 0, 0);
+          line-height: 3vh;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  // --- 2 - Opens + Rating ---
+  .Parent_Opens_Whole {
+    border: 0px solid transparent;
+    padding: 0.4em 2em 0.4em 2em;
+    border-bottom: 1px solid lightgrey;
+
+    .Parent_Opens_Whole_Sub {
+      border: 0px solid transparent;
+      padding: 0.4em 2em 0.4em 2em;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+
+      .Box_Open_Main {
+        border: 0px solid transparent;
+        margin: 0em 0em 0em 0.5em;
+        padding: 0.3em 0.3em 0.3em 0.3em;
+        width: 19%;
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+
+        .Box_Open_Main_Part_1 {
+          border: 0px solid transparent;
+          width: 30%;
+          padding: 0.1em 0.1em 0.1em 0.1em;
+
+          img {
+            border: 0px solid transparent;
+            width: 57%;
+            display: block;
+            margin: 0em auto;
+          }
+        }
+
+        .Box_Open_Main_Part_2 {
+          border: 0px solid transparent;
+          width: 70%;
+          text-align: center;
+          padding: 0.1em 0.1em 0.1em 0.1em;
+        }
+      }
+    }
+  }
+
+  // --- 3 - Menu ---
+  .Parent_Menu_Whole {
+    border: 0px solid transparent;
+    padding: 1em 1em 1em 1em;
+
+    .Parent_Menu_Whole_Sub {
+      border: 0px solid transparent;
+      padding: 1em 1em 1em 1em;
+
+      .Menu_Box {
+        border: 0px solid transparent;
+        padding: 1em 1em 1em 1em;
+        // background-color: lightcyan;
+
+        h1 {
+          border: 0px solid transparent;
+          font-size: 2em;
+          font-weight: bold;
+          letter-spacing: 2px;
+          padding: 0.3em 0em 0.3em 0em;
+        }
+
+        .Menu_Box_Sub {
+          border: 0px solid transparent;
+          padding: 0.5em 0.2em 0.5em 0.2em;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          row-gap: 1em;
+
+          .Menu_Item_Box {
+            position: relative;
+            border: 0.1px solid rgb(224, 224, 224);
+            padding: 0.2em 0.2em 0.2em 0.2em;
+            width: 32%;
+            // background-color: lightgoldenrodyellow;
+            background-color: white;
+            border-radius: 5px;
+
+            .Menu_Item_Box_Sub {
+              border: 0px solid transparent;
+              padding: 0.2em 0.2em 0.2em 0.2em;
+              display: flex;
+              flex-direction: row;
+              justify-content: flex-start;
+              align-items: center;
+
+              .Menu_Item_Box_Sub_Part1 {
+                border: 0px solid transparent;
+                padding: 0.1em 0.1em 0.1em 0.1em;
+                width: 75%;
+
+                .Menu_Item_P1 {
+                  border: 0px solid transparent;
+                  font-weight: bold;
+                  font-size: 0.9em;
+                  letter-spacing: 1px;
+                }
+                span {
+                  border: 0px solid transparent;
+                  font-size: 0.8em;
+                  letter-spacing: 1px;
+                }
+                .Menu_Item_P2 {
+                  border: 0px solid transparent;
+                  padding: 1em 0em 0em 0em;
+                  font-weight: 600;
+                  font-size: 0.9em;
+                  letter-spacing: 1px;
+                  color: #bc0000;
+                }
+              }
+
+              .Menu_Item_Box_Sub_Part2 {
+                border: 0px solid transparent;
+                padding: 0.1em 0.1em 0.1em 0.1em;
+                width: 20%;
+                height: 11vh;
+
+                img {
+                  width: 100%;
+                  height: 10vh;
+                  display: block;
+                  margin: 0em auto;
+                }
+              }
+
+              button {
+                border: 0px solid transparent;
+                padding: 0.3em 0.2em 0.3em 0.2em;
+                width: 10%;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                background: linear-gradient(to top, #d10101, #920000);
+                border-bottom-left-radius: 20px;
+                border-top-right-radius: 15px;
+
+                i {
+                  color: white;
+                  font-size: 0.95em;
+                }
+              }
+
+              button:hover {
+                cursor: pointer;
+                background: linear-gradient(to top, #a10000, #a30101);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // -
+}
+
+/* -------------------------------- */
+/* ----- Media Queries In CSS ----- */
+/* -------------------------------- */
+/* 0 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 1400px) {
+  .My_Parent {
+    // --- 1 - Navbar ---
+    .Parent_Navbar_Whole {
+      padding: 0em 0em 0.1em 0em;
+
+      .Sub_Parent_Navbar_Whole {
+        padding: 0em 0em 0.1em 0em;
+
+        .Navbar_Main {
+          padding: 0.4em 0.2em 0.4em 0.2em;
+
+          .Navbar_Main_Part_1 {
+            width: 10%;
+
+            img {
+              width: 70%;
+            }
+          }
+
+          .Navbar_Main_Part_2 {
+            width: 30%;
+            padding: 0.2em 0.2em 0.2em 0.2em;
+
+            ul {
+              padding: 0.2em 0.2em 0.2em 0.2em;
+
+              li {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+              }
+            }
+          }
+
+          .Navbar_Main_Part_3 {
+            padding: 0.2em 0.2em 0.2em 0.2em;
+            width: 20%;
+
+            .Navbar_Main_Part_3_A {
+              padding: 0.2em 0.2em 0.2em 0.2em;
+
+              .Navbar_Main_Part_3_A_Box {
+                padding: 0.6em 1em 0.75em 1em;
+
+                i {
+                  font-size: 1em;
+                }
+              }
+            }
+
+            .Navbar_Main_Part_3_B {
+              padding: 0.2em 0.2em 0.2em 0.2em;
+
+              #My_Btn {
+                position: relative;
+                padding: 0.3em 1.8em;
+                font-size: 1em;
+                letter-spacing: 0.2em;
+                border-radius: 5px;
+              }
+              #My_Btn span {
+                position: absolute;
+                display: block;
+              }
+              #My_Btn span:nth-child(1) {
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 2px;
+              }
+              #My_Btn:hover span:nth-child(1) {
+                left: 100%;
+                transition: 1s;
+              }
+              #My_Btn span:nth-child(3) {
+                bottom: 0;
+                right: -100%;
+                width: 100%;
+                height: 2px;
+              }
+              #My_Btn:hover span:nth-child(3) {
+                right: 100%;
+                transition: 1s;
+              }
+              #My_Btn span:nth-child(2) {
+                top: -100%;
+                right: 0;
+                width: 2px;
+                height: 100%;
+              }
+              #My_Btn:hover span:nth-child(2) {
+                top: 100%;
+                transition: 1s;
+              }
+              #My_Btn span:nth-child(4) {
+                bottom: -100%;
+                left: 0;
+                width: 2px;
+                height: 100%;
+              }
+              #My_Btn:hover span:nth-child(4) {
+                bottom: 100%;
+                transition: 1s;
+                transition-delay: 0.75s;
+              }
+            }
+          }
+        }
+
+        .Background_Txt_Parent {
+          padding: 9em 1em 9em 1em;
+
+          h1 {
+            padding: 0.1em 0.1em 0.1em 0.3em;
+            font-size: 3.3em;
+            letter-spacing: 3px;
+            width: 68%;
+          }
+
+          p {
+            padding: 0.3em 0.1em 0.3em 1em;
+            font-size: 0.8em;
+            letter-spacing: 3.2px;
+            width: 45%;
+            line-height: 3vh;
+          }
+        }
+      }
+    }
+
+    // --- 2 - Opens + Rating ---
+    .Parent_Opens_Whole {
+      padding: 0.4em 2em 0.4em 2em;
+
+      .Parent_Opens_Whole_Sub {
+        padding: 0.4em 2em 0.4em 2em;
+
+        .Box_Open_Main {
+          margin: 0em 0em 0em 1em;
+          padding: 0.3em 0.3em 0.3em 0.3em;
+          width: 19%;
+
+          .Box_Open_Main_Part_1 {
+            width: 30%;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+
+            img {
+              width: 57%;
+            }
+          }
+
+          .Box_Open_Main_Part_2 {
+            width: 70%;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+          }
+        }
+      }
+    }
+
+    // --- 3 - Menu ---
+    .Parent_Menu_Whole {
+      padding: 1em 1em 1em 1em;
+
+      .Parent_Menu_Whole_Sub {
+        padding: 1em 1em 1em 1em;
+
+        .Menu_Box {
+          padding: 1em 1em 1em 1em;
+
+          h1 {
+            font-size: 2em;
+            letter-spacing: 2px;
+          }
+
+          .Menu_Box_Sub {
+            padding: 0.5em 0.2em 0.5em 0.2em;
+            row-gap: 1em;
+
+            .Menu_Item_Box {
+              padding: 0.2em 0.2em 0.2em 0.2em;
+              width: 32%;
+              border-radius: 5px;
+
+              .Menu_Item_Box_Sub {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+
+                .Menu_Item_Box_Sub_Part1 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 75%;
+
+                  .Menu_Item_P1 {
+                    font-size: 0.9em;
+                    letter-spacing: 1px;
+                  }
+                  span {
+                    font-size: 0.8em;
+                    letter-spacing: 1px;
+                  }
+                  .Menu_Item_P2 {
+                    padding: 1em 0em 0em 0em;
+                    font-size: 0.9em;
+                    letter-spacing: 1px;
+                  }
+                }
+
+                .Menu_Item_Box_Sub_Part2 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 20%;
+                  height: 11vh;
+
+                  img {
+                    width: 100%;
+                    height: 10vh;
+                  }
+                }
+
+                button {
+                  padding: 0.3em 0.2em 0.3em 0.2em;
+                  width: 10%;
+
+                  i {
+                    font-size: 0.95em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    // -
+  }
+}
+
+/* 1 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 1200px) {
+  .My_Parent {
+    // --- 1 - Navbar ---
+    .Parent_Navbar_Whole {
+      padding: 0em 0em 0.1em 0em;
+
+      .Sub_Parent_Navbar_Whole {
+        padding: 0em 0em 0.1em 0em;
+
+        .Navbar_Main {
+          padding: 0.5em 0.2em 0.5em 0.2em;
+
+          .Navbar_Main_Part_1 {
+            width: 10%;
+
+            img {
+              width: 65%;
+            }
+          }
+
+          .Navbar_Main_Part_2 {
+            width: 35%;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+
+            ul {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+
+              li {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+                font-size: 0.8em;
+                font-weight: 600;
+                letter-spacing: 1px;
+              }
+            }
+          }
+
+          .Navbar_Main_Part_3 {
+            padding: 0.2em 0.2em 0.2em 0.2em;
+            width: 20%;
+
+            .Navbar_Main_Part_3_A {
+              padding: 0.2em 0.2em 0.2em 0.2em;
+
+              .Navbar_Main_Part_3_A_Box {
+                padding: 0.5em 1em 0.55em 1em;
+
+                i {
+                  font-size: 0.9em;
+                }
+              }
+            }
+
+            .Navbar_Main_Part_3_B {
+              padding: 0.2em 0.2em 0.2em 0.2em;
+
+              #My_Btn {
+                position: relative;
+                padding: 0.25em 1.2em;
+                font-size: 0.9em;
+                letter-spacing: 0.2em;
+                border-radius: 5px;
+              }
+            }
+          }
+        }
+
+        .Background_Txt_Parent {
+          padding: 8em 1em 8em 1em;
+
+          h1 {
+            padding: 0.1em 0.1em 0.1em 0.3em;
+            font-size: 3em;
+            letter-spacing: 3px;
+            width: 75%;
+          }
+
+          p {
+            padding: 0.3em 0.1em 0.3em 1em;
+            font-size: 0.8em;
+            letter-spacing: 3px;
+            width: 60%;
+            line-height: 3vh;
+          }
+        }
+      }
+    }
+
+    // --- 2 - Opens + Rating ---
+    .Parent_Opens_Whole {
+      padding: 0.4em 2em 0.4em 2em;
+
+      .Parent_Opens_Whole_Sub {
+        padding: 0.4em 2em 0.4em 2em;
+
+        .Box_Open_Main {
+          margin: 0em 0em 0em 1em;
+          padding: 0.3em 0.3em 0.3em 0.3em;
+          width: 19.5%;
+
+          .Box_Open_Main_Part_1 {
+            width: 25%;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+
+            img {
+              width: 70%;
+            }
+          }
+
+          .Box_Open_Main_Part_2 {
+            width: 75%;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+          }
+        }
+      }
+    }
+
+    // --- 3 - Menu ---
+    .Parent_Menu_Whole {
+      padding: 1em 1em 1em 1em;
+
+      .Parent_Menu_Whole_Sub {
+        padding: 1em 1em 1em 1em;
+
+        .Menu_Box {
+          padding: 1em 0.2em 1em 0.2em;
+
+          h1 {
+            font-size: 1.8em;
+            letter-spacing: 2px;
+          }
+
+          .Menu_Box_Sub {
+            padding: 0.5em 0.2em 0.5em 0.2em;
+            row-gap: 0.8em;
+
+            .Menu_Item_Box {
+              padding: 0.2em 0.2em 0.2em 0.2em;
+              width: 32.5%;
+              border-radius: 5px;
+
+              .Menu_Item_Box_Sub {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+
+                .Menu_Item_Box_Sub_Part1 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 77%;
+
+                  .Menu_Item_P1 {
+                    font-size: 0.8em;
+                    letter-spacing: 1px;
+                  }
+                  span {
+                    font-size: 0.75em;
+                    letter-spacing: 1px;
+                  }
+                  .Menu_Item_P2 {
+                    padding: 1em 0em 0em 0em;
+                    font-size: 0.8em;
+                    letter-spacing: 1px;
+                  }
+                }
+
+                .Menu_Item_Box_Sub_Part2 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 20%;
+                  height: 11vh;
+
+                  img {
+                    width: 100%;
+                    height: 10vh;
+                  }
+                }
+
+                button {
+                  padding: 0.3em 0.2em 0.3em 0.2em;
+                  width: 10%;
+
+                  i {
+                    font-size: 0.95em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    // -
+  }
+}
+
+/* 2 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 1000px) {
+  .My_Parent {
+    // --- 1 - Navbar ---
+    .Parent_Navbar_Whole {
+      padding: 0em 0em 0em 0em;
+
+      .Sub_Parent_Navbar_Whole {
+        padding: 0em 0em 0em 0em;
+
+        .Navbar_Main {
+          padding: 0.5em 0.2em 0.5em 0.2em;
+
+          .Navbar_Main_Part_1 {
+            width: 10%;
+
+            img {
+              width: 75%;
+            }
+          }
+
+          .Navbar_Main_Part_2 {
+            width: 35%;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+
+            ul {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+
+              li {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+                font-size: 0.75em;
+                font-weight: 600;
+                letter-spacing: 1px;
+              }
+            }
+          }
+
+          .Navbar_Main_Part_3 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 20%;
+
+            .Navbar_Main_Part_3_A {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+
+              .Navbar_Main_Part_3_A_Box {
+                padding: 0.35em 0.9em 0.45em 0.9em;
+
+                i {
+                  font-size: 0.85em;
+                }
+              }
+            }
+
+            .Navbar_Main_Part_3_B {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+
+              #My_Btn {
+                position: relative;
+                padding: 0.25em 1.1em;
+                font-size: 0.85em;
+                letter-spacing: 0.2em;
+                border-radius: 5px;
+              }
+            }
+          }
+        }
+
+        .Background_Txt_Parent {
+          padding: 7em 1em 7em 1em;
+
+          h1 {
+            padding: 0.1em 0.1em 0.1em 0.3em;
+            font-size: 2.4em;
+            letter-spacing: 3px;
+            width: 80%;
+          }
+
+          p {
+            padding: 0.3em 0.1em 0.3em 1em;
+            font-size: 0.75em;
+            letter-spacing: 2.5px;
+            width: 60%;
+            line-height: 3vh;
+          }
+        }
+      }
+    }
+
+    // --- 2 - Opens + Rating ---
+    .Parent_Opens_Whole {
+      padding: 0.4em 1em 0.4em 1em;
+
+      .Parent_Opens_Whole_Sub {
+        padding: 0.4em 2em 0.4em 2em;
+
+        .Box_Open_Main {
+          margin: 0em 0em 0em 1em;
+          padding: 0.2em 0.2em 0.2em 0.2em;
+          width: 20%;
+
+          .Box_Open_Main_Part_1 {
+            width: 25%;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+
+            img {
+              width: 70%;
+            }
+          }
+
+          .Box_Open_Main_Part_2 {
+            width: 75%;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            font-size: 0.8em;
+          }
+        }
+      }
+    }
+
+    // --- 3 - Menu ---
+    .Parent_Menu_Whole {
+      padding: 1em 1em 1em 1em;
+
+      .Parent_Menu_Whole_Sub {
+        padding: 1em 0.6em 1em 0.6em;
+
+        .Menu_Box {
+          padding: 1em 0.1em 1em 0.1em;
+
+          h1 {
+            font-size: 1.8em;
+            letter-spacing: 2px;
+          }
+
+          .Menu_Box_Sub {
+            padding: 0.5em 0.2em 0.5em 0.2em;
+            row-gap: 0.8em;
+
+            .Menu_Item_Box {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+              width: 32.7%;
+              border-radius: 5px;
+
+              .Menu_Item_Box_Sub {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+
+                .Menu_Item_Box_Sub_Part1 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 77%;
+
+                  .Menu_Item_P1 {
+                    font-size: 0.75em;
+                    letter-spacing: 1px;
+                  }
+                  span {
+                    font-size: 0.7em;
+                    letter-spacing: 0.5px;
+                  }
+                  .Menu_Item_P2 {
+                    padding: 1em 0em 0em 0em;
+                    font-size: 0.75em;
+                    letter-spacing: 1px;
+                  }
+                }
+
+                .Menu_Item_Box_Sub_Part2 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 20%;
+                  height: 11vh;
+
+                  img {
+                    width: 100%;
+                    height: 10vh;
+                  }
+                }
+
+                button {
+                  padding: 0.3em 0.2em 0.3em 0.2em;
+                  width: 10%;
+
+                  i {
+                    font-size: 0.95em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    // -
+  }
+}
+
+/* 3 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 800px) {
+  .My_Parent {
+    // --- 1 - Navbar ---
+    .Parent_Navbar_Whole {
+      padding: 0em 0em 0em 0em;
+
+      .Sub_Parent_Navbar_Whole {
+        padding: 0em 0em 0em 0em;
+
+        .Navbar_Main {
+          padding: 0.5em 0.2em 0.5em 0.2em;
+
+          .Navbar_Main_Part_1 {
+            width: 10%;
+
+            img {
+              width: 95%;
+            }
+          }
+
+          .Navbar_Main_Part_2 {
+            width: 45%;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+
+            ul {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+
+              li {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+                font-size: 0.7em;
+                font-weight: 550;
+                letter-spacing: 1.5px;
+              }
+            }
+          }
+
+          .Navbar_Main_Part_3 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 21%;
+
+            .Navbar_Main_Part_3_A {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+
+              .Navbar_Main_Part_3_A_Box {
+                padding: 0.25em 0.8em 0.35em 0.8em;
+
+                i {
+                  font-size: 0.8em;
+                }
+              }
+            }
+
+            .Navbar_Main_Part_3_B {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+
+              #My_Btn {
+                padding: 0.25em 1.1em;
+                font-size: 0.78em;
+                letter-spacing: 0.2em;
+                border-radius: 3px;
+              }
+            }
+          }
+        }
+
+        .Background_Txt_Parent {
+          padding: 6em 1em 6em 1em;
+
+          h1 {
+            padding: 0.1em 0.1em 0.1em 0.3em;
+            font-size: 2em;
+            letter-spacing: 3px;
+            width: 90%;
+          }
+
+          p {
+            padding: 0.3em 0.1em 0.3em 1em;
+            font-size: 0.7em;
+            letter-spacing: 2.5px;
+            width: 70%;
+            line-height: 3vh;
+          }
+        }
+      }
+    }
+
+    // --- 2 - Opens + Rating ---
+    .Parent_Opens_Whole {
+      padding: 0.4em 1em 0.4em 1em;
+
+      .Parent_Opens_Whole_Sub {
+        padding: 0.4em 1em 0.4em 1em;
+
+        .Box_Open_Main {
+          margin: 0em 0em 0em 1em;
+          padding: 0.2em 0.1em 0.2em 0.1em;
+          width: 24.5%;
+
+          .Box_Open_Main_Part_1 {
+            width: 25%;
+            padding: 0.1em 0.05em 0.1em 0.05em;
+
+            img {
+              width: 70%;
+            }
+          }
+
+          .Box_Open_Main_Part_2 {
+            width: 75%;
+            padding: 0.1em 0.05em 0.1em 0.05em;
+            font-size: 0.8em;
+          }
+        }
+      }
+    }
+
+    // --- 3 - Menu ---
+    .Parent_Menu_Whole {
+      padding: 1em 1em 1em 1em;
+
+      .Parent_Menu_Whole_Sub {
+        padding: 1em 0.6em 1em 0.6em;
+
+        .Menu_Box {
+          padding: 1em 0.1em 1em 0.1em;
+
+          h1 {
+            font-size: 1.8em;
+            letter-spacing: 2px;
+          }
+
+          .Menu_Box_Sub {
+            padding: 0.5em 0.2em 0.5em 0.2em;
+            row-gap: 0.8em;
+
+            .Menu_Item_Box {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+              width: 48%;
+              border-radius: 5px;
+
+              .Menu_Item_Box_Sub {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+
+                .Menu_Item_Box_Sub_Part1 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 77%;
+
+                  .Menu_Item_P1 {
+                    font-size: 0.75em;
+                    letter-spacing: 1px;
+                  }
+                  span {
+                    font-size: 0.7em;
+                    letter-spacing: 0.5px;
+                  }
+                  .Menu_Item_P2 {
+                    padding: 1em 0em 0em 0em;
+                    font-size: 0.75em;
+                    letter-spacing: 1px;
+                  }
+                }
+
+                .Menu_Item_Box_Sub_Part2 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 20%;
+                  height: 11vh;
+
+                  img {
+                    width: 100%;
+                    height: 10vh;
+                  }
+                }
+
+                button {
+                  padding: 0.3em 0.2em 0.3em 0.2em;
+                  width: 10%;
+
+                  i {
+                    font-size: 0.95em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    // -
+  }
+}
+
+/* 4 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 600px) {
+  .My_Parent {
+    // --- 1 - Navbar ---
+    .Parent_Navbar_Whole {
+      .Sub_Parent_Navbar_Whole {
+        .Navbar_Main {
+          padding: 0.4em 2em 0.4em 2em;
+          justify-content: space-between;
+
+          .Navbar_Main_Part_1 {
+            width: 14%;
+
+            img {
+              width: 98%;
+            }
+          }
+
+          .Navbar_Main_Part_2 {
+            display: none;
+          }
+
+          .Navbar_Main_Part_3 {
+            .Navbar_Main_Part_3_A {
+              display: none;
+            }
+
+            .Navbar_Main_Part_3_B {
+              display: none;
+            }
+
+            .Navbar_Main_Part_4 {
+              display: block;
+              visibility: visible;
+              width: 52%;
+
+              img {
+                border: 0px solid transparent;
+                width: 85%;
+                display: block;
+                margin: 0em auto;
+              }
+            }
+          }
+        }
+
+        .Background_Txt_Parent {
+          padding: 5em 1em 5em 1em;
+
+          h1 {
+            padding: 0.1em 0.1em 0.1em 0.3em;
+            font-size: 1.4em;
+            letter-spacing: 2.5px;
+            width: 100%;
+          }
+
+          p {
+            padding: 0.3em 0.1em 0.3em 0.1em;
+            font-size: 0.7em;
+            letter-spacing: 1px;
+            width: 60%;
+            line-height: 3vh;
+          }
+        }
+      }
+    }
+
+    // --- 2 - Opens + Rating ---
+    .Parent_Opens_Whole {
+      padding: 0.4em 0.5em 0.4em 0.5em;
+
+      .Parent_Opens_Whole_Sub {
+        padding: 0.4em 0.5em 0.4em 0.5em;
+
+        .Box_Open_Main {
+          margin: 0em 0em 0em 1em;
+          padding: 0.2em 0.1em 0.2em 0.1em;
+          width: 29%;
+
+          .Box_Open_Main_Part_1 {
+            width: 20%;
+            padding: 0.1em 0.05em 0.1em 0.05em;
+
+            img {
+              width: 90%;
+            }
+          }
+
+          .Box_Open_Main_Part_2 {
+            width: 78%;
+            padding: 0.1em 0.05em 0.1em 0.05em;
+            font-size: 0.65em;
+          }
+        }
+      }
+    }
+
+    // --- 3 - Menu ---
+    .Parent_Menu_Whole {
+      padding: 0.5em 1em 0.5em 1em;
+
+      .Parent_Menu_Whole_Sub {
+        padding: 0.5em 0.1em 0.5em 0.1em;
+
+        .Menu_Box {
+          padding: 0.5em 0.1em 0.5em 0.1em;
+
+          h1 {
+            font-size: 1.8em;
+            letter-spacing: 2px;
+            padding: 0em 0em 0em 0.5em;
+          }
+
+          .Menu_Box_Sub {
+            padding: 0.5em 0.2em 0.5em 0.2em;
+            row-gap: 0.8em;
+            justify-content: center;
+            align-items: center;
+
+            .Menu_Item_Box {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+              width: 95%;
+              border-radius: 5px;
+
+              .Menu_Item_Box_Sub {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+
+                .Menu_Item_Box_Sub_Part1 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 77%;
+
+                  .Menu_Item_P1 {
+                    font-size: 0.7em;
+                    letter-spacing: 0.5px;
+                  }
+                  span {
+                    font-size: 0.7em;
+                    letter-spacing: 0px;
+                  }
+                  .Menu_Item_P2 {
+                    padding: 1em 0em 0em 0em;
+                    font-size: 0.7em;
+                    letter-spacing: 0.5px;
+                  }
+                }
+
+                .Menu_Item_Box_Sub_Part2 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 20%;
+                  height: 11vh;
+
+                  img {
+                    width: 100%;
+                    height: 10vh;
+                  }
+                }
+
+                button {
+                  padding: 0.3em 0.3em 0.3em 0.3em;
+                  width: 10%;
+
+                  i {
+                    font-size: 0.9em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    // -
+  }
+}
+
+/* 5 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 400px) {
+  .My_Parent {
+    // --- 1 - Navbar ---
+    .Parent_Navbar_Whole {
+      .Sub_Parent_Navbar_Whole {
+        .Navbar_Main {
+          padding: 0.4em 1em 0.4em 1em;
+          justify-content: space-between;
+
+          .Navbar_Main_Part_1 {
+            width: 20%;
+
+            img {
+              width: 98%;
+            }
+          }
+
+          .Navbar_Main_Part_2 {
+            display: none;
+          }
+
+          .Navbar_Main_Part_3 {
+            .Navbar_Main_Part_4 {
+              display: block;
+              visibility: visible;
+              width: 70%;
+
+              img {
+                border: 0px solid transparent;
+                width: 85%;
+                display: block;
+                margin: 0em auto;
+              }
+            }
+          }
+        }
+
+        .Background_Txt_Parent {
+          padding: 4em 0em 4em 0em;
+
+          h1 {
+            padding: 0.1em 0.1em 0.1em 0.3em;
+            font-size: 1em;
+            letter-spacing: 2px;
+            width: 100%;
+          }
+
+          p {
+            padding: 0.3em 0em 0.3em 0em;
+            font-size: 0.65em;
+            letter-spacing: 0.5px;
+            width: 70%;
+            line-height: 3vh;
+          }
+        }
+      }
+    }
+
+    // --- 2 - Opens + Rating ---
+    .Parent_Opens_Whole {
+      padding: 0.4em 0.5em 0.4em 0.5em;
+
+      .Parent_Opens_Whole_Sub {
+        padding: 0.4em 0.5em 0.4em 0.5em;
+        justify-content: center;
+
+        .Box_Open_Main {
+          margin: 0em 0em 0em 0.5em;
+          padding: 0.2em 0.05em 0.2em 0.05em;
+          width: 40%;
+
+          .Box_Open_Main_Part_1 {
+            width: 20%;
+            padding: 0.1em 0em 0.1em 0em;
+
+            img {
+              width: 90%;
+            }
+          }
+
+          .Box_Open_Main_Part_2 {
+            width: 78%;
+            padding: 0.1em 0em 0.1em em;
+            font-size: 0.6em;
+          }
+        }
+      }
+    }
+
+    // --- 3 - Menu ---
+    .Parent_Menu_Whole {
+      padding: 0.2em 0em 0.2em 0em;
+
+      .Parent_Menu_Whole_Sub {
+        padding: 0.2em 0em 0.2em 0em;
+
+        .Menu_Box {
+          padding: 0.2em 0.1em 0.2em 0.1em;
+
+          h1 {
+            font-size: 1.8em;
+            letter-spacing: 2px;
+            padding: 0em 0em 0em 0.3em;
+          }
+
+          .Menu_Box_Sub {
+            padding: 0.5em 0.2em 0.5em 0.2em;
+            row-gap: 0.8em;
+            justify-content: center;
+            align-items: center;
+
+            .Menu_Item_Box {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+              width: 96%;
+              border-radius: 5px;
+
+              .Menu_Item_Box_Sub {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+
+                .Menu_Item_Box_Sub_Part1 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 77%;
+
+                  .Menu_Item_P1 {
+                    font-size: 0.7em;
+                    letter-spacing: 0.5px;
+                  }
+                  span {
+                    font-size: 0.7em;
+                    letter-spacing: 0px;
+                  }
+                  .Menu_Item_P2 {
+                    padding: 1em 0em 0em 0em;
+                    font-size: 0.7em;
+                    letter-spacing: 0.5px;
+                  }
+                }
+
+                .Menu_Item_Box_Sub_Part2 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 20%;
+                  height: 11vh;
+
+                  img {
+                    width: 100%;
+                    height: 10vh;
+                  }
+                }
+
+                button {
+                  padding: 0.3em 0.3em 0.3em 0.3em;
+                  width: 10%;
+
+                  i {
+                    font-size: 0.9em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    // -
+  }
+}
