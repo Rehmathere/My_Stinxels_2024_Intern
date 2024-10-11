@@ -108,6 +108,39 @@
             }
           }
 
+          // - Search Bar -
+          .searchBar {
+            width: 0px;
+            opacity: 0;
+            padding: 0px;
+            border: none;
+            transition: width 0.7s ease, opacity 0.7s ease;
+            margin-left: 10px;
+            position: absolute;
+            top: 105px;
+            right: 140px;
+          }
+
+          .searchBar.show {
+            width: 400px;
+            opacity: 1;
+            padding: 5px 10px 5px 15px;
+            border: 1px solid #ccc;
+            border-radius: 50px;
+            letter-spacing: 1px;
+          }
+
+          .searchBar.hide {
+            width: 0px;
+            opacity: 0;
+            padding: 5px 10px 5px 15px;
+            border-radius: 50px;
+          
+          }
+          .searchBar:hover , .searchBar:focus {
+            outline: none;
+          }
+
           .Navbar_Main_Part_3_B {
             border: 0px solid transparent;
             padding: 0.2em 0.2em 0.2em 0.2em;
@@ -302,7 +335,7 @@
         h1 {
           border: 0px solid transparent;
           font-size: 2em;
-          font-weight: bold;
+          font-weight: 700;
           letter-spacing: 2px;
           padding: 0.3em 0em 0.3em 0em;
         }
@@ -383,7 +416,7 @@
                 right: 0px;
                 background: linear-gradient(to top, #d10101, #920000);
                 border-bottom-left-radius: 20px;
-                border-top-right-radius: 15px;
+                border-top-right-radius: 5px;
 
                 i {
                   color: white;
@@ -396,6 +429,126 @@
                 background: linear-gradient(to top, #a10000, #a30101);
               }
             }
+          }
+
+          .Menu_Item_Box:hover {
+            cursor: pointer;
+            box-shadow: rgba(100, 100, 111, 0.315) 0px 7px 29px 0px;
+            transform: scale(1.02);
+          }
+        }
+      }
+    }
+  }
+
+  // --- 4 - Footer ---
+  .Parent_Footer_Whole {
+    border: 0px solid transparent;
+    padding: 3em 0em 0em 0em;
+
+    .Parent_Footer_Whole_Sub {
+      border: 0px solid transparent;
+      padding: 1em 1em 1em 1em;
+      background-color: #141414;
+
+      .Footer_Box {
+        border: 0px solid transparent;
+        padding: 1em 1em 1em 1em;
+
+        .Footer_Box_Part_1 {
+          border: 0px solid transparent;
+          padding: 1em 0em 1.5em 0em;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          width: 90%;
+          margin: 0em auto;
+          border-bottom: 0.1px solid rgba(233, 233, 233, 0.527);
+
+          .Footer_Box_Part_1_A {
+            border: 0px solid transparent;
+            padding: 1em 0.1em 1em 0.1em;
+            width: 20%;
+
+            img {
+              border: 0px solid transparent;
+              width: 60%;
+              display: block;
+              margin: 0em auto;
+            }
+          }
+
+          .Footer_Box_Part_1_B {
+            border: 0px solid transparent;
+            padding: 1em 0.1em 1em 0.1em;
+            width: 20%;
+
+            ul {
+              border: 0px solid transparent;
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+
+              li {
+                border: 0px solid transparent;
+                padding: 0.3em 0.1em 0.3em 0.1em;
+                color: white;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+              }
+
+              li:hover {
+                font-weight: bold;
+                cursor: pointer;
+              }
+            }
+          }
+
+          .Footer_Box_Part_1_C {
+            border: 0px solid transparent;
+            padding: 1em 0.1em 1em 0.1em;
+            width: 20%;
+
+            p {
+              border: 0px solid transparent;
+              padding: 0.1em 0.1em 0.1em 0.1em;
+              color: white;
+              text-align: center;
+            }
+          }
+        }
+
+        .Footer_Box_Part_2 {
+          border: 0px solid transparent;
+          padding: 2.5em 1em 1em 1em;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+
+          .Footer_Box_Icon {
+            border: 0.1px solid rgba(255, 255, 255, 0.671);
+            padding: 0.7em 0.1em 0.7em 0.1em;
+            width: 4%;
+            margin: 0em 0em 0em 2em;
+            border-radius: 50%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+
+            img {
+              border: 0px solid transparent;
+              padding: 0.1em 0.1em 0.1em 0.1em;
+              border-radius: 0px;
+              width: 50%;
+              display: block;
+              margin: 0em auto;
+            }
+          }
+
+          .Footer_Box_Icon:hover {
+            background-color: rgba(231, 231, 231, 0.123);
+            cursor: pointer;
           }
         }
       }
@@ -637,6 +790,71 @@
         }
       }
     }
+
+    // --- 4 - Footer ---
+    .Parent_Footer_Whole {
+      padding: 3em 0em 0em 0em;
+
+      .Parent_Footer_Whole_Sub {
+        padding: 1em 1em 1em 1em;
+
+        .Footer_Box {
+          padding: 1em 1em 1em 1em;
+
+          .Footer_Box_Part_1 {
+            padding: 1em 0em 1em 0em;
+            width: 90%;
+
+            .Footer_Box_Part_1_A {
+              padding: 1em 0.1em 1em 0.1em;
+              width: 20%;
+
+              img {
+                width: 60%;
+              }
+            }
+
+            .Footer_Box_Part_1_B {
+              padding: 1em 0.1em 1em 0.1em;
+              width: 20%;
+
+              ul {
+                padding: 0.2em 0.1em 0.2em 0.1em;
+
+                li {
+                  padding: 0.3em 0.1em 0.3em 0.1em;
+                }
+              }
+            }
+
+            .Footer_Box_Part_1_C {
+              padding: 1em 0.1em 1em 0.1em;
+              width: 20%;
+
+              p {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+              }
+            }
+          }
+
+          .Footer_Box_Part_2 {
+            padding: 2em 1em 1em 1em;
+
+            .Footer_Box_Icon {
+              padding: 0.7em 0.1em 0.7em 0.1em;
+              width: 4%;
+              margin: 0em 0em 0em 2em;
+              border-radius: 50%;
+
+              img {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+                width: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
     // -
   }
 }
@@ -823,6 +1041,73 @@
                     font-size: 0.95em;
                   }
                 }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // --- 4 - Footer ---
+    .Parent_Footer_Whole {
+      padding: 2em 0em 0em 0em;
+
+      .Parent_Footer_Whole_Sub {
+        padding: 0.5em 0.5em 0.5em 0.5em;
+
+        .Footer_Box {
+          padding: 0.5em 0.5em 0.5em 0.5em;
+
+          .Footer_Box_Part_1 {
+            padding: 0.5em 0em 0.5em 1em;
+            width: 90%;
+
+            .Footer_Box_Part_1_A {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 20%;
+
+              img {
+                width: 60%;
+              }
+            }
+
+            .Footer_Box_Part_1_B {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 20%;
+
+              ul {
+                padding: 0.2em 0.1em 0.2em 0.1em;
+
+                li {
+                  padding: 0.3em 0.1em 0.3em 0.1em;
+                  font-size: 0.95em;
+                }
+              }
+            }
+
+            .Footer_Box_Part_1_C {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 20%;
+
+              p {
+                font-size: 0.95em;
+                padding: 0em 0em 0em 0em;
+              }
+            }
+          }
+
+          .Footer_Box_Part_2 {
+            padding: 2em 1em 1em 1em;
+
+            .Footer_Box_Icon {
+              padding: 0.7em 0.1em 0.7em 0.1em;
+              width: 5%;
+              margin: 0em 0em 0em 2em;
+              border-radius: 50%;
+
+              img {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+                width: 50%;
               }
             }
           }
@@ -1022,6 +1307,73 @@
         }
       }
     }
+
+    // --- 4 - Footer ---
+    .Parent_Footer_Whole {
+      padding: 2em 0em 0em 0em;
+
+      .Parent_Footer_Whole_Sub {
+        padding: 0.5em 0.5em 0.5em 0.5em;
+
+        .Footer_Box {
+          padding: 0.5em 0.5em 0.5em 0.5em;
+
+          .Footer_Box_Part_1 {
+            padding: 0.5em 0em 1em 0em;
+            width: 95%;
+
+            .Footer_Box_Part_1_A {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 25%;
+
+              img {
+                width: 60%;
+              }
+            }
+
+            .Footer_Box_Part_1_B {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 25%;
+
+              ul {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+
+                li {
+                  padding: 0.2em 0.1em 0.2em 0.1em;
+                  font-size: 0.95em;
+                }
+              }
+            }
+
+            .Footer_Box_Part_1_C {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 25%;
+
+              p {
+                font-size: 0.95em;
+                padding: 0em 0em 0em 0em;
+              }
+            }
+          }
+
+          .Footer_Box_Part_2 {
+            padding: 1.5em 1em 1em 1em;
+
+            .Footer_Box_Icon {
+              padding: 0.7em 0.1em 0.7em 0.1em;
+              width: 5.5%;
+              margin: 0em 0em 0em 2em;
+              border-radius: 50%;
+
+              img {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+                width: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
     // -
   }
 }
@@ -1214,6 +1566,73 @@
         }
       }
     }
+
+    // --- 4 - Footer ---
+    .Parent_Footer_Whole {
+      padding: 1em 0em 0em 0em;
+
+      .Parent_Footer_Whole_Sub {
+        padding: 0.2em 0em 0.2em 0em;
+
+        .Footer_Box {
+          padding: 0.2em 0em 0.2em 0em;
+
+          .Footer_Box_Part_1 {
+            padding: 0.5em 0em 1em 0em;
+            width: 95%;
+
+            .Footer_Box_Part_1_A {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 25%;
+
+              img {
+                width: 60%;
+              }
+            }
+
+            .Footer_Box_Part_1_B {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 25%;
+
+              ul {
+                padding: 0em 0em 0em 0em;
+
+                li {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  font-size: 0.9em;
+                }
+              }
+            }
+
+            .Footer_Box_Part_1_C {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 25%;
+
+              p {
+                font-size: 0.9em;
+                padding: 0em 0em 0em 0em;
+              }
+            }
+          }
+
+          .Footer_Box_Part_2 {
+            padding: 1.5em 1em 1em 1em;
+
+            .Footer_Box_Icon {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 6%;
+              margin: 0em 0em 0em 2em;
+              border-radius: 50%;
+
+              img {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+                width: 55%;
+              }
+            }
+          }
+        }
+      }
+    }
     // -
   }
 }
@@ -1389,6 +1808,76 @@
         }
       }
     }
+
+    // --- 4 - Footer ---
+    .Parent_Footer_Whole {
+      padding: 1em 0em 0em 0em;
+
+      .Parent_Footer_Whole_Sub {
+        padding: 0.2em 0em 0.2em 0em;
+
+        .Footer_Box {
+          padding: 0.2em 0em 0.2em 0em;
+
+          .Footer_Box_Part_1 {
+            padding: 0.5em 0em 1em 0em;
+            width: 85%;
+            flex-direction: column;
+
+            .Footer_Box_Part_1_A {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 25%;
+
+              img {
+                width: 60%;
+              }
+            }
+
+            .Footer_Box_Part_1_B {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 100%;
+
+              ul {
+                padding: 0.5em 0em 0.5em 0em;
+                flex-direction: row;
+
+                li {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  margin: 0em 0em 0em 1em;
+                  font-size: 0.9em;
+                }
+              }
+            }
+
+            .Footer_Box_Part_1_C {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 100%;
+
+              p {
+                font-size: 0.9em;
+                padding: 0em 0em 0em 0em;
+              }
+            }
+          }
+
+          .Footer_Box_Part_2 {
+            padding: 1.5em 1em 1em 1em;
+
+            .Footer_Box_Icon {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 8%;
+              margin: 0em 0em 0em 2em;
+              border-radius: 50%;
+
+              img {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+                width: 55%;
+              }
+            }
+          }
+        }
+      }
+    }
     // -
   }
 }
@@ -1551,6 +2040,76 @@
                     font-size: 0.9em;
                   }
                 }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // --- 4 - Footer ---
+    .Parent_Footer_Whole {
+      padding: 1em 0em 0em 0em;
+
+      .Parent_Footer_Whole_Sub {
+        padding: 1em 0em 1em 0em;
+
+        .Footer_Box {
+          padding: 0.2em 0em 0.2em 0em;
+
+          .Footer_Box_Part_1 {
+            padding: 0.5em 0em 1em 0em;
+            width: 90%;
+            flex-direction: column;
+
+            .Footer_Box_Part_1_A {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 30%;
+
+              img {
+                width: 100%;
+              }
+            }
+
+            .Footer_Box_Part_1_B {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 100%;
+
+              ul {
+                padding: 0.5em 0em 0.5em 0em;
+                flex-direction: row;
+
+                li {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  margin: 0em 0em 0em 1em;
+                  font-size: 0.85em;
+                }
+              }
+            }
+
+            .Footer_Box_Part_1_C {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 100%;
+
+              p {
+                font-size: 0.85em;
+                padding: 0em 0em 0em 0em;
+              }
+            }
+          }
+
+          .Footer_Box_Part_2 {
+            padding: 1.5em 0.2em 1em 0.2em;
+
+            .Footer_Box_Icon {
+              padding: 0.4em 0em 0.4em 0em;
+              width: 11%;
+              margin: 0em 0em 0em 1.5em;
+              border-radius: 50%;
+
+              img {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+                width: 75%;
               }
             }
           }
