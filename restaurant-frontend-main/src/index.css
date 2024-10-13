@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  /* overflow: hidden; */
+  overscroll-behavior: none;
+  box-sizing: border-box;
+}

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+// useNavigate
+import { useNavigate } from 'react-router-dom'
 // Home CSS
 import "./home.scss";
 // Images
@@ -24,11 +26,14 @@ import Sauce_3 from "../../assets/Menu_Pics/sauce3.jpg";
 import Fries_1 from "../../assets/Menu_Pics/fries1.jpg";
 import Fries_2 from "../../assets/Menu_Pics/fries2.jpg";
 import Fries_3 from "../../assets/Menu_Pics/fries3.jpg";
-import facebook from "../../assets/facebook.png"
-import linkdin from "../../assets/linkdin.png"
-import twitter from "../../assets/twitter.png"
+import facebook from "../../assets/facebook.png";
+import linkdin from "../../assets/linkdin.png";
+import twitter from "../../assets/twitter.png";
 
 function Home() {
+  // useNavigate Variable
+  const navigate = useNavigate();
+  // ---------------------------------------------
   // Chicken API Item
   const chickenData = [
     {
@@ -219,7 +224,7 @@ function Home() {
               {/* - Part 3 B - */}
               <div className="Navbar_Main_Part_3_B">
                 {/* <button>JOIN</button> */}
-                <a href="#" id="My_Btn">
+                <a href="#" id="My_Btn" onClick={() => navigate("/login")}>
                   <span></span>
                   <span></span>
                   <span></span>
@@ -440,7 +445,10 @@ function Home() {
                 </ul>
               </div>
               <div className="Footer_Box_Part_1_C">
-                <p>Maan-O-Salva combines national culinary traditions with European technology, offering fresh, high-quality dishes.</p>
+                <p>
+                  Maan-O-Salva combines national culinary traditions with
+                  European technology, offering fresh, high-quality dishes.
+                </p>
               </div>
             </div>
             <div className="Footer_Box_Part_2">

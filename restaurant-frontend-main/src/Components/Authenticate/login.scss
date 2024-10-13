@@ -1,0 +1,855 @@
+.My_Parent_Login {
+  // --- 1 - Login.jsx ---
+  .Parent_Login_Whole {
+    border: 0px solid transparent;
+    padding: 4em 1em 4em 1em;
+
+    .Sub_Login_Whole {
+      border: 0px solid transparent;
+      padding: 4em 1em 4em 1em;
+
+      .Login_Main {
+        border: 0px solid transparent;
+        padding: 0em 0em 0em 0em;
+        width: 70%;
+        margin: 0em auto;
+        background: radial-gradient(circle, #dd0f0f 0%, #bc0000 100%);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+        .Login_Main_Part_1 {
+          border: 0px solid transparent;
+          width: 50%;
+          padding: 1.5em 1em 1.5em 1em;
+          background-color: white;
+
+          h1 {
+            border: 0px solid transparent;
+            text-align: center;
+            padding: 0.1em 0em 0.1em 0em;
+            font-weight: 650;
+            font-size: 2.4em;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+          }
+
+          .Login_Main_Part_Sub {
+            border: 0px solid transparent;
+            padding: 0.1em 0.1em 0.8em 0.1em;
+
+            .Login_P {
+              border: 0px solid transparent;
+              text-align: center;
+              width: 70%;
+              display: block;
+              padding: 0.6em 0em;
+              margin: 0em auto;
+              text-transform: capitalize;
+              color: rgb(87, 87, 87);
+              letter-spacing: 1px;
+              font-size: 0.9em;
+            }
+
+            .Login_Field_Box {
+              border: 0px solid transparent;
+              padding: 0.6em 0.1em 0.6em 0.1em;
+              position: relative;
+
+              input {
+                border: 0.1px solid rgb(194, 194, 194);
+                padding: 0.4em 1em 0.4em 1em;
+                border-radius: 5px;
+                width: 70%;
+                display: block;
+                margin: 0em auto;
+                letter-spacing: 2px;
+              }
+              input:focus {
+                outline: none;
+              }
+
+              .My_Pass_Box {
+                border: 0px solid transparent;
+                width: 5.2%;
+                position: absolute;
+                top: 16.3px;
+                right: 80px;
+
+                i {
+                  transition: 0.3s ease, transform 0.3s ease;
+                  cursor: pointer;
+                  font-size: 1.2em;
+                  color: rgb(65, 65, 65);
+                }
+              }
+
+              button {
+                background: radial-gradient(circle, #dd0f0f 0%, #bc0000 100%);
+                width: 40%;
+                padding: 0.4em 0em 0.4em 0em;
+                text-align: center;
+                display: block;
+                margin: 0.3em auto;
+                color: white;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                border-radius: 20px;
+                font-weight: 600;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+              }
+              button:hover {
+                background: radial-gradient(circle, #a30404 0%, #bc0000 100%);
+                transition: background-color 0.3s ease, transform 0.3s ease;
+              }
+            }
+
+            .Login_Field_Box_Last {
+              border: 0px solid transparent;
+              padding: 0.1em 0.1em 0.1em 0.1em;
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+
+              .Login_Last_Part_1 {
+                border: 0px solid transparent;
+                padding: 0.1em 0.8em 0.1em 0.8em;
+
+                p {
+                  border: 0px solid transparent;
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  letter-spacing: 1px;
+                  color: rgb(87, 87, 87);
+                }
+              }
+
+              .Login_Last_Part_2 {
+                border: 0px solid transparent;
+                padding: 0.1em 0.1em 0.1em 0.1em;
+
+                p {
+                  border: 0px solid transparent;
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  font-weight: 700;
+                  color: #bc0000;
+                  letter-spacing: 1px;
+                }
+
+                p:hover {
+                  text-decoration: underline;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+
+        .Login_Main_Part_2 {
+          border: 0px solid transparent;
+          width: 50%;
+          padding: 1em 1em 1em 1em;
+
+          img {
+            border: 0px solid transparent;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 40%;
+            display: block;
+            margin: 0em auto;
+          }
+
+          p {
+            border: 0px solid transparent;
+            padding: 1.5em 0.1em 0.1em 0.1em;
+            width: 80%;
+            letter-spacing: 1px;
+            text-transform: capitalize;
+            text-align: center;
+            color: white;
+            font-size: 0.85em;
+            display: block;
+            margin: 0em auto;
+          }
+        }
+      }
+    }
+  }
+  // -
+}
+
+/* -------------------------------- */
+/* ----- Media Queries In CSS ----- */
+/* -------------------------------- */
+/* 0 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 1400px) {
+  .My_Parent_Login {
+    // --- 1 - Login.jsx ---
+    .Parent_Login_Whole {
+      padding: 3em 1em 3em 1em;
+
+      .Sub_Login_Whole {
+        padding: 3em 1em 3em 1em;
+
+        .Login_Main {
+          padding: 0em 0em 0em 0em;
+          width: 70%;
+
+          .Login_Main_Part_1 {
+            width: 50%;
+            padding: 1.3em 1em 1.3em 1em;
+
+            h1 {
+              padding: 0.1em 0em 0.1em 0em;
+              font-size: 2.4em;
+              letter-spacing: 3px;
+            }
+
+            .Login_Main_Part_Sub {
+              padding: 0.1em 0.1em 0.8em 0.1em;
+
+              .Login_P {
+                text-align: center;
+                width: 70%;
+                letter-spacing: 1px;
+                font-size: 0.9em;
+                padding: 0.5em 0em;
+              }
+
+              .Login_Field_Box {
+                padding: 0.6em 0.1em 0.6em 0.1em;
+
+                input {
+                  padding: 0.4em 1em 0.4em 1em;
+                  border-radius: 5px;
+                  width: 70%;
+                  letter-spacing: 2px;
+                }
+
+                .My_Pass_Box {
+                  width: 5.2%;
+                  top: 16.3px;
+                  right: 80px;
+
+                  i {
+                    font-size: 1.2em;
+                  }
+                }
+
+                button {
+                  width: 40%;
+                  padding: 0.4em 0em 0.4em 0em;
+                  letter-spacing: 2px;
+                  margin: 0.2em auto;
+                  border-radius: 20px;
+                }
+              }
+
+              .Login_Field_Box_Last {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+
+                .Login_Last_Part_1 {
+                  padding: 0.1em 0.8em 0.1em 0.8em;
+
+                  p {
+                    padding: 0.1em 0.1em 0.1em 0.1em;
+                    letter-spacing: 1px;
+                  }
+                }
+
+                .Login_Last_Part_2 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+
+                  p {
+                    padding: 0.1em 0.1em 0.1em 0.1em;
+                  }
+                }
+              }
+            }
+          }
+
+          .Login_Main_Part_2 {
+            width: 50%;
+            padding: 1em 1em 1em 1em;
+
+            img {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+              width: 40%;
+            }
+
+            p {
+              padding: 1.5em 0.1em 0.1em 0.1em;
+              width: 80%;
+              font-size: 0.85em;
+            }
+          }
+        }
+      }
+    }
+  }
+  // -
+}
+
+/* 1 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 1200px) {
+  .My_Parent_Login {
+    // --- 1 - Login.jsx ---
+    .Parent_Login_Whole {
+      padding: 3em 1em 3em 1em;
+
+      .Sub_Login_Whole {
+        padding: 3em 1em 3em 1em;
+
+        .Login_Main {
+          padding: 0em 0em 0em 0em;
+          width: 80%;
+
+          .Login_Main_Part_1 {
+            width: 50%;
+            padding: 1.3em 1em 1.3em 1em;
+
+            h1 {
+              padding: 0.1em 0em 0.1em 0em;
+              font-size: 2.3em;
+              letter-spacing: 3px;
+            }
+
+            .Login_Main_Part_Sub {
+              padding: 0.1em 0.1em 0.8em 0.1em;
+
+              .Login_P {
+                text-align: center;
+                width: 70%;
+                padding: 0.5em 0em;
+                letter-spacing: 1px;
+                font-size: 0.9em;
+              }
+
+              .Login_Field_Box {
+                padding: 0.6em 0.1em 0.6em 0.1em;
+
+                input {
+                  padding: 0.4em 1em 0.4em 0.8em;
+                  border-radius: 5px;
+                  width: 70%;
+                  letter-spacing: 2px;
+                }
+
+                .My_Pass_Box {
+                  width: 5.2%;
+                  top: 16.3px;
+                  right: 70px;
+
+                  i {
+                    font-size: 1.05em;
+                  }
+                }
+
+                button {
+                  width: 40%;
+                  padding: 0.4em 0em 0.4em 0em;
+                  letter-spacing: 2px;
+                  border-radius: 20px;
+                  margin: 0.2em auto;
+                }
+              }
+
+              .Login_Field_Box_Last {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+
+                .Login_Last_Part_1 {
+                  padding: 0.1em 0.8em 0.1em 0.8em;
+
+                  p {
+                    padding: 0.1em 0.1em 0.1em 0.1em;
+                    letter-spacing: 1px;
+                  }
+                }
+
+                .Login_Last_Part_2 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+
+                  p {
+                    padding: 0.1em 0.1em 0.1em 0.1em;
+                  }
+                }
+              }
+            }
+          }
+
+          .Login_Main_Part_2 {
+            width: 50%;
+            padding: 1em 1em 1em 1em;
+
+            img {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+              width: 40%;
+            }
+
+            p {
+              padding: 1.3em 0.1em 0.1em 0.1em;
+              width: 80%;
+              font-size: 0.85em;
+            }
+          }
+        }
+      }
+    }
+  }
+  // -
+}
+
+/* 2 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 1000px) {
+  .My_Parent_Login {
+    // --- 1 - Login.jsx ---
+    .Parent_Login_Whole {
+      padding: 3em 1em 3em 1em;
+
+      .Sub_Login_Whole {
+        padding: 3em 1em 3em 1em;
+
+        .Login_Main {
+          padding: 0em 0em 0em 0em;
+          width: 90%;
+
+          .Login_Main_Part_1 {
+            width: 50%;
+            padding: 1em 1em 1em 1em;
+
+            h1 {
+              padding: 0.1em 0em 0.1em 0em;
+              font-size: 2em;
+              letter-spacing: 3px;
+            }
+
+            .Login_Main_Part_Sub {
+              padding: 0.1em 0.1em 0.8em 0.1em;
+
+              .Login_P {
+                text-align: center;
+                width: 80%;
+                letter-spacing: 1px;
+                font-size: 0.85em;
+                padding: 0.5em 0em;
+              }
+
+              .Login_Field_Box {
+                padding: 0.6em 0.1em 0.6em 0.1em;
+
+                input {
+                  padding: 0.3em 1em 0.3em 0.8em;
+                  border-radius: 5px;
+                  width: 80%;
+                  font-size: 0.95em;
+                  letter-spacing: 2px;
+                }
+
+                .My_Pass_Box {
+                  width: 5.2%;
+                  top: 14px;
+                  right: 45px;
+
+                  i {
+                    font-size: 1.05em;
+                  }
+                }
+
+                button {
+                  width: 40%;
+                  padding: 0.3em 0em 0.3em 0em;
+                  margin: 0.1em auto;
+                  letter-spacing: 2px;
+                }
+              }
+
+              .Login_Field_Box_Last {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+
+                .Login_Last_Part_1 {
+                  padding: 0.1em 0.6em 0.1em 0.6em;
+
+                  p {
+                    padding: 0.1em 0.1em 0.1em 0.1em;
+                    font-size: 0.9em;
+                    letter-spacing: 1px;
+                  }
+                }
+
+                .Login_Last_Part_2 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+
+                  p {
+                    font-size: 0.9em;
+                    padding: 0.1em 0.1em 0.1em 0.1em;
+                  }
+                }
+              }
+            }
+          }
+
+          .Login_Main_Part_2 {
+            width: 50%;
+            padding: 1em 1em 1em 1em;
+
+            img {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+              width: 35%;
+            }
+
+            p {
+              padding: 0.8em 0.1em 0.1em 0.1em;
+              width: 85%;
+              font-size: 0.8em;
+            }
+          }
+        }
+      }
+    }
+  }
+  // -
+}
+
+/* 3 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 800px) {
+  .My_Parent_Login {
+    // --- 1 - Login.jsx ---
+    .Parent_Login_Whole {
+      padding: 2em 1em 2em 1em;
+
+      .Sub_Login_Whole {
+        padding: 2em 0.5em 2em 0.5em;
+
+        .Login_Main {
+          padding: 0em 0em 0em 0em;
+          width: 100%;
+
+          .Login_Main_Part_1 {
+            width: 50%;
+            padding: 1em 0.3em 1em 0.3em;
+
+            h1 {
+              padding: 0.1em 0em 0.1em 0em;
+              font-size: 1.8em;
+              letter-spacing: 3px;
+            }
+
+            .Login_Main_Part_Sub {
+              padding: 0.1em 0.1em 0.8em 0.1em;
+
+              .Login_P {
+                text-align: center;
+                width: 80%;
+                letter-spacing: 1px;
+                font-size: 0.8em;
+              }
+
+              .Login_Field_Box {
+                padding: 0.5em 0.1em 0.5em 0.1em;
+
+                input {
+                  padding: 0.3em 1em 0.3em 0.8em;
+                  border-radius: 5px;
+                  width: 85%;
+                  font-size: 0.9em;
+                  letter-spacing: 1px;
+                }
+
+                .My_Pass_Box {
+                  width: 5.2%;
+                  top: 11px;
+                  right: 35px;
+
+                  i {
+                    font-size: 1em;
+                  }
+                }
+
+                button {
+                  width: 40%;
+                  padding: 0.2em 0em 0.2em 0em;
+                  font-size: 0.9em;
+                  letter-spacing: 2px;
+                }
+              }
+
+              .Login_Field_Box_Last {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+
+                .Login_Last_Part_1 {
+                  padding: 0.1em 0.5em 0.1em 0.5em;
+
+                  p {
+                    padding: 0.1em 0.1em 0.1em 0.1em;
+                    font-size: 0.8em;
+                    letter-spacing: 1px;
+                  }
+                }
+
+                .Login_Last_Part_2 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+
+                  p {
+                    font-size: 0.8em;
+                    padding: 0.1em 0.1em 0.1em 0.1em;
+                  }
+                }
+              }
+            }
+          }
+
+          .Login_Main_Part_2 {
+            width: 50%;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+
+            img {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+              width: 30%;
+            }
+
+            p {
+              padding: 0.8em 0.1em 0.1em 0.1em;
+              width: 85%;
+              font-size: 0.75em;
+            }
+          }
+        }
+      }
+    }
+  }
+  // -
+}
+
+/* 4 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 600px) {
+  .My_Parent_Login {
+    // --- 1 - Login.jsx ---
+    .Parent_Login_Whole {
+      padding: 0.5em 0em 0.5em 0em;
+
+      .Sub_Login_Whole {
+        padding: 0.1em 0em 0.1em 0em;
+
+        .Login_Main {
+          padding: 0em 0em 0em 0em;
+          width: 80%;
+          flex-direction: column;
+          justify-content: center;
+
+          .Login_Main_Part_1 {
+            width: 100%;
+            order: 2;
+            padding: 1em 0em 1em 0em;
+
+            h1 {
+              padding: 0.1em 0em 0.1em 0em;
+              font-size: 1.6em;
+              letter-spacing: 3px;
+            }
+
+            .Login_Main_Part_Sub {
+              padding: 0.1em 0.1em 0.8em 0.1em;
+
+              .Login_P {
+                text-align: center;
+                width: 80%;
+                padding: 0.5em 0em;
+                letter-spacing: 1px;
+                font-size: 0.8em;
+              }
+
+              .Login_Field_Box {
+                padding: 0.5em 0.1em 0.5em 0.1em;
+
+                input {
+                  padding: 0.2em 1em 0.2em 0.8em;
+                  border-radius: 5px;
+                  width: 85%;
+                  font-size: 0.9em;
+                  letter-spacing: 1.5px;
+                }
+
+                .My_Pass_Box {
+                  width: 5.2%;
+                  top: 10px;
+                  right: 34px;
+
+                  i {
+                    font-size: 1em;
+                  }
+                }
+
+                button {
+                  width: 40%;
+                  padding: 0.2em 0em 0.2em 0em;
+                  margin: 0.2em auto;
+                  font-size: 0.9em;
+                  letter-spacing: 2px;
+                }
+              }
+
+              .Login_Field_Box_Last {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+
+                .Login_Last_Part_1 {
+                  padding: 0.1em 0.5em 0.1em 0.5em;
+
+                  p {
+                    padding: 0.1em 0.1em 0.1em 0.1em;
+                    font-size: 0.8em;
+                    letter-spacing: 1px;
+                  }
+                }
+
+                .Login_Last_Part_2 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+
+                  p {
+                    font-size: 0.8em;
+                    padding: 0.1em 0.1em 0.1em 0.1em;
+                  }
+                }
+              }
+            }
+          }
+
+          .Login_Main_Part_2 {
+            width: 100%;
+            order: 1;
+            padding: 1.5em 0em 1.5em 0em;
+
+            img {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+              width: 25%;
+            }
+
+            p {
+              padding: 0.8em 0.1em 0.1em 0.1em;
+              width: 80%;
+              font-size: 0.75em;
+            }
+          }
+        }
+      }
+    }
+  }
+  // -
+}
+
+/* 5 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 400px) {
+  .My_Parent_Login {
+    // --- 1 - Login.jsx ---
+    .Parent_Login_Whole {
+      padding: 0.5em 0em 0.5em 0em;
+
+      .Sub_Login_Whole {
+        padding: 0.1em 0em 0.1em 0em;
+
+        .Login_Main {
+          padding: 0em 0em 0em 0em;
+          width: 85%;
+          flex-direction: column;
+          justify-content: center;
+
+          .Login_Main_Part_1 {
+            width: 100%;
+            order: 2;
+            padding: 1em 0em 1em 0em;
+
+            h1 {
+              padding: 0.1em 0em 0.1em 0em;
+              font-size: 1.5em;
+              letter-spacing: 3px;
+            }
+
+            .Login_Main_Part_Sub {
+              padding: 0.1em 0.1em 0.8em 0.1em;
+
+              .Login_P {
+                text-align: center;
+                width: 80%;
+                letter-spacing: 0.5px;
+                font-size: 0.7em;
+                padding: 0.5em 0em 0.5em 0em;
+              }
+
+              .Login_Field_Box {
+                padding: 0.5em 0.1em 0.5em 0.1em;
+
+                input {
+                  padding: 0.2em 1em 0.2em 0.8em;
+                  border-radius: 5px;
+                  width: 86%;
+                  font-size: 0.9em;
+                  letter-spacing: 1.5px;
+                }
+
+                .My_Pass_Box {
+                  width: 5.2%;
+                  top: 10px;
+                  right: 30px;
+
+                  i {
+                    font-size: 0.9em;
+                  }
+                }
+
+                button {
+                  width: 40%;
+                  padding: 0.25em 0em 0.3em 0em;
+                  margin: 0.1em auto 0.1em auto;
+                  font-size: 0.8em;
+                  letter-spacing: 2.5px;
+                }
+              }
+
+              .Login_Field_Box_Last {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+
+                .Login_Last_Part_1 {
+                  padding: 0.1em 0.5em 0.1em 0.5em;
+
+                  p {
+                    padding: 0.1em 0.1em 0.1em 0.1em;
+                    font-size: 0.75em;
+                    letter-spacing: 0.5px;
+                  }
+                }
+
+                .Login_Last_Part_2 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+
+                  p {
+                    font-size: 0.75em;
+                    letter-spacing: 0.5px;
+                    padding: 0.1em 0.1em 0.1em 0.1em;
+                  }
+                }
+              }
+            }
+          }
+
+          .Login_Main_Part_2 {
+            width: 100%;
+            order: 1;
+            padding: 1.4em 0em 1.4em 0em;
+
+            img {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+              width: 25%;
+            }
+
+            p {
+              padding: 0.8em 0em 0.1em 0em;
+              width: 80%;
+              font-size: 0.7em;
+            }
+          }
+        }
+      }
+    }
+  }
+  // -
+}
