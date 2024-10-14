@@ -11,7 +11,8 @@ import { Provider } from "react-redux";
 import { store } from "../store.js";
 
 import Menu from "./Components/Admin/Menu.jsx";
-import Layout from "./Components/Admin/Layout.jsx";
+// import Layout from "./Components/Admin/Layout.jsx";
+import Layout from "./Components/Admin/Admin_Layout.jsx";
 // Files
 import Home from "./Components/Home/home.jsx";
 import Login from "./Components/Authenticate/login.jsx";

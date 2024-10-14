@@ -8,7 +8,33 @@ import {
   deleteMenuThunk,
 } from "../../Redux/Thunks/MenuApi";
 import Modal from "../Modal";
+// --- Burger Images ---
+import Burger_1 from "../../assets/Menu_Pics/burger1.jpg";
+import Burger_2 from "../../assets/Menu_Pics/burger2.jpg";
+import Burger_3 from "../../assets/Menu_Pics/burger3.jpg";
+// CSS
+import "./Menu_Admin.scss"
+
 function Menu() {
+  // --- Menu Burger Dummy Araray ---
+  // Burger API Item
+  const burgerData = [
+    {
+      id: 1,
+      name: "Crunch Bruger",
+      description: "Soft , Juicy Chicken",
+      price: 350,
+      image: Burger_1,
+    },
+    {
+      id: 2,
+      name: "Jalapeno Burger",
+      description: "With Tender Chicken Fillet",
+      price: 750,
+      image: Burger_2,
+    },
+  ];
+  // --- Menu Burger Dummy Araray ---
   const dispatch = useDispatch();
   const menu = useSelector((state) => state.menuSlice.menu);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -82,6 +108,34 @@ function Menu() {
             <Button onClick={() => deleteMenuItem(_id)}>Delete</Button>
           </Card>
         ))}
+        {/* --- Dummy Menu Card Design --- */}
+        {/* Box */}
+        <div className="Menu_Box">
+          <br />
+          <h1>Burger</h1>
+          <div className="Menu_Box_Sub">
+            {/* Item */}
+            {burgerData &&
+              burgerData.map((item) => (
+                <div key={item.id} className="Menu_Item_Box">
+                  <div className="Menu_Item_Box_Sub">
+                    <div className="Menu_Item_Box_Sub_Part1">
+                      <p className="Menu_Item_P1">{item.name}</p>
+                      <span>{item.description}</span>
+                      <p className="Menu_Item_P2">PKR {item.price}</p>
+                    </div>
+                    <div className="Menu_Item_Box_Sub_Part2">
+                      <img src={item.image} alt={item.name} />
+                    </div>
+                    <div className="Menu_Item_Box_Part_2_Btn_Parent">
+                      <button className="P2_Btn_2"><i class="fa fa-pencil"></i></button>
+                      <button className="P2_Btn_1"><i class="fa fa-trash"></i></button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
       </div>
     </>
   );

@@ -53,7 +53,7 @@ function Modal({
   return (
     <>
       <AntdModal
-        title="Basic Modal"
+        title="Add Menu Item"
         open={isModalOpen}
         okText={menuMethod}
         onOk={() => form.submit()}
