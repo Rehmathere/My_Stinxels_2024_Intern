@@ -345,10 +345,11 @@
           padding: 0.5em 0.2em 0.5em 0.2em;
           display: flex;
           flex-direction: row;
-          justify-content: space-between;
+          justify-content: left;
           align-items: center;
           flex-wrap: wrap;
           row-gap: 1em;
+          gap: 0.7em;
 
           .Menu_Item_Box {
             position: relative;
@@ -1254,6 +1255,7 @@
           .Menu_Box_Sub {
             padding: 0.5em 0.2em 0.5em 0.2em;
             row-gap: 0.8em;
+            gap: 0.3em;
 
             .Menu_Item_Box {
               padding: 0.1em 0.1em 0.1em 0.1em;

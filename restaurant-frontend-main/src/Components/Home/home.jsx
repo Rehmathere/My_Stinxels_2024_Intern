@@ -77,13 +77,20 @@ function Home() {
       price: 350,
       image: Burger_1,
     },
-    // {
-    //   id: 2,
-    //   name: "Jalapeno Burger",
-    //   description: "With Tender Chicken Fillet",
-    //   price: 750,
-    //   image: Burger_2,
-    // },
+    {
+      id: 2,
+      name: "Jalapeno Burger",
+      description: "With Tender Chicken Fillet",
+      price: 750,
+      image: Burger_2,
+    },
+    {
+      id: 3,
+      name: "Biger",
+      description: "Smoked Beef, Cheddar",
+      price: 800,
+      image: Burger_3,
+    },
     {
       id: 3,
       name: "Biger",
@@ -281,7 +288,7 @@ function Home() {
       {/* 3 - Menu - ( New ) */}
       <div className="Parent_Menu_Whole">
         <div className="Parent_Menu_Whole_Sub">
-          {Chicken.length != 0 && (
+          {/* {Chicken.length != 0 && (
             <MenuItem categoryText={"Chicken"} ItemArray={Chicken} />
           )}
           {Burger.length != 0 && (
@@ -300,7 +307,32 @@ function Home() {
           )}
           {Sauces.length != 0 && (
             <MenuItem categoryText={"Sauces"} ItemArray={Sauces} />
-          )}
+          )} */}
+          {/* --- New Home Page Menu Design Testing - ( Using Grid ) */}
+          <div className="Menu_Box">
+            <h1>Burger</h1>
+            <div className="Menu_Box_Sub">
+              {/* Item */}
+              {burgerData.map((item) => (
+                <div key={item.id} className="Menu_Item_Box">
+                  <div className="Menu_Item_Box_Sub">
+                    <div className="Menu_Item_Box_Sub_Part1">
+                      <p className="Menu_Item_P1">{item.name}</p>
+                      <span>{item.description}</span>
+                      <p className="Menu_Item_P2">PKR {item.price}</p>
+                    </div>
+                    <div className="Menu_Item_Box_Sub_Part2">
+                      <img src={item.image} alt="NA" />
+                    </div>
+                    <button>
+                      <i className="fa fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* --- New Home Page Menu Design Testing - ( Using Grid ) */}
         </div>
       </div>
       {/* 4 - Footer */}
