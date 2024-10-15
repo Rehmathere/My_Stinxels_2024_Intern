@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Form, Input, Button } from "antd";
 // useNavigate
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { signUpThunk } from "../../Redux/Thunks/UserApi";
 // Login CSS
 import "./login.scss";
 // Img
@@ -8,14 +11,13 @@ import login from "../../assets/signup.png";
 
 function Signup() {
   // useNavigate Variable
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const socketId = useSelector((state) => state.userSlice.socketId);
   // Password Logic
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const handleMouseDown = () => {
-    setIsPasswordVisible(true);
-  };
-  const handleMouseUp = () => {
-    setIsPasswordVisible(false);
+
+  const handleFinish = (body) => {
+    dispatch(signUpThunk({ ...body, socketId }));
   };
 
   // Main Body
@@ -33,38 +35,37 @@ function Signup() {
               <h1>Sign Up</h1>
               <div className="Login_Main_Part_Sub">
                 <p className="Login_P">Create Your New Account</p>
+
                 {/* Field Box */}
-                <div className="Login_Field_Box">
-                  <input type="text" placeholder="Enter Your Name " />
+                <div className="Login_Field_Box_Signup">
+                  <Form onFinish={handleFinish}>
+                    <Form.Item name={"name"}>
+                      <Input
+                        className="My_Signup_Inp"
+                        placeholder="Enter Name"
+                      ></Input>
+                    </Form.Item>
+                    <Form.Item name={"email"}>
+                      <Input
+                        className="My_Signup_Inp"
+                        type="email"
+                        placeholder="Enter Email"
+                      ></Input>
+                    </Form.Item>
+                    <Form.Item name={"password"}>
+                      <Input.Password
+                        className="My_Signup_Inp_Pass"
+                        type="email"
+                        placeholder="Enter Password"
+                      ></Input.Password>
+                    </Form.Item>
+
+                    <Form.Item>
+                      <Button className="My_Signup_Inp_Btn" htmlType="submit">Sign Up</Button>
+                    </Form.Item>
+                  </Form>
                 </div>
-                {/* Field Box */}
-                <div className="Login_Field_Box">
-                  <input type="text" placeholder="Enter Your Email " />
-                </div>
-                {/* Field Box */}
-                <div className="Login_Field_Box">
-                  <input
-                    type={isPasswordVisible ? "text" : "password"}
-                    placeholder="Enter Your Password"
-                  />
-                  {/* Eye icon for toggling visibility */}
-                  <div
-                    className="My_Pass_Box"
-                    onMouseDown={handleMouseDown}
-                    onMouseUp={handleMouseUp}
-                    onMouseLeave={handleMouseUp}
-                  >
-                    <i
-                      className={
-                        isPasswordVisible ? "fa fa-eye-slash" : "fa fa-eye"
-                      }
-                    />
-                  </div>
-                </div>
-                {/* Field Box */}
-                <div className="Login_Field_Box">
-                  <button>Sign Up</button>
-                </div>
+
                 {/* Field Box Last */}
                 <div className="Login_Field_Box_Last">
                   <div className="Login_Last_Part_1">

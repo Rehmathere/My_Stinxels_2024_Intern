@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-// useNavigate
-import { useNavigate } from 'react-router-dom'
 // Home CSS
 import "./home.scss";
+import { useSelector, useDispatch } from "react-redux";
+import { getMenuThunk } from "../../Redux/Thunks/MenuApi";
+// useNavigate
+import { useNavigate } from "react-router-dom";
 // Images
 import logo from "../../assets/logo.png";
 import menu from "../../assets/menu.png";
@@ -33,8 +35,16 @@ import twitter from "../../assets/twitter.png";
 function Home() {
   // useNavigate Variable
   const navigate = useNavigate();
-  // ---------------------------------------------
   // Chicken API Item
+  const dispatch = useDispatch();
+  const { Fries, Burger, Chicken, Salads, Drinks, Sauces } = useSelector(
+    (state) => state.menuSlice.menu
+  );
+
+  useEffect(() => {
+    dispatch(getMenuThunk());
+  }, []);
+
   const chickenData = [
     {
       id: 1,
@@ -67,13 +77,13 @@ function Home() {
       price: 350,
       image: Burger_1,
     },
-    {
-      id: 2,
-      name: "Jalapeno Burger",
-      description: "With Tender Chicken Fillet",
-      price: 750,
-      image: Burger_2,
-    },
+    // {
+    //   id: 2,
+    //   name: "Jalapeno Burger",
+    //   description: "With Tender Chicken Fillet",
+    //   price: 750,
+    //   image: Burger_2,
+    // },
     {
       id: 3,
       name: "Biger",
@@ -201,7 +211,7 @@ function Home() {
               <ul>
                 <li id="Special_Li">Home</li>
                 <li>Services</li>
-                <li>About</li>
+                <li onClick={() => navigate("/about")}>About</li>
                 <li>Contact</li>
               </ul>
             </div>
@@ -267,165 +277,30 @@ function Home() {
           </div>
         </div>
       </div>
-      {/* 3 - Menu */}
+
+      {/* 3 - Menu - ( New ) */}
       <div className="Parent_Menu_Whole">
         <div className="Parent_Menu_Whole_Sub">
-          {/* Box */}
-          <div className="Menu_Box">
-            <br />
-            <h1>Chicken</h1>
-            <div className="Menu_Box_Sub">
-              {/* Item */}
-              {chickenData &&
-                chickenData.map((item) => (
-                  <div key={item.id} className="Menu_Item_Box">
-                    <div className="Menu_Item_Box_Sub">
-                      <div className="Menu_Item_Box_Sub_Part1">
-                        <p className="Menu_Item_P1">{item.name}</p>
-                        <span>{item.description}</span>
-                        <p className="Menu_Item_P2">PKR {item.price}</p>
-                      </div>
-                      <div className="Menu_Item_Box_Sub_Part2">
-                        <img src={item.image} alt={item.name} />
-                      </div>
-                      <button>
-                        <i className="fa fa-plus"></i>
-                      </button>
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </div>
-          {/* Box */}
-          <div className="Menu_Box">
-            <br />
-            <h1>Burger</h1>
-            <div className="Menu_Box_Sub">
-              {/* Item */}
-              {burgerData &&
-                burgerData.map((item) => (
-                  <div key={item.id} className="Menu_Item_Box">
-                    <div className="Menu_Item_Box_Sub">
-                      <div className="Menu_Item_Box_Sub_Part1">
-                        <p className="Menu_Item_P1">{item.name}</p>
-                        <span>{item.description}</span>
-                        <p className="Menu_Item_P2">PKR {item.price}</p>
-                      </div>
-                      <div className="Menu_Item_Box_Sub_Part2">
-                        <img src={item.image} alt={item.name} />
-                      </div>
-                      <button>
-                        <i className="fa fa-plus"></i>
-                      </button>
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </div>
-          {/* Box */}
-          <div className="Menu_Box">
-            <br />
-            <h1>Fries</h1>
-            <div className="Menu_Box_Sub">
-              {/* Item */}
-              {friesData &&
-                friesData.map((item) => (
-                  <div key={item.id} className="Menu_Item_Box">
-                    <div className="Menu_Item_Box_Sub">
-                      <div className="Menu_Item_Box_Sub_Part1">
-                        <p className="Menu_Item_P1">{item.name}</p>
-                        <span>{item.description}</span>
-                        <p className="Menu_Item_P2">PKR {item.price}</p>
-                      </div>
-                      <div className="Menu_Item_Box_Sub_Part2">
-                        <img src={item.image} alt={item.name} />
-                      </div>
-                      <button>
-                        <i className="fa fa-plus"></i>
-                      </button>
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </div>
-          {/* Box */}
-          <div className="Menu_Box">
-            <br />
-            <h1>Salads</h1>
-            <div className="Menu_Box_Sub">
-              {/* Item */}
-              {saladData &&
-                saladData.map((item) => (
-                  <div key={item.id} className="Menu_Item_Box">
-                    <div className="Menu_Item_Box_Sub">
-                      <div className="Menu_Item_Box_Sub_Part1">
-                        <p className="Menu_Item_P1">{item.name}</p>
-                        <span>{item.description}</span>
-                        <p className="Menu_Item_P2">PKR {item.price}</p>
-                      </div>
-                      <div className="Menu_Item_Box_Sub_Part2">
-                        <img src={item.image} alt={item.name} />
-                      </div>
-                      <button>
-                        <i className="fa fa-plus"></i>
-                      </button>
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </div>
-          {/* Box */}
-          <div className="Menu_Box">
-            <br />
-            <h1>Drinks</h1>
-            <div className="Menu_Box_Sub">
-              {/* Item */}
-              {drinkData &&
-                drinkData.map((item) => (
-                  <div key={item.id} className="Menu_Item_Box">
-                    <div className="Menu_Item_Box_Sub">
-                      <div className="Menu_Item_Box_Sub_Part1">
-                        <p className="Menu_Item_P1">{item.name}</p>
-                        <span>{item.description}</span>
-                        <p className="Menu_Item_P2">PKR {item.price}</p>
-                      </div>
-                      <div className="Menu_Item_Box_Sub_Part2">
-                        <img src={item.image} alt={item.name} />
-                      </div>
-                      <button>
-                        <i className="fa fa-plus"></i>
-                      </button>
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </div>
-          {/* Box */}
-          <div className="Menu_Box">
-            <br />
-            <h1>Sauces</h1>
-            <div className="Menu_Box_Sub">
-              {/* Item */}
-              {sauceData &&
-                sauceData.map((item) => (
-                  <div key={item.id} className="Menu_Item_Box">
-                    <div className="Menu_Item_Box_Sub">
-                      <div className="Menu_Item_Box_Sub_Part1">
-                        <p className="Menu_Item_P1">{item.name}</p>
-                        <span>{item.description}</span>
-                        <p className="Menu_Item_P2">PKR {item.price}</p>
-                      </div>
-                      <div className="Menu_Item_Box_Sub_Part2">
-                        <img src={item.image} alt={item.name} />
-                      </div>
-                      <button>
-                        <i className="fa fa-plus"></i>
-                      </button>
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </div>
+          {Chicken.length != 0 && (
+            <MenuItem categoryText={"Chicken"} ItemArray={Chicken} />
+          )}
+          {Burger.length != 0 && (
+            <MenuItem categoryText={"Burger"} ItemArray={Burger} />
+          )}
+
+          {Fries.length != 0 && (
+            <MenuItem categoryText={"Fries"} ItemArray={Fries} />
+          )}
+
+          {Salads.length != 0 && (
+            <MenuItem categoryText={"Salads"} ItemArray={Salads} />
+          )}
+          {Drinks.length != 0 && (
+            <MenuItem categoryText={"Drinks"} ItemArray={Drinks} />
+          )}
+          {Sauces.length != 0 && (
+            <MenuItem categoryText={"Sauces"} ItemArray={Sauces} />
+          )}
         </div>
       </div>
       {/* 4 - Footer */}
@@ -470,6 +345,36 @@ function Home() {
       </div>
       {/* - */}
     </div>
+  );
+}
+
+function MenuItem({ categoryText, ItemArray }) {
+  return (
+    <>
+      <div className="Menu_Box">
+        <h1>{categoryText}</h1>
+        <div className="Menu_Box_Sub">
+          {/* Item */}
+          {ItemArray?.map((item) => (
+            <div key={item.id} className="Menu_Item_Box">
+              <div className="Menu_Item_Box_Sub">
+                <div className="Menu_Item_Box_Sub_Part1">
+                  <p className="Menu_Item_P1">{item.name}</p>
+                  <span>{item.description}</span>
+                  <p className="Menu_Item_P2">PKR {item.price}</p>
+                </div>
+                <div className="Menu_Item_Box_Sub_Part2">
+                  <img src={item.img} alt={item.name} />
+                </div>
+                <button>
+                  <i className="fa fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
 

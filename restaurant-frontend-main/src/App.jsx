@@ -3,21 +3,32 @@ import reactLogo from "./assets/react.svg";
 import socket from "../src/Socket/socket";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addMenuItem,
   updateMenuItem,
   deleteMenuItem,
 } from "./Redux/Slices/MenuSlice";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./Components/Home/home";
+import { Navigate, useNavigate } from "react-router-dom";
+
+import { setSocketId } from "./Redux/Slices/UserSlice";
 
 function App({ children }) {
   const dispatch = useDispatch();
+  // const navigate = useNavigate();
+  const socketId = useSelector((state) => state.userSlice.socketId);
+
   useEffect(() => {
     socket.on("connection", (message) => {
-      // add socket ID to redux  state for personalized notifications after frontend
+      dispatch(setSocketId(message));
     });
+
+    socket.on("sign_up_successfull", () => {
+      console.log("sign Up event ran here");
+
+      <Navigate to={"/admin"} />;
+    });
+
     socket.on("menu_item_added", (message) => {
       console.log("new menu  item added server", message);
       dispatch(addMenuItem(message));
@@ -39,11 +50,7 @@ function App({ children }) {
       socket.off("menu_item_deleted");
     };
   }, []);
-  return (
-    <>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }
 
 export default App;

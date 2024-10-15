@@ -5,11 +5,19 @@ import {
   updateMenuThunk,
   deleteMenuThunk,
 } from "../Thunks/MenuApi";
+import { act } from "react";
 
 const initialState = {
   status: "initails menu api status",
   message: "",
-  menu: [],
+  menu: {
+    Chicken: [],
+    Burger: [],
+    Fries: [],
+    Salads: [],
+    Drinks: [],
+    Sauces: [],
+  },
 };
 
 const menuSlice = createSlice({
@@ -18,12 +26,12 @@ const menuSlice = createSlice({
   reducers: {
     defaultReducer: (state, action) => {},
     addMenuItem: (state, action) => {
-      state.menu.push(action.payload);
+      state.menu[action.payload.category]?.push(action.payload);
     },
 
     updateMenuItem: (state, action) => {
-      const { _id } = action.payload;
-      state.menu = state.menu?.map((menuItem) => {
+      const { _id, category } = action.payload;
+      state.menu[category] = state.menu[category]?.map((menuItem) => {
         if (menuItem._id == _id) {
           return { ...action.payload };
         }
@@ -33,16 +41,22 @@ const menuSlice = createSlice({
 
     deleteMenuItem: (state, action) => {
       console.log(action.payload);
+      const { category } = action.payload;
 
-      state.menu = state.menu?.filter(
-        ({ _id }) => action.payload != _id
+      state.menu[category] = state.menu[category]?.filter(
+        ({ _id }) => action.payload._id != _id
         // console.log(_id, " |||||  ", action.payload, action.payload._id == _id)
       );
     },
   },
   extraReducers: (builder) => {
     builder.addCase(getMenuThunk.fulfilled, (state, action) => {
-      state.menu = action.payload.data;
+      console.log(action.payload.data);
+
+      for (const [key, value] of Object.entries(action.payload.data)) {
+        console.log(`${key}: ${value}`);
+        state.menu[key] = value;
+      }
     });
 
     builder.addCase(getMenuThunk.rejected, (state, action) => {

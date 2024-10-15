@@ -8,10 +8,11 @@ import {
   ShopOutlined,
 } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
+import { Outlet } from "react-router-dom";
 const { Header, Sider, Content } = Layout;
-import My_Menu from "./Menu";
+import My_Menu from "./Menu/Menu";
 // CSS
-import "./Menu_Admin.scss";
+import "./Menu/Menu_Admin.scss";
 // Image
 import logo from "../../assets/logo.png";
 
@@ -22,7 +23,12 @@ const Admin_Layout = () => {
   } = theme.useToken();
   return (
     <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed} className="bg-slate-300">
+      <Sider
+        trigger={null}
+        collapsible
+        collapsed={collapsed}
+        className="bg-slate-300"
+      >
         <div className="demo-logo-vertical" />
         {/* - Logo Image -  */}
         <div className="menu_logo">
@@ -39,8 +45,14 @@ const Admin_Layout = () => {
               key: "1",
               icon: <ShopOutlined />,
               label: "Menu",
-              style: { backgroundColor: '#BC0000', color: '#FFFFFF', borderRadius: "5px", fontSize: "15px", letterSpacing: "1px" },
-            }
+              style: {
+                backgroundColor: "#BC0000",
+                color: "#FFFFFF",
+                borderRadius: "5px",
+                fontSize: "15px",
+                letterSpacing: "1px",
+              },
+            },
           ]}
         />
       </Sider>
@@ -74,7 +86,8 @@ const Admin_Layout = () => {
             borderRadius: borderRadiusLG,
           }}
         >
-          <My_Menu />
+          {/* <My_Menu /> */}
+          <Outlet />
         </Content>
       </Layout>
     </Layout>
