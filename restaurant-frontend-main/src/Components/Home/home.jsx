@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-// Home CSS
-import "./home.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { getMenuThunk } from "../../Redux/Thunks/MenuApi";
 // useNavigate
@@ -31,6 +29,8 @@ import Fries_3 from "../../assets/Menu_Pics/fries3.jpg";
 import facebook from "../../assets/facebook.png";
 import linkdin from "../../assets/linkdin.png";
 import twitter from "../../assets/twitter.png";
+// Home CSS
+import "./home.scss";
 
 function Home() {
   // useNavigate Variable
