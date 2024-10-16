@@ -9,6 +9,11 @@ import {
   updateMenuItem,
   deleteMenuItem,
 } from "./Redux/Slices/MenuSlice";
+import {
+  addBranch,
+  updateBranch,
+  deleteBranch,
+} from "./Redux/Slices/BranchSlice";
 import { Navigate, useNavigate } from "react-router-dom";
 
 import { setSocketId } from "./Redux/Slices/UserSlice";
@@ -44,10 +49,30 @@ function App({ children }) {
       dispatch(deleteMenuItem(message));
     });
 
+    socket.on("branch_added", (message) => {
+      console.log("branch added socket", message);
+
+      dispatch(addBranch(message));
+    });
+
+    socket.on("branch_updated", (message) => {
+      console.log("branch updated socket", message);
+
+      dispatch(updateBranch(message));
+    });
+    socket.on("branch_deleted", (message) => {
+      console.log("branch delete socket", message);
+
+      dispatch(deleteBranch(message));
+    });
+
     return () => {
       socket.off("menu_item_added");
       socket.off("menu_item_updated");
       socket.off("menu_item_deleted");
+      socket.off("branch_added");
+      socket.off("branch_updated");
+      socket.off("branch_deleted");
     };
   }, []);
   return <>{children}</>;

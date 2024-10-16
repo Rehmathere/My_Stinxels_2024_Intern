@@ -27,7 +27,8 @@ const Admin_Layout = () => {
         trigger={null}
         collapsible
         collapsed={collapsed}
-        className="bg-slate-300"
+        className="bg-green-950"
+        // style={{ backgroundColor: "#CBD5E1", }}
       >
         <div className="demo-logo-vertical" />
         {/* - Logo Image -  */}
@@ -39,15 +40,18 @@ const Admin_Layout = () => {
           theme="light"
           mode="inline"
           defaultSelectedKeys={["1"]}
-          className="bg-slate-300"
+          className="bg-green-950"
+          // style={{ backgroundColor: "#0a4621", }}
           items={[
             {
               key: "1",
               icon: <ShopOutlined />,
               label: "Menu",
               style: {
-                backgroundColor: "#BC0000",
-                color: "#FFFFFF",
+                // backgroundColor: "#BC0000",
+                // color: "#FFFFFF",
+                backgroundColor: "#e7f0e7",
+                color: "#0a4621",
                 borderRadius: "5px",
                 fontSize: "15px",
                 letterSpacing: "1px",
@@ -60,7 +64,8 @@ const Admin_Layout = () => {
         <Header
           style={{
             padding: 0,
-            background: colorBgContainer,
+            // background: colorBgContainer,
+            background: "#7aa894",
           }}
         >
           <Button
@@ -71,8 +76,9 @@ const Admin_Layout = () => {
               fontSize: "10px",
               width: 64,
               height: 64,
-              backgroundColor: "white",
-              color: "#Bc0000",
+              backgroundColor: "#7aa894",
+              // color: "#0a4621",
+              color: "white",
             }}
           />
         </Header>

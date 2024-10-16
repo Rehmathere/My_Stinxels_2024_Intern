@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Form, Input, Button, Card } from "antd";
+import { Form, Input, Button, Card, Select, Upload } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import {
   addMenuThunk,
@@ -7,6 +7,9 @@ import {
   updateMenuThunk,
   deleteMenuThunk,
 } from "../../../Redux/Thunks/MenuApi";
+
+import { InboxOutlined, UploadOutlined } from "@ant-design/icons";
+import ModalComponent from "../../ModalComponent/ModalComponent";
 import Modal from "./Modal";
 
 // --- Burger Images ---
@@ -18,7 +21,6 @@ import Burger_3 from "../../../assets/Menu_Pics/burger3.jpg";
 import "./Menu_Admin.scss";
 
 function Menu() {
-  
   // --- Menu Burger Dummy Araray ---
   // Burger API Item
   const burgerData = [
@@ -36,6 +38,13 @@ function Menu() {
       price: 700,
       image: Burger_2,
     },
+    {
+      id: 2,
+      name: "Jalapeno Burger",
+      description: "With Patty With Jalapeno Sauce & Crispy and Smoke Chiken",
+      price: 700,
+      image: Burger_2,
+    },
   ];
   // --- Menu Burger Dummy Araray ---
 
@@ -43,6 +52,8 @@ function Menu() {
   const { Fries, Burger, Chicken, Salads, Drinks, Sauces } = useSelector(
     (state) => state.menuSlice.menu
   );
+
+  const [form] = Form.useForm();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [menuMethod, setMenuMethod] = useState("");
   const [updateMenuItemObj, setUpdateMenuItemObj] = useState({});
@@ -92,13 +103,116 @@ function Menu() {
   useEffect(() => {
     dispatch(getMenuThunk());
   }, []);
+
+  const setForm = () => {
+    const { name, price, category, description, img } = updateMenuItemObj;
+    return [
+      {
+        name: "name",
+        value: name,
+      },
+      {
+        name: "category",
+        value: category,
+      },
+      {
+        name: "price",
+        value: price,
+      },
+      {
+        name: "dragger",
+        value: [
+          { uid: "-1", name: "image.png", status: "done", thumbUrl: img },
+        ],
+      },
+      {
+        name: "description",
+        value: description,
+      },
+    ];
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+    form.resetFields();
+  };
+
+  const FormContent = () => {
+    const handleFinish = (body) => {
+      const menuActions = {
+        Add: () => addMenuItem(body),
+        Update: () => updateMenuItem(body),
+      };
+      menuActions[menuMethod]();
+      form.resetFields();
+      setIsModalOpen(false);
+    };
+    const categoryOptions = [
+      { value: "Chicken", label: "Chicken" },
+      { value: "Burger", label: "Burger" },
+      { value: "Fries", label: "Fries" },
+      { value: "Salads", label: "Salads" },
+      { value: "Drinks", label: "Drinks" },
+      { value: "Sauces", label: "Chicken" },
+    ];
+
+    const normFile = (e) => {
+      console.log("Upload event:", e);
+      if (Array.isArray(e)) {
+        return e;
+      }
+      return e?.fileList;
+    };
+
+    return (
+      <>
+        <Form onFinish={handleFinish} form={form} layout="vertical">
+          <Form.Item label="Name" name={"name"}>
+            <Input placeholder={"Enter Name"}></Input>
+          </Form.Item>
+          <Form.Item label="Price" name={"price"}>
+            <Input placeholder={"Enter Price"} type="number"></Input>
+          </Form.Item>
+          <Form.Item label="Category" name={"category"}>
+            <Select
+              allowClear
+              options={categoryOptions}
+              placeholder="select Category"
+            />
+          </Form.Item>
+          <Form.Item label="Description" name={"description"}>
+            <Input placeholder={"Enter Description"}></Input>
+          </Form.Item>
+
+          <Form.Item label="Image">
+            <Form.Item
+              name="dragger"
+              valuePropName="fileList"
+              getValueFromEvent={normFile}
+              noStyle
+            >
+              <Upload.Dragger maxCount={1} name="files" listType="picture">
+                <p className="ant-upload-drag-icon">
+                  <InboxOutlined />
+                </p>
+                <p className="ant-upload-text">
+                  Click or drag Image to this area to upload
+                </p>
+              </Upload.Dragger>
+            </Form.Item>
+          </Form.Item>
+        </Form>
+      </>
+    );
+  };
+
   return (
     <>
       <div className="min-h-[80vh] max-w-[100vw]">
         {/* <div> */}
         <Button onClick={() => openModal("Add")}>Add Menu Item</Button>
         {/* --- New Menu Design --- */}
-        <div className="New_Menu_Box">
+        {/* <div className="New_Menu_Box">
           <br />
           <h1>Burger</h1>
           <div className="New_Menu_Box_Sub">
@@ -125,7 +239,7 @@ function Menu() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
         {/* --- New Menu Design --- */}
         {/* <Modal
           formArray={formArray}
@@ -135,8 +249,19 @@ function Menu() {
           menuMethod={menuMethod}
           updateMenuItem={updateMenuItem}
           updateMenuItemObj={updateMenuItemObj}
+        /> */}
+        <ModalComponent
+          FormContent={FormContent}
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+          addItem={addMenuItem}
+          updateItem={updateMenuItem}
+          updateItemObj={updateMenuItemObj}
+          method={menuMethod}
+          form={form}
+          handleCancel={handleCancel}
+          setForm={setForm}
         />
-
         {Chicken.length != 0 && (
           <MenuCategory
             categoryText={"Chicken"}
@@ -184,7 +309,7 @@ function Menu() {
             updateModal={updateModal}
             deleteMenuItem={deleteMenuItem}
           />
-        )} */}
+        )}
       </div>
     </>
   );
@@ -198,10 +323,10 @@ function MenuCategory({
 }) {
   return (
     <>
-      <div className="Menu_Box">
+      <div className="New_Menu_Box">
         <br />
         <h1>{categoryText}</h1>
-        <div className="Menu_Box_Sub">
+        <div className="New_Menu_Box_Sub">
           {menuItemsArray?.map(
             ({ description, name, price, img, _id, category }) => (
               <MenuItem
@@ -234,31 +359,31 @@ function MenuItem({
 }) {
   return (
     <>
-      <div className="Menu_Item_Box">
-        <div className="Menu_Item_Box_Sub">
-          <div className="Menu_Item_Box_Sub_Part1">
-            <p className="Menu_Item_P1">{name}</p>
-            <span>{description}</span>
-            <p className="Menu_Item_P2">PKR {price}</p>
+      <div className="New_Menu_Item_Box">
+        <div className="New_Menu_Item_Box_Sub">
+          <div className="New_Menu_Item_Box_Part_1">
+            <img src={img} alt="NA" />
           </div>
-          <div className="Menu_Item_Box_Sub_Part2">
-            <img src={img} alt={name} />
-          </div>
-          <div className="Menu_Item_Box_Part_2_Btn_Parent">
-            <button
-              onClick={() =>
-                updateModal({ price, category, name, description, _id, img })
-              }
-              className="P2_Btn_2"
-            >
-              <i class="fa fa-pencil"></i>
-            </button>
-            <button
-              onClick={() => deleteMenuItem(_id, category)}
-              className="P2_Btn_1"
-            >
-              <i class="fa fa-trash"></i>
-            </button>
+          <div className="New_Menu_Item_Box_Part_2">
+            <h3>{name}</h3>
+            <p>{description}</p>
+            <h5>{price} PKR</h5>
+            <div className="New_Btn_Parent">
+              <button
+                onClick={() =>
+                  updateModal({ price, category, name, description, _id, img })
+                }
+                className="New_Btn_1"
+              >
+                <i class="fa fa-pencil"></i>
+              </button>
+              <button
+                onClick={() => deleteMenuItem(_id, category)}
+                className="New_Btn_2"
+              >
+                <i class="fa fa-trash"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>

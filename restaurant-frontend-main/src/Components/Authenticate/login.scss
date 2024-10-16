@@ -13,7 +13,7 @@
         padding: 0em 0em 0em 0em;
         width: 70%;
         margin: 0em auto;
-        background: radial-gradient(circle, #dd0f0f 0%, #bc0000 100%);
+        background: radial-gradient(circle, #13853e 0%, #0a4621 100%);
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -113,7 +113,8 @@
               }
 
               button {
-                background: radial-gradient(circle, #dd0f0f 0%, #bc0000 100%);
+                // background: radial-gradient(circle, #dd0f0f 0%, #bc0000 100%);
+                background: radial-gradient(circle, #107236 0%, #0a4621 100%);
                 width: 40%;
                 padding: 0.4em 0em 0.4em 0em;
                 text-align: center;
@@ -124,11 +125,10 @@
                 text-transform: uppercase;
                 border-radius: 20px;
                 font-weight: 600;
-                transition: background-color 0.3s ease, transform 0.3s ease;
+                transition: background 0.3s ease, transform 0.3s ease;
               }
               button:hover {
-                background: radial-gradient(circle, #a30404 0%, #bc0000 100%);
-                transition: background-color 0.3s ease, transform 0.3s ease;
+                background: radial-gradient(circle, #0a4621 0%, #0a4621 100%);
               }
             }
 
@@ -167,7 +167,7 @@
               }
 
               .My_Signup_Inp_Btn {
-                background: radial-gradient(circle, #dd0f0f 0%, #bc0000 100%);
+                background: radial-gradient(circle, #107236 0%, #0a4621 100%);
                 width: 40%;
                 padding: 0.5em 0em 2em 0em;
                 text-align: center;
@@ -181,8 +181,7 @@
                 transition: background-color 0.3s ease, transform 0.3s ease;
               }
               .My_Signup_Inp_Btn:hover {
-                background: radial-gradient(circle, #a30404 0%, #bc0000 100%);
-                transition: background-color 0.3s ease, transform 0.3s ease;
+                background: radial-gradient(circle, #0a4621 0%, #0a4621 100%);
               }
             }
 
@@ -214,7 +213,8 @@
                   border: 0px solid transparent;
                   padding: 0.1em 0.1em 0.1em 0.1em;
                   font-weight: 700;
-                  color: #bc0000;
+                  // color: #bc0000;
+                  color: #0a4621;
                   letter-spacing: 1px;
                 }
 

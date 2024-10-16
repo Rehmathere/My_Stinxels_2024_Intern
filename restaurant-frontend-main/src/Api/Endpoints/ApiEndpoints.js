@@ -18,3 +18,14 @@ export const updateMenu = (menuItem) =>
 
 export const deleteMenu = (menuItemId) =>
   api.delete(`${authEndpoint}/admin/menu?${menuItemId.toString()}`);
+
+export const getBranch = () => api.get(`${authEndpoint}/admin/branch`);
+
+export const addBranch = (branch) =>
+  api.post(`${authEndpoint}/admin/branch`, branch);
+
+export const updateBranch = (branch) =>
+  api.patch(`${authEndpoint}/admin/branch`, branch);
+
+export const deleteBranch = (branchId) =>
+  api.delete(`${authEndpoint}/admin/branch?${branchId.toString()}`);
