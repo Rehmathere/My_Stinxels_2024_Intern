@@ -293,6 +293,41 @@
   }
 }
 
+// --- Menu Heading Page CSS ---
+.Branch_H {
+  //   border: 0.1px solid black;
+  padding: 0em 0em 0.8em 0em;
+  font-size: 1.9em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #0a4621;
+}
+.Parent_Branch_Btn {
+  // border: 0.1px solid black;
+  padding: 1em 0em 4em 0em;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+}
+.Branch_Btn {
+  border: 0px solid transparent;
+  padding: 0.1em 2em 0.2em 2em;
+  letter-spacing: 1px;
+  background-color: #0a4621;
+  color: white;
+  font-size: 1.1em;
+  border-radius: 50px;
+}
+.Branch_Btn:hover {
+  background-color: #062b14;
+}
+.Branch_Btn i {
+  color: white;
+  font-size: 0.93em;
+  margin: 0em 0em 0em 1em;
+}
+
 /* -------------------------------- */
 /* ----- Media Queries In CSS ----- */
 /* -------------------------------- */

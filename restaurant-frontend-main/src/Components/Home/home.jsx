@@ -29,6 +29,7 @@ import Fries_3 from "../../assets/Menu_Pics/fries3.jpg";
 import facebook from "../../assets/facebook.png";
 import linkdin from "../../assets/linkdin.png";
 import twitter from "../../assets/twitter.png";
+import search from "../../assets/search.png";
 // Home CSS
 import "./home.scss";
 
@@ -44,6 +45,19 @@ function Home() {
   useEffect(() => {
     dispatch(getMenuThunk());
   }, []);
+
+  // --- Responsive Input Search Btn ---
+  const [isInputVisible, setIsInputVisible] = useState(false);
+  const toggleInputVisibility = () => {
+    setIsInputVisible((prev) => !prev);
+  };
+  // --- Responsive Input Search Btn ---
+  // --- Responsive Input Box ---
+  const [isInputVisible_1, setIsInputVisible_1] = useState(false);
+  const toggleInputVisibility_1 = () => {
+    setIsInputVisible_1((prev) => !prev);
+  };
+  // --- Responsive Input Search Btn ---
 
   const chickenData = [
     {
@@ -217,7 +231,7 @@ function Home() {
             <div className="Navbar_Main_Part_2">
               <ul>
                 <li id="Special_Li">Home</li>
-                <li>Services</li>
+                {/* <li>Services</li> */}
                 <li onClick={() => navigate("/about")}>About</li>
                 <li>Contact</li>
               </ul>
@@ -251,7 +265,7 @@ function Home() {
               </div>
               {/* Part 4 - ( Which Is Hide )*/}
               <div className="Navbar_Main_Part_4">
-                <img src={menu} alt="NA" />
+                <img src={menu} alt="NA" onClick={toggleInputVisibility_1} />
               </div>
             </div>
           </div>
@@ -346,7 +360,7 @@ function Home() {
               <div className="Footer_Box_Part_1_B">
                 <ul>
                   <li>Home</li>
-                  <li>Services</li>
+                  {/* <li>Services</li> */}
                   <li>About</li>
                   <li>Contact</li>
                 </ul>
@@ -375,6 +389,31 @@ function Home() {
           </div>
         </div>
       </div>
+      {/* --- 7 - Responsive Navbar --- */}
+      {isInputVisible_1 && (
+        <div className="Parent_ResNav_Whole">
+          <div className="Parent_ResNav_Whole_Sub">
+            <div className="ResNav_Box">
+              <ul>
+                <li id="MyActive">Home</li>
+                <li onClick={() => navigate("/about")}>About</li>
+                <li>Contact Us</li>
+              </ul>
+              <img src={search} alt="NA" onClick={toggleInputVisibility} />
+              {isInputVisible && (
+                <input type="search" placeholder="Search Item here ..." />
+              )}
+              <a href="#" id="My_Btn" onClick={() => navigate("/login")}>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                JOIN
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
       {/* - */}
     </div>
   );

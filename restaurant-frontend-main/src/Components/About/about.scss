@@ -1,6 +1,6 @@
 // - About.jsx -
 
-.My_Parent_About{
+.My_Parent_About {
   // --- 1 - Navbar ---
   .Parent_Navbar_Whole {
     position: relative;
@@ -386,6 +386,403 @@
       }
     }
   }
+
+  // --- 3 - Who We Are ---
+  .Parent_WhoWe_Whole {
+    border: 0px solid transparent;
+    padding: 2em 1em 1em 1em;
+
+    .Parent_WhoWe_Whole_Sub {
+      border: 0px solid transparent;
+      padding: 2em 1em 2em 1em;
+
+      .WhoWe_Box {
+        border: 0px solid transparent;
+        padding: 2em 1em 2em 1em;
+
+        h1 {
+          border: 0px solid transparent;
+          padding: 0.1em 1em 0.1em 1em;
+          font-size: 2.2em;
+          font-weight: bold;
+          text-align: center;
+          letter-spacing: 3.5px;
+        }
+
+        p {
+          border: 0px solid transparent;
+          padding: 0.9em 1em 0.9em 1em;
+          font-size: 1em;
+          letter-spacing: 1.5px;
+          width: 75%;
+          margin: 0em auto;
+          text-align: center;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+
+  // --- 4 - Second About ---
+  .Parent_SecondAbout_Whole {
+    border: 0px solid transparent;
+    padding: 1em 1em 1em 1em;
+
+    .Parent_SecondAbout_Whole_Sub {
+      border: 0px solid transparent;
+
+      padding: 1em 1em 1em 1em;
+
+      .SecondAbout_Box {
+        border: 0px solid transparent;
+
+        padding: 1em 1em 1em 1em;
+        // display: grid;
+        // grid-template-columns: repeat(3, 1fr);
+        // gap: 2em;
+        // row-gap: 1em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        row-gap: 1em;
+        width: 80%;
+        margin: 0em auto;
+
+        .SecondAbout_Box_Main {
+          border: 0px solid transparent;
+          padding: 2em 1em 2em 1em;
+          width: 30%;
+          border-radius: 5px;
+
+          .SecondAbout_Circle {
+            border: 0.1px solid rgb(165, 165, 165);
+            padding: 1em 1em 1em 1em;
+            width: 30%;
+            border-radius: 100px;
+            background-color: rgb(236, 236, 236);
+            margin: 0em auto;
+
+            img {
+              width: 100%;
+            }
+          }
+
+          p {
+            border: 0px solid transparent;
+            margin: 1em 0em 0em 0em;
+            padding: 0.7em 0.2em 0.7em 0.2em;
+            text-align: center;
+            text-transform: capitalize;
+            color: rgb(44, 44, 44);
+          }
+        }
+      }
+    }
+  }
+
+  // --- 5 - Mission ---
+  .Parent_Mission_Whole {
+    border: 0px solid transparent;
+    padding: 2em 0em 2em 0em;
+    background-color: #e7f0e7;
+
+    .Parent_Mission_Whole_Sub {
+      border: 0px solid transparent;
+      padding: 0em 0em 0em 0em;
+
+      .Mission_Box {
+        border: 0px solid transparent;
+        padding: 0em 0em 0em 0em;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .Mission_Box_1 {
+          position: relative; // To position the pseudo-element
+          border: 0px solid transparent;
+          padding: 12em 0em 12em 0em;
+          width: 50%;
+          background: url("../../assets/About_Bg.jpg") no-repeat center center;
+          background-size: cover;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.637);
+            z-index: 1;
+          }
+
+          z-index: 2;
+          position: relative;
+        }
+
+        .Mission_Box_2 {
+          border: 0px solid transparent;
+          padding: 2em 0em 2em 0em;
+          width: 50%;
+
+          h2 {
+            border: 0px solid transparent;
+            padding: 0.8em 0em 0.8em 0em;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 1.9em;
+          }
+
+          p {
+            border: 0px solid transparent;
+            padding: 0.5em 0em 0.5em 0em;
+            text-align: center;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+            font-size: 1em;
+            width: 80%;
+            margin: 0em auto;
+          }
+        }
+      }
+    }
+  }
+
+  // --- 6 - About Us Last Portion ---
+  #About_ten {
+    border: 0px solid transparent;
+    padding: 3em 1.6em;
+  }
+  #sub_About_ten {
+    border: 0.1px solid transparent;
+    padding: 1em;
+    width: 70%;
+    margin: 0em auto;
+  }
+  #sub_About_ten h2 {
+    border: 0.1px solid transparent;
+    text-align: center;
+    font-size: 2.5em;
+    color: #0a4621;
+    padding: 0.7em 0em 1em 0em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+  }
+  #sub_box_ten {
+    border: 0.1px solid transparent;
+    padding: 1em 2em;
+    width: 70%;
+    margin: 0em auto;
+  }
+  .sub_ten {
+    text-align: center;
+  }
+  .ten_1_1 {
+    width: 100%;
+    padding: 5px 5px;
+    border: 1px solid #0a4621;
+    cursor: pointer;
+    display: flex;
+    margin: 13px 0;
+    border-radius: 150px;
+    align-items: center;
+    transition: all 0.5s ease-in;
+  }
+  .ten_1_1.active {
+    border: 2px solid #0a4621;
+    background-color: #0a4621;
+    color: white;
+  }
+  .ten_1_1_icon {
+    margin: 0 10px 0 0;
+    width: 30px;
+    height: 30px;
+    background: url(https://raw.githubusercontent.com/Tusar78/responsive-accordion/main/images/toggle-bg.png)
+      no-repeat 8px 7px #0a4621;
+    border-radius: 50%;
+    float: left;
+    transition: all 0.5s ease-in;
+  }
+  .ten_1_1.active .ten_1_1_icon {
+    background: url(https://raw.githubusercontent.com/Tusar78/responsive-accordion/main/images/toggle-bg.png)
+      no-repeat 8px -25px white;
+  }
+  .ten_1_1 h6 {
+    font-size: 18px;
+    margin: 0;
+    padding: 3px 0 0 20px;
+    font-weight: 400;
+    color: #2d3436;
+    letter-spacing: 0.5px;
+  }
+  .ten_1_1.active h6 {
+    font-size: 18px;
+    margin: 0;
+    padding: 3px 0 0 20px;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 1px;
+  }
+  .ten_1_2 {
+    padding: 0 15px;
+    border-left: 1px solid #0a4621;
+    margin-left: 25px;
+    font-size: 14px;
+    text-align: justify;
+    overflow: hidden;
+    max-height: 0;
+    transition: all 0.3s ease-in;
+  }
+  .ten_1_2.active {
+    background-color: transparent;
+    max-height: 1000px;
+    margin: 0em 1em;
+  }
+
+  // --- 7 - Responsive Navbar ---
+  .Parent_ResNav_Whole {
+    border: 0px solid transparent;
+    padding: 1em 0em;
+    width: 95%;
+    margin: 0em auto;
+    background-color: white;
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    right: 0px;
+    z-index: 2;
+    display: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    .Parent_ResNav_Whole_Sub {
+      border: 0px solid transparent;
+      padding: 1em 0em;
+
+      .ResNav_Box {
+        border: 0px solid transparent;
+        padding: 1em 1em;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          li {
+            border: 0px solid transparent;
+            width: 90%;
+            color: #0a4621;
+            text-align: center;
+            padding: 0.4em 0.5em;
+            margin: 0.5em 0em;
+            border-radius: 50px;
+            letter-spacing: 2px;
+          }
+        }
+
+        input {
+          display: block;
+          width: 90%;
+          border: 0.1px solid rgb(218, 218, 218);
+          margin: 2em auto;
+          padding: 0.4em 1em 0.4em 2em;
+          border-radius: 5px;
+          letter-spacing: 2px;
+        }
+
+        // --- JOIN ResNav Btn ---
+        /* - Lighting Button - */
+        #My_Btn {
+          position: relative;
+          border: 0px solid transparent;
+          padding: 0.4em 1.8em;
+          // background-color: #0652dd;
+          background-color: #e7f0e7;
+          color: black;
+          font-size: 1em;
+          text-decoration: none;
+          letter-spacing: 0.2em;
+          border-radius: 50px;
+          display: block;
+          margin: 0em auto;
+          width: 90%;
+          overflow: hidden;
+          transition: 0.5s;
+          cursor: pointer;
+          text-align: center;
+        }
+        #My_Btn:hover {
+          color: white;
+          font-weight: bold;
+          background: #22d840;
+          box-shadow: 0 0 10px #22d840, 0 0 40px #22d840, 0 0 80px #22d840;
+          transition-delay: 1s;
+        }
+        /* Line Movement Button */
+        #My_Btn span {
+          position: absolute;
+          display: block;
+        }
+        /* -- Span 1 --  */
+        #My_Btn span:nth-child(1) {
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, #22d840);
+        }
+        #My_Btn:hover span:nth-child(1) {
+          left: 100%;
+          transition: 1s;
+        }
+        /* -- Span 3 --  */
+        #My_Btn span:nth-child(3) {
+          bottom: 0;
+          right: -100%;
+          width: 100%;
+          height: 2px;
+          background: linear-gradient(270deg, transparent, #22d840);
+        }
+        #My_Btn:hover span:nth-child(3) {
+          right: 100%;
+          transition: 1s;
+          transition-delay: 0.5s;
+        }
+        /* -- Span 2 --  */
+        #My_Btn span:nth-child(2) {
+          top: -100%;
+          right: 0;
+          width: 2px;
+          height: 100%;
+          background: linear-gradient(180deg, transparent, #22d840);
+        }
+        #My_Btn:hover span:nth-child(2) {
+          top: 100%;
+          transition: 1s;
+          transition-delay: 0.25s;
+        }
+        /* -- Span 4 --  */
+        #My_Btn span:nth-child(4) {
+          bottom: -100%;
+          left: 0;
+          width: 2px;
+          height: 100%;
+          background: linear-gradient(360deg, transparent, #22d840);
+        }
+        #My_Btn:hover span:nth-child(4) {
+          bottom: 100%;
+          transition: 1s;
+          transition-delay: 0.75s;
+        }
+        // --- JOIN ResNav Btn ---
+      }
+    }
+  }
   // -
 }
 
@@ -394,7 +791,7 @@
 /* -------------------------------- */
 /* 0 - First Media Queries */
 @media screen and (min-width: 1px) and (max-width: 1400px) {
-  .My_Parent_About{
+  .My_Parent_About {
     // --- 1 - Navbar ---
     .Parent_Navbar_Whole {
       padding: 0em 0em 0.1em 0em;
@@ -687,13 +1084,105 @@
         }
       }
     }
+
+    // --- 3 - Who We Are ---
+    .Parent_WhoWe_Whole {
+      padding: 2em 1em 1em 1em;
+
+      .Parent_WhoWe_Whole_Sub {
+        padding: 2em 1em 2em 1em;
+
+        .WhoWe_Box {
+          padding: 2em 1em 2em 1em;
+
+          h1 {
+            padding: 0em 1em 0em 1em;
+            font-size: 2.2em;
+            letter-spacing: 3.5px;
+          }
+
+          p {
+            padding: 0.9em 1em 0.9em 1em;
+            font-size: 1em;
+            letter-spacing: 1.5px;
+            width: 80%;
+          }
+        }
+      }
+    }
+
+    // --- 4 - Second About ---
+    .Parent_SecondAbout_Whole {
+      padding: 1em 1em 1em 1em;
+
+      .Parent_SecondAbout_Whole_Sub {
+        padding: 1em 1em 1em 1em;
+
+        .SecondAbout_Box {
+          padding: 1em 1em 1em 1em;
+          width: 80%;
+
+          .SecondAbout_Box_Main {
+            padding: 2em 1em 2em 1em;
+            width: 30%;
+
+            .SecondAbout_Circle {
+              padding: 1em 1em 1em 1em;
+              width: 30%;
+              border-radius: 100px;
+            }
+
+            p {
+              margin: 1em 0em 0em 0em;
+              padding: 0.7em 0.2em 0.7em 0.2em;
+            }
+          }
+        }
+      }
+    }
+
+    // --- 5 - Mission ---
+    .Parent_Mission_Whole {
+      padding: 2em 0em 2em 0em;
+
+      .Parent_Mission_Whole_Sub {
+        padding: 0em 0em 0em 0em;
+
+        .Mission_Box {
+          padding: 0em 0em 0em 0em;
+
+          .Mission_Box_1 {
+            padding: 12em 0em 12em 0em;
+            width: 50%;
+          }
+
+          .Mission_Box_2 {
+            padding: 2em 0em 2em 0em;
+            width: 50%;
+
+            h2 {
+              padding: 0.5em 0em 0.5em 0em;
+              letter-spacing: 2px;
+              font-size: 1.9em;
+            }
+
+            p {
+              padding: 0.5em 0em 0.5em 0em;
+              letter-spacing: 1.5px;
+              font-size: 1em;
+              width: 80%;
+            }
+          }
+        }
+      }
+    }
     // -
   }
 }
 
 /* 1 - First Media Queries */
 @media screen and (min-width: 1px) and (max-width: 1200px) {
-  .My_Parent_About{
+  .My_Parent_About {
     // --- 1 - Navbar ---
     .Parent_Navbar_Whole {
       padding: 0em 0em 0.1em 0em;
@@ -946,13 +1435,143 @@
         }
       }
     }
+
+    // --- 3 - Who We Are ---
+    .Parent_WhoWe_Whole {
+      padding: 2em 1em 2em 1em;
+
+      .Parent_WhoWe_Whole_Sub {
+        padding: 2em 1em 2em 1em;
+
+        .WhoWe_Box {
+          padding: 2em 1em 2em 1em;
+
+          h1 {
+            padding: 0.7em 1em 0.7em 1em;
+            font-size: 2.1em;
+            letter-spacing: 3.8px;
+          }
+
+          p {
+            padding: 0.9em 1em 0.9em 1em;
+            font-size: 0.9em;
+            letter-spacing: 1.5px;
+            width: 80%;
+          }
+        }
+      }
+    }
+
+    // --- 4 - Second About ---
+    .Parent_SecondAbout_Whole {
+      padding: 0.5em 1em 1em 1em;
+
+      .Parent_SecondAbout_Whole_Sub {
+        padding: 0.5em 1em 1em 1em;
+
+        .SecondAbout_Box {
+          padding: 0.5em 1em 1em 1em;
+          width: 85%;
+
+          .SecondAbout_Box_Main {
+            padding: 2em 1em 2em 1em;
+            width: 30%;
+
+            .SecondAbout_Circle {
+              padding: 1em 1em 1em 1em;
+              width: 30%;
+              border-radius: 100px;
+            }
+
+            p {
+              margin: 1em 0em 0em 0em;
+              padding: 0.7em 0.2em 0.7em 0.2em;
+              font-size: 0.95em;
+            }
+          }
+        }
+      }
+    }
+
+    // --- 5 - Mission ---
+    .Parent_Mission_Whole {
+      padding: 1.5em 0em 1.5em 0em;
+
+      .Parent_Mission_Whole_Sub {
+        padding: 0em 0em 0em 0em;
+
+        .Mission_Box {
+          padding: 0em 0em 0em 0em;
+
+          .Mission_Box_1 {
+            padding: 11em 0em 11em 0em;
+            width: 50%;
+          }
+
+          .Mission_Box_2 {
+            padding: 2em 0em 2em 0em;
+            width: 50%;
+
+            h2 {
+              padding: 0.5em 0em 0.5em 0em;
+              letter-spacing: 2px;
+              font-size: 1.8em;
+            }
+
+            p {
+              padding: 0.5em 0em 0.5em 0em;
+              letter-spacing: 2px;
+              font-size: 0.9em;
+              width: 75%;
+            }
+          }
+        }
+      }
+    }
+
+    /* --- 6 - About Us Last Portion --- */
+    #About_ten {
+      padding: 0.5em 1em;
+    }
+    #sub_About_ten {
+      padding: 1em 1em;
+      width: 85%;
+    }
+    #sub_About_ten h2 {
+      font-size: 1.7em;
+      padding: 0.5em 0em 1em 0em;
+      letter-spacing: 3px;
+    }
+    #sub_box_ten {
+      padding: 0.5em 2em;
+      width: 75%;
+    }
+    .ten_1_1 {
+      width: 100%;
+      padding: 5px 5px;
+      margin: 12px 0;
+    }
+    .ten_1_1_icon {
+      margin: 0 10px 0 0;
+      width: 30px;
+      height: 30px;
+    }
+    .ten_1_1 h6 {
+      font-size: 16px;
+      padding: 0px 0px 0px 20px;
+    }
+    .ten_1_2 {
+      padding: 0 15px;
+      margin-left: 25px;
+      font-size: 14px;
+    }
     // -
   }
 }
 
 /* 2 - First Media Queries */
 @media screen and (min-width: 1px) and (max-width: 1000px) {
-  .My_Parent_About{
+  .My_Parent_About {
     // --- 1 - Navbar ---
     .Parent_Navbar_Whole {
       padding: 0em 0em 0em 0em;
@@ -1206,13 +1825,106 @@
         }
       }
     }
+
+    // --- 3 - Who We Are ---
+    .Parent_WhoWe_Whole {
+      padding: 1em 1em 1em 1em;
+
+      .Parent_WhoWe_Whole_Sub {
+        padding: 1em 1em 1em 1em;
+
+        .WhoWe_Box {
+          padding: 2em 1em 2em 1em;
+
+          h1 {
+            padding: 0.8em 1em 0.8em 1em;
+            font-size: 2em;
+            letter-spacing: 3.8px;
+          }
+
+          p {
+            padding: 0.9em 1em 0.9em 1em;
+            font-size: 0.85em;
+            letter-spacing: 1.5px;
+            width: 80%;
+          }
+        }
+      }
+    }
+
+    // --- 4 - Second About ---
+    .Parent_SecondAbout_Whole {
+      padding: 0.5em 1em 1em 1em;
+
+      .Parent_SecondAbout_Whole_Sub {
+        padding: 0.5em 1em 1em 1em;
+
+        .SecondAbout_Box {
+          padding: 0.5em 1em 1em 1em;
+          width: 90%;
+
+          .SecondAbout_Box_Main {
+            padding: 1em 1em 1em 1em;
+            width: 30%;
+
+            .SecondAbout_Circle {
+              padding: 0.8em 0.8em 0.8em 0.8em;
+              width: 30%;
+              border-radius: 100px;
+            }
+
+            p {
+              margin: 0.5em 0em 0em 0em;
+              padding: 0.7em 0.2em 0.7em 0.2em;
+              font-size: 0.95em;
+            }
+          }
+        }
+      }
+    }
+
+    // --- 5 - Mission ---
+    .Parent_Mission_Whole {
+      padding: 1.5em 0em 1.5em 0em;
+
+      .Parent_Mission_Whole_Sub {
+        padding: 0em 0em 0em 0em;
+
+        .Mission_Box {
+          padding: 0em 0em 0em 0em;
+
+          .Mission_Box_1 {
+            padding: 11em 0em 11em 0em;
+            width: 50%;
+          }
+
+          .Mission_Box_2 {
+            padding: 0em 0em 0em 0em;
+            width: 50%;
+
+            h2 {
+              padding: 0.3em 0em 0.3em 0em;
+              letter-spacing: 2px;
+              font-size: 1.6em;
+            }
+
+            p {
+              padding: 0.3em 0em 0.3em 0em;
+              letter-spacing: 1.5px;
+              font-size: 0.85em;
+              width: 75%;
+            }
+          }
+        }
+      }
+    }
     // -
   }
 }
 
 /* 3 - First Media Queries */
 @media screen and (min-width: 1px) and (max-width: 800px) {
-  .My_Parent_About{
+  .My_Parent_About {
     // --- 1 - Navbar ---
     .Parent_Navbar_Whole {
       padding: 0em 0em 0em 0em;
@@ -1465,13 +2177,152 @@
         }
       }
     }
+
+    // --- 3 - Who We Are ---
+    .Parent_WhoWe_Whole {
+      padding: 1em 1em 1em 1em;
+
+      .Parent_WhoWe_Whole_Sub {
+        padding: 1em 1em 1em 1em;
+
+        .WhoWe_Box {
+          padding: 1em 1em 1em 1em;
+
+          h1 {
+            padding: 0.9em 1em 0.9em 1em;
+            font-size: 1.8em;
+            letter-spacing: 3.8px;
+          }
+
+          p {
+            padding: 0.5em 1em 0.9em 1em;
+            font-size: 0.8em;
+            letter-spacing: 1.5px;
+            width: 80%;
+          }
+        }
+      }
+    }
+
+    // --- 4 - Second About ---
+    .Parent_SecondAbout_Whole {
+      padding: 0.5em 1em 1em 1em;
+
+      .Parent_SecondAbout_Whole_Sub {
+        padding: 0.5em 1em 1em 1em;
+
+        .SecondAbout_Box {
+          padding: 0.5em 1em 1em 1em;
+          width: 90%;
+
+          .SecondAbout_Box_Main {
+            padding: 1em 1em 1em 1em;
+            width: 40%;
+
+            .SecondAbout_Circle {
+              padding: 0.8em 0.8em 0.8em 0.8em;
+              width: 30%;
+              border-radius: 100px;
+            }
+
+            p {
+              margin: 0.5em 0em 0em 0em;
+              padding: 0.7em 0.2em 0.7em 0.2em;
+              font-size: 0.95em;
+            }
+          }
+        }
+      }
+    }
+
+    // --- 5 - Mission ---
+    .Parent_Mission_Whole {
+      padding: 1.5em 0em 1.5em 0em;
+
+      .Parent_Mission_Whole_Sub {
+        padding: 0em 0em 0em 0em;
+
+        .Mission_Box {
+          padding: 0em 0em 0em 0em;
+
+          .Mission_Box_1 {
+            padding: 11em 0em 11em 0em;
+            width: 50%;
+          }
+
+          .Mission_Box_2 {
+            padding: 0em 0em 0em 0em;
+            width: 50%;
+
+            h2 {
+              padding: 0.3em 0em 0.3em 0em;
+              letter-spacing: 2px;
+              font-size: 1.5em;
+            }
+
+            p {
+              padding: 0.3em 0em 0.3em 0em;
+              letter-spacing: 1.5px;
+              font-size: 0.8em;
+              width: 80%;
+            }
+          }
+        }
+      }
+    }
+
+    // --- 6 - About Us Last Portion ---
+    #About_ten {
+      padding: 2em 1em;
+    }
+    #sub_About_ten {
+      padding: 0.5em 0.5em;
+      width: 90%;
+    }
+    #sub_About_ten h2 {
+      font-size: 1.5em;
+      padding: 0.3em 0em 1em 0em;
+      letter-spacing: 3px;
+    }
+    #sub_box_ten {
+      padding: 0.5em 0.5em;
+      width: 75%;
+    }
+    .ten_1_1 {
+      width: 100%;
+      padding: 5px 5px;
+      margin: 8px 0;
+    }
+    .ten_1_1.active h6 {
+      font-size: 15px;
+      margin: 0px;
+      padding: 0px 0 0 20px;
+      font-weight: 500;
+      color: white;
+      letter-spacing: 1px;
+    }
+    .ten_1_1 h6 {
+      font-size: 14px;
+      padding: 0px 0px 0px 20px;
+    }
+    .ten_1_1_icon {
+      margin: 0 10px 0 0;
+      width: 23px;
+      height: 23px;
+      background: url(https://raw.githubusercontent.com/Tusar78/responsive-accordion/main/images/toggle-bg.png)
+        no-repeat 4px 4px #0a4621;
+    }
+    .ten_1_1.active .ten_1_1_icon {
+      background: url(https://raw.githubusercontent.com/Tusar78/responsive-accordion/main/images/toggle-bg.png)
+        no-repeat 4px -29px white;
+    }
     // -
   }
 }
 
 /* 4 - First Media Queries */
 @media screen and (min-width: 1px) and (max-width: 600px) {
-  .My_Parent_About{
+  .My_Parent_About {
     // --- 1 - Navbar ---
     .Parent_Navbar_Whole {
       .Sub_Parent_Navbar_Whole {
@@ -1710,13 +2561,307 @@
         }
       }
     }
+
+    // --- 3 - Who We Are ---
+    .Parent_WhoWe_Whole {
+      padding: 1em 1em 1em 1em;
+
+      .Parent_WhoWe_Whole_Sub {
+        padding: 1em 1em 1em 1em;
+
+        .WhoWe_Box {
+          padding: 1em 1em 1em 1em;
+
+          h1 {
+            padding: 0.9em 1em 0.9em 1em;
+            font-size: 1.5em;
+            letter-spacing: 3.9px;
+          }
+
+          p {
+            padding: 0.9em 1em 0.9em 1em;
+            font-size: 0.75em;
+            letter-spacing: 1.8px;
+            width: 90%;
+          }
+        }
+      }
+    }
+
+    // --- 4 - Second About ---
+    .Parent_SecondAbout_Whole {
+      padding: 0.5em 1em 1em 1em;
+
+      .Parent_SecondAbout_Whole_Sub {
+        padding: 0.5em 1em 1em 1em;
+
+        .SecondAbout_Box {
+          padding: 0.5em 1em 1em 1em;
+          width: 90%;
+
+          .SecondAbout_Box_Main {
+            padding: 1em 0em 1em 0em;
+            width: 65%;
+
+            .SecondAbout_Circle {
+              padding: 0.8em 0.8em 0.8em 0.8em;
+              width: 30%;
+              border-radius: 100px;
+            }
+
+            p {
+              margin: 0.5em 0em 0em 0em;
+              padding: 1em 0.2em 1em 0.2em;
+              font-size: 0.95em;
+            }
+          }
+        }
+      }
+    }
+
+    // --- 5 - Mission ---
+    .Parent_Mission_Whole {
+      padding: 0em 0em 1em 0em;
+
+      .Parent_Mission_Whole_Sub {
+        padding: 0em 0em 0em 0em;
+
+        .Mission_Box {
+          padding: 0em 0em 0em 0em;
+          flex-direction: column;
+
+          .Mission_Box_1 {
+            padding: 11em 0em 11em 0em;
+            width: 100%;
+          }
+
+          .Mission_Box_2 {
+            padding: 2em 0em 2em 0em;
+            width: 100%;
+
+            h2 {
+              padding: 0.5em 0em 0.5em 0em;
+              letter-spacing: 2px;
+              font-size: 1.4em;
+            }
+
+            p {
+              padding: 0.3em 0em 0.3em 0em;
+              letter-spacing: 1.4px;
+              font-size: 0.75m;
+              width: 80%;
+            }
+          }
+        }
+      }
+    }
+
+    // --- 6 - About Us Last Portion ---
+    #About_ten {
+      padding: 2em 0em;
+    }
+    #sub_About_ten {
+      padding: 0.5em 0em;
+      width: 100%;
+    }
+    #sub_About_ten h2 {
+      font-size: 1.4em;
+      padding: 0.3em 0em 1em 0em;
+      letter-spacing: 3px;
+    }
+    #sub_box_ten {
+      padding: 0.5em 0em;
+      width: 75%;
+    }
+    .ten_1_1 {
+      width: 100%;
+      padding: 5px 5px;
+      margin: 8px 0;
+    }
+    .ten_1_1.active h6 {
+      font-size: 15px;
+      margin: 0px;
+      padding: 0px 0 0 20px;
+      font-weight: 500;
+      color: white;
+      letter-spacing: 1px;
+    }
+    .ten_1_1 h6 {
+      font-size: 14px;
+      padding: 0px 0px 0px 20px;
+    }
+    .ten_1_1_icon {
+      margin: 0 10px 0 0;
+      width: 24px;
+      height: 24px;
+      background: url(https://raw.githubusercontent.com/Tusar78/responsive-accordion/main/images/toggle-bg.png)
+        no-repeat 4px 4px #0a4621;
+    }
+    .ten_1_1.active .ten_1_1_icon {
+      background: url(https://raw.githubusercontent.com/Tusar78/responsive-accordion/main/images/toggle-bg.png)
+        no-repeat 4px -29px white;
+    }
+
+    // --- 7 - Responsive Navbar ---
+    .Parent_ResNav_Whole {
+      padding: 0.5em 0em;
+      width: 95%;
+      border-radius: 5px;
+      margin: 0em auto;
+      position: absolute;
+      top: 80px;
+      left: 0px;
+      right: 0px;
+      z-index: 2;
+      display: block;
+
+      .Parent_ResNav_Whole_Sub {
+        padding: 1em 0em;
+
+        .ResNav_Box {
+          padding: 1em 1em;
+
+          ul {
+            li {
+              border: 0.1px solid #0a4621;
+              width: 90%;
+              padding: 0.35em 0.5em;
+              margin: 0.5em 0em;
+              border-radius: 50px;
+              letter-spacing: 2px;
+              font-weight: 400;
+              font-size: 0.9em;
+            }
+
+            #MyActive {
+              border: 0px solid transparent;
+              background-color: #0a4621;
+              width: 90%;
+              padding: 0.4em 0.5em;
+              margin: 0.5em 0em;
+              border-radius: 50px;
+              letter-spacing: 2px;
+              font-weight: 700;
+              color: white;
+            }
+          }
+
+          img {
+            display: block;
+            margin: 2.5em auto;
+            width: 15%;
+          }
+
+          input {
+            display: block;
+            width: 90%;
+            border: 0.1px solid rgb(218, 218, 218);
+            font-size: 0.95em;
+            margin: 2em auto;
+            padding: 0.5em 1em 0.5em 2em;
+            border-radius: 50px;
+            letter-spacing: 2px;
+          }
+
+          input:focus {
+            outline: none;
+          }
+
+          // --- JOIN ResNav Btn ---
+          /* - Lighting Button - */
+          #My_Btn {
+            position: relative;
+            border: 0px solid transparent;
+            padding: 0.4em 1.8em;
+            // background-color: #0652dd;
+            background-color: #e7f0e7;
+            color: black;
+            font-size: 1em;
+            text-decoration: none;
+            letter-spacing: 0.2em;
+            border-radius: 50px;
+            display: block;
+            margin: 0em auto;
+            width: 90%;
+            overflow: hidden;
+            transition: 0.5s;
+            cursor: pointer;
+            text-align: center;
+          }
+          #My_Btn:hover {
+            color: white;
+            font-weight: bold;
+            background: #22d840;
+            box-shadow: 0 0 10px #22d840, 0 0 40px #22d840, 0 0 80px #22d840;
+            transition-delay: 1s;
+          }
+          /* Line Movement Button */
+          #My_Btn span {
+            position: absolute;
+            display: block;
+          }
+          /* -- Span 1 --  */
+          #My_Btn span:nth-child(1) {
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(1) {
+            left: 100%;
+            transition: 1s;
+          }
+          /* -- Span 3 --  */
+          #My_Btn span:nth-child(3) {
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(270deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(3) {
+            right: 100%;
+            transition: 1s;
+            transition-delay: 0.5s;
+          }
+          /* -- Span 2 --  */
+          #My_Btn span:nth-child(2) {
+            top: -100%;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(2) {
+            top: 100%;
+            transition: 1s;
+            transition-delay: 0.25s;
+          }
+          /* -- Span 4 --  */
+          #My_Btn span:nth-child(4) {
+            bottom: -100%;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(360deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(4) {
+            bottom: 100%;
+            transition: 1s;
+            transition-delay: 0.75s;
+          }
+          // --- JOIN ResNav Btn ---
+        }
+      }
+    }
     // -
   }
 }
 
 /* 5 - First Media Queries */
 @media screen and (min-width: 1px) and (max-width: 400px) {
-  .My_Parent_About{
+  .My_Parent_About {
     // --- 1 - Navbar ---
     .Parent_Navbar_Whole {
       .Sub_Parent_Navbar_Whole {
@@ -1948,6 +3093,305 @@
         }
       }
     }
+
+    // --- 3 - Who We Are ---
+    .Parent_WhoWe_Whole {
+      padding: 1em 0.5em 1em 0.5em;
+
+      .Parent_WhoWe_Whole_Sub {
+        padding: 1em 0.5em 1em 0.5em;
+
+        .WhoWe_Box {
+          padding: 0.5em 0.5em 0.5em 0.5em;
+
+          h1 {
+            padding: 1em 0.5em 1em 0.5em;
+            font-size: 1.3em;
+            letter-spacing: 3.9px;
+          }
+
+          p {
+            padding: 0.5em 0em 0.5em 0em;
+            font-size: 0.75em;
+            letter-spacing: 1.8px;
+            width: 95%;
+          }
+        }
+      }
+    }
+
+    // --- 4 - Second About ---
+    .Parent_SecondAbout_Whole {
+      padding: 0.5em 0em 1em 0em;
+
+      .Parent_SecondAbout_Whole_Sub {
+        padding: 0.5em 0em 1em 0em;
+
+        .SecondAbout_Box {
+          padding: 0.5em 1em 1em 1em;
+          width: 90%;
+
+          .SecondAbout_Box_Main {
+            padding: 1em 0em 1em 0em;
+            width: 80%;
+
+            .SecondAbout_Circle {
+              padding: 0.8em 0.8em 0.8em 0.8em;
+              width: 30%;
+              border-radius: 100px;
+            }
+
+            p {
+              margin: 0.5em 0em 0em 0em;
+              padding: 1em 0.2em 1em 0.2em;
+              font-size: 0.95em;
+            }
+          }
+        }
+      }
+    }
+
+    // --- 5 - Mission ---
+    .Parent_Mission_Whole {
+      padding: 0em 0em 1em 0em;
+
+      .Parent_Mission_Whole_Sub {
+        padding: 0em 0em 0em 0em;
+
+        .Mission_Box {
+          padding: 0em 0em 0em 0em;
+          flex-direction: column;
+
+          .Mission_Box_1 {
+            padding: 11em 0em 11em 0em;
+            width: 100%;
+          }
+
+          .Mission_Box_2 {
+            padding: 2em 0em 2em 0em;
+            width: 100%;
+
+            h2 {
+              padding: 0.5em 0em 0.5em 0em;
+              letter-spacing: 2px;
+              font-size: 1.2em;
+            }
+
+            p {
+              padding: 0.3em 0em 0.3em 0em;
+              letter-spacing: 1.2px;
+              font-size: 0.7m;
+              width: 80%;
+            }
+          }
+        }
+      }
+    }
+
+    // --- 6 - About Us Last Portion ---
+    #About_ten {
+      padding: 2em 0em;
+    }
+    #sub_About_ten {
+      padding: 1em 0em;
+      width: 100%;
+    }
+    #sub_About_ten h2 {
+      font-size: 1.2em;
+      text-align: center;
+      padding: 0.3em 0.4em 1em 0.4em;
+      letter-spacing: 3px;
+    }
+    #sub_box_ten {
+      padding: 0.5em 0em;
+      width: 90%;
+    }
+    .ten_1_1 {
+      width: 100%;
+      padding: 5px 5px;
+      margin: 8px 0;
+    }
+    .ten_1_1.active h6 {
+      font-size: 15px;
+      margin: 0px;
+      padding: 0px 0 0 20px;
+      font-weight: 400;
+      color: white;
+      letter-spacing: 1px;
+    }
+    .ten_1_1 h6 {
+      font-size: 14px;
+      padding: 0px 0px 0px 20px;
+    }
+    .ten_1_1_icon {
+      margin: 0px 0px 0px 0px;
+      width: 0px;
+      height: 0px;
+      background: url(https://raw.githubusercontent.com/Tusar78/responsive-accordion/main/images/toggle-bg.png)
+        no-repeat 4px 4px #0a4621;
+    }
+    .ten_1_1.active .ten_1_1_icon {
+      background: url(https://raw.githubusercontent.com/Tusar78/responsive-accordion/main/images/toggle-bg.png)
+        no-repeat 4px -29px white;
+    }
+
+    // --- 7 - Responsive Navbar ---
+    .Parent_ResNav_Whole {
+      padding: 1em 0em;
+      width: 95%;
+      border-radius: 5px;
+      margin: 0em auto;
+      position: absolute;
+      top: 80px;
+      left: 0px;
+      right: 0px;
+      z-index: 2;
+      display: block;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+      .Parent_ResNav_Whole_Sub {
+        padding: 1em 0em;
+
+        .ResNav_Box {
+          padding: 1em 1em;
+
+          ul {
+            li {
+              border: 0.1px solid #0a4621;
+              width: 90%;
+              padding: 0.3em 0.2em;
+              margin: 0.5em 0em;
+              border-radius: 50px;
+              letter-spacing: 2px;
+              font-weight: 400;
+              font-size: 0.9em;
+            }
+
+            #MyActive {
+              border: 0px solid transparent;
+              background-color: #0a4621;
+              width: 90%;
+              padding: 0.3em 0.2em;
+              margin: 0.5em 0em;
+              border-radius: 50px;
+              letter-spacing: 2px;
+              font-weight: 700;
+              font-size: 0.9em;
+              color: white;
+            }
+          }
+
+          img {
+            display: block;
+            margin: 2.5em auto;
+            width: 20%;
+          }
+
+          input {
+            display: block;
+            width: 90%;
+            border: 0.1px solid rgb(218, 218, 218);
+            font-size: 0.9em;
+            margin: 2em auto;
+            padding: 0.35em 0.5em 0.35em 2em;
+            border-radius: 50px;
+            letter-spacing: 2px;
+          }
+
+          input:focus {
+            outline: none;
+          }
+
+          // --- JOIN ResNav Btn ---
+          /* - Lighting Button - */
+          #My_Btn {
+            position: relative;
+            border: 0px solid transparent;
+            padding: 0.4em 1.8em;
+            // background-color: #0652dd;
+            background-color: #e7f0e7;
+            color: black;
+            font-size: 0.9em;
+            text-decoration: none;
+            letter-spacing: 0.2em;
+            border-radius: 50px;
+            display: block;
+            margin: 0em auto;
+            width: 90%;
+            overflow: hidden;
+            transition: 0.5s;
+            cursor: pointer;
+            text-align: center;
+          }
+          #My_Btn:hover {
+            color: white;
+            font-weight: bold;
+            background: #22d840;
+            box-shadow: 0 0 10px #22d840, 0 0 40px #22d840, 0 0 80px #22d840;
+            transition-delay: 1s;
+          }
+          /* Line Movement Button */
+          #My_Btn span {
+            position: absolute;
+            display: block;
+          }
+          /* -- Span 1 --  */
+          #My_Btn span:nth-child(1) {
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(1) {
+            left: 100%;
+            transition: 1s;
+          }
+          /* -- Span 3 --  */
+          #My_Btn span:nth-child(3) {
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(270deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(3) {
+            right: 100%;
+            transition: 1s;
+            transition-delay: 0.5s;
+          }
+          /* -- Span 2 --  */
+          #My_Btn span:nth-child(2) {
+            top: -100%;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(2) {
+            top: 100%;
+            transition: 1s;
+            transition-delay: 0.25s;
+          }
+          /* -- Span 4 --  */
+          #My_Btn span:nth-child(4) {
+            bottom: -100%;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(360deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(4) {
+            bottom: 100%;
+            transition: 1s;
+            transition-delay: 0.75s;
+          }
+          // --- JOIN ResNav Btn ---
+        }
+      }
+    }
     // -
   }
 }
+
+// --- The End ---

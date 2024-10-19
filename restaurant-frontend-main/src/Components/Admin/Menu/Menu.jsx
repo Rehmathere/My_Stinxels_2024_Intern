@@ -210,7 +210,12 @@ function Menu() {
     <>
       <div className="min-h-[80vh] max-w-[100vw]">
         {/* <div> */}
-        <Button onClick={() => openModal("Add")}>Add Menu Item</Button>
+        <h1 className="Branch_H">Menu</h1>
+        <div className="Parent_Branch_Btn">
+          <Button className="Branch_Btn" onClick={() => openModal("Add")}>
+            Add Menu Item <i className="fa fa-plus-circle"></i>
+          </Button>
+        </div>
         {/* --- New Menu Design --- */}
         {/* <div className="New_Menu_Box">
           <br />
@@ -241,7 +246,7 @@ function Menu() {
           </div>
         </div> */}
         {/* --- New Menu Design --- */}
-        {/* <Modal
+        <Modal
           formArray={formArray}
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
@@ -249,7 +254,7 @@ function Menu() {
           menuMethod={menuMethod}
           updateMenuItem={updateMenuItem}
           updateMenuItemObj={updateMenuItemObj}
-        /> */}
+        />
         <ModalComponent
           FormContent={FormContent}
           isModalOpen={isModalOpen}

@@ -11,6 +11,8 @@ import {
   updateBranchThunk,
   deleteBranchThunk,
 } from "../../../Redux/Thunks/BranchApi";
+// CSS
+import "./Branch.scss";
 
 function Branch() {
   const [form] = Form.useForm();
@@ -28,8 +30,8 @@ function Branch() {
     const { _id } = updateBranchObj;
     body = { ...body, _id };
     dispatch(updateBranchThunk(body));
-    // console.log("updated branch body", body);
   };
+
   const deleteBranch = (_id) => {
     const deleteParam = new URLSearchParams({
       _id,
@@ -55,33 +57,19 @@ function Branch() {
 
   useEffect(() => {
     dispatch(getBranchThunk());
-  }, []);
+  }, [dispatch]);
 
   const setForm = () => {
     const { address, contactNum, tables } = updateBranchObj;
-    console.log(updateBranchObj);
-
     return [
-      {
-        name: "contactNum",
-        value: contactNum,
-      },
-      {
-        name: "address",
-        value: address,
-      },
-      {
-        name: "tables",
-        value: tables,
-      },
+      { name: "contactNum", value: contactNum },
+      { name: "address", value: address },
+      { name: "tables", value: tables },
     ];
   };
 
   const FormContent = () => {
     const handleFinish = (body) => {
-      console.log("branchMethod", branchMethod);
-      console.log(body);
-
       const menuActions = {
         Add: () => addBranch(body),
         Update: () => updateBranch(body),
@@ -91,51 +79,36 @@ function Branch() {
       setIsModalOpen(false);
     };
     return (
-      <>
-        <Form form={form} onFinish={handleFinish} layout="vertical">
-          <Form.Item name={"contactNum"} label="Contact Number">
-            <PhoneInput country={"pk"} />
-          </Form.Item>
-          <Form.Item name={"address"} label="Address">
-            <Input></Input>
-          </Form.Item>
-          <Form.Item label="Tables">
-            <Form.List name={["tables"]}>
-              {(subFields, subOpt) => (
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    rowGap: 16,
-                  }}
-                >
-                  {subFields.map((subField) => (
-                    <Space key={subField.key}>
-                      <Form.Item noStyle name={[subField.name, "seatingSize"]}>
-                        <Input placeholder="Enter Seating Size" type="number" />
-                      </Form.Item>
-                      <Form.Item noStyle name={[subField.name, "qty"]}>
-                        <Input
-                          placeholder="Enter Quantity of Table"
-                          type="number"
-                        />
-                      </Form.Item>
-                      <CloseOutlined
-                        onClick={() => {
-                          subOpt.remove(subField.name);
-                        }}
-                      />
-                    </Space>
-                  ))}
-                  <Button type="dashed" onClick={() => subOpt.add()} block>
-                    + Add Another Table
-                  </Button>
-                </div>
-              )}
-            </Form.List>
-          </Form.Item>
-        </Form>
-      </>
+      <Form form={form} onFinish={handleFinish} layout="vertical">
+        <Form.Item name={"contactNum"} label="Contact Number">
+          <PhoneInput country={"pk"} />
+        </Form.Item>
+        <Form.Item name={"address"} label="Address">
+          <Input />
+        </Form.Item>
+        <Form.Item label="Tables">
+          <Form.List name={["tables"]}>
+            {(subFields, subOpt) => (
+              <div style={{ display: "flex", flexDirection: "column", rowGap: 16 }}>
+                {subFields.map((subField) => (
+                  <Space key={subField.key}>
+                    <Form.Item noStyle name={[subField.name, "seatingSize"]}>
+                      <Input placeholder="Enter Seating Size" type="number" />
+                    </Form.Item>
+                    <Form.Item noStyle name={[subField.name, "qty"]}>
+                      <Input placeholder="Enter Quantity of Table" type="number" />
+                    </Form.Item>
+                    <CloseOutlined onClick={() => subOpt.remove(subField.name)} />
+                  </Space>
+                ))}
+                <Button type="dashed" onClick={() => subOpt.add()} block>
+                  + Add Another Table
+                </Button>
+              </div>
+            )}
+          </Form.List>
+        </Form.Item>
+      </Form>
     );
   };
 
@@ -200,20 +173,30 @@ function Branch() {
       ),
     },
   ];
-  // --- Dummy Table Data ---
+
   const dummyData = [
     {
       address: "asdadsadsd",
       contactNum: "23334454",
       tables: [{ seatingSize: "2", qty: "10" }],
     },
+    {
+      address: "asdadsadsd",
+      contactNum: "23334454",
+      tables: [{ seatingSize: "2", qty: "10" }],
+    },
   ];
-  // --- Dummy Table Data ---
 
   return (
     <>
-      <Button onClick={() => openModal("Add")}>Add Branch</Button>
+      <h1 className="Branch_H">Branch</h1>
+      <div className="Parent_Branch_Btn">
+        <Button className="Branch_Btn" onClick={() => openModal("Add")}>
+          Add Branch <i className="fa fa-plus-circle"></i>
+        </Button>
+      </div>
       <ModalComponent
+        title="Add A Branch"
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
         handleCancel={handleCancel}
@@ -221,7 +204,7 @@ function Branch() {
         FormContent={FormContent}
         setForm={setForm}
       />
-      <Table dataSource={dummyData} columns={columns} />;
+      <Table dataSource={dummyData} columns={columns} rowClassName="custom-table-row" />
     </>
   );
 }

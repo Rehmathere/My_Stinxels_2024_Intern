@@ -135,9 +135,9 @@
             opacity: 0;
             padding: 5px 10px 5px 15px;
             border-radius: 50px;
-          
           }
-          .searchBar:hover , .searchBar:focus {
+          .searchBar:hover,
+          .searchBar:focus {
             outline: none;
           }
 
@@ -554,6 +554,146 @@
             cursor: pointer;
           }
         }
+      }
+    }
+  }
+
+  // --- 7 - Responsive Navbar ---
+  .Parent_ResNav_Whole {
+    border: 0px solid transparent;
+    padding: 1em 0em;
+    width: 95%;
+    margin: 0em auto;
+    background-color: white;
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    right: 0px;
+    z-index: 2;
+    display: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    .Parent_ResNav_Whole_Sub {
+      border: 0px solid transparent;
+      padding: 1em 0em;
+
+      .ResNav_Box {
+        border: 0px solid transparent;
+        padding: 1em 1em;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          li {
+            border: 0px solid transparent;
+            width: 90%;
+            color: #0a4621;
+            text-align: center;
+            padding: 0.4em 0.5em;
+            margin: 0.5em 0em;
+            border-radius: 50px;
+            letter-spacing: 2px;
+          }
+        }
+
+        input {
+          display: block;
+          width: 90%;
+          border: 0.1px solid rgb(218, 218, 218);
+          margin: 2em auto;
+          padding: 0.4em 1em 0.4em 2em;
+          border-radius: 5px;
+          letter-spacing: 2px;
+        }
+
+        // --- JOIN ResNav Btn ---
+        /* - Lighting Button - */
+        #My_Btn {
+          position: relative;
+          border: 0px solid transparent;
+          padding: 0.4em 1.8em;
+          // background-color: #0652dd;
+          background-color: #e7f0e7;
+          color: black;
+          font-size: 1em;
+          text-decoration: none;
+          letter-spacing: 0.2em;
+          border-radius: 50px;
+          display: block;
+          margin: 0em auto;
+          width: 90%;
+          overflow: hidden;
+          transition: 0.5s;
+          cursor: pointer;
+          text-align: center;
+        }
+        #My_Btn:hover {
+          color: white;
+          font-weight: bold;
+          background: #22d840;
+          box-shadow: 0 0 10px #22d840, 0 0 40px #22d840, 0 0 80px #22d840;
+          transition-delay: 1s;
+        }
+        /* Line Movement Button */
+        #My_Btn span {
+          position: absolute;
+          display: block;
+        }
+        /* -- Span 1 --  */
+        #My_Btn span:nth-child(1) {
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, #22d840);
+        }
+        #My_Btn:hover span:nth-child(1) {
+          left: 100%;
+          transition: 1s;
+        }
+        /* -- Span 3 --  */
+        #My_Btn span:nth-child(3) {
+          bottom: 0;
+          right: -100%;
+          width: 100%;
+          height: 2px;
+          background: linear-gradient(270deg, transparent, #22d840);
+        }
+        #My_Btn:hover span:nth-child(3) {
+          right: 100%;
+          transition: 1s;
+          transition-delay: 0.5s;
+        }
+        /* -- Span 2 --  */
+        #My_Btn span:nth-child(2) {
+          top: -100%;
+          right: 0;
+          width: 2px;
+          height: 100%;
+          background: linear-gradient(180deg, transparent, #22d840);
+        }
+        #My_Btn:hover span:nth-child(2) {
+          top: 100%;
+          transition: 1s;
+          transition-delay: 0.25s;
+        }
+        /* -- Span 4 --  */
+        #My_Btn span:nth-child(4) {
+          bottom: -100%;
+          left: 0;
+          width: 2px;
+          height: 100%;
+          background: linear-gradient(360deg, transparent, #22d840);
+        }
+        #My_Btn:hover span:nth-child(4) {
+          bottom: 100%;
+          transition: 1s;
+          transition-delay: 0.75s;
+        }
+        // --- JOIN ResNav Btn ---
       }
     }
   }
@@ -1882,6 +2022,160 @@
         }
       }
     }
+
+    // --- 7 - Responsive Navbar ---
+    .Parent_ResNav_Whole {
+      padding: 0.5em 0em;
+      width: 95%;
+      border-radius: 5px;
+      margin: 0em auto;
+      position: absolute;
+      top: 80px;
+      left: 0px;
+      right: 0px;
+      z-index: 2;
+      display: block;
+
+      .Parent_ResNav_Whole_Sub {
+        padding: 1em 0em;
+
+        .ResNav_Box {
+          padding: 1em 1em;
+
+          ul {
+            li {
+              border: 0.1px solid #0a4621;
+              width: 90%;
+              padding: 0.35em 0.5em;
+              margin: 0.5em 0em;
+              border-radius: 50px;
+              letter-spacing: 2px;
+              font-weight: 400;
+              font-size: 0.9em;
+            }
+
+            #MyActive {
+              border: 0px solid transparent;
+              background-color: #0a4621;
+              width: 90%;
+              padding: 0.4em 0.5em;
+              margin: 0.5em 0em;
+              border-radius: 50px;
+              letter-spacing: 2px;
+              font-weight: 700;
+              color: white;
+            }
+          }
+
+          img {
+            display: block;
+            margin: 2.5em auto;
+            width: 15%;
+          }
+
+          input {
+            display: block;
+            width: 90%;
+            border: 0.1px solid rgb(218, 218, 218);
+            font-size: 0.95em;
+            margin: 2em auto;
+            padding: 0.5em 1em 0.5em 2em;
+            border-radius: 50px;
+            letter-spacing: 2px;
+          }
+
+          input:focus {
+            outline: none;
+          }
+
+          // --- JOIN ResNav Btn ---
+          /* - Lighting Button - */
+          #My_Btn {
+            position: relative;
+            border: 0px solid transparent;
+            padding: 0.4em 1.8em;
+            // background-color: #0652dd;
+            background-color: #e7f0e7;
+            color: black;
+            font-size: 1em;
+            text-decoration: none;
+            letter-spacing: 0.2em;
+            border-radius: 50px;
+            display: block;
+            margin: 0em auto;
+            width: 90%;
+            overflow: hidden;
+            transition: 0.5s;
+            cursor: pointer;
+            text-align: center;
+          }
+          #My_Btn:hover {
+            color: white;
+            font-weight: bold;
+            background: #22d840;
+            box-shadow: 0 0 10px #22d840, 0 0 40px #22d840, 0 0 80px #22d840;
+            transition-delay: 1s;
+          }
+          /* Line Movement Button */
+          #My_Btn span {
+            position: absolute;
+            display: block;
+          }
+          /* -- Span 1 --  */
+          #My_Btn span:nth-child(1) {
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(1) {
+            left: 100%;
+            transition: 1s;
+          }
+          /* -- Span 3 --  */
+          #My_Btn span:nth-child(3) {
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(270deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(3) {
+            right: 100%;
+            transition: 1s;
+            transition-delay: 0.5s;
+          }
+          /* -- Span 2 --  */
+          #My_Btn span:nth-child(2) {
+            top: -100%;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(2) {
+            top: 100%;
+            transition: 1s;
+            transition-delay: 0.25s;
+          }
+          /* -- Span 4 --  */
+          #My_Btn span:nth-child(4) {
+            bottom: -100%;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(360deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(4) {
+            bottom: 100%;
+            transition: 1s;
+            transition-delay: 0.75s;
+          }
+          // --- JOIN ResNav Btn ---
+        }
+      }
+    }
     // -
   }
 }
@@ -2117,6 +2411,162 @@
               }
             }
           }
+        }
+      }
+    }
+
+    // --- 7 - Responsive Navbar ---
+    .Parent_ResNav_Whole {
+      padding: 1em 0em;
+      width: 95%;
+      border-radius: 5px;
+      margin: 0em auto;
+      position: absolute;
+      top: 80px;
+      left: 0px;
+      right: 0px;
+      z-index: 2;
+      display: block;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+      .Parent_ResNav_Whole_Sub {
+        padding: 1em 0em;
+
+        .ResNav_Box {
+          padding: 1em 1em;
+
+          ul {
+            li {
+              border: 0.1px solid #0a4621;
+              width: 90%;
+              padding: 0.3em 0.2em;
+              margin: 0.5em 0em;
+              border-radius: 50px;
+              letter-spacing: 2px;
+              font-weight: 400;
+              font-size: 0.9em;
+            }
+
+            #MyActive {
+              border: 0px solid transparent;
+              background-color: #0a4621;
+              width: 90%;
+              padding: 0.3em 0.2em;
+              margin: 0.5em 0em;
+              border-radius: 50px;
+              letter-spacing: 2px;
+              font-weight: 700;
+              font-size: 0.9em;
+              color: white;
+            }
+          }
+
+          img {
+            display: block;
+            margin: 2.5em auto;
+            width: 20%;
+          }
+
+          input {
+            display: block;
+            width: 90%;
+            border: 0.1px solid rgb(218, 218, 218);
+            font-size: 0.9em;
+            margin: 2em auto;
+            padding: 0.35em 0.5em 0.35em 2em;
+            border-radius: 50px;
+            letter-spacing: 2px;
+          }
+
+          input:focus {
+            outline: none;
+          }
+
+          // --- JOIN ResNav Btn ---
+          /* - Lighting Button - */
+          #My_Btn {
+            position: relative;
+            border: 0px solid transparent;
+            padding: 0.4em 1.8em;
+            // background-color: #0652dd;
+            background-color: #e7f0e7;
+            color: black;
+            font-size: 0.9em;
+            text-decoration: none;
+            letter-spacing: 0.2em;
+            border-radius: 50px;
+            display: block;
+            margin: 0em auto;
+            width: 90%;
+            overflow: hidden;
+            transition: 0.5s;
+            cursor: pointer;
+            text-align: center;
+          }
+          #My_Btn:hover {
+            color: white;
+            font-weight: bold;
+            background: #22d840;
+            box-shadow: 0 0 10px #22d840, 0 0 40px #22d840, 0 0 80px #22d840;
+            transition-delay: 1s;
+          }
+          /* Line Movement Button */
+          #My_Btn span {
+            position: absolute;
+            display: block;
+          }
+          /* -- Span 1 --  */
+          #My_Btn span:nth-child(1) {
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(1) {
+            left: 100%;
+            transition: 1s;
+          }
+          /* -- Span 3 --  */
+          #My_Btn span:nth-child(3) {
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(270deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(3) {
+            right: 100%;
+            transition: 1s;
+            transition-delay: 0.5s;
+          }
+          /* -- Span 2 --  */
+          #My_Btn span:nth-child(2) {
+            top: -100%;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(2) {
+            top: 100%;
+            transition: 1s;
+            transition-delay: 0.25s;
+          }
+          /* -- Span 4 --  */
+          #My_Btn span:nth-child(4) {
+            bottom: -100%;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(360deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(4) {
+            bottom: 100%;
+            transition: 1s;
+            transition-delay: 0.75s;
+          }
+          // --- JOIN ResNav Btn ---
         }
       }
     }
