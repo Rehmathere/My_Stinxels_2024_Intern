@@ -287,7 +287,7 @@ function About() {
               </div>
               <div className="Footer_Box_Part_1_B">
                 <ul>
-                  <li>Home</li>
+                  <li onClick={() => navigate("/")}>Home</li>
                   {/* <li>Services</li> */}
                   <li>About</li>
                   <li>Contact</li>
