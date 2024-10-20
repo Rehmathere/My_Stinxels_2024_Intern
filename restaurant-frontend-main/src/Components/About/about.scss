@@ -3199,7 +3199,7 @@
     #sub_About_ten h2 {
       font-size: 1.2em;
       text-align: center;
-      padding: 0.3em 0.4em 1em 0.4em;
+      padding: 0.3em 0.4em 1.5em 0.4em;
       letter-spacing: 3px;
     }
     #sub_box_ten {
@@ -3209,7 +3209,7 @@
     .ten_1_1 {
       width: 100%;
       padding: 5px 5px;
-      margin: 8px 0;
+      margin: 10px 0;
     }
     .ten_1_1.active h6 {
       font-size: 15px;
@@ -3225,8 +3225,8 @@
     }
     .ten_1_1_icon {
       margin: 0px 0px 0px 0px;
-      width: 0px;
-      height: 0px;
+      width: 23px;
+      height: 23px;
       background: url(https://raw.githubusercontent.com/Tusar78/responsive-accordion/main/images/toggle-bg.png)
         no-repeat 4px 4px #0a4621;
     }
@@ -3237,12 +3237,12 @@
 
     // --- 7 - Responsive Navbar ---
     .Parent_ResNav_Whole {
-      padding: 1em 0em;
-      width: 95%;
+      padding: 0.5em 0em;
+      width: 100%;
       border-radius: 5px;
       margin: 0em auto;
       position: absolute;
-      top: 80px;
+      top: 70px;
       left: 0px;
       right: 0px;
       z-index: 2;
@@ -3250,21 +3250,21 @@
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
       .Parent_ResNav_Whole_Sub {
-        padding: 1em 0em;
+        padding: 0.5em 0em;
 
         .ResNav_Box {
-          padding: 1em 1em;
+          padding: 0.5em 0.5em;
 
           ul {
             li {
               border: 0.1px solid #0a4621;
               width: 90%;
               padding: 0.3em 0.2em;
-              margin: 0.5em 0em;
+              margin: 0.3em 0em;
               border-radius: 50px;
               letter-spacing: 2px;
               font-weight: 400;
-              font-size: 0.9em;
+              font-size: 0.75em;
             }
 
             #MyActive {
@@ -3272,30 +3272,30 @@
               background-color: #0a4621;
               width: 90%;
               padding: 0.3em 0.2em;
-              margin: 0.5em 0em;
+              margin: 0.3em 0em;
               border-radius: 50px;
               letter-spacing: 2px;
               font-weight: 700;
-              font-size: 0.9em;
+              font-size: 0.75em;
               color: white;
             }
           }
 
           img {
             display: block;
-            margin: 2.5em auto;
-            width: 20%;
+            margin: 1em auto;
+            width: 18%;
           }
 
           input {
             display: block;
             width: 90%;
             border: 0.1px solid rgb(218, 218, 218);
-            font-size: 0.9em;
-            margin: 2em auto;
+            font-size: 0.8em;
+            margin: 1em auto;
             padding: 0.35em 0.5em 0.35em 2em;
             border-radius: 50px;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
           }
 
           input:focus {
@@ -3311,9 +3311,9 @@
             // background-color: #0652dd;
             background-color: #e7f0e7;
             color: black;
-            font-size: 0.9em;
+            font-size: 0.8em;
             text-decoration: none;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.5em;
             border-radius: 50px;
             display: block;
             margin: 0em auto;

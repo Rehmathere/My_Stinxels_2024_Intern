@@ -45,13 +45,13 @@ function About() {
   const faqData = [
     // 1
     {
-      question: "What is our restaurant's primary focus?",
+      question: "What is our primary focus?",
       answer:
         "Our restaurant is dedicated to providing a seamless and personalized dining experience by integrating technology into food services. We aim to enhance customer convenience and satisfaction across all our branches.",
     },
     // 2
     {
-      question: "What services does the restaurant offer?",
+      question: "What services does we offer?",
       answer:
         "We offer a variety of services including online food ordering for delivery or takeaway, table reservations, real-time order tracking, and exclusive promotions and discounts for our customers.",
     },

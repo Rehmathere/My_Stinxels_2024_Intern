@@ -35,11 +35,11 @@
             text-transform: uppercase;
             letter-spacing: 3px;
           }
-          
+
           .Login_Main_Part_Sub {
             border: 0px solid transparent;
             padding: 0.1em 0.1em 0.8em 0.1em;
-            
+
             .Login_P {
               border: 0px solid transparent;
               text-align: center;
@@ -53,13 +53,11 @@
               font-size: 0.9em;
             }
 
-            
-            
             .Login_Field_Box {
               border: 0px solid transparent;
               padding: 0.6em 0.1em 0.6em 0.1em;
               position: relative;
-              
+
               input {
                 border: 0.1px solid rgb(194, 194, 194);
                 padding: 0.4em 1em 0.4em 1em;
@@ -132,11 +130,10 @@
               }
             }
 
-
             .Login_Field_Box_Signup {
               border: 0px solid transparent;
               padding: 0.6em 0.1em 0.6em 0.1em;
-              
+
               .My_Signup_Inp {
                 border: 0.1px solid rgb(194, 194, 194);
                 padding: 0.3em 1em 0.3em 1em;
@@ -150,7 +147,7 @@
               .My_Signup_Inp:focus {
                 outline: none;
               }
-              
+
               .My_Signup_Inp_Pass {
                 border: 0.1px solid rgb(194, 194, 194);
                 padding: 0.4em 1em 0.4em 1em;
@@ -251,6 +248,41 @@
             font-size: 0.85em;
             display: block;
             margin: 0em auto;
+          }
+        }
+      }
+    }
+  }
+
+  // --- 0 - Login Navbar ---
+  .Parent_LoginNav_Whole {
+    border: 0px solid transparent;
+    padding: 0.3em 0.3em 0.3em 0.3em;
+    // background-color: #e7f0e7;
+    background-color: white;
+
+    .Parent_LoginNav_Whole_Sub {
+      border: 0px solid transparent;
+      padding: 0.3em 0.3em 0.3em 0.3em;
+
+      .LoginNav_Box {
+        border: 0px solid transparent;
+        padding: 0.3em 0.3em 0.3em 0.3em;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+
+        .LoginNav_Box_Part1 {
+          border: 0px solid transparent;
+          width: 5%;
+
+          img {
+            border: 0px solid transparent;
+            width: 70%;
+            display: block;
+            margin: 0em auto;
+            cursor: pointer;
           }
         }
       }
@@ -368,6 +400,27 @@
       }
     }
   }
+
+  // --- 0 - Login Navbar ---
+  .Parent_LoginNav_Whole {
+    padding: 0.3em 0.3em 0.3em 0.3em;
+
+    .Parent_LoginNav_Whole_Sub {
+      padding: 0.3em 0.3em 0.3em 0.3em;
+
+      .LoginNav_Box {
+        padding: 0.3em 0.3em 0.3em 0.3em;
+
+        .LoginNav_Box_Part1 {
+          width: 5%;
+
+          img {
+            width: 70%;
+          }
+        }
+      }
+    }
+  }
   // -
 }
 
@@ -376,7 +429,7 @@
   .My_Parent_Login {
     // --- 1 - Login.jsx ---
     .Parent_Login_Whole {
-      padding: 3em 1em 3em 1em;
+      padding: 2em 1em 2em 1em;
 
       .Sub_Login_Whole {
         padding: 3em 1em 3em 1em;
@@ -477,6 +530,27 @@
       }
     }
   }
+
+  // --- 0 - Login Navbar ---
+  .Parent_LoginNav_Whole {
+    padding: 0.3em 0.3em 0.3em 0.3em;
+
+    .Parent_LoginNav_Whole_Sub {
+      padding: 0.3em 0.3em 0.3em 0.3em;
+
+      .LoginNav_Box {
+        padding: 0.3em 0.3em 0.3em 0.3em;
+
+        .LoginNav_Box_Part1 {
+          width: 5%;
+
+          img {
+            width: 70%;
+          }
+        }
+      }
+    }
+  }
   // -
 }
 
@@ -555,7 +629,8 @@
                   letter-spacing: 2px;
                 }
 
-                .My_Signup_Inp, .My_Signup_Inp_Pass {
+                .My_Signup_Inp,
+                .My_Signup_Inp_Pass {
                   padding: 0.3em 1em 0.3em 0.8em;
                   border-radius: 5px;
                   width: 80%;
@@ -568,6 +643,21 @@
                   padding: 0.3em 0em 0.3em 0em;
                   margin: 0.1em auto;
                   letter-spacing: 2px;
+                }
+
+                .My_Signup_Inp_Btn {
+                  background: radial-gradient(circle, #107236 0%, #0a4621 100%);
+                  width: 50%;
+                  padding: 0.5em 0em 2em 0em;
+                  text-align: center;
+                  display: block;
+                  margin: 0.3em auto 0em auto;
+                  color: white;
+                  letter-spacing: 2px;
+                  text-transform: uppercase;
+                  border-radius: 20px;
+                  font-weight: 600;
+                  transition: background-color 0.3s ease, transform 0.3s ease;
                 }
               }
 
@@ -615,6 +705,27 @@
       }
     }
   }
+
+  // --- 0 - Login Navbar ---
+  .Parent_LoginNav_Whole {
+    padding: 0.3em 0.2em 0.3em 0.2em;
+
+    .Parent_LoginNav_Whole_Sub {
+      padding: 0.3em 0.2em 0.3em 0.2em;
+
+      .LoginNav_Box {
+        padding: 0.3em 0.3em 0.3em 0.3em;
+
+        .LoginNav_Box_Part1 {
+          width: 6%;
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
   // -
 }
 
@@ -623,7 +734,7 @@
   .My_Parent_Login {
     // --- 1 - Login.jsx ---
     .Parent_Login_Whole {
-      padding: 2em 1em 2em 1em;
+      padding: 3em 1em 2em 1em;
 
       .Sub_Login_Whole {
         padding: 2em 0.5em 2em 0.5em;
@@ -724,8 +835,28 @@
         }
       }
     }
+    // --- 0 - Login Navbar ---
+    .Parent_LoginNav_Whole {
+      padding: 0.2em 0.2em 0.2em 0.2em;
+
+      .Parent_LoginNav_Whole_Sub {
+        padding: 0.2em 0.2em 0.2em 0.2em;
+
+        .LoginNav_Box {
+          padding: 0.2em 0.2em 0.2em 0.2em;
+
+          .LoginNav_Box_Part1 {
+            width: 6%;
+
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    // -
   }
-  // -
 }
 
 /* 4 - First Media Queries */
@@ -733,7 +864,7 @@
   .My_Parent_Login {
     // --- 1 - Login.jsx ---
     .Parent_Login_Whole {
-      padding: 0.5em 0em 0.5em 0em;
+      padding: 0.8em 0em 0.5em 0em;
 
       .Sub_Login_Whole {
         padding: 0.1em 0em 0.1em 0em;
@@ -840,8 +971,29 @@
         }
       }
     }
+
+    // --- 0 - Login Navbar ---
+    .Parent_LoginNav_Whole {
+      padding: 0.2em 0.2em 0.2em 0.2em;
+
+      .Parent_LoginNav_Whole_Sub {
+        padding: 0.2em 0.2em 0.2em 0.2em;
+
+        .LoginNav_Box {
+          padding: 0.2em 0.2em 0.2em 0.2em;
+
+          .LoginNav_Box_Part1 {
+            width: 7%;
+
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    // -
   }
-  // -
 }
 
 /* 5 - First Media Queries */
@@ -849,7 +1001,7 @@
   .My_Parent_Login {
     // --- 1 - Login.jsx ---
     .Parent_Login_Whole {
-      padding: 0.5em 0em 0.5em 0em;
+      padding: 2em 0em 0.5em 0em;
 
       .Sub_Login_Whole {
         padding: 0.1em 0em 0.1em 0em;
@@ -912,26 +1064,64 @@
                 }
               }
 
+              .Login_Field_Box_Signup {
+                padding: 0.6em 0.1em 0.6em 0.1em;
+
+                .My_Signup_Inp {
+                  padding: 0.3em 1em 0.3em 0.8em;
+                  border-radius: 5px;
+                  width: 80%;
+                  font-size: 0.95em;
+                  letter-spacing: 2px;
+                }
+
+                .My_Signup_Inp,
+                .My_Signup_Inp_Pass {
+                  padding: 0.3em 1em 0.3em 0.8em;
+                  border-radius: 5px;
+                  width: 80%;
+                  font-size: 0.95em;
+                  letter-spacing: 2px;
+                }
+
+                button {
+                  width: 40%;
+                  padding: 0.3em 0em 0.3em 0em;
+                  margin: 0.1em auto;
+                  letter-spacing: 2px;
+                }
+
+                .My_Signup_Inp_Btn {
+                  width: 50%;
+                  padding: 0.4em 0em 2em 0em;
+                  font-size: 0.9em;
+                  margin: 0.3em auto 0em auto;
+                  letter-spacing: 3px;
+                  border-radius: 20px;
+                  font-weight: 500;
+                }
+              }
+
               .Login_Field_Box_Last {
-                padding: 0.1em 0.1em 0.1em 0.1em;
+                padding: 0em 0.1em 0.1em 0.1em;
 
                 .Login_Last_Part_1 {
-                  padding: 0.1em 0.5em 0.1em 0.5em;
+                  padding: 0em 0.5em 0.1em 0.5em;
 
                   p {
-                    padding: 0.1em 0.1em 0.1em 0.1em;
+                    padding: 0em 0.1em 0.1em 0.1em;
                     font-size: 0.75em;
                     letter-spacing: 0.5px;
                   }
                 }
 
                 .Login_Last_Part_2 {
-                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  padding: 0em 0.1em 0.1em 0.1em;
 
                   p {
                     font-size: 0.75em;
                     letter-spacing: 0.5px;
-                    padding: 0.1em 0.1em 0.1em 0.1em;
+                    padding: 0em 0.1em 0.1em 0.1em;
                   }
                 }
               }
@@ -957,6 +1147,27 @@
         }
       }
     }
+
+    // --- 0 - Login Navbar ---
+    .Parent_LoginNav_Whole {
+      padding: 0.2em 0.2em 0.2em 0.2em;
+
+      .Parent_LoginNav_Whole_Sub {
+        padding: 0.2em 0.2em 0.2em 0.2em;
+
+        .LoginNav_Box {
+          padding: 0.2em 0.2em 0.2em 0.2em;
+
+          .LoginNav_Box_Part1 {
+            width: 8%;
+
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    // -
   }
-  // -
 }

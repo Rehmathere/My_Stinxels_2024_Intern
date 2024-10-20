@@ -8,6 +8,7 @@ import { signUpThunk } from "../../Redux/Thunks/UserApi";
 import "./login.scss";
 // Img
 import login from "../../assets/signup.png";
+import Back from "../../assets/back.png";
 
 function Signup() {
   // useNavigate Variable
@@ -23,7 +24,17 @@ function Signup() {
   // Main Body
   return (
     <div className="My_Parent_Login">
-      {/* --- 1 - Login --- */}
+      {/* --- 0 - Login Navbar --- */}
+      <div className="Parent_LoginNav_Whole">
+        <div className="Parent_LoginNav_Whole_Sub">
+          <div className="LoginNav_Box">
+            <div className="LoginNav_Box_Part1">
+              <img src={Back} alt="NA" onClick={() => navigate("/")} />
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* --- 1 - Signup --- */}
       <div className="Parent_Login_Whole">
         <div className="Sub_Login_Whole">
           <div className="Login_Main">
@@ -61,7 +72,9 @@ function Signup() {
                     </Form.Item>
 
                     <Form.Item>
-                      <Button className="My_Signup_Inp_Btn" htmlType="submit">Sign Up</Button>
+                      <Button className="My_Signup_Inp_Btn" htmlType="submit">
+                        Sign Up
+                      </Button>
                     </Form.Item>
                   </Form>
                 </div>

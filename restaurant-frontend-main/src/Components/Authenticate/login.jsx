@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 // Login CSS
 import "./login.scss";
 // Img
-import login from "../../assets/login.png"
+import login from "../../assets/login.png";
+import Back from "../../assets/back.png";
 
 function Login() {
   // useNavigate Variable
@@ -21,6 +22,16 @@ function Login() {
   // Main Body
   return (
     <div className="My_Parent_Login">
+      {/* --- 0 - Login Navbar --- */}
+      <div className="Parent_LoginNav_Whole">
+        <div className="Parent_LoginNav_Whole_Sub">
+          <div className="LoginNav_Box">
+            <div className="LoginNav_Box_Part1">
+              <img src={Back} alt="NA" onClick={() => navigate("/")} />
+            </div>
+          </div>
+        </div>
+      </div>
       {/* --- 1 - Login --- */}
       <div className="Parent_Login_Whole">
         <div className="Sub_Login_Whole">
@@ -28,7 +39,9 @@ function Login() {
             <div className="Login_Main_Part_1">
               <h1>Sign In</h1>
               <div className="Login_Main_Part_Sub">
-                <p className="Login_P">Kindly provide your valid Credentials to continue</p>
+                <p className="Login_P">
+                  Kindly provide your valid Credentials to continue
+                </p>
                 {/* Field Box */}
                 <div className="Login_Field_Box">
                   <input type="text" placeholder="Enter Your Email " />
@@ -70,7 +83,10 @@ function Login() {
             </div>
             <div className="Login_Main_Part_2">
               <img src={login} alt="NA" />
-              <p>Use your email to log in and stay connected with dashboard and exclusive features</p>
+              <p>
+                Use your email to log in and stay connected with dashboard and
+                exclusive features
+              </p>
             </div>
           </div>
         </div>
