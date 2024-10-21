@@ -19,14 +19,20 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(signUpThunk.fulfilled, (state, action) => {
-      console.log(action.payload.authToken);
+      const { navigate, authToken } = action.payload;
+      localStorage.setItem("token", authToken);
+      navigate("/admin");
     });
 
     builder.addCase(signUpThunk.rejected, (state, action) => {
       // add show Error toast here
     });
 
-    builder.addCase(signInThunk.fulfilled, (state, action) => {});
+    builder.addCase(signInThunk.fulfilled, (state, action) => {
+      const { navigate, authToken } = action.payload;
+      localStorage.setItem("token", authToken);
+      navigate("/admin");
+    });
 
     builder.addCase(signInThunk.rejected, (state, action) => {
       // add show Error toast here

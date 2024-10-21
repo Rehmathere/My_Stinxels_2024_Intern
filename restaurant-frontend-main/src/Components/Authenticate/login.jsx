@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 // useNavigate
 import { useNavigate } from "react-router-dom";
+import { Form, Input, Button } from "antd";
+import { signInThunk } from "../../Redux/Thunks/UserApi";
+import { useDispatch } from "react-redux";
 // Login CSS
 import "./login.scss";
 // Img
@@ -10,13 +13,10 @@ import Back from "../../assets/back.png";
 function Login() {
   // useNavigate Variable
   const navigate = useNavigate();
-  // Password Logic
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const handleMouseDown = () => {
-    setIsPasswordVisible(true);
-  };
-  const handleMouseUp = () => {
-    setIsPasswordVisible(false);
+  const dispatch = useDispatch();
+
+  const handleFinish = (body) => {
+    dispatch(signInThunk({ ...body, navigate }));
   };
 
   // Main Body
@@ -42,34 +42,33 @@ function Login() {
                 <p className="Login_P">
                   Kindly provide your valid Credentials to continue
                 </p>
+
                 {/* Field Box */}
-                <div className="Login_Field_Box">
-                  <input type="text" placeholder="Enter Your Email " />
+                <div className="Login_Field_Box_Signup">
+                  <Form onFinish={handleFinish}>
+                    <Form.Item name={"email"}>
+                      <Input
+                        className="My_Signup_Inp"
+                        type="email"
+                        placeholder="Enter Email"
+                      ></Input>
+                    </Form.Item>
+                    <Form.Item name={"password"}>
+                      <Input.Password
+                        className="My_Signup_Inp_Pass"
+                        type="email"
+                        placeholder="Enter Password"
+                      ></Input.Password>
+                    </Form.Item>
+
+                    <Form.Item>
+                      <Button className="My_Signup_Inp_Btn" htmlType="submit">
+                        Sign In
+                      </Button>
+                    </Form.Item>
+                  </Form>
                 </div>
-                {/* Field Box */}
-                <div className="Login_Field_Box">
-                  <input
-                    type={isPasswordVisible ? "text" : "password"}
-                    placeholder="Enter Your Password"
-                  />
-                  {/* Eye icon for toggling visibility */}
-                  <div
-                    className="My_Pass_Box"
-                    onMouseDown={handleMouseDown}
-                    onMouseUp={handleMouseUp}
-                    onMouseLeave={handleMouseUp}
-                  >
-                    <i
-                      className={
-                        isPasswordVisible ? "fa fa-eye-slash" : "fa fa-eye"
-                      }
-                    />
-                  </div>
-                </div>
-                {/* Field Box */}
-                <div className="Login_Field_Box">
-                  <button>Sign In</button>
-                </div>
+
                 {/* Field Box Last */}
                 <div className="Login_Field_Box_Last">
                   <div className="Login_Last_Part_1">

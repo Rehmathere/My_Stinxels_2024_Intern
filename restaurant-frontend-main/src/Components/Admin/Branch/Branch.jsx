@@ -89,16 +89,23 @@ function Branch() {
         <Form.Item label="Tables">
           <Form.List name={["tables"]}>
             {(subFields, subOpt) => (
-              <div style={{ display: "flex", flexDirection: "column", rowGap: 16 }}>
+              <div
+                style={{ display: "flex", flexDirection: "column", rowGap: 16 }}
+              >
                 {subFields.map((subField) => (
                   <Space key={subField.key}>
                     <Form.Item noStyle name={[subField.name, "seatingSize"]}>
                       <Input placeholder="Enter Seating Size" type="number" />
                     </Form.Item>
                     <Form.Item noStyle name={[subField.name, "qty"]}>
-                      <Input placeholder="Enter Quantity of Table" type="number" />
+                      <Input
+                        placeholder="Enter Quantity of Table"
+                        type="number"
+                      />
                     </Form.Item>
-                    <CloseOutlined onClick={() => subOpt.remove(subField.name)} />
+                    <CloseOutlined
+                      onClick={() => subOpt.remove(subField.name)}
+                    />
                   </Space>
                 ))}
                 <Button type="dashed" onClick={() => subOpt.add()} block>
@@ -204,7 +211,11 @@ function Branch() {
         FormContent={FormContent}
         setForm={setForm}
       />
-      <Table dataSource={dummyData} columns={columns} rowClassName="custom-table-row" />
+      <Table
+        dataSource={branches}
+        columns={columns}
+        rowClassName="custom-table-row"
+      />
     </>
   );
 }

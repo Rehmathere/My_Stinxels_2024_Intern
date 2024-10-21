@@ -5,8 +5,11 @@ export const signUpThunk = createAsyncThunk(
   "signUpThunk",
   async (body, { rejectWithValue }) => {
     try {
+      console.log(body);
+
       const res = await signUp(body);
       return {
+        navigate: body.navigate,
         authToken: res.data,
         message: res?.response?.data?.error,
       };
@@ -26,6 +29,7 @@ export const signInThunk = createAsyncThunk(
       const res = await signIn(body);
 
       return {
+        navigate: body.navigate,
         authToken: res.data,
         message: res?.response?.data?.error,
       };

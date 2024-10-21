@@ -18,7 +18,7 @@ function Signup() {
   // Password Logic
 
   const handleFinish = (body) => {
-    dispatch(signUpThunk({ ...body, socketId }));
+    dispatch(signUpThunk({ ...body, socketId, navigate }));
   };
 
   // Main Body

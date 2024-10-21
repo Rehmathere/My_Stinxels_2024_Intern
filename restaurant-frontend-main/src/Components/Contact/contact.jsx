@@ -36,7 +36,7 @@ function Contact() {
 
   // Main Body
   return (
-    <div className="My_Parent_About">
+    <div className="My_Parent_About_C">
       {/* --- 1 - Navbar + Background --- */}
       <div className="Parent_Navbar_Whole">
         <div className="Sub_Parent_Navbar_Whole">

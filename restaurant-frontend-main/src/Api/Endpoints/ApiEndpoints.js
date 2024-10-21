@@ -29,3 +29,15 @@ export const updateBranch = (branch) =>
 
 export const deleteBranch = (branchId) =>
   api.delete(`${authEndpoint}/admin/branch?${branchId.toString()}`);
+
+export const getReservation = () =>
+  api.get(`${authEndpoint}/admin/reservation`);
+
+export const addReservation = (reservation) =>
+  api.post(`${authEndpoint}/admin/reservation`, reservation);
+
+export const updateReservation = (reservation) =>
+  api.patch(`${authEndpoint}/admin/reservation`, reservation);
+
+export const deleteReservation = (reservationId) =>
+  api.delete(`${authEndpoint}/admin/reservation?${reservationId.toString()}`);
