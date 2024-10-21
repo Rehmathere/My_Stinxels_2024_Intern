@@ -233,7 +233,7 @@ function Home() {
                 <li id="Special_Li">Home</li>
                 {/* <li>Services</li> */}
                 <li onClick={() => navigate("/about")}>About</li>
-                <li>Contact</li>
+                <li onClick={() => navigate("/contact")}>Contact</li>
               </ul>
             </div>
             {/* - Part 3 - */}
@@ -362,7 +362,7 @@ function Home() {
                   <li>Home</li>
                   {/* <li>Services</li> */}
                   <li onClick={() => navigate("/about")}>About</li>
-                  <li>Contact</li>
+                  <li onClick={() => navigate("/contact")}>Contact</li>
                 </ul>
               </div>
               <div className="Footer_Box_Part_1_C">
@@ -397,7 +397,7 @@ function Home() {
               <ul>
                 <li id="MyActive">Home</li>
                 <li onClick={() => navigate("/about")}>About</li>
-                <li>Contact Us</li>
+                <li onClick={() => navigate("/contact")}>Contact Us</li>
               </ul>
               <img src={search} alt="NA" onClick={toggleInputVisibility} />
               {isInputVisible && (

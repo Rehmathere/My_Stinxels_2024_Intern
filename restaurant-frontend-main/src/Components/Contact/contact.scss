@@ -1,0 +1,2409 @@
+// - Contact.jsx - ( Use Mostly About CSS )
+
+.My_Parent_About {
+  // --- 1 - Navbar ---
+  .Parent_Navbar_Whole {
+    position: relative;
+    border: 0px solid transparent;
+    padding: 0em 0em 0.1em 0em;
+    background: url("../../assets/contact.jpg") no-repeat center center;
+    background-size: cover;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.884);
+      z-index: 1;
+    }
+
+    .Sub_Parent_Navbar_Whole {
+      position: relative;
+      z-index: 2;
+      border: 0px solid transparent;
+      padding: 0em 0em 0.1em 0em;
+
+      // 1 - Navbar Main
+      .Navbar_Main {
+        border: 0px solid transparent;
+        padding: 0.5em 0.2em 0.5em 0.2em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+        .Navbar_Main_Part_1 {
+          border: 0px solid transparent;
+          width: 10%;
+
+          img {
+            border: 0px solid transparent;
+            width: 70%;
+            display: block;
+            margin: 0em auto;
+          }
+        }
+
+        .Navbar_Main_Part_2 {
+          border: 0px solid transparent;
+          width: 30%;
+          padding: 0.2em 0.2em 0.2em 0.2em;
+
+          ul {
+            border: 0px solid transparent;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0.2em 0.2em 0.2em 0.2em;
+
+            li {
+              border: 0px solid transparent;
+              color: white;
+              padding: 0.2em 0.2em 0.2em 0.2em;
+              font-weight: 700;
+              letter-spacing: 0.5px;
+              transition: border-bottom 0.3s ease;
+            }
+            li:hover {
+              cursor: pointer;
+              border-bottom: 1px solid white;
+            }
+            #Special_Li {
+              border-bottom: 2px solid white;
+            }
+          }
+        }
+
+        .Navbar_Main_Part_3 {
+          border: 0px solid transparent;
+          padding: 0.2em 0.2em 0.2em 0.2em;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          width: 20%;
+
+          .Navbar_Main_Part_3_A {
+            border: 0px solid transparent;
+            padding: 0.2em 0.2em 0.2em 0.2em;
+
+            .Navbar_Main_Part_3_A_Box {
+              border: 0.1px solid white;
+              padding: 0.55em 1em 0.75em 1em;
+              border-radius: 50%;
+              transition: background-color 0.3s ease, transform 0.3s ease; /* Transition for background and scale */
+
+              i {
+                font-size: 1em;
+                color: white;
+              }
+            }
+
+            .Navbar_Main_Part_3_A_Box:hover {
+              background-color: rgba(255, 255, 255, 0.116);
+              cursor: pointer;
+              transform: scale(1.05); /* Slightly scale up on hover */
+            }
+          }
+
+          // - Search Bar -
+          .searchBar {
+            width: 0px;
+            opacity: 0;
+            padding: 0px;
+            border: none;
+            transition: width 0.7s ease, opacity 0.7s ease;
+            margin-left: 10px;
+            position: absolute;
+            top: 105px;
+            right: 140px;
+          }
+
+          .searchBar.show {
+            width: 400px;
+            opacity: 1;
+            padding: 5px 10px 5px 15px;
+            border: 1px solid #ccc;
+            border-radius: 50px;
+            letter-spacing: 1px;
+          }
+
+          .searchBar.hide {
+            width: 0px;
+            opacity: 0;
+            padding: 5px 10px 5px 15px;
+            border-radius: 50px;
+          }
+          .searchBar:hover,
+          .searchBar:focus {
+            outline: none;
+          }
+
+          .Navbar_Main_Part_3_B {
+            border: 0px solid transparent;
+            padding: 0.2em 0.2em 0.2em 0.2em;
+
+            /* - Lighting Button - */
+            #My_Btn {
+              position: relative;
+              border: 0px solid transparent;
+              padding: 0.3em 1.8em;
+              // background-color: #0652dd;
+              background-color: #e7f0e7;
+              color: black;
+              font-size: 1em;
+              text-decoration: none;
+              letter-spacing: 0.2em;
+              border-radius: 5px;
+              display: block;
+              overflow: hidden;
+              transition: 0.5s;
+              cursor: pointer;
+            }
+            #My_Btn:hover {
+              color: white;
+              font-weight: bold;
+              background: #22d840;
+              box-shadow: 0 0 10px #22d840, 0 0 40px #22d840, 0 0 80px #22d840;
+              transition-delay: 1s;
+            }
+            /* Line Movement Button */
+            #My_Btn span {
+              position: absolute;
+              display: block;
+            }
+            /* -- Span 1 --  */
+            #My_Btn span:nth-child(1) {
+              top: 0;
+              left: -100%;
+              width: 100%;
+              height: 2px;
+              background: linear-gradient(90deg, transparent, #22d840);
+            }
+            #My_Btn:hover span:nth-child(1) {
+              left: 100%;
+              transition: 1s;
+            }
+            /* -- Span 3 --  */
+            #My_Btn span:nth-child(3) {
+              bottom: 0;
+              right: -100%;
+              width: 100%;
+              height: 2px;
+              background: linear-gradient(270deg, transparent, #22d840);
+            }
+            #My_Btn:hover span:nth-child(3) {
+              right: 100%;
+              transition: 1s;
+              transition-delay: 0.5s;
+            }
+            /* -- Span 2 --  */
+            #My_Btn span:nth-child(2) {
+              top: -100%;
+              right: 0;
+              width: 2px;
+              height: 100%;
+              background: linear-gradient(180deg, transparent, #22d840);
+            }
+            #My_Btn:hover span:nth-child(2) {
+              top: 100%;
+              transition: 1s;
+              transition-delay: 0.25s;
+            }
+            /* -- Span 4 --  */
+            #My_Btn span:nth-child(4) {
+              bottom: -100%;
+              left: 0;
+              width: 2px;
+              height: 100%;
+              background: linear-gradient(360deg, transparent, #22d840);
+            }
+            #My_Btn:hover span:nth-child(4) {
+              bottom: 100%;
+              transition: 1s;
+              transition-delay: 0.75s;
+            }
+            /* ------------------------ */
+          }
+          .Navbar_Main_Part_4 {
+            display: none;
+            visibility: hidden;
+          }
+        }
+      }
+
+      // 2 - Background Txt
+      .Background_Txt_Parent {
+        border: 0px solid transparent;
+        padding: 5em 1em 5em 1em;
+
+        h1 {
+          border: 0px solid transparent;
+          padding: 0.1em 0.1em 0.1em 0.3em;
+          font-size: 3.3em;
+          font-weight: bold;
+          letter-spacing: 3px;
+          width: 55%;
+          margin: 0em auto;
+          color: white;
+          text-shadow: 2px 2px 5px rgb(0, 0, 0);
+          text-transform: uppercase;
+          text-align: center;
+        }
+
+        p {
+          border: 0px solid transparent;
+          padding: 0.3em 0.1em 0.3em 1em;
+          font-size: 0.8em;
+          letter-spacing: 3.2px;
+          width: 45%;
+          margin: 0em auto;
+          color: white;
+          text-transform: capitalize;
+          text-shadow: 1px 1px 4px rgba(0, 0, 0, 0);
+          line-height: 3vh;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  // --- 2 - Footer ---
+  .Parent_Footer_Whole {
+    border: 0px solid transparent;
+    padding: 3em 0em 0em 0em;
+
+    .Parent_Footer_Whole_Sub {
+      border: 0px solid transparent;
+      padding: 1em 1em 1em 1em;
+      // background-color: #141414;
+      background-color: #0a4621;
+
+      .Footer_Box {
+        border: 0px solid transparent;
+        padding: 1em 1em 1em 1em;
+
+        .Footer_Box_Part_1 {
+          border: 0px solid transparent;
+          padding: 1em 0em 1.5em 0em;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          width: 90%;
+          margin: 0em auto;
+          border-bottom: 0.1px solid rgba(233, 233, 233, 0.527);
+
+          .Footer_Box_Part_1_A {
+            border: 0px solid transparent;
+            padding: 1em 0.1em 1em 0.1em;
+            width: 20%;
+
+            img {
+              border: 0px solid transparent;
+              width: 60%;
+              display: block;
+              margin: 0em auto;
+            }
+          }
+
+          .Footer_Box_Part_1_B {
+            border: 0px solid transparent;
+            padding: 1em 0.1em 1em 0.1em;
+            width: 20%;
+
+            ul {
+              border: 0px solid transparent;
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+
+              li {
+                border: 0px solid transparent;
+                padding: 0.3em 0.1em 0.3em 0.1em;
+                color: white;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+              }
+
+              li:hover {
+                font-weight: bold;
+                cursor: pointer;
+              }
+            }
+          }
+
+          .Footer_Box_Part_1_C {
+            border: 0px solid transparent;
+            padding: 1em 0.1em 1em 0.1em;
+            width: 20%;
+
+            p {
+              border: 0px solid transparent;
+              padding: 0.1em 0.1em 0.1em 0.1em;
+              color: white;
+              text-align: center;
+            }
+          }
+        }
+
+        .Footer_Box_Part_2 {
+          border: 0px solid transparent;
+          padding: 2.5em 1em 1em 1em;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+
+          .Footer_Box_Icon {
+            border: 0.1px solid rgba(255, 255, 255, 0.671);
+            padding: 0.7em 0.1em 0.7em 0.1em;
+            width: 4%;
+            margin: 0em 0em 0em 2em;
+            border-radius: 50%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+
+            img {
+              border: 0px solid transparent;
+              padding: 0.1em 0.1em 0.1em 0.1em;
+              border-radius: 0px;
+              width: 50%;
+              display: block;
+              margin: 0em auto;
+            }
+          }
+
+          .Footer_Box_Icon:hover {
+            background-color: rgba(231, 231, 231, 0.123);
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  // --- 7 - Responsive Navbar ---
+  .Parent_ResNav_Whole {
+    border: 0px solid transparent;
+    padding: 1em 0em;
+    width: 95%;
+    margin: 0em auto;
+    background-color: white;
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    right: 0px;
+    z-index: 2;
+    display: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    .Parent_ResNav_Whole_Sub {
+      border: 0px solid transparent;
+      padding: 1em 0em;
+
+      .ResNav_Box {
+        border: 0px solid transparent;
+        padding: 1em 1em;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          li {
+            border: 0px solid transparent;
+            width: 90%;
+            color: #0a4621;
+            text-align: center;
+            padding: 0.4em 0.5em;
+            margin: 0.5em 0em;
+            border-radius: 50px;
+            letter-spacing: 2px;
+          }
+        }
+
+        input {
+          display: block;
+          width: 90%;
+          border: 0.1px solid rgb(218, 218, 218);
+          margin: 2em auto;
+          padding: 0.4em 1em 0.4em 2em;
+          border-radius: 5px;
+          letter-spacing: 2px;
+        }
+
+        // --- JOIN ResNav Btn ---
+        /* - Lighting Button - */
+        #My_Btn {
+          position: relative;
+          border: 0px solid transparent;
+          padding: 0.4em 1.8em;
+          // background-color: #0652dd;
+          background-color: #e7f0e7;
+          color: black;
+          font-size: 1em;
+          text-decoration: none;
+          letter-spacing: 0.2em;
+          border-radius: 50px;
+          display: block;
+          margin: 0em auto;
+          width: 90%;
+          overflow: hidden;
+          transition: 0.5s;
+          cursor: pointer;
+          text-align: center;
+        }
+        #My_Btn:hover {
+          color: white;
+          font-weight: bold;
+          background: #22d840;
+          box-shadow: 0 0 10px #22d840, 0 0 40px #22d840, 0 0 80px #22d840;
+          transition-delay: 1s;
+        }
+        /* Line Movement Button */
+        #My_Btn span {
+          position: absolute;
+          display: block;
+        }
+        /* -- Span 1 --  */
+        #My_Btn span:nth-child(1) {
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, #22d840);
+        }
+        #My_Btn:hover span:nth-child(1) {
+          left: 100%;
+          transition: 1s;
+        }
+        /* -- Span 3 --  */
+        #My_Btn span:nth-child(3) {
+          bottom: 0;
+          right: -100%;
+          width: 100%;
+          height: 2px;
+          background: linear-gradient(270deg, transparent, #22d840);
+        }
+        #My_Btn:hover span:nth-child(3) {
+          right: 100%;
+          transition: 1s;
+          transition-delay: 0.5s;
+        }
+        /* -- Span 2 --  */
+        #My_Btn span:nth-child(2) {
+          top: -100%;
+          right: 0;
+          width: 2px;
+          height: 100%;
+          background: linear-gradient(180deg, transparent, #22d840);
+        }
+        #My_Btn:hover span:nth-child(2) {
+          top: 100%;
+          transition: 1s;
+          transition-delay: 0.25s;
+        }
+        /* -- Span 4 --  */
+        #My_Btn span:nth-child(4) {
+          bottom: -100%;
+          left: 0;
+          width: 2px;
+          height: 100%;
+          background: linear-gradient(360deg, transparent, #22d840);
+        }
+        #My_Btn:hover span:nth-child(4) {
+          bottom: 100%;
+          transition: 1s;
+          transition-delay: 0.75s;
+        }
+        // --- JOIN ResNav Btn ---
+      }
+    }
+  }
+  // -
+}
+
+/* -------------------------------- */
+/* ----- Media Queries In CSS ----- */
+/* -------------------------------- */
+/* 0 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 1400px) {
+  .My_Parent_About {
+    // --- 1 - Navbar ---
+    .Parent_Navbar_Whole {
+      padding: 0em 0em 0.1em 0em;
+
+      .Sub_Parent_Navbar_Whole {
+        padding: 0em 0em 0.1em 0em;
+
+        .Navbar_Main {
+          padding: 0.4em 0.2em 0.4em 0.2em;
+
+          .Navbar_Main_Part_1 {
+            width: 10%;
+
+            img {
+              width: 70%;
+            }
+          }
+
+          .Navbar_Main_Part_2 {
+            width: 30%;
+            padding: 0.2em 0.2em 0.2em 0.2em;
+
+            ul {
+              padding: 0.2em 0.2em 0.2em 0.2em;
+
+              li {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+              }
+            }
+          }
+
+          .Navbar_Main_Part_3 {
+            padding: 0.2em 0.2em 0.2em 0.2em;
+            width: 20%;
+
+            .Navbar_Main_Part_3_A {
+              padding: 0.2em 0.2em 0.2em 0.2em;
+
+              .Navbar_Main_Part_3_A_Box {
+                padding: 0.6em 1em 0.75em 1em;
+
+                i {
+                  font-size: 1em;
+                }
+              }
+            }
+
+            .Navbar_Main_Part_3_B {
+              padding: 0.2em 0.2em 0.2em 0.2em;
+
+              #My_Btn {
+                position: relative;
+                padding: 0.3em 1.8em;
+                font-size: 1em;
+                letter-spacing: 0.2em;
+                border-radius: 5px;
+              }
+              #My_Btn span {
+                position: absolute;
+                display: block;
+              }
+              #My_Btn span:nth-child(1) {
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 2px;
+              }
+              #My_Btn:hover span:nth-child(1) {
+                left: 100%;
+                transition: 1s;
+              }
+              #My_Btn span:nth-child(3) {
+                bottom: 0;
+                right: -100%;
+                width: 100%;
+                height: 2px;
+              }
+              #My_Btn:hover span:nth-child(3) {
+                right: 100%;
+                transition: 1s;
+              }
+              #My_Btn span:nth-child(2) {
+                top: -100%;
+                right: 0;
+                width: 2px;
+                height: 100%;
+              }
+              #My_Btn:hover span:nth-child(2) {
+                top: 100%;
+                transition: 1s;
+              }
+              #My_Btn span:nth-child(4) {
+                bottom: -100%;
+                left: 0;
+                width: 2px;
+                height: 100%;
+              }
+              #My_Btn:hover span:nth-child(4) {
+                bottom: 100%;
+                transition: 1s;
+                transition-delay: 0.75s;
+              }
+            }
+          }
+        }
+
+        .Background_Txt_Parent {
+          padding: 9em 1em 9em 1em;
+
+          h1 {
+            padding: 0.1em 0.1em 0.1em 0.3em;
+            font-size: 3.3em;
+            letter-spacing: 3px;
+            width: 68%;
+          }
+
+          p {
+            padding: 0.3em 0.1em 0.3em 1em;
+            font-size: 0.8em;
+            letter-spacing: 3.2px;
+            width: 45%;
+            line-height: 3vh;
+          }
+        }
+      }
+    }
+
+    // --- 2 - Opens + Rating ---
+    .Parent_Opens_Whole {
+      padding: 0.4em 2em 0.4em 2em;
+
+      .Parent_Opens_Whole_Sub {
+        padding: 0.4em 2em 0.4em 2em;
+
+        .Box_Open_Main {
+          margin: 0em 0em 0em 1em;
+          padding: 0.3em 0.3em 0.3em 0.3em;
+          width: 19%;
+
+          .Box_Open_Main_Part_1 {
+            width: 30%;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+
+            img {
+              width: 57%;
+            }
+          }
+
+          .Box_Open_Main_Part_2 {
+            width: 70%;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+          }
+        }
+      }
+    }
+
+    // --- 3 - Menu ---
+    .Parent_Menu_Whole {
+      padding: 1em 1em 1em 1em;
+
+      .Parent_Menu_Whole_Sub {
+        padding: 1em 1em 1em 1em;
+
+        .Menu_Box {
+          padding: 1em 1em 1em 1em;
+
+          h1 {
+            font-size: 2em;
+            letter-spacing: 2px;
+          }
+
+          .Menu_Box_Sub {
+            padding: 0.5em 0.2em 0.5em 0.2em;
+            row-gap: 1em;
+
+            .Menu_Item_Box {
+              padding: 0.2em 0.2em 0.2em 0.2em;
+              width: 32%;
+              border-radius: 5px;
+
+              .Menu_Item_Box_Sub {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+
+                .Menu_Item_Box_Sub_Part1 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 75%;
+
+                  .Menu_Item_P1 {
+                    font-size: 0.9em;
+                    letter-spacing: 1px;
+                  }
+                  span {
+                    font-size: 0.8em;
+                    letter-spacing: 1px;
+                  }
+                  .Menu_Item_P2 {
+                    padding: 1em 0em 0em 0em;
+                    font-size: 0.9em;
+                    letter-spacing: 1px;
+                  }
+                }
+
+                .Menu_Item_Box_Sub_Part2 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 20%;
+                  height: 11vh;
+
+                  img {
+                    width: 100%;
+                    height: 10vh;
+                  }
+                }
+
+                button {
+                  padding: 0.3em 0.2em 0.3em 0.2em;
+                  width: 10%;
+
+                  i {
+                    font-size: 0.95em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // --- 4 - Footer ---
+    .Parent_Footer_Whole {
+      padding: 3em 0em 0em 0em;
+
+      .Parent_Footer_Whole_Sub {
+        padding: 1em 1em 1em 1em;
+
+        .Footer_Box {
+          padding: 1em 1em 1em 1em;
+
+          .Footer_Box_Part_1 {
+            padding: 1em 0em 1em 0em;
+            width: 90%;
+
+            .Footer_Box_Part_1_A {
+              padding: 1em 0.1em 1em 0.1em;
+              width: 20%;
+
+              img {
+                width: 60%;
+              }
+            }
+
+            .Footer_Box_Part_1_B {
+              padding: 1em 0.1em 1em 0.1em;
+              width: 20%;
+
+              ul {
+                padding: 0.2em 0.1em 0.2em 0.1em;
+
+                li {
+                  padding: 0.3em 0.1em 0.3em 0.1em;
+                }
+              }
+            }
+
+            .Footer_Box_Part_1_C {
+              padding: 1em 0.1em 1em 0.1em;
+              width: 20%;
+
+              p {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+              }
+            }
+          }
+
+          .Footer_Box_Part_2 {
+            padding: 2em 1em 1em 1em;
+
+            .Footer_Box_Icon {
+              padding: 0.7em 0.1em 0.7em 0.1em;
+              width: 4%;
+              margin: 0em 0em 0em 2em;
+              border-radius: 50%;
+
+              img {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+                width: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // -
+  }
+}
+
+/* 1 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 1200px) {
+  .My_Parent_About {
+    // --- 1 - Navbar ---
+    .Parent_Navbar_Whole {
+      padding: 0em 0em 0.1em 0em;
+
+      .Sub_Parent_Navbar_Whole {
+        padding: 0em 0em 0.1em 0em;
+
+        .Navbar_Main {
+          padding: 0.5em 0.2em 0.5em 0.2em;
+
+          .Navbar_Main_Part_1 {
+            width: 10%;
+
+            img {
+              width: 65%;
+            }
+          }
+
+          .Navbar_Main_Part_2 {
+            width: 35%;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+
+            ul {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+
+              li {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+                font-size: 0.8em;
+                font-weight: 600;
+                letter-spacing: 1px;
+              }
+            }
+          }
+
+          .Navbar_Main_Part_3 {
+            padding: 0.2em 0.2em 0.2em 0.2em;
+            width: 20%;
+
+            .Navbar_Main_Part_3_A {
+              padding: 0.2em 0.2em 0.2em 0.2em;
+
+              .Navbar_Main_Part_3_A_Box {
+                padding: 0.5em 1em 0.55em 1em;
+
+                i {
+                  font-size: 0.9em;
+                }
+              }
+            }
+
+            .Navbar_Main_Part_3_B {
+              padding: 0.2em 0.2em 0.2em 0.2em;
+
+              #My_Btn {
+                position: relative;
+                padding: 0.25em 1.2em;
+                font-size: 0.9em;
+                letter-spacing: 0.2em;
+                border-radius: 5px;
+              }
+            }
+          }
+        }
+
+        .Background_Txt_Parent {
+          padding: 8em 1em 8em 1em;
+
+          h1 {
+            padding: 0.1em 0.1em 0.1em 0.3em;
+            font-size: 3em;
+            letter-spacing: 3px;
+            width: 75%;
+          }
+
+          p {
+            padding: 0.3em 0.1em 0.3em 1em;
+            font-size: 0.8em;
+            letter-spacing: 3px;
+            width: 60%;
+            line-height: 3vh;
+          }
+        }
+      }
+    }
+
+    // --- 2 - Opens + Rating ---
+    .Parent_Opens_Whole {
+      padding: 0.4em 2em 0.4em 2em;
+
+      .Parent_Opens_Whole_Sub {
+        padding: 0.4em 2em 0.4em 2em;
+
+        .Box_Open_Main {
+          margin: 0em 0em 0em 1em;
+          padding: 0.3em 0.3em 0.3em 0.3em;
+          width: 19.5%;
+
+          .Box_Open_Main_Part_1 {
+            width: 25%;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+
+            img {
+              width: 70%;
+            }
+          }
+
+          .Box_Open_Main_Part_2 {
+            width: 75%;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+          }
+        }
+      }
+    }
+
+    // --- 3 - Menu ---
+    .Parent_Menu_Whole {
+      padding: 1em 1em 1em 1em;
+
+      .Parent_Menu_Whole_Sub {
+        padding: 1em 1em 1em 1em;
+
+        .Menu_Box {
+          padding: 1em 0.2em 1em 0.2em;
+
+          h1 {
+            font-size: 1.8em;
+            letter-spacing: 2px;
+          }
+
+          .Menu_Box_Sub {
+            padding: 0.5em 0.2em 0.5em 0.2em;
+            row-gap: 0.8em;
+
+            .Menu_Item_Box {
+              padding: 0.2em 0.2em 0.2em 0.2em;
+              width: 32.5%;
+              border-radius: 5px;
+
+              .Menu_Item_Box_Sub {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+
+                .Menu_Item_Box_Sub_Part1 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 77%;
+
+                  .Menu_Item_P1 {
+                    font-size: 0.8em;
+                    letter-spacing: 1px;
+                  }
+                  span {
+                    font-size: 0.75em;
+                    letter-spacing: 1px;
+                  }
+                  .Menu_Item_P2 {
+                    padding: 1em 0em 0em 0em;
+                    font-size: 0.8em;
+                    letter-spacing: 1px;
+                  }
+                }
+
+                .Menu_Item_Box_Sub_Part2 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 20%;
+                  height: 11vh;
+
+                  img {
+                    width: 100%;
+                    height: 10vh;
+                  }
+                }
+
+                button {
+                  padding: 0.3em 0.2em 0.3em 0.2em;
+                  width: 10%;
+
+                  i {
+                    font-size: 0.95em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // --- 4 - Footer ---
+    .Parent_Footer_Whole {
+      padding: 2em 0em 0em 0em;
+
+      .Parent_Footer_Whole_Sub {
+        padding: 0.5em 0.5em 0.5em 0.5em;
+
+        .Footer_Box {
+          padding: 0.5em 0.5em 0.5em 0.5em;
+
+          .Footer_Box_Part_1 {
+            padding: 0.5em 0em 0.5em 1em;
+            width: 90%;
+
+            .Footer_Box_Part_1_A {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 20%;
+
+              img {
+                width: 60%;
+              }
+            }
+
+            .Footer_Box_Part_1_B {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 20%;
+
+              ul {
+                padding: 0.2em 0.1em 0.2em 0.1em;
+
+                li {
+                  padding: 0.3em 0.1em 0.3em 0.1em;
+                  font-size: 0.95em;
+                }
+              }
+            }
+
+            .Footer_Box_Part_1_C {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 20%;
+
+              p {
+                font-size: 0.95em;
+                padding: 0em 0em 0em 0em;
+              }
+            }
+          }
+
+          .Footer_Box_Part_2 {
+            padding: 2em 1em 1em 1em;
+
+            .Footer_Box_Icon {
+              padding: 0.7em 0.1em 0.7em 0.1em;
+              width: 5%;
+              margin: 0em 0em 0em 2em;
+              border-radius: 50%;
+
+              img {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+                width: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // -
+  }
+}
+
+/* 2 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 1000px) {
+  .My_Parent_About {
+    // --- 1 - Navbar ---
+    .Parent_Navbar_Whole {
+      padding: 0em 0em 0em 0em;
+
+      .Sub_Parent_Navbar_Whole {
+        padding: 0em 0em 0em 0em;
+
+        .Navbar_Main {
+          padding: 0.5em 0.2em 0.5em 0.2em;
+
+          .Navbar_Main_Part_1 {
+            width: 10%;
+
+            img {
+              width: 75%;
+            }
+          }
+
+          .Navbar_Main_Part_2 {
+            width: 35%;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+
+            ul {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+
+              li {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+                font-size: 0.75em;
+                font-weight: 600;
+                letter-spacing: 1px;
+              }
+            }
+          }
+
+          .Navbar_Main_Part_3 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 20%;
+
+            .Navbar_Main_Part_3_A {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+
+              .Navbar_Main_Part_3_A_Box {
+                padding: 0.35em 0.9em 0.45em 0.9em;
+
+                i {
+                  font-size: 0.85em;
+                }
+              }
+            }
+
+            .Navbar_Main_Part_3_B {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+
+              #My_Btn {
+                position: relative;
+                padding: 0.25em 1.1em;
+                font-size: 0.85em;
+                letter-spacing: 0.2em;
+                border-radius: 5px;
+              }
+            }
+          }
+        }
+
+        .Background_Txt_Parent {
+          padding: 7em 1em 7em 1em;
+
+          h1 {
+            padding: 0.1em 0.1em 0.1em 0.3em;
+            font-size: 2.4em;
+            letter-spacing: 3px;
+            width: 80%;
+          }
+
+          p {
+            padding: 0.3em 0.1em 0.3em 1em;
+            font-size: 0.75em;
+            letter-spacing: 2.5px;
+            width: 60%;
+            line-height: 3vh;
+          }
+        }
+      }
+    }
+
+    // --- 2 - Opens + Rating ---
+    .Parent_Opens_Whole {
+      padding: 0.4em 1em 0.4em 1em;
+
+      .Parent_Opens_Whole_Sub {
+        padding: 0.4em 2em 0.4em 2em;
+
+        .Box_Open_Main {
+          margin: 0em 0em 0em 1em;
+          padding: 0.2em 0.2em 0.2em 0.2em;
+          width: 20%;
+
+          .Box_Open_Main_Part_1 {
+            width: 25%;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+
+            img {
+              width: 70%;
+            }
+          }
+
+          .Box_Open_Main_Part_2 {
+            width: 75%;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            font-size: 0.8em;
+          }
+        }
+      }
+    }
+
+    // --- 3 - Menu ---
+    .Parent_Menu_Whole {
+      padding: 1em 1em 1em 1em;
+
+      .Parent_Menu_Whole_Sub {
+        padding: 1em 0.6em 1em 0.6em;
+
+        .Menu_Box {
+          padding: 1em 0.1em 1em 0.1em;
+
+          h1 {
+            font-size: 1.8em;
+            letter-spacing: 2px;
+          }
+
+          .Menu_Box_Sub {
+            padding: 0.5em 0.2em 0.5em 0.2em;
+            row-gap: 0.8em;
+
+            .Menu_Item_Box {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+              width: 32.7%;
+              border-radius: 5px;
+
+              .Menu_Item_Box_Sub {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+
+                .Menu_Item_Box_Sub_Part1 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 77%;
+
+                  .Menu_Item_P1 {
+                    font-size: 0.75em;
+                    letter-spacing: 1px;
+                  }
+                  span {
+                    font-size: 0.7em;
+                    letter-spacing: 0.5px;
+                  }
+                  .Menu_Item_P2 {
+                    padding: 1em 0em 0em 0em;
+                    font-size: 0.75em;
+                    letter-spacing: 1px;
+                  }
+                }
+
+                .Menu_Item_Box_Sub_Part2 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 20%;
+                  height: 11vh;
+
+                  img {
+                    width: 100%;
+                    height: 10vh;
+                  }
+                }
+
+                button {
+                  padding: 0.3em 0.2em 0.3em 0.2em;
+                  width: 10%;
+
+                  i {
+                    font-size: 0.95em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // --- 4 - Footer ---
+    .Parent_Footer_Whole {
+      padding: 2em 0em 0em 0em;
+
+      .Parent_Footer_Whole_Sub {
+        padding: 0.5em 0.5em 0.5em 0.5em;
+
+        .Footer_Box {
+          padding: 0.5em 0.5em 0.5em 0.5em;
+
+          .Footer_Box_Part_1 {
+            padding: 0.5em 0em 1em 0em;
+            width: 95%;
+
+            .Footer_Box_Part_1_A {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 25%;
+
+              img {
+                width: 60%;
+              }
+            }
+
+            .Footer_Box_Part_1_B {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 25%;
+
+              ul {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+
+                li {
+                  padding: 0.2em 0.1em 0.2em 0.1em;
+                  font-size: 0.95em;
+                }
+              }
+            }
+
+            .Footer_Box_Part_1_C {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 25%;
+
+              p {
+                font-size: 0.95em;
+                padding: 0em 0em 0em 0em;
+              }
+            }
+          }
+
+          .Footer_Box_Part_2 {
+            padding: 1.5em 1em 1em 1em;
+
+            .Footer_Box_Icon {
+              padding: 0.7em 0.1em 0.7em 0.1em;
+              width: 5.5%;
+              margin: 0em 0em 0em 2em;
+              border-radius: 50%;
+
+              img {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+                width: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // -
+  }
+}
+
+/* 3 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 800px) {
+  .My_Parent_About {
+    // --- 1 - Navbar ---
+    .Parent_Navbar_Whole {
+      padding: 0em 0em 0em 0em;
+
+      .Sub_Parent_Navbar_Whole {
+        padding: 0em 0em 0em 0em;
+
+        .Navbar_Main {
+          padding: 0.5em 0.2em 0.5em 0.2em;
+
+          .Navbar_Main_Part_1 {
+            width: 10%;
+
+            img {
+              width: 95%;
+            }
+          }
+
+          .Navbar_Main_Part_2 {
+            width: 45%;
+            padding: 0.1em 0.1em 0.1em 0.1em;
+
+            ul {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+
+              li {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+                font-size: 0.7em;
+                font-weight: 550;
+                letter-spacing: 1.5px;
+              }
+            }
+          }
+
+          .Navbar_Main_Part_3 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 21%;
+
+            .Navbar_Main_Part_3_A {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+
+              .Navbar_Main_Part_3_A_Box {
+                padding: 0.25em 0.8em 0.35em 0.8em;
+
+                i {
+                  font-size: 0.8em;
+                }
+              }
+            }
+
+            .Navbar_Main_Part_3_B {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+
+              #My_Btn {
+                padding: 0.25em 1.1em;
+                font-size: 0.78em;
+                letter-spacing: 0.2em;
+                border-radius: 3px;
+              }
+            }
+          }
+        }
+
+        .Background_Txt_Parent {
+          padding: 6em 1em 6em 1em;
+
+          h1 {
+            padding: 0.1em 0.1em 0.1em 0.3em;
+            font-size: 2em;
+            letter-spacing: 3px;
+            width: 90%;
+          }
+
+          p {
+            padding: 0.3em 0.1em 0.3em 1em;
+            font-size: 0.7em;
+            letter-spacing: 2.5px;
+            width: 70%;
+            line-height: 3vh;
+          }
+        }
+      }
+    }
+
+    // --- 2 - Opens + Rating ---
+    .Parent_Opens_Whole {
+      padding: 0.4em 1em 0.4em 1em;
+
+      .Parent_Opens_Whole_Sub {
+        padding: 0.4em 1em 0.4em 1em;
+
+        .Box_Open_Main {
+          margin: 0em 0em 0em 1em;
+          padding: 0.2em 0.1em 0.2em 0.1em;
+          width: 24.5%;
+
+          .Box_Open_Main_Part_1 {
+            width: 25%;
+            padding: 0.1em 0.05em 0.1em 0.05em;
+
+            img {
+              width: 70%;
+            }
+          }
+
+          .Box_Open_Main_Part_2 {
+            width: 75%;
+            padding: 0.1em 0.05em 0.1em 0.05em;
+            font-size: 0.8em;
+          }
+        }
+      }
+    }
+
+    // --- 3 - Menu ---
+    .Parent_Menu_Whole {
+      padding: 1em 1em 1em 1em;
+
+      .Parent_Menu_Whole_Sub {
+        padding: 1em 0.6em 1em 0.6em;
+
+        .Menu_Box {
+          padding: 1em 0.1em 1em 0.1em;
+
+          h1 {
+            font-size: 1.8em;
+            letter-spacing: 2px;
+          }
+
+          .Menu_Box_Sub {
+            padding: 0.5em 0.2em 0.5em 0.2em;
+            row-gap: 0.8em;
+
+            .Menu_Item_Box {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+              width: 48%;
+              border-radius: 5px;
+
+              .Menu_Item_Box_Sub {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+
+                .Menu_Item_Box_Sub_Part1 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 77%;
+
+                  .Menu_Item_P1 {
+                    font-size: 0.75em;
+                    letter-spacing: 1px;
+                  }
+                  span {
+                    font-size: 0.7em;
+                    letter-spacing: 0.5px;
+                  }
+                  .Menu_Item_P2 {
+                    padding: 1em 0em 0em 0em;
+                    font-size: 0.75em;
+                    letter-spacing: 1px;
+                  }
+                }
+
+                .Menu_Item_Box_Sub_Part2 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 20%;
+                  height: 11vh;
+
+                  img {
+                    width: 100%;
+                    height: 10vh;
+                  }
+                }
+
+                button {
+                  padding: 0.3em 0.2em 0.3em 0.2em;
+                  width: 10%;
+
+                  i {
+                    font-size: 0.95em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // --- 4 - Footer ---
+    .Parent_Footer_Whole {
+      padding: 1em 0em 0em 0em;
+
+      .Parent_Footer_Whole_Sub {
+        padding: 0.2em 0em 0.2em 0em;
+
+        .Footer_Box {
+          padding: 0.2em 0em 0.2em 0em;
+
+          .Footer_Box_Part_1 {
+            padding: 0.5em 0em 1em 0em;
+            width: 95%;
+
+            .Footer_Box_Part_1_A {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 25%;
+
+              img {
+                width: 60%;
+              }
+            }
+
+            .Footer_Box_Part_1_B {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 25%;
+
+              ul {
+                padding: 0em 0em 0em 0em;
+
+                li {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  font-size: 0.9em;
+                }
+              }
+            }
+
+            .Footer_Box_Part_1_C {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 25%;
+
+              p {
+                font-size: 0.9em;
+                padding: 0em 0em 0em 0em;
+              }
+            }
+          }
+
+          .Footer_Box_Part_2 {
+            padding: 1.5em 1em 1em 1em;
+
+            .Footer_Box_Icon {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 6%;
+              margin: 0em 0em 0em 2em;
+              border-radius: 50%;
+
+              img {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+                width: 55%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // -
+  }
+}
+
+/* 4 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 600px) {
+  .My_Parent_About {
+    // --- 1 - Navbar ---
+    .Parent_Navbar_Whole {
+      .Sub_Parent_Navbar_Whole {
+        .Navbar_Main {
+          padding: 0.4em 2em 0.4em 2em;
+          justify-content: space-between;
+
+          .Navbar_Main_Part_1 {
+            width: 14%;
+
+            img {
+              width: 98%;
+            }
+          }
+
+          .Navbar_Main_Part_2 {
+            display: none;
+          }
+
+          .Navbar_Main_Part_3 {
+            .Navbar_Main_Part_3_A {
+              display: none;
+            }
+
+            .Navbar_Main_Part_3_B {
+              display: none;
+            }
+
+            .Navbar_Main_Part_4 {
+              display: block;
+              visibility: visible;
+              width: 52%;
+
+              img {
+                border: 0px solid transparent;
+                width: 85%;
+                display: block;
+                margin: 0em auto;
+              }
+            }
+          }
+        }
+
+        .Background_Txt_Parent {
+          padding: 5em 1em 5em 1em;
+
+          h1 {
+            padding: 0.1em 0.1em 0.1em 0.3em;
+            font-size: 1.4em;
+            letter-spacing: 2.5px;
+            width: 100%;
+          }
+
+          p {
+            padding: 0.3em 0.1em 0.3em 0.1em;
+            font-size: 0.7em;
+            letter-spacing: 1px;
+            width: 60%;
+            line-height: 3vh;
+          }
+        }
+      }
+    }
+
+    // --- 2 - Opens + Rating ---
+    .Parent_Opens_Whole {
+      padding: 0.4em 0.5em 0.4em 0.5em;
+
+      .Parent_Opens_Whole_Sub {
+        padding: 0.4em 0.5em 0.4em 0.5em;
+
+        .Box_Open_Main {
+          margin: 0em 0em 0em 1em;
+          padding: 0.2em 0.1em 0.2em 0.1em;
+          width: 29%;
+
+          .Box_Open_Main_Part_1 {
+            width: 20%;
+            padding: 0.1em 0.05em 0.1em 0.05em;
+
+            img {
+              width: 90%;
+            }
+          }
+
+          .Box_Open_Main_Part_2 {
+            width: 78%;
+            padding: 0.1em 0.05em 0.1em 0.05em;
+            font-size: 0.65em;
+          }
+        }
+      }
+    }
+
+    // --- 3 - Menu ---
+    .Parent_Menu_Whole {
+      padding: 0.5em 1em 0.5em 1em;
+
+      .Parent_Menu_Whole_Sub {
+        padding: 0.5em 0.1em 0.5em 0.1em;
+
+        .Menu_Box {
+          padding: 0.5em 0.1em 0.5em 0.1em;
+
+          h1 {
+            font-size: 1.8em;
+            letter-spacing: 2px;
+            padding: 0em 0em 0em 0.5em;
+          }
+
+          .Menu_Box_Sub {
+            padding: 0.5em 0.2em 0.5em 0.2em;
+            row-gap: 0.8em;
+            justify-content: center;
+            align-items: center;
+
+            .Menu_Item_Box {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+              width: 95%;
+              border-radius: 5px;
+
+              .Menu_Item_Box_Sub {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+
+                .Menu_Item_Box_Sub_Part1 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 77%;
+
+                  .Menu_Item_P1 {
+                    font-size: 0.7em;
+                    letter-spacing: 0.5px;
+                  }
+                  span {
+                    font-size: 0.7em;
+                    letter-spacing: 0px;
+                  }
+                  .Menu_Item_P2 {
+                    padding: 1em 0em 0em 0em;
+                    font-size: 0.7em;
+                    letter-spacing: 0.5px;
+                  }
+                }
+
+                .Menu_Item_Box_Sub_Part2 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 20%;
+                  height: 11vh;
+
+                  img {
+                    width: 100%;
+                    height: 10vh;
+                  }
+                }
+
+                button {
+                  padding: 0.3em 0.3em 0.3em 0.3em;
+                  width: 10%;
+
+                  i {
+                    font-size: 0.9em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // --- 4 - Footer ---
+    .Parent_Footer_Whole {
+      padding: 1em 0em 0em 0em;
+
+      .Parent_Footer_Whole_Sub {
+        padding: 0.2em 0em 0.2em 0em;
+
+        .Footer_Box {
+          padding: 0.2em 0em 0.2em 0em;
+
+          .Footer_Box_Part_1 {
+            padding: 0.5em 0em 1em 0em;
+            width: 85%;
+            flex-direction: column;
+
+            .Footer_Box_Part_1_A {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 25%;
+
+              img {
+                width: 60%;
+              }
+            }
+
+            .Footer_Box_Part_1_B {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 100%;
+
+              ul {
+                padding: 0.5em 0em 0.5em 0em;
+                flex-direction: row;
+
+                li {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  margin: 0em 0em 0em 1em;
+                  font-size: 0.9em;
+                }
+              }
+            }
+
+            .Footer_Box_Part_1_C {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 100%;
+
+              p {
+                font-size: 0.9em;
+                padding: 0em 0em 0em 0em;
+              }
+            }
+          }
+
+          .Footer_Box_Part_2 {
+            padding: 1.5em 1em 1em 1em;
+
+            .Footer_Box_Icon {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 8%;
+              margin: 0em 0em 0em 2em;
+              border-radius: 50%;
+
+              img {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+                width: 55%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // --- 7 - Responsive Navbar ---
+    .Parent_ResNav_Whole {
+      padding: 0.5em 0em;
+      width: 95%;
+      border-radius: 5px;
+      margin: 0em auto;
+      position: absolute;
+      top: 80px;
+      left: 0px;
+      right: 0px;
+      z-index: 2;
+      display: block;
+
+      .Parent_ResNav_Whole_Sub {
+        padding: 1em 0em;
+
+        .ResNav_Box {
+          padding: 1em 1em;
+
+          ul {
+            li {
+              border: 0.1px solid #0a4621;
+              width: 90%;
+              padding: 0.35em 0.5em;
+              margin: 0.5em 0em;
+              border-radius: 50px;
+              letter-spacing: 2px;
+              font-weight: 400;
+              font-size: 0.9em;
+            }
+
+            #MyActive {
+              border: 0px solid transparent;
+              background-color: #0a4621;
+              width: 90%;
+              padding: 0.4em 0.5em;
+              margin: 0.5em 0em;
+              border-radius: 50px;
+              letter-spacing: 2px;
+              font-weight: 700;
+              color: white;
+            }
+          }
+
+          img {
+            display: block;
+            margin: 2.5em auto;
+            width: 15%;
+          }
+
+          input {
+            display: block;
+            width: 90%;
+            border: 0.1px solid rgb(218, 218, 218);
+            font-size: 0.95em;
+            margin: 2em auto;
+            padding: 0.5em 1em 0.5em 2em;
+            border-radius: 50px;
+            letter-spacing: 2px;
+          }
+
+          input:focus {
+            outline: none;
+          }
+
+          // --- JOIN ResNav Btn ---
+          /* - Lighting Button - */
+          #My_Btn {
+            position: relative;
+            border: 0px solid transparent;
+            padding: 0.4em 1.8em;
+            // background-color: #0652dd;
+            background-color: #e7f0e7;
+            color: black;
+            font-size: 1em;
+            text-decoration: none;
+            letter-spacing: 0.2em;
+            border-radius: 50px;
+            display: block;
+            margin: 0em auto;
+            width: 90%;
+            overflow: hidden;
+            transition: 0.5s;
+            cursor: pointer;
+            text-align: center;
+          }
+          #My_Btn:hover {
+            color: white;
+            font-weight: bold;
+            background: #22d840;
+            box-shadow: 0 0 10px #22d840, 0 0 40px #22d840, 0 0 80px #22d840;
+            transition-delay: 1s;
+          }
+          /* Line Movement Button */
+          #My_Btn span {
+            position: absolute;
+            display: block;
+          }
+          /* -- Span 1 --  */
+          #My_Btn span:nth-child(1) {
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(1) {
+            left: 100%;
+            transition: 1s;
+          }
+          /* -- Span 3 --  */
+          #My_Btn span:nth-child(3) {
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(270deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(3) {
+            right: 100%;
+            transition: 1s;
+            transition-delay: 0.5s;
+          }
+          /* -- Span 2 --  */
+          #My_Btn span:nth-child(2) {
+            top: -100%;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(2) {
+            top: 100%;
+            transition: 1s;
+            transition-delay: 0.25s;
+          }
+          /* -- Span 4 --  */
+          #My_Btn span:nth-child(4) {
+            bottom: -100%;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(360deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(4) {
+            bottom: 100%;
+            transition: 1s;
+            transition-delay: 0.75s;
+          }
+          // --- JOIN ResNav Btn ---
+        }
+      }
+    }
+    // -
+  }
+}
+
+/* 5 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 400px) {
+  .My_Parent_About {
+    // --- 1 - Navbar ---
+    .Parent_Navbar_Whole {
+      .Sub_Parent_Navbar_Whole {
+        .Navbar_Main {
+          padding: 0.4em 1em 0.4em 1em;
+          justify-content: space-between;
+
+          .Navbar_Main_Part_1 {
+            width: 20%;
+
+            img {
+              width: 98%;
+            }
+          }
+
+          .Navbar_Main_Part_2 {
+            display: none;
+          }
+
+          .Navbar_Main_Part_3 {
+            .Navbar_Main_Part_4 {
+              display: block;
+              visibility: visible;
+              width: 70%;
+
+              img {
+                border: 0px solid transparent;
+                width: 85%;
+                display: block;
+                margin: 0em auto;
+              }
+            }
+          }
+        }
+
+        .Background_Txt_Parent {
+          padding: 4em 0em 4em 0em;
+
+          h1 {
+            padding: 0.1em 0.1em 0.1em 0.3em;
+            font-size: 1em;
+            letter-spacing: 2px;
+            width: 100%;
+          }
+
+          p {
+            padding: 0.3em 0em 0.3em 0em;
+            font-size: 0.65em;
+            letter-spacing: 0.5px;
+            width: 70%;
+            line-height: 3vh;
+          }
+        }
+      }
+    }
+
+    // --- 2 - Opens + Rating ---
+    .Parent_Opens_Whole {
+      padding: 0.4em 0.5em 0.4em 0.5em;
+
+      .Parent_Opens_Whole_Sub {
+        padding: 0.4em 0.5em 0.4em 0.5em;
+        justify-content: center;
+
+        .Box_Open_Main {
+          margin: 0em 0em 0em 0.5em;
+          padding: 0.2em 0.05em 0.2em 0.05em;
+          width: 40%;
+
+          .Box_Open_Main_Part_1 {
+            width: 20%;
+            padding: 0.1em 0em 0.1em 0em;
+
+            img {
+              width: 90%;
+            }
+          }
+
+          .Box_Open_Main_Part_2 {
+            width: 78%;
+            padding: 0.1em 0em 0.1em em;
+            font-size: 0.6em;
+          }
+        }
+      }
+    }
+
+    // --- 3 - Menu ---
+    .Parent_Menu_Whole {
+      padding: 0.2em 0em 0.2em 0em;
+
+      .Parent_Menu_Whole_Sub {
+        padding: 0.2em 0em 0.2em 0em;
+
+        .Menu_Box {
+          padding: 0.2em 0.1em 0.2em 0.1em;
+
+          h1 {
+            font-size: 1.8em;
+            letter-spacing: 2px;
+            padding: 0em 0em 0em 0.3em;
+          }
+
+          .Menu_Box_Sub {
+            padding: 0.5em 0.2em 0.5em 0.2em;
+            row-gap: 0.8em;
+            justify-content: center;
+            align-items: center;
+
+            .Menu_Item_Box {
+              padding: 0.1em 0.1em 0.1em 0.1em;
+              width: 96%;
+              border-radius: 5px;
+
+              .Menu_Item_Box_Sub {
+                padding: 0.2em 0.2em 0.2em 0.2em;
+
+                .Menu_Item_Box_Sub_Part1 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 77%;
+
+                  .Menu_Item_P1 {
+                    font-size: 0.7em;
+                    letter-spacing: 0.5px;
+                  }
+                  span {
+                    font-size: 0.7em;
+                    letter-spacing: 0px;
+                  }
+                  .Menu_Item_P2 {
+                    padding: 1em 0em 0em 0em;
+                    font-size: 0.7em;
+                    letter-spacing: 0.5px;
+                  }
+                }
+
+                .Menu_Item_Box_Sub_Part2 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  width: 20%;
+                  height: 11vh;
+
+                  img {
+                    width: 100%;
+                    height: 10vh;
+                  }
+                }
+
+                button {
+                  padding: 0.3em 0.3em 0.3em 0.3em;
+                  width: 10%;
+
+                  i {
+                    font-size: 0.9em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // --- 4 - Footer ---
+    .Parent_Footer_Whole {
+      padding: 1em 0em 0em 0em;
+
+      .Parent_Footer_Whole_Sub {
+        padding: 1em 0em 1em 0em;
+
+        .Footer_Box {
+          padding: 0.2em 0em 0.2em 0em;
+
+          .Footer_Box_Part_1 {
+            padding: 0.5em 0em 1em 0em;
+            width: 90%;
+            flex-direction: column;
+
+            .Footer_Box_Part_1_A {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 30%;
+
+              img {
+                width: 100%;
+              }
+            }
+
+            .Footer_Box_Part_1_B {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 100%;
+
+              ul {
+                padding: 0.5em 0em 0.5em 0em;
+                flex-direction: row;
+
+                li {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  margin: 0em 0em 0em 1em;
+                  font-size: 0.85em;
+                }
+              }
+            }
+
+            .Footer_Box_Part_1_C {
+              padding: 0.5em 0.1em 0.5em 0.1em;
+              width: 100%;
+
+              p {
+                font-size: 0.85em;
+                padding: 0em 0em 0em 0em;
+              }
+            }
+          }
+
+          .Footer_Box_Part_2 {
+            padding: 1.5em 0.2em 1em 0.2em;
+
+            .Footer_Box_Icon {
+              padding: 0.4em 0em 0.4em 0em;
+              width: 11%;
+              margin: 0em 0em 0em 1.5em;
+              border-radius: 50%;
+
+              img {
+                padding: 0.1em 0.1em 0.1em 0.1em;
+                width: 75%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // --- 7 - Responsive Navbar ---
+    .Parent_ResNav_Whole {
+      padding: 0.5em 0em;
+      width: 100%;
+      border-radius: 5px;
+      margin: 0em auto;
+      position: absolute;
+      top: 70px;
+      left: 0px;
+      right: 0px;
+      z-index: 2;
+      display: block;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+      .Parent_ResNav_Whole_Sub {
+        padding: 0.5em 0em;
+
+        .ResNav_Box {
+          padding: 0.5em 0.5em;
+
+          ul {
+            li {
+              border: 0.1px solid #0a4621;
+              width: 90%;
+              padding: 0.3em 0.2em;
+              margin: 0.3em 0em;
+              border-radius: 50px;
+              letter-spacing: 2px;
+              font-weight: 400;
+              font-size: 0.75em;
+            }
+
+            #MyActive {
+              border: 0px solid transparent;
+              background-color: #0a4621;
+              width: 90%;
+              padding: 0.3em 0.2em;
+              margin: 0.3em 0em;
+              border-radius: 50px;
+              letter-spacing: 2px;
+              font-weight: 700;
+              font-size: 0.75em;
+              color: white;
+            }
+          }
+
+          img {
+            display: block;
+            margin: 1em auto;
+            width: 18%;
+          }
+
+          input {
+            display: block;
+            width: 90%;
+            border: 0.1px solid rgb(218, 218, 218);
+            font-size: 0.8em;
+            margin: 1em auto;
+            padding: 0.35em 0.5em 0.35em 2em;
+            border-radius: 50px;
+            letter-spacing: 2.5px;
+          }
+
+          input:focus {
+            outline: none;
+          }
+
+          // --- JOIN ResNav Btn ---
+          /* - Lighting Button - */
+          #My_Btn {
+            position: relative;
+            border: 0px solid transparent;
+            padding: 0.4em 1.8em;
+            // background-color: #0652dd;
+            background-color: #e7f0e7;
+            color: black;
+            font-size: 0.8em;
+            text-decoration: none;
+            letter-spacing: 0.5em;
+            border-radius: 50px;
+            display: block;
+            margin: 0em auto;
+            width: 90%;
+            overflow: hidden;
+            transition: 0.5s;
+            cursor: pointer;
+            text-align: center;
+          }
+          #My_Btn:hover {
+            color: white;
+            font-weight: bold;
+            background: #22d840;
+            box-shadow: 0 0 10px #22d840, 0 0 40px #22d840, 0 0 80px #22d840;
+            transition-delay: 1s;
+          }
+          /* Line Movement Button */
+          #My_Btn span {
+            position: absolute;
+            display: block;
+          }
+          /* -- Span 1 --  */
+          #My_Btn span:nth-child(1) {
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(1) {
+            left: 100%;
+            transition: 1s;
+          }
+          /* -- Span 3 --  */
+          #My_Btn span:nth-child(3) {
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(270deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(3) {
+            right: 100%;
+            transition: 1s;
+            transition-delay: 0.5s;
+          }
+          /* -- Span 2 --  */
+          #My_Btn span:nth-child(2) {
+            top: -100%;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(2) {
+            top: 100%;
+            transition: 1s;
+            transition-delay: 0.25s;
+          }
+          /* -- Span 4 --  */
+          #My_Btn span:nth-child(4) {
+            bottom: -100%;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(360deg, transparent, #22d840);
+          }
+          #My_Btn:hover span:nth-child(4) {
+            bottom: 100%;
+            transition: 1s;
+            transition-delay: 0.75s;
+          }
+          // --- JOIN ResNav Btn ---
+        }
+      }
+    }
+    // -
+  }
+}
+
+// --- The End ---

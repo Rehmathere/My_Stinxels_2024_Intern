@@ -97,7 +97,7 @@ function About() {
                 <li onClick={() => navigate("/")}>Home</li>
                 {/* <li>Services</li> */}
                 <li id="Special_Li">About</li>
-                <li>Contact</li>
+                <li onClick={() => navigate("/contact")}>Contact</li>
               </ul>
             </div>
             {/* - Part 3 - */}
@@ -325,7 +325,7 @@ function About() {
               <ul>
                 <li onClick={() => navigate("/")}>Home</li>
                 <li id="MyActive">About</li>
-                <li>Contact Us</li>
+                <li onClick={() => navigate("/contact")}>Contact Us</li>
               </ul>
               <img src={search} alt="NA" onClick={toggleInputVisibility} />
               {isInputVisible && (

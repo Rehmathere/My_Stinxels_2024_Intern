@@ -87,6 +87,7 @@ import About from "./Components/About/about.jsx";
 import Branch from "./Components/Admin/Branch/Branch.jsx";
 import Admin_Layout from "./Components/Admin/Admin_Layout.jsx";
 import Login from "./Components/Authenticate/login.jsx";
+import Contact from "./Components/Contact/contact.jsx";
 
 const router = createBrowserRouter([
   {
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
   {
     path: "/about",
     element: <About />,
+  },
+  {
+    path: "/contact",
+    element: <Contact />,
   },
   {
     path: "/menu",
