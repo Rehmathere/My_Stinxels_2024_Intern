@@ -58,9 +58,10 @@ export const deleteReservationThunk = createAsyncThunk(
   "deleteReservationThunk",
   async (body, { rejectWithValue }) => {
     try {
-      const { _id } = body;
+      const { _id, customerId } = body;
       const deleteParam = new URLSearchParams({
         _id,
+        customerId,
       });
       const res = await deleteReservation(deleteParam);
       console.log("boyd delete", body);

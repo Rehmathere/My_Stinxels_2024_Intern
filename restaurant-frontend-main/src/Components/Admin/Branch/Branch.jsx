@@ -196,26 +196,28 @@ function Branch() {
 
   return (
     <>
-      <h1 className="Branch_H">Branch</h1>
-      <div className="Parent_Branch_Btn">
-        <Button className="Branch_Btn" onClick={() => openModal("Add")}>
-          Add Branch <i className="fa fa-plus-circle"></i>
-        </Button>
+      <div className="min-h-[80vh] max-w-[100vw]">
+        <h1 className="Branch_H">Branch</h1>
+        <div className="Parent_Branch_Btn">
+          <Button className="Branch_Btn" onClick={() => openModal("Add")}>
+            Add Branch <i className="fa fa-plus-circle"></i>
+          </Button>
+        </div>
+        <ModalComponent
+          title="Add A Branch"
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+          handleCancel={handleCancel}
+          form={form}
+          FormContent={FormContent}
+          setForm={setForm}
+        />
+        <Table
+          dataSource={branches}
+          columns={columns}
+          rowClassName="custom-table-row"
+        />
       </div>
-      <ModalComponent
-        title="Add A Branch"
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-        handleCancel={handleCancel}
-        form={form}
-        FormContent={FormContent}
-        setForm={setForm}
-      />
-      <Table
-        dataSource={branches}
-        columns={columns}
-        rowClassName="custom-table-row"
-      />
     </>
   );
 }

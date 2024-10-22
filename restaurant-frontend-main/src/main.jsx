@@ -79,13 +79,14 @@ import Menu from "./Components/Admin/Menu/Menu.jsx";
 import Signup from "./Components/Authenticate/signup.jsx";
 import Layout from "./Components/Layout/Layout.jsx";
 import Home from "./Components/Home/home.jsx";
-import About from "./Components/About/about.jsx";
 import Contact from "./Components/Contact/contact.jsx";
+import About from "./Components/About/about.jsx";
 import Branch from "./Components/Admin/Branch/Branch.jsx";
 import Login from "./Components/Authenticate/login.jsx";
 import AdminSiderMenu from "./Components/Admin/AdminSiderMenu.jsx";
 import UserSiderMenu from "./Components/User/UserSiderMenu.jsx";
 import Reservation from "./Components/User/Reservation/Reservation.jsx";
+import Reservations from "./Components/Admin/Reservations/Reservations.jsx";
 
 import ProtectedRoutes from "./Components/Routes/ProtectedRoutes.jsx";
 import PublicRoutes from "./Components/Routes/PublicRoutes.jsx";
@@ -124,7 +125,11 @@ const router = createBrowserRouter([
 
   {
     path: "/admin",
-    element: <Layout Menu={AdminSiderMenu} />,
+    element: (
+      <ProtectedRoutes allowedRole={["admin"]}>
+        <Layout Menu={AdminSiderMenu} />
+      </ProtectedRoutes>
+    ),
     children: [
       {
         index: true,
@@ -134,11 +139,19 @@ const router = createBrowserRouter([
         path: "branch",
         element: <Branch />,
       },
+      {
+        path: "reservations",
+        element: <Reservations />,
+      },
     ],
   },
   {
     path: "/user",
-    element: <Layout Menu={UserSiderMenu} />,
+    element: (
+      <ProtectedRoutes allowedRole={["user"]}>
+        <Layout Menu={UserSiderMenu} />
+      </ProtectedRoutes>
+    ),
     children: [
       {
         index: true,

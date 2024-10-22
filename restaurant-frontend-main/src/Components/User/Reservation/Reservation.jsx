@@ -23,6 +23,11 @@ import to24Hour from "../../../Utils/to24Hour";
 import processDateTime from "../../../Utils/processDateTime";
 import moment from "moment";
 import dayjs from "dayjs";
+// CSS
+import "./User_Reserve.scss";
+// Images
+import Reserve_Img from "../../../assets/correct.png";
+
 function Reservation() {
   const [form] = useForm();
   const dispatch = useDispatch();
@@ -33,7 +38,35 @@ function Reservation() {
   const reservations = useSelector(
     (state) => state.reservationSlice.reservations
   );
-  console.log("reservations in component", reservations);
+
+  const dummyData = [
+    {
+      customerId: "671660cfee058464c3f8ea78",
+      branchId: "670fd77c110152d4ef2319a3",
+      date: "2024-10-22",
+      startTime: "22:00:00.000Z",
+      endTime: "01:00:00.000Z",
+      peopleQty: 2,
+      _id: "6717b24dc98ac43f524f7019",
+      createdAt: "2024-10-22T14:10:21.234Z",
+      updatedAt: "2024-10-22T14:10:21.234Z",
+      __v: 0,
+      customerName: "ads",
+    },
+    {
+      customerId: "671660cfee058464c3f8ea78",
+      branchId: "670fd77c110152d4ef2319a3",
+      date: "2024-10-22",
+      startTime: "22:00:00.000Z",
+      endTime: "01:00:00.000Z",
+      peopleQty: 2,
+      _id: "6717b24dc98ac43f524f7019",
+      createdAt: "2024-10-22T14:10:21.234Z",
+      updatedAt: "2024-10-22T14:10:21.234Z",
+      __v: 0,
+      customerName: "ads",
+    },
+  ];
 
   const addReservation = (body) => {
     body = { ...body, ...processDateTime(body) };
@@ -43,17 +76,17 @@ function Reservation() {
   };
 
   const updateReservation = (body) => {
-    const { _id } = updateReservationObj;
-    body = { ...body, ...processDateTime(body), _id };
+    const { _id, customerName, customerId } = updateReservationObj;
+    body = { ...body, ...processDateTime(body), _id, customerName, customerId };
     console.log("updated reservation", body);
     setUpdateReservationObj({});
     dispatch(updateReservationThunk(body));
   };
 
-  const deleteReservation = (_id) => {
+  const deleteReservation = (_id, customerId) => {
     console.log(_id);
 
-    dispatch(deleteReservationThunk({ _id }));
+    dispatch(deleteReservationThunk({ _id, customerId }));
   };
 
   const openModal = (reservationMethodText) => {
@@ -149,49 +182,157 @@ function Reservation() {
 
   return (
     <>
-      <Button onClick={() => openModal("Add")}>Add a Reservation</Button>
-      <ModalComponent
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-        setForm={setForm}
-        form={form}
-        FormContent={FormContent}
-        handleCancel={handleCancel}
-      />
-      {reservations?.map(
-        ({ branchId, peopleQty, date, startTime, endTime, _id }) => {
-          const address = branches?.find(
-            ({ _id }) => branchId === _id
-          )?.address;
-          console.log("in div rendered");
+      <div className="min-h-[80vh] max-w-[100vw]">
+        {/* <div> */}
+        <h1 className="Branch_H">Reservation</h1>
+        <div className="Parent_Branch_Btn">
+          <Button className="Branch_Btn" onClick={() => openModal("Add")}>
+            Add a Reservation <i className="fa fa-plus-circle"></i>
+          </Button>
+        </div>
+        <ModalComponent
+          title="Add A Reservation"
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+          setForm={setForm}
+          form={form}
+          FormContent={FormContent}
+          handleCancel={handleCancel}
+        />
+        {dummyData?.map(
+          ({
+            branchId,
+            peopleQty,
+            date,
+            startTime,
+            endTime,
+            _id,
+            customerName,
+            customerId,
+          }) => {
+            const address = branches?.find(
+              ({ _id }) => branchId === _id
+            )?.address;
+            console.log("in div rendered");
 
-          return (
-            <div className="" key={_id}>
-              <p>People Qty: {peopleQty}</p>
-              <p>Date: {date}</p>
-              <p>Start Time: {to24Hour(startTime)}</p>
-              <p>End Time: {to24Hour(endTime)}</p>
-              <p>Address: {address}</p>
+            return (
+              // --- New User Reservation Design ---
+              <div className="My_Reserve_Box" key={_id}>
+                <div className="Reserve_Img_Box">
+                  <img src={Reserve_Img} alt="NA" />
+                </div>
+                <h1>Reservation Confirmed</h1>
+                {/* --- Box --- */}
+                <div className="Reservation_Detail_Box">
+                  <h2>Details : -</h2>
+                  {/* - Row - */}
+                  <div className="Reservation_Row">
+                    {/* Data */}
+                    <div className="Reserve_Row_Data">
+                      <p className="Reserve_Row_Data_P1">
+                        <i class="fa fa-user"></i> People Qty :
+                      </p>
+                      <p className="Reserve_Row_Data_P2">{peopleQty}</p>
+                    </div>
+                    {/* Data */}
+                    <div className="Reserve_Row_Data">
+                      <p className="Reserve_Row_Data_P1">
+                        <i class="fa fa-calendar"></i> Date :
+                      </p>
+                      <p className="Reserve_Row_Data_P2">{date}</p>
+                    </div>
+                  </div>
+                  {/* - Row - */}
+                  <div className="Reservation_Row">
+                    {/* Data */}
+                    <div className="Reserve_Row_Data">
+                      <p className="Reserve_Row_Data_P1">
+                        <i class="fa fa-clock-o"></i> Start Time :
+                      </p>
+                      <p className="Reserve_Row_Data_P2">
+                        {to24Hour(startTime)}
+                      </p>
+                    </div>
+                    {/* Data */}
+                    <div className="Reserve_Row_Data">
+                      <p className="Reserve_Row_Data_P1">
+                        <i class="fa fa-clock-o"></i> End Time :
+                      </p>
+                      <p className="Reserve_Row_Data_P2">{to24Hour(endTime)}</p>
+                    </div>
+                  </div>
+                  {/* - Row - */}
+                  <div className="Reservation_Row">
+                    {/* Data */}
+                    <div className="Reserve_Row_Data_S">
+                      <p className="Reserve_Row_Data_P1">
+                        <i class="fa fa-institution"></i> Address :
+                      </p>
+                      <p className="Reserve_Row_Data_P_Special">
+                        {/* {address} */}
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Odit, vero. Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Possimus, facere!
+                      </p>
+                    </div>
+                  </div>
+                  {/* Btn Parent */}
+                  <div className="Reserve_Btn_Parent">
+                    {/* Btn - 1 */}
+                    <Button
+                      onClick={() =>
+                        updateModal({
+                          branchId,
+                          peopleQty,
+                          date,
+                          startTime,
+                          endTime,
+                          _id,
+                          customerName,
+                          customerId,
+                        })
+                      }
+                      style={{ backgroundColor: "rgb(27, 27, 255)" }}
+                    >
+                      Edit <i class="fa fa-edit"></i>
+                    </Button>
+                    {/* Btn - 2 */}
+                    <Button onClick={() => deleteReservation(_id, customerId)}>
+                      Delete <i class="fa fa-close"></i>
+                    </Button>
+                  </div>
+                </div>
 
-              <Button
-                onClick={() =>
-                  updateModal({
-                    branchId,
-                    peopleQty,
-                    date,
-                    startTime,
-                    endTime,
-                    _id,
-                  })
-                }
-              >
-                Edit
-              </Button>
-              <Button onClick={() => deleteReservation(_id)}>Delete</Button>
-            </div>
-          );
-        }
-      )}
+                {/* <p>People Qty: {peopleQty}</p>
+                <p>Date: {date}</p> */}
+                {/* <p>Start Time: {to24Hour(startTime)}</p>
+                <p>End Time: {to24Hour(endTime)}</p> */}
+                {/* <p>Address: {address}</p> */}
+
+                {/* <Button
+                  onClick={() =>
+                    updateModal({
+                      branchId,
+                      peopleQty,
+                      date,
+                      startTime,
+                      endTime,
+                      _id,
+                      customerName,
+                      customerId,
+                    })
+                  }
+                >
+                  Edit
+                </Button>
+                <Button onClick={() => deleteReservation(_id, customerId)}>
+                  Delete
+                </Button> */}
+              </div>
+            );
+          }
+        )}
+      </div>
     </>
   );
 }

@@ -14,9 +14,16 @@ import {
   updateBranch,
   deleteBranch,
 } from "./Redux/Slices/BranchSlice";
+import {
+  addReservation,
+  updateReservation,
+  deleteReservation,
+} from "./Redux/Slices/ReservationSlice";
 import { Navigate, useNavigate } from "react-router-dom";
 
 import { setSocketId } from "./Redux/Slices/UserSlice";
+import { getUserId } from "./Utils/getUserId";
+import { message } from "antd";
 
 function App({ children }) {
   const dispatch = useDispatch();
@@ -66,6 +73,41 @@ function App({ children }) {
       dispatch(deleteBranch(message));
     });
 
+    socket.on("reservation_added", (message) => {
+      console.log("reservation_added socket", message);
+      const { role, _id } = getUserId();
+
+      if (role == "admin") {
+        dispatch(addReservation(message));
+      } else if (_id == message.customerId) {
+        dispatch(addReservation(message));
+      }
+    });
+
+    socket.on("reservation_updated", (message) => {
+      console.log("admin trigrred update reservation");
+
+      const { role, _id } = getUserId();
+
+      if (role == "admin") {
+        dispatch(updateReservation(message));
+      } else if (_id == message.customerId) {
+        dispatch(updateReservation(message));
+      }
+      console.log("reservation_updated socket", message);
+    });
+
+    socket.on("reservation_deleted", (message) => {
+      console.log("deted reservation ", message);
+      const { role, _id } = getUserId();
+
+      if (role == "admin") {
+        dispatch(deleteReservation(message));
+      } else if (_id == message.customerId) {
+        dispatch(deleteReservation(message));
+      }
+    });
+
     return () => {
       socket.off("menu_item_added");
       socket.off("menu_item_updated");
@@ -73,6 +115,9 @@ function App({ children }) {
       socket.off("branch_added");
       socket.off("branch_updated");
       socket.off("branch_deleted");
+      socket.off("reservation_added");
+      socket.off("reservation_updated");
+      socket.off("reservation_deleted");
     };
   }, []);
   return <>{children}</>;

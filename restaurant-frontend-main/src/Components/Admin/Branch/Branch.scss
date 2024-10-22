@@ -5,26 +5,31 @@
   padding: 10px;
   background-color: #062b14;
 }
-.ant-table-thead > tr > th:nth-child(1), .ant-table-thead > tr > th:nth-child(2), .ant-table-thead > tr > th:nth-child(3), .ant-table-thead > tr > th:nth-child(4) {
-    background-color: #6fab79;
-    color: white;
-    border-right: none;
-    letter-spacing: 0.5px;
-    text-align: center;
+.ant-table-thead > tr > th:nth-child(1),
+.ant-table-thead > tr > th:nth-child(2),
+.ant-table-thead > tr > th:nth-child(3),
+.ant-table-thead > tr > th:nth-child(4),
+.ant-table-thead > tr > th:nth-child(5),
+.ant-table-thead > tr > th:nth-child(6),.ant-table-thead > tr > th:nth-child(7) {
+  background-color: #6fab79;
+  color: white;
+  border-right: none;
+  letter-spacing: 0.5px;
+  text-align: center;
 }
 
 // --- Table Row CSS ---
 .custom-table-row {
-    color: black;
+  color: black;
 }
 
 .custom-table-row td,
 .custom-table-row th {
-    background-color: rgb(235, 255, 235);
-    color: black;
-    border-bottom: 0.1px solid rgb(63, 63, 63);
-    padding: 10px;
-    text-align: center;
+  background-color: rgb(235, 255, 235);
+  color: black;
+  border-bottom: 0.1px solid rgb(63, 63, 63);
+  padding: 10px;
+  text-align: center;
 }
 
 // --- Page CSS ---

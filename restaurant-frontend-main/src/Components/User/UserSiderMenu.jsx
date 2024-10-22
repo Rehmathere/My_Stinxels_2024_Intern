@@ -1,5 +1,5 @@
 import React from "react";
-import { CoffeeOutlined, ShopOutlined } from "@ant-design/icons";
+import { CheckCircleOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
 import { useNavigate } from "react-router-dom";
 function UserSiderMenu() {
@@ -15,7 +15,7 @@ function UserSiderMenu() {
         items={[
           {
             key: "1",
-            icon: <CoffeeOutlined />,
+            icon: <CheckCircleOutlined />,
             label: "Reservation",
             style: {
               backgroundColor: "#e7f0e7",

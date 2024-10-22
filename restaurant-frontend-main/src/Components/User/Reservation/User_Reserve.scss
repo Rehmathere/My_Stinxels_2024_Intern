@@ -1,0 +1,875 @@
+.My_Reserve_Box {
+  border: 0px solid transparent;
+  padding: 1em 0.5em;
+  border-radius: 10px;
+  margin: 3em 0em 0em 0em;
+  background-color: #e7f0e7;
+  
+
+  .Reserve_Img_Box {
+    border: 0px solid transparent;
+    padding: 1em 1em;
+
+    img {
+      border: 0px solid transparent;
+      padding: 0.2em 0.2em;
+      width: 10%;
+      display: block;
+      margin: 0em auto;
+    }
+  }
+
+  h1 {
+    border: 0px solid transparent;
+    text-align: center;
+    font-size: 2em;
+    letter-spacing: 2px;
+    font-weight: 600;
+    padding: 0.5em 0em;
+  }
+
+  .Reservation_Detail_Box {
+    border: 0px solid transparent;
+    padding: 2em 1em 0.3em 1em;
+
+    h2 {
+      border: 0px solid transparent;
+      padding: 1em 0.45em;
+      font-size: 1.4em;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    .Reservation_Row {
+      border: 0px solid transparent;
+      padding: 0.3em 0.1em 0.3em 0.1em;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .Reserve_Row_Data {
+        border: 0px solid transparent;
+        padding: 0.1em 0.1em 0.1em 0.1em;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+        width: 45%;
+
+        .Reserve_Row_Data_P1 {
+          border: 0px solid transparent;
+          padding: 0.1em 0.1em 0.1em 0.1em;
+          width: 40%;
+          font-size: 1.1em;
+          letter-spacing: 2px;
+          color: grey;
+
+          i {
+            border: 0px solid transparent;
+            padding: 0em 0.8em 0.1em 0.1em;
+            color: grey;
+            font-size: 1.1em;
+          }
+        }
+
+        .Reserve_Row_Data_P2 {
+          border: 0px solid transparent;
+          padding: 0.1em 0.1em 0.1em 0.1em;
+          width: 40%;
+          font-size: 1.1em;
+          letter-spacing: 2px;
+          color: rgb(54, 54, 54);
+          text-align: center;
+          font-weight: 600;
+        }
+      }
+
+      .Reserve_Row_Data_S {
+        border: 0px solid transparent;
+        padding: 0.1em 0.1em 0.1em 0.1em;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        // align-items: center;
+        width: 100%;
+
+        .Reserve_Row_Data_P1 {
+          border: 0px solid transparent;
+          padding: 0.1em 0.1em 0.1em 0.1em;
+          width: 18%;
+          font-size: 1.1em;
+          letter-spacing: 2px;
+          color: grey;
+
+          i {
+            border: 0px solid transparent;
+            padding: 0em 0.8em 0.1em 0.1em;
+            color: grey;
+            font-size: 1.1em;
+          }
+        }
+
+        .Reserve_Row_Data_P_Special {
+          border: 0px solid transparent;
+          padding: 0.1em 0.1em 0.1em 0.1em;
+          width: 82%;
+          font-size: 1.1em;
+          letter-spacing: 2px;
+          color: rgb(54, 54, 54);
+          font-weight: 100;
+        }
+      }
+    }
+
+    .Reserve_Btn_Parent {
+      border: 0px solid transparent;
+      padding: 0.5em 1em 0.3em 1em;
+      display: flex;
+      flex-direction: row;
+      justify-content: right;
+      align-items: center;
+
+      button {
+        border: 0px solid transparent;
+        background-color: rgb(255, 7, 7);
+        width: 12%;
+        margin: 0em 0em 0em 2em;
+        letter-spacing: 2px;
+        color: white;
+        padding: 0.1em 0.1em 0.1em 0.1em;
+        border-radius: 5px;
+        font-size: 1em;
+
+        i {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}
+
+.My_Reserve_Box:hover {
+    cursor: pointer;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+/* -------------------------------- */
+/* ----- Media Queries In CSS ----- */
+/* -------------------------------- */
+/* 0 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 1400px) {
+  // 1 - User Reservation
+  .My_Reserve_Box {
+    padding: 1em 0.5em;
+    margin: 2em 0em 0em 0em;
+
+    .Reserve_Img_Box {
+      padding: 1em 0.8em;
+
+      img {
+        padding: 0.1em 0.1em;
+        width: 7%;
+      }
+    }
+
+    h1 {
+      padding: 0.5em 0em;
+      font-size: 1.7em;
+      letter-spacing: 2px;
+    }
+
+    .Reservation_Detail_Box {
+      padding: 1.5em 1em 0.3em 1em;
+
+      h2 {
+        padding: 1em 0.45em;
+        font-size: 1.4em;
+      }
+
+      .Reservation_Row {
+        padding: 0.3em 0.1em 0.3em 0.1em;
+
+        .Reserve_Row_Data {
+          padding: 0.1em 0.1em 0.1em 0.1em;
+          width: 45%;
+
+          .Reserve_Row_Data_P1 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 40%;
+            font-size: 1.05em;
+            letter-spacing: 2px;
+
+            i {
+              padding: 0em 0.8em 0.1em 0.1em;
+              font-size: 1.05em;
+            }
+          }
+
+          .Reserve_Row_Data_P2 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 40%;
+            font-size: 1.05em;
+            letter-spacing: 2px;
+          }
+        }
+
+        .Reserve_Row_Data_S {
+          padding: 0.1em 0.1em 0.1em 0.1em;
+
+          .Reserve_Row_Data_P1 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 18%;
+            font-size: 1.05em;
+            letter-spacing: 2px;
+
+            i {
+              padding: 0em 0.8em 0.1em 0.1em;
+              font-size: 1.05em;
+            }
+          }
+
+          .Reserve_Row_Data_P_Special {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 82%;
+            font-size: 1.05em;
+            letter-spacing: 2px;
+          }
+        }
+      }
+
+      .Reserve_Btn_Parent {
+        padding: 0.5em 1em 0.3em 1em;
+
+        button {
+          width: 12%;
+          margin: 0em 0em 0em 2em;
+          letter-spacing: 2px;
+          padding: 0.1em 0.1em 0.1em 0.1em;
+          border-radius: 5px;
+          font-size: 1em;
+
+          i {
+            font-size: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  //   0 --- Menu Heading Page CSS ---
+  .Branch_H {
+    padding: 0em 0em 0.8em 0em;
+    font-size: 2em;
+    letter-spacing: 1px;
+  }
+  .Parent_Branch_Btn {
+    padding: 1em 0em 4em 0em;
+  }
+  .Branch_Btn {
+    padding: 0.1em 2.2em 0.2em 2.2em;
+    letter-spacing: 1px;
+    font-size: 1.1em;
+  }
+  .Branch_Btn i {
+    font-size: 0.93em;
+    margin: 0em 0em 0em 1em;
+  }
+  // -
+}
+
+/* 1 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 1200px) {
+  // 1 - User Reservation
+  .My_Reserve_Box {
+    padding: 1em 0.5em;
+    margin: 2em 0em 0em 0em;
+
+    .Reserve_Img_Box {
+      padding: 1em 0.8em;
+
+      img {
+        padding: 0.1em 0.1em;
+        width: 7%;
+      }
+    }
+
+    h1 {
+      padding: 0.5em 0em;
+      font-size: 1.5em;
+      letter-spacing: 2px;
+    }
+
+    .Reservation_Detail_Box {
+      padding: 1.2em 0.6em 0.3em 0.6em;
+
+      h2 {
+        padding: 1em 0.45em;
+        font-size: 1.2em;
+      }
+
+      .Reservation_Row {
+        padding: 0.3em 0.1em 0.3em 0.1em;
+
+        .Reserve_Row_Data {
+          padding: 0.1em 0.1em 0.1em 0.1em;
+          width: 49%;
+
+          .Reserve_Row_Data_P1 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 50%;
+            font-size: 1em;
+            letter-spacing: 2px;
+
+            i {
+              padding: 0em 0.8em 0.1em 0.1em;
+              font-size: 1em;
+            }
+          }
+
+          .Reserve_Row_Data_P2 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 50%;
+            font-size: 1em;
+            letter-spacing: 2px;
+          }
+        }
+
+        .Reserve_Row_Data_S {
+          padding: 0.1em 0.1em 0.1em 0.1em;
+
+          .Reserve_Row_Data_P1 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 18%;
+            font-size: 1em;
+            letter-spacing: 2px;
+
+            i {
+              padding: 0em 0.8em 0.1em 0.1em;
+              font-size: 1em;
+            }
+          }
+
+          .Reserve_Row_Data_P_Special {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 82%;
+            font-size: 1em;
+            letter-spacing: 2px;
+          }
+        }
+      }
+
+      .Reserve_Btn_Parent {
+        padding: 0.5em 1em 0.3em 1em;
+
+        button {
+          width: 12%;
+          margin: 0em 0em 0em 2em;
+          letter-spacing: 2px;
+          padding: 0.1em 0.1em 0.1em 0.1em;
+          border-radius: 5px;
+          font-size: 1em;
+
+          i {
+            font-size: 1em;
+          }
+        }
+      }
+    }
+  }
+  // -
+}
+
+/* 2 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 1000px) {
+  // 1 - User Reservation
+  .My_Reserve_Box {
+    padding: 1em 0.3em;
+    margin: 2em 0em 0em 0em;
+
+    .Reserve_Img_Box {
+      padding: 1em 0.8em;
+
+      img {
+        padding: 0.1em 0.1em;
+        width: 7%;
+      }
+    }
+
+    h1 {
+      padding: 0.5em 0em;
+      font-size: 1.4em;
+      letter-spacing: 2px;
+    }
+
+    .Reservation_Detail_Box {
+      padding: 1em 0.6em 0.3em 0.6em;
+
+      h2 {
+        padding: 1em 0.45em;
+        font-size: 1.15em;
+      }
+
+      .Reservation_Row {
+        padding: 0.3em 0.1em 0.3em 0.1em;
+
+        .Reserve_Row_Data {
+          padding: 0.1em 0.1em 0.1em 0.1em;
+          width: 49%;
+
+          .Reserve_Row_Data_P1 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 50%;
+            font-size: 1em;
+            letter-spacing: 2px;
+
+            i {
+              padding: 0em 0.8em 0.1em 0.1em;
+              font-size: 1em;
+            }
+          }
+
+          .Reserve_Row_Data_P2 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 50%;
+            font-size: 1em;
+            letter-spacing: 2px;
+          }
+        }
+
+        .Reserve_Row_Data_S {
+          padding: 0.1em 0.1em 0.1em 0.1em;
+
+          .Reserve_Row_Data_P1 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 18%;
+            font-size: 1em;
+            letter-spacing: 2px;
+
+            i {
+              padding: 0em 0.8em 0.1em 0.1em;
+              font-size: 1em;
+            }
+          }
+
+          .Reserve_Row_Data_P_Special {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 82%;
+            font-size: 1em;
+            letter-spacing: 2px;
+          }
+        }
+      }
+
+      .Reserve_Btn_Parent {
+        padding: 0.5em 1em 0.3em 1em;
+
+        button {
+          width: 12%;
+          margin: 0em 0em 0em 2em;
+          letter-spacing: 2px;
+          padding: 0.1em 0.1em 0.1em 0.1em;
+          border-radius: 5px;
+          font-size: 1em;
+
+          i {
+            font-size: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  //   0 --- Menu Heading Page CSS ---
+  .Branch_H {
+    padding: 0em 0em 0.8em 0em;
+    font-size: 1.9em;
+    letter-spacing: 1px;
+  }
+  .Parent_Branch_Btn {
+    padding: 1em 0em 4em 0em;
+  }
+  .Branch_Btn {
+    padding: 0.1em 3em 0.3em 3em;
+    letter-spacing: 1px;
+    font-size: 1.1em;
+  }
+  .Branch_Btn i {
+    font-size: 1em;
+    margin: 0em 0em 0em 1em;
+  }
+  // -
+}
+
+/* 3 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 800px) {
+  // 1 - User Reservation
+  .My_Reserve_Box {
+    padding: 1em 0.3em;
+    margin: 2em 0em 0em 0em;
+
+    .Reserve_Img_Box {
+      padding: 0.8em 0.8em;
+
+      img {
+        padding: 1em 0.1em;
+        width: 7%;
+      }
+    }
+
+    h1 {
+      padding: 0.1em 0em;
+      font-size: 1.4em;
+      letter-spacing: 2px;
+    }
+
+    .Reservation_Detail_Box {
+      padding: 1em 0.6em 0.3em 0.6em;
+
+      h2 {
+        padding: 1em 0.45em;
+        font-size: 1.15em;
+      }
+
+      .Reservation_Row {
+        padding: 0.3em 0.1em 0.3em 0.1em;
+        flex-direction: column;
+
+        .Reserve_Row_Data {
+          padding: 0.1em 0.1em 0.1em 0.1em;
+          width: 100%;
+
+          .Reserve_Row_Data_P1 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 30%;
+            font-size: 1em;
+            letter-spacing: 2px;
+
+            i {
+              padding: 0em 0.8em 0.1em 0.1em;
+              font-size: 1em;
+            }
+          }
+
+          .Reserve_Row_Data_P2 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 70%;
+            font-size: 1em;
+            letter-spacing: 2px;
+          }
+        }
+
+        .Reserve_Row_Data_S {
+          padding: 0.1em 0.1em 0.1em 0.1em;
+
+          .Reserve_Row_Data_P1 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 35%;
+            font-size: 1em;
+            letter-spacing: 2px;
+
+            i {
+              padding: 0em 0.8em 0.1em 0.1em;
+              font-size: 1em;
+            }
+          }
+
+          .Reserve_Row_Data_P_Special {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            // width: 100%;
+            font-size: 1em;
+            letter-spacing: 2px;
+          }
+        }
+      }
+
+      .Reserve_Btn_Parent {
+        padding: 0.5em 1em 0.3em 1em;
+
+        button {
+          width: 20%;
+          margin: 0em 0em 0em 2em;
+          letter-spacing: 2px;
+          padding: 0.1em 0.1em 0.1em 0.1em;
+          border-radius: 5px;
+          font-size: 0.95em;
+
+          i {
+            font-size: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  //   0 --- Menu Heading Page CSS ---
+  .Branch_H {
+    padding: 0em 0em 0.8em 0em;
+    font-size: 1.7em;
+    letter-spacing: 1px;
+  }
+  .Parent_Branch_Btn {
+    padding: 1em 0em 4em 0em;
+  }
+  .Branch_Btn {
+    padding: 0.1em 3em 0.1em 3em;
+    letter-spacing: 1px;
+    font-size: 1.05em;
+  }
+  .Branch_Btn i {
+    font-size: 0.95em;
+    margin: 0em 0em 0em 1em;
+  }
+  // -
+}
+
+/* 4 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 600px) {
+  // 1 - User Reservation
+  .My_Reserve_Box {
+    padding: 1em 0.1em;
+    margin: 2em 0em 0em 0em;
+
+    .Reserve_Img_Box {
+      padding: 0.5em 0.5em;
+
+      img {
+        padding: 0.1em 0.1em;
+        width: 10%;
+      }
+    }
+
+    h1 {
+      padding: 1em 0em;
+      font-size: 1.1em;
+      letter-spacing: 3px;
+    }
+
+    .Reservation_Detail_Box {
+      padding: 0.8em 0.5em 0.3em 0.5em;
+
+      h2 {
+        padding: 1em 0.45em;
+        font-size: 0.95em;
+      }
+
+      .Reservation_Row {
+        padding: 0.2em 0.1em 0.2em 0.1em;
+        flex-direction: column;
+
+        .Reserve_Row_Data {
+          padding: 0.1em 0.1em 0.1em 0.1em;
+          width: 100%;
+
+          .Reserve_Row_Data_P1 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 35%;
+            font-size: 0.9em;
+            letter-spacing: 0px;
+
+            i {
+              padding: 0em 0.8em 0.3em 0.1em;
+              font-size: 1em;
+            }
+          }
+
+          .Reserve_Row_Data_P2 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 65%;
+            font-size: 0.9em;
+            letter-spacing: 0px;
+          }
+        }
+
+        .Reserve_Row_Data_S {
+          padding: 0.1em 0.1em 0.1em 0.1em;
+
+          .Reserve_Row_Data_P1 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 44%;
+            font-size: 0.9em;
+            letter-spacing: 0px;
+
+            i {
+              padding: 0em 0.8em 0.1em 0.1em;
+              font-size: 1em;
+            }
+          }
+
+          .Reserve_Row_Data_P_Special {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            // width: 100%;
+            font-size: 0.9em;
+            letter-spacing: 0px;
+            text-align: center;
+          }
+        }
+      }
+
+      .Reserve_Btn_Parent {
+        padding: 1em 1em 1em 1em;
+
+        button {
+          width: 20%;
+          margin: 0em 0em 0em 2em;
+          letter-spacing: 0px;
+          padding: 0em 0em 0em 0em;
+          border-radius: 5px;
+          font-size: 0.95em;
+
+          i {
+            font-size: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  //   0 --- Menu Heading Page CSS ---
+  .Branch_H {
+    padding: 0em 0em 0.8em 0em;
+    font-size: 1.6em;
+    letter-spacing: 1px;
+  }
+  .Parent_Branch_Btn {
+    padding: 1em 0em 4em 0em;
+  }
+  .Branch_Btn {
+    padding: 0.1em 1.3em 0.1em 1.3em;
+    letter-spacing: 1px;
+    font-size: 1em;
+  }
+  .Branch_Btn i {
+    font-size: 0.95em;
+    margin: 0em 0em 0em 0.5em;
+  }
+  // -
+}
+
+/* 5 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 400px) {
+  // 1 - User Reservation
+  .My_Reserve_Box {
+    padding: 0.5em 0.5em;
+    margin: 2em 0em 0em 0em;
+
+    .Reserve_Img_Box {
+      padding: 1.5em 0.5em;
+
+      img {
+        padding: 0.1em 0.1em;
+        width: 30%;
+      }
+    }
+
+    h1 {
+      padding: 0.5em 0em;
+      font-size: 1em;
+      letter-spacing: 0.5px;
+    }
+
+    .Reservation_Detail_Box {
+      padding: 0.8em 0.3em 0.3em 0.3em;
+
+      h2 {
+        padding: 2em 0.45em;
+        font-size: 0.8em;
+        letter-spacing: 0.5px;
+      }
+
+      .Reservation_Row {
+        padding: 0.2em 0.1em 0.2em 0.1em;
+        flex-direction: column;
+
+        .Reserve_Row_Data {
+          padding: 0.3em 0em 0.3em 0em;
+          width: 100%;
+          flex-direction: column;
+
+          .Reserve_Row_Data_P1 {
+            padding: 0.2em 0.1em 0.2em 0.1em;
+            width: 100%;
+            font-size: 0.9em;
+            letter-spacing: 0px;
+
+            i {
+              padding: 0em 0.5em 0.3em 0.1em;
+              font-size: 1em;
+            }
+          }
+
+          .Reserve_Row_Data_P2 {
+            padding: 0.5em 0.1em 0.5em 0.1em;
+            width: 100%;
+            font-size: 0.9em;
+            letter-spacing: 0px;
+          }
+        }
+
+        .Reserve_Row_Data_S {
+          padding: 0.1em 0.1em 0.1em 0.1em;
+          flex-direction: column;
+
+          .Reserve_Row_Data_P1 {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+            width: 100%;
+            font-size: 0.9em;
+            letter-spacing: 0px;
+
+            i {
+              padding: 0em 0.5em 0.1em 0.1em;
+              font-size: 1em;
+            }
+          }
+
+          .Reserve_Row_Data_P_Special {
+            padding: 0.4em 0.1em 0.4em 0.1em;
+            width: 100%;
+            font-size: 0.9em;
+            letter-spacing: 0px;
+            text-align: center;
+          }
+        }
+      }
+
+      .Reserve_Btn_Parent {
+        padding: 0.4em 0.3em 0.3em 0.3em;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+          width: 40%;
+          margin: 0em 0em 0em 0em;
+          letter-spacing: 0px;
+          padding: 0em 0em 0em 0em;
+          border-radius: 5px;
+          font-size: 0.95em;
+
+          i {
+            font-size: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  //   0 --- Menu Heading Page CSS ---
+  .Branch_H {
+    padding: 0em 0em 0.8em 0em;
+    font-size: 1.4em;
+    letter-spacing: 1px;
+  }
+  .Parent_Branch_Btn {
+    padding: 1em 0em 4em 0em;
+  }
+  .Branch_Btn {
+    padding: 0em 1em 0em 1em;
+    letter-spacing: 0px;
+    font-size: 1em;
+  }
+  .Branch_Btn i {
+    font-size: 0.9em;
+    margin: 0em 0em 0em 0.2em;
+  }
+  // -
+}
