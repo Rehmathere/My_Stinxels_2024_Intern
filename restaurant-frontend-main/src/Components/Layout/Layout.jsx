@@ -38,8 +38,8 @@ const Layout = ({ Menu }) => {
       <Sider
         trigger={null}
         collapsible
-        collapsed={isMobileView ? true : collapsed} // Automatically collapse on mobile
-        className={`bg-green-950 ${collapsed ? "sider-collapsed" : ""}`} // Add class for media query handling
+        collapsed={isMobileView ? true : collapsed}
+        className={`bg-green-950 ${collapsed ? "sider-collapsed" : ""}`}
       >
         <div className="demo-logo-vertical" />
         <div className="menu_logo">

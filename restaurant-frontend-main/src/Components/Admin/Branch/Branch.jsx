@@ -138,11 +138,11 @@ function Branch() {
       render: (_, record) => (
         <div className="flex flex-col items-center">
           <div className="w-full flex justify-around">
-            <Button ghost type="link">
-              Seating Size
+            <Button ghost type="link" className="My_Branch_Btn">
+              S
             </Button>
-            <Button ghost type="link">
-              Table Qty
+            <Button ghost type="link" className="My_Branch_Btn">
+              T
             </Button>
           </div>
           <div className="w-full">
@@ -213,7 +213,7 @@ function Branch() {
           setForm={setForm}
         />
         <Table
-          dataSource={branches}
+          dataSource={dummyData}
           columns={columns}
           rowClassName="custom-table-row"
         />
