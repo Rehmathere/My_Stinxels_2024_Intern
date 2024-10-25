@@ -71,7 +71,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "../src/index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "../store.js";
 import App from "../src/App.jsx";
@@ -79,7 +83,6 @@ import Menu from "./Components/Admin/Menu/Menu.jsx";
 import Signup from "./Components/Authenticate/signup.jsx";
 import Layout from "./Components/Layout/Layout.jsx";
 import Home from "./Components/Home/home.jsx";
-import Contact from "./Components/Contact/contact.jsx";
 import About from "./Components/About/about.jsx";
 import Branch from "./Components/Admin/Branch/Branch.jsx";
 import Login from "./Components/Authenticate/login.jsx";
@@ -103,10 +106,6 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <About />,
-      },
-      {
-        path: "contact",
-        element: <Contact />,
       },
       {
         path: "menu",
@@ -133,6 +132,10 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: <Navigate to={"/admin/menu"} />,
+      },
+      {
+        path: "menu",
         element: <Menu />,
       },
       {
@@ -155,6 +158,10 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: <Navigate to={"/user/reservation"} />,
+      },
+      {
+        path: "reservation",
         element: <Reservation />,
       },
     ],

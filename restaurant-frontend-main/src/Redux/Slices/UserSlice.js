@@ -6,6 +6,7 @@ const initialState = {
   message: "",
   socketId: "",
   _id: "",
+  cart: [],
 };
 
 const userSlice = createSlice({
@@ -15,6 +16,39 @@ const userSlice = createSlice({
     defaultReducer: (state, action) => {},
     setSocketId: (state, action) => {
       state.socketId = action.payload.socketId;
+    },
+
+    addToCart: (state, action) => {
+      const index = state.cart?.findIndex(
+        (item) => item._id == action.payload._id
+      );
+
+      if (index == -1) {
+        state.cart?.push({
+          ...action.payload,
+          qty: 1,
+          total: action.payload.price,
+        });
+      } else {
+        state.cart[index].qty += 1;
+        state.cart[index].total =
+          state.cart[index].qty * state.cart[index].price;
+      }
+    },
+
+    decrementQty: (state, action) => {
+      const index = state.cart?.findIndex(
+        (item) => item._id == action.payload._id
+      );
+      console.log(state.cart[index].qty);
+
+      if (state.cart[index].qty == 1) {
+        state.cart = state.cart?.filter(({ _id }) => _id != action.payload._id);
+      } else {
+        state.cart[index].qty -= 1;
+        state.cart[index].total =
+          state.cart[index].qty * state.cart[index].price;
+      }
     },
   },
   extraReducers: (builder) => {
@@ -40,6 +74,6 @@ const userSlice = createSlice({
   },
 });
 
-export const { setSocketId } = userSlice.actions;
+export const { setSocketId, addToCart, decrementQty } = userSlice.actions;
 
 export default userSlice.reducer;

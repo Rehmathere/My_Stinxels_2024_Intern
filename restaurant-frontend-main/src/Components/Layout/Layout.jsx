@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  CoffeeOutlined,
+  ShopOutlined,
+  CheckCircleOutlined,
+  LogoutOutlined,
+} from "@ant-design/icons";
 import { Button, Layout as AntdLayout, theme } from "antd";
 import { Outlet } from "react-router-dom";
 import logo from "../../assets/logo.png";
@@ -10,6 +17,7 @@ const { Header, Sider, Content } = AntdLayout;
 const Layout = ({ Menu }) => {
   const [collapsed, setCollapsed] = useState(false);
   const [isMobileView, setIsMobileView] = useState(false); // To handle media query behavior
+  const [showMyData, setShowMyData] = useState(false); // State to control My_Data visibility
 
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -32,6 +40,61 @@ const Layout = ({ Menu }) => {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const handleToggle = () => {
+    // Prevent Sider from opening if in mobile view (screen width <= 1000px)
+    if (!isMobileView) {
+      setCollapsed(!collapsed);
+    }
+    // Toggle the My_Data visibility
+    setShowMyData(!showMyData);
+  };
+
+  // The My_Data function to display content
+  const My_Data = () => {
+    if (showMyData) {
+      return (
+        <div className="My_ShowData_Whole">
+          <div className="My_ShowData_Whole_Sub">
+            <div className="ShowData_Box">
+              <div className="ShowData_Box_Part_0">
+                <i
+                  class="fa fa-times-circle"
+                  onClick={() => {
+                    setShowMyData(false);
+                  }}
+                ></i>
+              </div>
+              <div className="ShowData_Box_Part_1">
+                <img src={logo} alt="NA" />
+              </div>
+              <div className="ShowData_Box_Part_2">
+                <ul>
+                  <li>
+                    <CoffeeOutlined /> Menu
+                  </li>
+                  <li>
+                    <ShopOutlined /> Branch
+                  </li>
+                  <li>
+                    <CheckCircleOutlined /> Reservations
+                  </li>
+                </ul>
+              </div>
+              <div className="ShowData_Box_Part_3">
+                <ul>
+                  <li>
+                    <LogoutOutlined /> Logout
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    return null; // Return null if not visible
+  };
 
   return (
     <AntdLayout>
@@ -57,7 +120,7 @@ const Layout = ({ Menu }) => {
           <Button
             type="text"
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)} // Toggle collapse on click
+            onClick={handleToggle} // Toggle collapse and My_Data visibility
             className="collapsed-button"
             style={{
               fontSize: "10px",
@@ -77,6 +140,8 @@ const Layout = ({ Menu }) => {
           }}
         >
           <Outlet />
+          {/* Call My_Data to display its content conditionally */}
+          {My_Data()}
         </Content>
       </AntdLayout>
     </AntdLayout>

@@ -1,12 +1,278 @@
-@media screen and (min-width: 1px) and (max-width: 1000px) {
-    .sider-collapsed {
-      /* This will trigger the collapsed state when width is <= 1000px */
-      display: none !important; /* Simulates the collapsed sider by hiding it */
-    }
-  
-    .collapsed-button {
-      /* This is where the button's state will change */
-      background-color: white;
+// --- Layout.jsx ---
+.My_ShowData_Whole {
+  border: 0.1px solid black;
+  width: 100%;
+  height: 100%;
+  padding: 0em 0em;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(255, 255, 255, 0.781);
+  display: none;
+
+  .My_ShowData_Whole_Sub {
+    border: 0.1px solid black;
+    padding: 0em 0em;
+
+    .ShowData_Box {
+      border: 0.1px solid white;
+      padding: 0.5em 0.5em;
+      width: 30%;
+      height: 770px;
+      background-color: #0a4621;
+      position: relative;
+
+      .ShowData_Box_Part_0 {
+        border: 0.1px solid white;
+        padding: 1em 1em;
+
+        i {
+          border: 0.1px solid white;
+          font-size: 25px;
+          color: white;
+          display: block;
+          text-align: right;
+        }
+
+        i:hover {
+          color: rgba(255, 255, 255, 0.849);
+          cursor: pointer;
+        }
+      }
+
+      .ShowData_Box_Part_1 {
+        border: 0.1px solid white;
+        padding: 2em 2em;
+
+        img {
+          border: 0.1px solid white;
+          width: 50%;
+          display: block;
+          margin: 0em auto;
+        }
+      }
+
+      .ShowData_Box_Part_2 {
+        border: 0.1px solid white;
+        padding: 2em 1em;
+
+        ul {
+          border: 0.1px solid white;
+          padding: 0.5em 2em;
+
+          li {
+            background-color: white;
+            color: #0a4621;
+            margin: 1em 0em;
+            padding: 0.6em 3em;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            font-size: 1.15em;
+            border-radius: 5px;
+
+            .anticon {
+              padding: 0em 1em;
+              color: #0a4621;
+              font-size: 1.1em;
+            }
+          }
+
+          li:hover {
+            background-color: rgba(255, 255, 255, 0.918);
+            cursor: pointer;
+          }
+        }
+      }
+
+      .ShowData_Box_Part_3 {
+        border: 0.1px solid white;
+        padding: 1em 2em;
+        width: 98%;
+        position: absolute;
+        bottom: 0px;
+
+        ul {
+          border: 0.1px solid white;
+          padding: 0.5em 2em;
+          display: flex;
+          flex-direction: row;
+          justify-content: right;
+          align-items: center;
+
+          li {
+            background-color: red;
+            color: white;
+            margin: 1em 0em;
+            padding: 0.5em 2em;
+            letter-spacing: 1.5px;
+            font-size: 0.9em;
+            border-radius: 5px;
+            text-align: center;
+            border-radius: 50px;
+
+            .anticon {
+              color: white;
+              font-size: 1.1em;
+            }
+          }
+
+          li:hover {
+            background-color: rgba(255, 0, 0, 0.87);
+            cursor: pointer;
+          }
+        }
+      }
     }
   }
-  
+}
+
+/* -------------------------------- */
+/* ----- Media Queries In CSS ----- */
+/* -------------------------------- */
+/* 0 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 1400px) {
+  // --- 2 - Responsive Layout ---
+}
+
+/* 1 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 1200px) {
+  // --- 1 - Responsive Layout ---
+}
+
+/* 2 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 1000px) {
+  // --- 1 - Layout Setting ---
+  .sider-collapsed {
+    display: none !important;
+  }
+  .collapsed-button {
+    background-color: white;
+  }
+
+  // --- 2 - Responsive Layout ---
+  .My_ShowData_Whole {
+    width: 100%;
+    height: 100%;
+    padding: 0em 0em;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(255, 255, 255, 0.781);
+    display: block;
+
+    .My_ShowData_Whole_Sub {
+      border: 0.1px solid black;
+      padding: 0em 0em;
+
+      .ShowData_Box {
+        border: 0.1px solid white;
+        padding: 0.5em 0.5em;
+        width: 30%;
+        height: 700px;
+        background-color: #0a4621;
+        position: relative;
+
+        .ShowData_Box_Part_0 {
+          border: 0.1px solid white;
+          padding: 1em 1em;
+
+          i {
+            border: 0.1px solid white;
+            font-size: 25px;
+            color: white;
+            display: block;
+            text-align: right;
+          }
+
+          i:hover {
+            color: rgba(255, 255, 255, 0.849);
+            cursor: pointer;
+          }
+        }
+
+        .ShowData_Box_Part_1 {
+          border: 0.1px solid white;
+          padding: 2em 1em;
+
+          img {
+            border: 0.1px solid white;
+            width: 50%;
+            display: block;
+            margin: 0em auto;
+          }
+        }
+
+        .ShowData_Box_Part_2 {
+          border: 0.1px solid white;
+          padding: 2em 1em;
+
+          ul {
+            border: 0.1px solid white;
+            padding: 0.5em 0.5em;
+
+            li {
+              background-color: white;
+              color: #0a4621;
+              margin: 1em 0em;
+              padding: 0.6em 1em;
+              letter-spacing: 1px;
+              font-weight: 500;
+              font-size: 1em;
+              border-radius: 5px;
+
+              .anticon {
+                padding: 0em 1em;
+                color: #0a4621;
+                font-size: 1.1em;
+              }
+            }
+
+            li:hover {
+              background-color: rgba(255, 255, 255, 0.918);
+              cursor: pointer;
+            }
+          }
+        }
+
+        .ShowData_Box_Part_3 {
+          border: 0.1px solid white;
+          padding: 1em 2em;
+          width: 98%;
+          position: absolute;
+          bottom: 0px;
+
+          ul {
+            border: 0.1px solid white;
+            padding: 0.5em 2em;
+            display: flex;
+            flex-direction: row;
+            justify-content: right;
+            align-items: center;
+
+            li {
+              background-color: red;
+              color: white;
+              margin: 1em 0em;
+              padding: 0.5em 2em;
+              letter-spacing: 1.5px;
+              font-size: 0.9em;
+              border-radius: 5px;
+              text-align: center;
+              border-radius: 50px;
+
+              .anticon {
+                color: white;
+                font-size: 1.1em;
+              }
+            }
+
+            li:hover {
+              background-color: rgba(255, 0, 0, 0.87);
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
