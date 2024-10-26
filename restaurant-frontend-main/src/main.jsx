@@ -84,6 +84,7 @@ import Signup from "./Components/Authenticate/signup.jsx";
 import Layout from "./Components/Layout/Layout.jsx";
 import Home from "./Components/Home/home.jsx";
 import About from "./Components/About/about.jsx";
+import Contact from "./Components/Contact/contact.jsx";
 import Branch from "./Components/Admin/Branch/Branch.jsx";
 import Login from "./Components/Authenticate/login.jsx";
 import AdminSiderMenu from "./Components/Admin/AdminSiderMenu.jsx";
@@ -93,6 +94,8 @@ import Reservations from "./Components/Admin/Reservations/Reservations.jsx";
 
 import ProtectedRoutes from "./Components/Routes/ProtectedRoutes.jsx";
 import PublicRoutes from "./Components/Routes/PublicRoutes.jsx";
+import HomeDash from "./Components/Admin/HomeDash/HomeDash.jsx";
+import UserDash from "./Components/User/UserDash/UserDash.jsx";
 
 const router = createBrowserRouter([
   {
@@ -106,6 +109,10 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <About />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
       },
       {
         path: "menu",
@@ -132,7 +139,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to={"/admin/menu"} />,
+        element: <Navigate to={"/admin/HomeDash"} />,
+      },
+      {
+        path: "HomeDash",
+        element: <HomeDash />,
       },
       {
         path: "menu",
@@ -158,7 +169,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to={"/user/reservation"} />,
+        element: <Navigate to={"/user/UserDash"} />,
+      },
+      {
+        path: "UserDash",
+        element: <UserDash />,
       },
       {
         path: "reservation",

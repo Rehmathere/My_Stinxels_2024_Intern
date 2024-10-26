@@ -1,0 +1,399 @@
+// - 0 - Heading -
+.Parent_Head_Whole {
+  border: 0px solid transparent;
+  padding: 1em 0.5em;
+
+  h1 {
+    border: 0px solid transparent;
+    padding: 0.5em 0.5em;
+    font-size: 2.5em;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+  }
+}
+
+// 1 - Total HomeDash Display
+.Parent_HomeDash_Whole {
+  border: 0px solid transparent;
+  padding: 0.1em 0em;
+
+  .Parent_HomeDash_Whole_Sub {
+    border: 0px solid transparent;
+    padding: 0.1em 0em;
+
+    .HomeDash_Box {
+      border: 0px solid transparent;
+      padding: 0.1em 0.1em;
+
+      .HomeDash_Box_Row {
+        border: 0px solid transparent;
+        padding: 1em 0.1em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .HomeDash_Box_Main {
+          border: 0px solid transparent;
+          padding: 1em 1.5em;
+          width: 45%;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          // background: linear-gradient(to top, #0a4621, #158b42);
+          background: linear-gradient(to top, #0a4621, #6fab79);
+          // background: linear-gradient(to top, #0a4621, #7aa894);
+
+          .HomeDash_Box_Main_Part_1 {
+            border: 0px solid transparent;
+            width: 60%;
+
+            p {
+              border: 0px solid transparent;
+              font-size: 2em;
+              letter-spacing: 2px;
+              font-weight: 900;
+              padding: 0.2em 0.1em;
+              color: white;
+            }
+
+            h1 {
+              border: 0px solid transparent;
+              font-size: 1em;
+              letter-spacing: 1.5px;
+              padding: 0.1em 0.1em;
+              color: white;
+            }
+          }
+
+          .HomeDash_Box_Main_Part_2 {
+            border: 0px solid transparent;
+            width: 30%;
+
+            img {
+              border: 0px solid transparent;
+              display: block;
+              margin: 0em auto;
+              width: 50%;
+            }
+          }
+        }
+
+        .HomeDash_Box_Main:hover {
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+            rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+/* -------------------------------- */
+/* ----- Media Queries In CSS ----- */
+/* -------------------------------- */
+
+/* --- 1 - First Media Query --- */
+@media screen and (min-width: 1px) and (max-width: 1400px) {
+  /* 1 - Total HomeDash Display */
+  .Parent_HomeDash_Whole {
+    padding: 0em 0em;
+
+    .Parent_HomeDash_Whole_Sub {
+      padding: 0em 0em;
+
+      .HomeDash_Box {
+        padding: 0em 0em;
+
+        .HomeDash_Box_Row {
+          padding: 0.9em 0em;
+
+          .HomeDash_Box_Main {
+            padding: 0.8em 1.5em;
+            width: 45%;
+
+            .HomeDash_Box_Main_Part_1 {
+              width: 60%;
+
+              p {
+                font-size: 2em;
+                letter-spacing: 2px;
+                padding: 0.2em 0.1em;
+              }
+
+              h1 {
+                font-size: 1em;
+                letter-spacing: 1.5px;
+                padding: 0.1em 0.1em;
+              }
+            }
+
+            .HomeDash_Box_Main_Part_2 {
+              width: 30%;
+
+              img {
+                width: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // -
+}
+
+/* --- 2 - First Media Query --- */
+@media screen and (min-width: 1px) and (max-width: 1200px) {
+  /* 1 - Total HomeDash Display */
+  .Parent_HomeDash_Whole {
+    padding: 0em 0em;
+
+    .Parent_HomeDash_Whole_Sub {
+      padding: 0em 0em;
+
+      .HomeDash_Box {
+        padding: 0em 0em;
+
+        .HomeDash_Box_Row {
+          padding: 0.9em 0em;
+
+          .HomeDash_Box_Main {
+            padding: 0.8em 1.5em;
+            width: 45%;
+
+            .HomeDash_Box_Main_Part_1 {
+              width: 60%;
+
+              p {
+                font-size: 1.9em;
+                letter-spacing: 2px;
+                padding: 0.15em 0.1em;
+              }
+
+              h1 {
+                font-size: 0.95em;
+                letter-spacing: 1.5px;
+                padding: 0.1em 0.1em;
+              }
+            }
+
+            .HomeDash_Box_Main_Part_2 {
+              width: 30%;
+
+              img {
+                width: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // -
+}
+
+/* --- 3 - First Media Query --- */
+@media screen and (min-width: 1px) and (max-width: 1000px) {
+  /* 1 - Total HomeDash Display */
+  .Parent_HomeDash_Whole {
+    padding: 0em 0em;
+
+    .Parent_HomeDash_Whole_Sub {
+      padding: 0em 0em;
+
+      .HomeDash_Box {
+        padding: 0em 0em;
+
+        .HomeDash_Box_Row {
+          padding: 0.8em 0em;
+
+          .HomeDash_Box_Main {
+            padding: 0.7em 1.5em;
+            width: 46%;
+
+            .HomeDash_Box_Main_Part_1 {
+              width: 60%;
+
+              p {
+                font-size: 1.9em;
+                letter-spacing: 2px;
+                padding: 0.15em 0.1em;
+              }
+
+              h1 {
+                font-size: 0.95em;
+                letter-spacing: 1.5px;
+                padding: 0.1em 0.1em;
+              }
+            }
+
+            .HomeDash_Box_Main_Part_2 {
+              width: 30%;
+
+              img {
+                width: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // -
+}
+
+/* --- 4 - First Media Query --- */
+@media screen and (min-width: 1px) and (max-width: 800px) {
+  /* 1 - Total HomeDash Display */
+  .Parent_HomeDash_Whole {
+    padding: 0em 0em;
+
+    .Parent_HomeDash_Whole_Sub {
+      padding: 0em 0em;
+
+      .HomeDash_Box {
+        padding: 0em 0em;
+
+        .HomeDash_Box_Row {
+          padding: 0.8em 0em;
+
+          .HomeDash_Box_Main {
+            padding: 0.6em 1.5em;
+            width: 48%;
+
+            .HomeDash_Box_Main_Part_1 {
+              width: 60%;
+
+              p {
+                font-size: 1.7em;
+                letter-spacing: 2px;
+                padding: 0.15em 0.1em;
+              }
+
+              h1 {
+                font-size: 0.9em;
+                letter-spacing: 1.5px;
+                padding: 0.1em 0.1em;
+              }
+            }
+
+            .HomeDash_Box_Main_Part_2 {
+              width: 30%;
+
+              img {
+                width: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // -
+}
+
+/* --- 4 - First Media Query --- */
+@media screen and (min-width: 1px) and (max-width: 600px) {
+  /* 1 - Total HomeDash Display */
+  .Parent_HomeDash_Whole {
+    padding: 0em 0em;
+
+    .Parent_HomeDash_Whole_Sub {
+      padding: 0em 0em;
+
+      .HomeDash_Box {
+        padding: 0em 0em;
+
+        .HomeDash_Box_Row {
+          padding: 0.6em 0em;
+
+          .HomeDash_Box_Main {
+            padding: 0.5em 0.7em;
+            width: 49.3%;
+
+            .HomeDash_Box_Main_Part_1 {
+              width: 72%;
+
+              p {
+                font-size: 1.4em;
+                letter-spacing: 1.5px;
+                padding: 0.15em 0.1em;
+              }
+
+              h1 {
+                font-size: 0.75em;
+                letter-spacing: 1px;
+                padding: 0.1em 0.1em;
+              }
+            }
+
+            .HomeDash_Box_Main_Part_2 {
+              width: 28%;
+
+              img {
+                width: 80%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // -
+}
+
+/* --- 5 - First Media Query --- */
+@media screen and (min-width: 1px) and (max-width: 400px) {
+  /* 1 - Total HomeDash Display */
+  .Parent_HomeDash_Whole {
+    padding: 0em 0em;
+
+    .Parent_HomeDash_Whole_Sub {
+      padding: 0em 0em;
+
+      .HomeDash_Box {
+        padding: 1em 0em;
+
+        .HomeDash_Box_Row {
+          padding: 0em 0em;
+          flex-direction: column;
+
+          .HomeDash_Box_Main {
+            padding: 0.5em 0.7em 0.5em 0.7em;
+            margin: 0em 0em 1em 0em;
+            width: 100%;
+
+            .HomeDash_Box_Main_Part_1 {
+              width: 72%;
+
+              p {
+                font-size: 1.3em;
+                letter-spacing: 1.5px;
+                padding: 0.15em 0.1em;
+              }
+
+              h1 {
+                font-size: 0.8em;
+                letter-spacing: 1px;
+                padding: 0.1em 0.1em;
+              }
+            }
+
+            .HomeDash_Box_Main_Part_2 {
+              width: 28%;
+
+              img {
+                width: 60%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // -
+}

@@ -1,6 +1,6 @@
 // --- Layout.jsx ---
 .My_ShowData_Whole {
-  border: 0.1px solid black;
+  border: 0px solid transparent;
   width: 100%;
   height: 100%;
   padding: 0em 0em;
@@ -11,11 +11,11 @@
   display: none;
 
   .My_ShowData_Whole_Sub {
-    border: 0.1px solid black;
+    border: 0px solid transparent;
     padding: 0em 0em;
 
     .ShowData_Box {
-      border: 0.1px solid white;
+      border: 0px solid transparent;
       padding: 0.5em 0.5em;
       width: 30%;
       height: 770px;
@@ -23,11 +23,11 @@
       position: relative;
 
       .ShowData_Box_Part_0 {
-        border: 0.1px solid white;
+        border: 0px solid transparent;
         padding: 1em 1em;
 
         i {
-          border: 0.1px solid white;
+          border: 0px solid transparent;
           font-size: 25px;
           color: white;
           display: block;
@@ -41,11 +41,11 @@
       }
 
       .ShowData_Box_Part_1 {
-        border: 0.1px solid white;
+        border: 0px solid transparent;
         padding: 2em 2em;
 
         img {
-          border: 0.1px solid white;
+          border: 0px solid transparent;
           width: 50%;
           display: block;
           margin: 0em auto;
@@ -53,11 +53,11 @@
       }
 
       .ShowData_Box_Part_2 {
-        border: 0.1px solid white;
+        border: 0px solid transparent;
         padding: 2em 1em;
 
         ul {
-          border: 0.1px solid white;
+          border: 0px solid transparent;
           padding: 0.5em 2em;
 
           li {
@@ -85,14 +85,14 @@
       }
 
       .ShowData_Box_Part_3 {
-        border: 0.1px solid white;
+        border: 0px solid transparent;
         padding: 1em 2em;
         width: 98%;
         position: absolute;
         bottom: 0px;
 
         ul {
-          border: 0.1px solid white;
+          border: 0px solid transparent;
           padding: 0.5em 2em;
           display: flex;
           flex-direction: row;
@@ -129,15 +129,15 @@
 /* -------------------------------- */
 /* ----- Media Queries In CSS ----- */
 /* -------------------------------- */
-/* 0 - First Media Queries */
-@media screen and (min-width: 1px) and (max-width: 1400px) {
-  // --- 2 - Responsive Layout ---
-}
+// /* 0 - First Media Queries */
+// @media screen and (min-width: 1px) and (max-width: 1400px) {
+//   // --- 2 - Responsive Layout ---
+// }
 
-/* 1 - First Media Queries */
-@media screen and (min-width: 1px) and (max-width: 1200px) {
-  // --- 1 - Responsive Layout ---
-}
+// /* 1 - First Media Queries */
+// @media screen and (min-width: 1px) and (max-width: 1200px) {
+//   // --- 1 - Responsive Layout ---
+// }
 
 /* 2 - First Media Queries */
 @media screen and (min-width: 1px) and (max-width: 1000px) {
@@ -151,124 +151,291 @@
 
   // --- 2 - Responsive Layout ---
   .My_ShowData_Whole {
-    width: 100%;
-    height: 100%;
-    padding: 0em 0em;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    background-color: rgba(255, 255, 255, 0.781);
     display: block;
 
     .My_ShowData_Whole_Sub {
-      border: 0.1px solid black;
       padding: 0em 0em;
 
       .ShowData_Box {
-        border: 0.1px solid white;
         padding: 0.5em 0.5em;
-        width: 30%;
-        height: 700px;
-        background-color: #0a4621;
-        position: relative;
+        width: 35%;
+        // height: 700px;
 
         .ShowData_Box_Part_0 {
-          border: 0.1px solid white;
           padding: 1em 1em;
 
           i {
-            border: 0.1px solid white;
             font-size: 25px;
-            color: white;
-            display: block;
-            text-align: right;
-          }
-
-          i:hover {
-            color: rgba(255, 255, 255, 0.849);
-            cursor: pointer;
           }
         }
 
         .ShowData_Box_Part_1 {
-          border: 0.1px solid white;
           padding: 2em 1em;
 
           img {
-            border: 0.1px solid white;
             width: 50%;
-            display: block;
-            margin: 0em auto;
           }
         }
 
         .ShowData_Box_Part_2 {
-          border: 0.1px solid white;
           padding: 2em 1em;
 
           ul {
-            border: 0.1px solid white;
             padding: 0.5em 0.5em;
 
             li {
-              background-color: white;
-              color: #0a4621;
               margin: 1em 0em;
               padding: 0.6em 1em;
-              letter-spacing: 1px;
-              font-weight: 500;
               font-size: 1em;
-              border-radius: 5px;
 
               .anticon {
                 padding: 0em 1em;
-                color: #0a4621;
                 font-size: 1.1em;
               }
-            }
-
-            li:hover {
-              background-color: rgba(255, 255, 255, 0.918);
-              cursor: pointer;
             }
           }
         }
 
         .ShowData_Box_Part_3 {
-          border: 0.1px solid white;
-          padding: 1em 2em;
+          padding: 1.5em 1em;
           width: 98%;
-          position: absolute;
-          bottom: 0px;
 
           ul {
-            border: 0.1px solid white;
-            padding: 0.5em 2em;
-            display: flex;
-            flex-direction: row;
-            justify-content: right;
-            align-items: center;
+            padding: 1.5em 1em;
 
             li {
-              background-color: red;
-              color: white;
-              margin: 1em 0em;
+              margin: 0em 0em;
               padding: 0.5em 2em;
               letter-spacing: 1.5px;
               font-size: 0.9em;
-              border-radius: 5px;
-              text-align: center;
               border-radius: 50px;
 
               .anticon {
-                color: white;
                 font-size: 1.1em;
               }
             }
+          }
+        }
+      }
+    }
+  }
+}
 
-            li:hover {
-              background-color: rgba(255, 0, 0, 0.87);
-              cursor: pointer;
+/* 3 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 800px) {
+  // --- 2 - Responsive Layout ---
+  .My_ShowData_Whole {
+    display: block;
+
+    .My_ShowData_Whole_Sub {
+      padding: 0em 0em;
+
+      .ShowData_Box {
+        padding: 0.5em 0.5em;
+        width: 45%;
+        // height: 700px;
+
+        .ShowData_Box_Part_0 {
+          padding: 1em 1em;
+
+          i {
+            font-size: 25px;
+          }
+        }
+
+        .ShowData_Box_Part_1 {
+          padding: 2em 1em;
+
+          img {
+            width: 50%;
+          }
+        }
+
+        .ShowData_Box_Part_2 {
+          padding: 1em 1em;
+
+          ul {
+            padding: 0.5em 0.5em;
+
+            li {
+              margin: 1em 0em;
+              padding: 0.6em 1em;
+              font-size: 0.9em;
+
+              .anticon {
+                padding: 0em 1em;
+                font-size: 1em;
+              }
+            }
+          }
+        }
+
+        .ShowData_Box_Part_3 {
+          padding: 1.5em 1em;
+          width: 98%;
+
+          ul {
+            padding: 1.5em 1em;
+
+            li {
+              margin: 0em 0em;
+              padding: 0.5em 2em;
+              letter-spacing: 1.5px;
+              font-size: 0.9em;
+              border-radius: 50px;
+
+              .anticon {
+                font-size: 1.1em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 4 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 600px) {
+  // --- 2 - Responsive Layout ---
+  .My_ShowData_Whole {
+    display: block;
+
+    .My_ShowData_Whole_Sub {
+      padding: 0em 0em;
+
+      .ShowData_Box {
+        padding: 0.5em 0.5em;
+        width: 60%;
+        // height: 700px;
+
+        .ShowData_Box_Part_0 {
+          padding: 1em 1em;
+
+          i {
+            font-size: 25px;
+          }
+        }
+
+        .ShowData_Box_Part_1 {
+          padding: 2em 1em;
+
+          img {
+            width: 50%;
+          }
+        }
+
+        .ShowData_Box_Part_2 {
+          padding: 1em 1em;
+
+          ul {
+            padding: 0.5em 0.5em;
+
+            li {
+              margin: 1em 0em;
+              padding: 0.6em 1em;
+              font-size: 0.89em;
+
+              .anticon {
+                padding: 0em 1em;
+                font-size: 1.05em;
+              }
+            }
+          }
+        }
+
+        .ShowData_Box_Part_3 {
+          padding: 1.5em 1em;
+          width: 98%;
+
+          ul {
+            padding: 1.5em 1em;
+
+            li {
+              margin: 0em 0em;
+              padding: 0.5em 2em;
+              letter-spacing: 1.5px;
+              font-size: 0.89em;
+              border-radius: 50px;
+
+              .anticon {
+                font-size: 1.1em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 4 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 400px) {
+  // --- 2 - Responsive Layout ---
+  .My_ShowData_Whole {
+    display: block;
+
+    .My_ShowData_Whole_Sub {
+      padding: 0em 0em;
+
+      .ShowData_Box {
+        padding: 0.5em 0.5em;
+        width: 100%;
+        height: 850px;
+
+        .ShowData_Box_Part_0 {
+          padding: 1em 1em;
+
+          i {
+            font-size: 25px;
+          }
+        }
+
+        .ShowData_Box_Part_1 {
+          padding: 2em 1em;
+
+          img {
+            width: 50%;
+          }
+        }
+
+        .ShowData_Box_Part_2 {
+          padding: 1em 1em;
+
+          ul {
+            padding: 0.5em 0.5em;
+
+            li {
+              margin: 1em 0em;
+              padding: 0.6em 1em;
+              font-size: 0.89em;
+
+              .anticon {
+                padding: 0em 1em;
+                font-size: 1.05em;
+              }
+            }
+          }
+        }
+
+        .ShowData_Box_Part_3 {
+          padding: 0em 0.5em 2.5em 1em;
+          // width: 98%;
+          bottom: 250px;
+
+          ul {
+            padding: 0em 1em;
+
+            li {
+              margin: 0em 0em;
+              padding: 0.5em 1.7em;
+              letter-spacing: 1.5px;
+              font-size: 0.89em;
+              border-radius: 50px;
+
+              .anticon {
+                font-size: 1.1em;
+              }
             }
           }
         }

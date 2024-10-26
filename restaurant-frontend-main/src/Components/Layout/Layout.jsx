@@ -11,10 +11,12 @@ import { Button, Layout as AntdLayout, theme } from "antd";
 import { Outlet } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import "./layout.scss"; // Import the SCSS file for styles
+import { useNavigate } from "react-router-dom";
 
 const { Header, Sider, Content } = AntdLayout;
 
 const Layout = ({ Menu }) => {
+  const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
   const [isMobileView, setIsMobileView] = useState(false); // To handle media query behavior
   const [showMyData, setShowMyData] = useState(false); // State to control My_Data visibility
@@ -70,24 +72,39 @@ const Layout = ({ Menu }) => {
               </div>
               <div className="ShowData_Box_Part_2">
                 <ul>
-                  <li>
+                  <li
+                    onClick={() => {
+                      navigate("/admin/menu");
+                      setShowMyData(false);
+                    }}
+                  >
                     <CoffeeOutlined /> Menu
                   </li>
-                  <li>
+                  <li
+                    onClick={() => {
+                      navigate("/admin/branch");
+                      setShowMyData(false);
+                    }}
+                  >
                     <ShopOutlined /> Branch
                   </li>
-                  <li>
+                  <li
+                    onClick={() => {
+                      navigate("/admin/reservations");
+                      setShowMyData(false);
+                    }}
+                  >
                     <CheckCircleOutlined /> Reservations
                   </li>
                 </ul>
               </div>
-              <div className="ShowData_Box_Part_3">
+              {/* <div className="ShowData_Box_Part_3">
                 <ul>
                   <li>
                     <LogoutOutlined /> Logout
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

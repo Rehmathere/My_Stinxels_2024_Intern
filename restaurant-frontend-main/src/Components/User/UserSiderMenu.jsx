@@ -1,5 +1,5 @@
 import React from "react";
-import { CheckCircleOutlined } from "@ant-design/icons";
+import { CheckCircleOutlined, HomeOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
 import { useNavigate } from "react-router-dom";
 function UserSiderMenu() {
@@ -15,6 +15,23 @@ function UserSiderMenu() {
         items={[
           {
             key: "1",
+            icon: <HomeOutlined />,
+            label: "Dashboard",
+            style: {
+              backgroundColor: "#e7f0e7",
+              color: "#0a4621",
+              borderRadius: "5px",
+              fontSize: "15px",
+              letterSpacing: "1px",
+              display: "block",
+              margin: "10px auto 0px auto",
+              width: "92%",
+            },
+            // Add navigation for "Menu" label
+            onClick: () => navigate("/user/UserDash"),
+          },
+          {
+            key: "1",
             icon: <CheckCircleOutlined />,
             label: "Reservation",
             style: {
@@ -24,29 +41,12 @@ function UserSiderMenu() {
               fontSize: "15px",
               letterSpacing: "1px",
               display: "block",
-              margin: "0px auto 0px auto",
+              margin: "10px auto 0px auto",
               width: "92%",
             },
             // Add navigation for "Menu" label
-            onClick: () => navigate("/user"),
+            onClick: () => navigate("/user/reservation"),
           },
-          //   {
-          //     key: "2",
-          //     icon: <ShopOutlined />,
-          //     label: "Branch",
-          //     style: {
-          //       backgroundColor: "#e7f0e7",
-          //       color: "#0a4621",
-          //       borderRadius: "5px",
-          //       fontSize: "15px",
-          //       letterSpacing: "1px",
-          //       display: "block",
-          //       margin: "10px auto 0px auto",
-          //       width: "92%",
-          //     },
-          //     // Add navigation for "Branch" label
-          //     onClick: () => navigate("/admin/branch"),
-          //   },
         ]}
       />
     </>
