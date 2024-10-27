@@ -10,6 +10,9 @@ import facebook from "../../assets/facebook.png";
 import linkdin from "../../assets/linkdin.png";
 import twitter from "../../assets/twitter.png";
 import search from "../../assets/search.png";
+import con_1 from "../../assets/con_1.png";
+import con_2 from "../../assets/con_2.png";
+import con_3 from "../../assets/con_3.png";
 
 function Contact() {
   // useNavigate Variable
@@ -96,6 +99,69 @@ function Contact() {
         </div>
       </div>
 
+      {/* --- 2 - SecondContact --- */}
+      <div className="Parent_SecondContact_Whole">
+        <div className="SecondContact_Box">
+          <h1>Taste the Difference with Us</h1>
+          <p>
+            Join us on a flavorful journey! Stay in the loop on our latest
+            dishes, special promotions, and culinary events. Follow our social
+            media to see what's cooking and connect with fellow food lovers.
+            Let's make every meal a moment to remember !
+          </p>
+        </div>
+      </div>
+      {/* --- 3 - GetConnect --- */}
+      <div className="Parent_GetConnect_Whole">
+        <div className="Parent_GetConnect_Whole_Sub">
+          {/* Box */}
+          <div className="GetConnect_Box">
+            {/* Part 1 */}
+            <div className="GetConnect_Box_Part_1">
+              <h1>
+                Get <span>Connected</span>
+              </h1>
+              <p>
+                If You Have Any Questions About Our Menu or Reservations, Please
+                Don't Hesitate to Reach Out. We're Here to Serve You !
+              </p>
+            </div>
+            {/* Part 2 */}
+            <div className="GetConnect_Box_Part_2">
+              {/* Main Box */}
+              <div className="GetConnect_Box_Part_2_Box">
+                <div className="GetConnect_Box_Part_2_Box_Part1">
+                  <img src={con_3} alt="NA" />
+                </div>
+                <div className="GetConnect_Box_Part_2_Box_Part2">
+                  <h1>Place Order</h1>
+                  <p>Add To Cart To Order</p>
+                </div>
+              </div>
+              {/* Main Box */}
+              <div className="GetConnect_Box_Part_2_Box">
+                <div className="GetConnect_Box_Part_2_Box_Part1">
+                  <img src={con_2} alt="NA" />
+                </div>
+                <div className="GetConnect_Box_Part_2_Box_Part2">
+                  <h1>Book Reservation</h1>
+                  <p>Reserve Your Table Now</p>
+                </div>
+              </div>
+              {/* Main Box */}
+              <div className="GetConnect_Box_Part_2_Box">
+                <div className="GetConnect_Box_Part_2_Box_Part1">
+                  <img src={con_1} alt="NA" />
+                </div>
+                <div className="GetConnect_Box_Part_2_Box_Part2">
+                  <h1>Access Portal</h1>
+                  <p>Sign-In to Track Order</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* -------------- */}
       {/* - Write Here - */}
       {/* -------------- */}
