@@ -3,6 +3,7 @@ import menuSlice from "./src/Redux/Slices/MenuSlice";
 import userSlice from "./src/Redux/Slices/UserSlice";
 import branchSlice from "./src/Redux/Slices/BranchSlice";
 import reservationSlice from "./src/Redux/Slices/ReservationSlice";
+import orderSlice from "./src/Redux/Slices/OrderSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
     userSlice,
     branchSlice,
     reservationSlice,
+    orderSlice,
   },
 });
