@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { signIn, signUp } from "../../Api/Endpoints/ApiEndpoints";
+import { signIn, signUp, getUserInfo } from "../../Api/Endpoints/ApiEndpoints";
 
 export const signUpThunk = createAsyncThunk(
   "signUpThunk",
@@ -31,6 +31,25 @@ export const signInThunk = createAsyncThunk(
       return {
         navigate: body.navigate,
         authToken: res.data,
+        message: res?.response?.data?.error,
+      };
+    } catch (error) {
+      console.log(error);
+      return rejectWithValue({
+        message: error?.response?.data?.error ?? `Failed `,
+      });
+    }
+  }
+);
+
+export const getUserInfoThunk = createAsyncThunk(
+  "getUserInfoThunk",
+  async (body, { rejectWithValue }) => {
+    try {
+      const res = await getUserInfo();
+
+      return {
+        data: res.data,
         message: res?.response?.data?.error,
       };
     } catch (error) {

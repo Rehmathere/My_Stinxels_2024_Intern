@@ -19,6 +19,7 @@ import {
   updateReservation,
   deleteReservation,
 } from "./Redux/Slices/ReservationSlice";
+import { addOrder, updateOrderStatus } from "./Redux/Slices/OrderSlice";
 import { Navigate, useNavigate } from "react-router-dom";
 
 import { setSocketId } from "./Redux/Slices/UserSlice";
@@ -108,6 +109,28 @@ function App({ children }) {
       }
     });
 
+    socket.on("order_added", (message) => {
+      console.log("order_added socket", message);
+      const { role, _id } = getUserId();
+
+      if (role == "admin") {
+        dispatch(addOrder(message));
+      } else if (_id == message.customerId) {
+        dispatch(addOrder(message));
+      }
+    });
+
+    socket.on("order_status_update", (message) => {
+      console.log("order_status_update socket", message);
+      const { role, _id } = getUserId();
+
+      if (role == "admin") {
+        dispatch(updateOrderStatus(message));
+      } else if (_id == message.customerId) {
+        dispatch(updateOrderStatus(message));
+      }
+    });
+
     return () => {
       socket.off("menu_item_added");
       socket.off("menu_item_updated");
@@ -118,6 +141,8 @@ function App({ children }) {
       socket.off("reservation_added");
       socket.off("reservation_updated");
       socket.off("reservation_deleted");
+      socket.off("order_added");
+      socket.off("order_status_update");
     };
   }, []);
   return <>{children}</>;

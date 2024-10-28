@@ -8,6 +8,8 @@ export const signUp = (body) => api.post(`${unauthEndpoint}/sign-up`, body);
 
 export const signIn = (body) => api.post(`${unauthEndpoint}/sign-in`, body);
 
+export const getUserInfo = () => api.get(`${authEndpoint}/employee`);
+
 export const getMenu = () => api.get(`${authEndpoint}/admin/menu`);
 
 export const addMenu = (menuItem) =>
@@ -41,3 +43,11 @@ export const updateReservation = (reservation) =>
 
 export const deleteReservation = (reservationId) =>
   api.delete(`${authEndpoint}/admin/reservation?${reservationId.toString()}`);
+
+export const addOrder = (order) =>
+  api.post(`${authEndpoint}/admin/order`, order);
+
+export const getOrder = () => api.get(`${authEndpoint}/admin/order`);
+
+export const updateOrderStatus = (orderStatus) =>
+  api.patch(`${authEndpoint}/admin/order`, orderStatus);

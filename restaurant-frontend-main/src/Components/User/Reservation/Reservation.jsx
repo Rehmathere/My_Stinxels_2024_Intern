@@ -184,7 +184,7 @@ function Reservation() {
     <>
       <div className="min-h-[80vh] max-w-[100vw]">
         {/* <div> */}
-        <h1 className="Branch_H">Reservation</h1>
+        <h1 className="Branch_H">Your Reservation</h1>
         <div className="Parent_Branch_Btn">
           <Button className="Branch_Btn" onClick={() => openModal("Add")}>
             Add a Reservation <i className="fa fa-plus-circle"></i>

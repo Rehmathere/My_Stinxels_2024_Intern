@@ -1,5 +1,5 @@
 import React from "react";
-import { CheckCircleOutlined, HomeOutlined } from "@ant-design/icons";
+import { CheckCircleOutlined, HomeOutlined, ShoppingOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
 import { useNavigate } from "react-router-dom";
 function UserSiderMenu() {
@@ -32,6 +32,23 @@ function UserSiderMenu() {
           },
           {
             key: "1",
+            icon: <ShoppingOutlined />,
+            label: "Order",
+            style: {
+              backgroundColor: "#e7f0e7",
+              color: "#0a4621",
+              borderRadius: "5px",
+              fontSize: "15px",
+              letterSpacing: "1px",
+              display: "block",
+              margin: "10px auto 0px auto",
+              width: "92%",
+            },
+            // Add navigation for "Menu" label
+            onClick: () => navigate("/user/order"),
+          },
+          {
+            key: "2",
             icon: <CheckCircleOutlined />,
             label: "Reservation",
             style: {

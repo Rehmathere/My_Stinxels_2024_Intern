@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
+import { ShoppingCartOutlined } from "@ant-design/icons";
+import { Button } from "antd";
 import { getMenuThunk } from "../../Redux/Thunks/MenuApi";
+import CartDrawer from "../User/CartDrawer/CartDrawer";
+import { addToCart } from "../../Redux/Slices/UserSlice";
+import MenuItems from "../User/MenuItems/MenuItems";
 // useNavigate
 import { useNavigate } from "react-router-dom";
 // Images
@@ -41,6 +47,8 @@ function Home() {
   const { Fries, Burger, Chicken, Salads, Drinks, Sauces } = useSelector(
     (state) => state.menuSlice.menu
   );
+
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   useEffect(() => {
     dispatch(getMenuThunk());
@@ -213,11 +221,12 @@ function Home() {
   const [isVisible, setIsVisible] = useState(false); // To toggle visibility
 
   const handleSearchClick = () => {
-    setIsVisible(!isVisible); // Toggle search bar visibility
+    setIsVisible(!isVisible); // Toggle search bar viibility
   };
   // Main Body
   return (
     <div className="My_Parent">
+      <CartDrawer open={openDrawer} setOpen={setOpenDrawer} />
       {/* 1 - Navbar + Background */}
       <div className="Parent_Navbar_Whole">
         <div className="Sub_Parent_Navbar_Whole">
@@ -233,7 +242,7 @@ function Home() {
                 <li id="Special_Li">Home</li>
                 {/* <li>Services</li> */}
                 <li onClick={() => navigate("/about")}>About</li>
-                <li onClick={() => navigate("/contact")}>Contact</li>
+                <li>Contact</li>
               </ul>
             </div>
             {/* - Part 3 - */}
@@ -247,6 +256,9 @@ function Home() {
                   <i className="fa fa-search"></i>
                 </div>
               </div>
+              <Button type="link" onClick={() => setOpenDrawer(true)}>
+                <ShoppingCartOutlined color="white" />
+              </Button>
               <input
                 type="search"
                 placeholder=" Search Item here ... "
@@ -302,51 +314,7 @@ function Home() {
       {/* 3 - Menu - ( New ) */}
       <div className="Parent_Menu_Whole">
         <div className="Parent_Menu_Whole_Sub">
-          {/* {Chicken.length != 0 && (
-            <MenuItem categoryText={"Chicken"} ItemArray={Chicken} />
-          )}
-          {Burger.length != 0 && (
-            <MenuItem categoryText={"Burger"} ItemArray={Burger} />
-          )}
-
-          {Fries.length != 0 && (
-            <MenuItem categoryText={"Fries"} ItemArray={Fries} />
-          )}
-
-          {Salads.length != 0 && (
-            <MenuItem categoryText={"Salads"} ItemArray={Salads} />
-          )}
-          {Drinks.length != 0 && (
-            <MenuItem categoryText={"Drinks"} ItemArray={Drinks} />
-          )}
-          {Sauces.length != 0 && (
-            <MenuItem categoryText={"Sauces"} ItemArray={Sauces} />
-          )} */}
-          {/* --- New Home Page Menu Design Testing - ( Using Grid ) */}
-          <div className="Menu_Box">
-            <h1>Burger</h1>
-            <div className="Menu_Box_Sub">
-              {/* Item */}
-              {burgerData.map((item) => (
-                <div key={item.id} className="Menu_Item_Box">
-                  <div className="Menu_Item_Box_Sub">
-                    <div className="Menu_Item_Box_Sub_Part1">
-                      <p className="Menu_Item_P1">{item.name}</p>
-                      <span>{item.description}</span>
-                      <p className="Menu_Item_P2">PKR {item.price}</p>
-                    </div>
-                    <div className="Menu_Item_Box_Sub_Part2">
-                      <img src={item.image} alt="NA" />
-                    </div>
-                    <button>
-                      <i className="fa fa-plus"></i>
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          {/* --- New Home Page Menu Design Testing - ( Using Grid ) */}
+          <MenuItems />
         </div>
       </div>
       {/* 4 - Footer */}
@@ -362,7 +330,7 @@ function Home() {
                   <li>Home</li>
                   {/* <li>Services</li> */}
                   <li onClick={() => navigate("/about")}>About</li>
-                  <li onClick={() => navigate("/contact")}>Contact</li>
+                  <li>Contact</li>
                 </ul>
               </div>
               <div className="Footer_Box_Part_1_C">
@@ -397,7 +365,7 @@ function Home() {
               <ul>
                 <li id="MyActive">Home</li>
                 <li onClick={() => navigate("/about")}>About</li>
-                <li onClick={() => navigate("/contact")}>Contact Us</li>
+                <li>Contact Us</li>
               </ul>
               <img src={search} alt="NA" onClick={toggleInputVisibility} />
               {isInputVisible && (
@@ -419,34 +387,42 @@ function Home() {
   );
 }
 
-function MenuItem({ categoryText, ItemArray }) {
-  return (
-    <>
-      <div className="Menu_Box">
-        <h1>{categoryText}</h1>
-        <div className="Menu_Box_Sub">
-          {/* Item */}
-          {ItemArray?.map((item) => (
-            <div key={item.id} className="Menu_Item_Box">
-              <div className="Menu_Item_Box_Sub">
-                <div className="Menu_Item_Box_Sub_Part1">
-                  <p className="Menu_Item_P1">{item.name}</p>
-                  <span>{item.description}</span>
-                  <p className="Menu_Item_P2">PKR {item.price}</p>
-                </div>
-                <div className="Menu_Item_Box_Sub_Part2">
-                  <img src={item.img} alt={item.name} />
-                </div>
-                <button>
-                  <i className="fa fa-plus"></i>
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </>
-  );
-}
+// function MenuItem({ categoryText, ItemArray }) {
+//   const dispatch = useDispatch();
+
+//   const cart = useSelector((state) => state.userSlice.cart);
+//   console.log(cart);
+
+//   const addItem = (body) => {
+//     dispatch(addToCart(body));
+//   };
+//   return (
+//     <>
+//       <div className="Menu_Box">
+//         <h1>{categoryText}</h1>
+//         <div className="Menu_Box_Sub">
+//           {/* Item */}
+//           {ItemArray?.map((item) => (
+//             <div key={item.id} className="Menu_Item_Box">
+//               <div className="Menu_Item_Box_Sub">
+//                 <div className="Menu_Item_Box_Sub_Part1">
+//                   <p className="Menu_Item_P1">{item.name}</p>
+//                   <span>{item.description}</span>
+//                   <p className="Menu_Item_P2">PKR {item.price}</p>
+//                 </div>
+//                 <div className="Menu_Item_Box_Sub_Part2">
+//                   <img src={item.img} alt={item.name} />
+//                 </div>
+//                 <button onClick={() => addItem(item)}>
+//                   <i className="fa fa-plus"></i>
+//                 </button>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
 
 export default Home;

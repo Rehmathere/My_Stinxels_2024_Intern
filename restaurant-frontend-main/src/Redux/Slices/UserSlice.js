@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { signInThunk, signUpThunk } from "../Thunks/UserApi";
+import { signInThunk, signUpThunk, getUserInfoThunk } from "../Thunks/UserApi";
 
 const initialState = {
   status: "initails menu api status",
@@ -7,6 +7,7 @@ const initialState = {
   socketId: "",
   _id: "",
   cart: [],
+  address: "",
 };
 
 const userSlice = createSlice({
@@ -27,12 +28,12 @@ const userSlice = createSlice({
         state.cart?.push({
           ...action.payload,
           qty: 1,
-          total: action.payload.price,
+          // total: action.payload.price,
         });
       } else {
         state.cart[index].qty += 1;
-        state.cart[index].total =
-          state.cart[index].qty * state.cart[index].price;
+        // state.cart[index].total =
+        //   state.cart[index].qty * state.cart[index].price;
       }
     },
 
@@ -46,9 +47,11 @@ const userSlice = createSlice({
         state.cart = state.cart?.filter(({ _id }) => _id != action.payload._id);
       } else {
         state.cart[index].qty -= 1;
-        state.cart[index].total =
-          state.cart[index].qty * state.cart[index].price;
       }
+    },
+
+    removeFromCart: (state, action) => {
+      state.cart = state.cart?.filter(({ _id }) => _id != action.payload._id);
     },
   },
   extraReducers: (builder) => {
@@ -71,9 +74,18 @@ const userSlice = createSlice({
     builder.addCase(signInThunk.rejected, (state, action) => {
       // add show Error toast here
     });
+
+    builder.addCase(getUserInfoThunk.fulfilled, (state, action) => {
+      state.address = action.payload.data.address;
+    });
+
+    builder.addCase(getUserInfoThunk.rejected, (state, action) => {
+      // add show Error toast here
+    });
   },
 });
 
-export const { setSocketId, addToCart, decrementQty } = userSlice.actions;
+export const { setSocketId, addToCart, decrementQty, removeFromCart } =
+  userSlice.actions;
 
 export default userSlice.reducer;

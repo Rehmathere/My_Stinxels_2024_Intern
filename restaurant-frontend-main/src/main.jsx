@@ -97,6 +97,9 @@ import PublicRoutes from "./Components/Routes/PublicRoutes.jsx";
 import HomeDash from "./Components/Admin/HomeDash/HomeDash.jsx";
 import UserDash from "./Components/User/UserDash/UserDash.jsx";
 
+import Orders from "./Components/Admin/Orders/Orders.jsx";
+import Order from "./Components/User/Order/Order.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -157,6 +160,10 @@ const router = createBrowserRouter([
         path: "reservations",
         element: <Reservations />,
       },
+      {
+        path: "orders",
+        element: <Orders />,
+      },
     ],
   },
   {
@@ -178,6 +185,10 @@ const router = createBrowserRouter([
       {
         path: "reservation",
         element: <Reservation />,
+      },
+      {
+        path: "order",
+        element: <Order />,
       },
     ],
   },
