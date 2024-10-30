@@ -96,6 +96,7 @@ import ProtectedRoutes from "./Components/Routes/ProtectedRoutes.jsx";
 import PublicRoutes from "./Components/Routes/PublicRoutes.jsx";
 import HomeDash from "./Components/Admin/HomeDash/HomeDash.jsx";
 import UserDash from "./Components/User/UserDash/UserDash.jsx";
+import UserMenu from "./Components/User/Menu/Menu.jsx";
 
 import Orders from "./Components/Admin/Orders/Orders.jsx";
 import Order from "./Components/User/Order/Order.jsx";
@@ -189,6 +190,10 @@ const router = createBrowserRouter([
       {
         path: "order",
         element: <Order />,
+      },
+      {
+        path: "menu",
+        element: <UserMenu />,
       },
     ],
   },

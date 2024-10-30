@@ -10,9 +10,11 @@ import { addOrderThunk } from "../../../Redux/Thunks/OrderApi";
 import { getBranchThunk } from "../../../Redux/Thunks/BranchApi";
 import { getUserInfoThunk } from "../../../Redux/Thunks/UserApi";
 import ModalComponent from "../../ModalComponent/ModalComponent";
-
 import { EditOutlined } from "@ant-design/icons";
 import { useForm } from "antd/es/form/Form";
+// CSS
+import "./CartDrawer.scss";
+
 function CartDrawer({ open, setOpen }) {
   const dispatch = useDispatch();
   // const cart = useSelector((state) => state.userSlice.cart);
@@ -65,7 +67,18 @@ function CartDrawer({ open, setOpen }) {
 
     return (
       <>
-        <Button onClick={() => setIsModalOpen(true)}>Place Order</Button>
+        {/* --- New Footer Design ---  */}
+        <div className="Footer_Box">
+          <div className="Footer_Part_1">
+            <p>Total Cost</p>
+            <h1>$ 7550</h1>
+          </div>
+          <div className="Footer_Part_2">
+            <button>Place Order</button>
+          </div>
+        </div>
+        {/* --- Old Footer ---  */}
+        {/* <Button onClick={() => setIsModalOpen(true)}>Place Order</Button> */}
         {/* {cart.length != 0 && (
           <span>
             {cart.reduce(
@@ -75,7 +88,7 @@ function CartDrawer({ open, setOpen }) {
             )}
           </span>
         )} */}
-        7550
+        {/* 7550 */}
       </>
     );
   };
@@ -106,6 +119,9 @@ function CartDrawer({ open, setOpen }) {
           const menuItem = {};
           return (
             <>
+              {/* --- New Cart Drawer Design --- */}
+
+              {/* --- Old --- */}
               <div className="Menu_Item_Box">
                 <div className="Menu_Item_Box_Sub">
                   <div className="Menu_Item_Box_Sub_Part1">

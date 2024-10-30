@@ -108,6 +108,16 @@
             }
           }
 
+          // --- My Cart Btn ---
+          .My_Cart_Btn {
+            border: 0.1px solid transparent;
+
+            i {
+              font-size: 2em;
+              color: #e7f0e7;
+            }
+          }
+
           // - Search Bar -
           .searchBar {
             width: 0px;
@@ -331,7 +341,6 @@
       .Menu_Box {
         border: 0px solid transparent;
         padding: 1em 1em 1em 1em;
-        // background-color: lightcyan;
 
         h1 {
           border: 0px solid transparent;
@@ -357,7 +366,6 @@
             border: 0.1px solid rgb(224, 224, 224);
             padding: 0.6em 0.2em 0.6em 0.2em;
             width: 32%;
-            // background-color: lightgoldenrodyellow;
             background-color: white;
             border-radius: 5px;
 
@@ -725,7 +733,7 @@
           }
 
           .Navbar_Main_Part_2 {
-            width: 30%;
+            width: 34%;
             padding: 0.2em 0.2em 0.2em 0.2em;
 
             ul {
@@ -739,7 +747,7 @@
 
           .Navbar_Main_Part_3 {
             padding: 0.2em 0.2em 0.2em 0.2em;
-            width: 20%;
+            width: 24%;
 
             .Navbar_Main_Part_3_A {
               padding: 0.2em 0.2em 0.2em 0.2em;
@@ -750,6 +758,16 @@
                 i {
                   font-size: 1em;
                 }
+              }
+            }
+
+            // --- My Cart Btn ---
+            .My_Cart_Btn {
+              border: 0px solid transparent;
+
+              i {
+                font-size: 2em;
+                color: #e7f0e7;
               }
             }
 
@@ -1024,7 +1042,7 @@
           }
 
           .Navbar_Main_Part_2 {
-            width: 35%;
+            width: 38%;
             padding: 0.1em 0.1em 0.1em 0.1em;
 
             ul {
@@ -1041,7 +1059,7 @@
 
           .Navbar_Main_Part_3 {
             padding: 0.2em 0.2em 0.2em 0.2em;
-            width: 20%;
+            width: 25%;
 
             .Navbar_Main_Part_3_A {
               padding: 0.2em 0.2em 0.2em 0.2em;
@@ -1052,6 +1070,16 @@
                 i {
                   font-size: 0.9em;
                 }
+              }
+            }
+
+            // --- My Cart Btn ---
+            .My_Cart_Btn {
+              border: 0px solid transparent;
+
+              i {
+                font-size: 1.7em;
+                color: #e7f0e7;
               }
             }
 
@@ -1283,7 +1311,7 @@
           }
 
           .Navbar_Main_Part_2 {
-            width: 35%;
+            width: 38%;
             padding: 0.1em 0.1em 0.1em 0.1em;
 
             ul {
@@ -1300,7 +1328,7 @@
 
           .Navbar_Main_Part_3 {
             padding: 0.1em 0.1em 0.1em 0.1em;
-            width: 20%;
+            width: 25%;
 
             .Navbar_Main_Part_3_A {
               padding: 0.1em 0.1em 0.1em 0.1em;
@@ -1311,6 +1339,16 @@
                 i {
                   font-size: 0.85em;
                 }
+              }
+            }
+
+            // --- My Cart Btn ---
+            .My_Cart_Btn {
+              border: 0px solid transparent;
+
+              i {
+                font-size: 1.65em;
+                color: #e7f0e7;
               }
             }
 
@@ -1561,7 +1599,7 @@
 
           .Navbar_Main_Part_3 {
             padding: 0.1em 0.1em 0.1em 0.1em;
-            width: 21%;
+            width: 25%;
 
             .Navbar_Main_Part_3_A {
               padding: 0.1em 0.1em 0.1em 0.1em;
@@ -1575,12 +1613,22 @@
               }
             }
 
+            // --- My Cart Btn ---
+            .My_Cart_Btn {
+              border: 0px solid transparent;
+
+              i {
+                font-size: 1.5em;
+                color: #e7f0e7;
+              }
+            }
+
             .Navbar_Main_Part_3_B {
               padding: 0.1em 0.1em 0.1em 0.1em;
 
               #My_Btn {
-                padding: 0.25em 1.1em;
-                font-size: 0.78em;
+                padding: 0.25em 1em;
+                font-size: 0.7em;
                 letter-spacing: 0.2em;
                 border-radius: 3px;
               }
@@ -1808,6 +1856,17 @@
               display: none;
             }
 
+            // --- My Cart Btn ---
+            .My_Cart_Btn {
+              border: 0px solid transparent;
+              // border: 0.1px solid white;
+
+              i {
+                font-size: 1.8em;
+                color: #e7f0e7;
+              }
+            }
+
             .Navbar_Main_Part_3_B {
               display: none;
             }
@@ -1815,7 +1874,7 @@
             .Navbar_Main_Part_4 {
               display: block;
               visibility: visible;
-              width: 52%;
+              width: 50%;
 
               img {
                 border: 0px solid transparent;
@@ -2187,7 +2246,7 @@
     .Parent_Navbar_Whole {
       .Sub_Parent_Navbar_Whole {
         .Navbar_Main {
-          padding: 0.4em 1em 0.4em 1em;
+          padding: 0.6em 1em 0.6em 1em;
           justify-content: space-between;
 
           .Navbar_Main_Part_1 {
@@ -2203,14 +2262,25 @@
           }
 
           .Navbar_Main_Part_3 {
+            // --- My Cart Btn ---
+            .My_Cart_Btn {
+              border: 0px solid transparent;
+              // border: 0.1px solid white;
+
+              i {
+                font-size: 1.2em;
+                color: #e7f0e7;
+              }
+            }
+
             .Navbar_Main_Part_4 {
               display: block;
               visibility: visible;
-              width: 70%;
-
+              width: 100%;
+            
               img {
                 border: 0px solid transparent;
-                width: 85%;
+                width: 100%;
                 display: block;
                 margin: 0em auto;
               }
@@ -2219,10 +2289,10 @@
         }
 
         .Background_Txt_Parent {
-          padding: 4em 0em 4em 0em;
+          padding: 5em 0em 5em 0em;
 
           h1 {
-            padding: 0.1em 0.1em 0.1em 0.3em;
+            padding: 0.3em 0.1em 0.3em 0.3em;
             font-size: 1em;
             letter-spacing: 2px;
             width: 100%;
@@ -2272,10 +2342,10 @@
 
     // --- 3 - Menu ---
     .Parent_Menu_Whole {
-      padding: 0.2em 0em 0.2em 0em;
+      // padding: 0.2em 0em 0.2em 0em;
 
       .Parent_Menu_Whole_Sub {
-        padding: 0.2em 0em 0.2em 0em;
+        padding: 0.1em 0em 0.1em 0em;
 
         .Menu_Box {
           padding: 0.2em 0.1em 0.2em 0.1em;
