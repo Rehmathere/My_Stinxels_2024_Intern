@@ -8,6 +8,8 @@ import {
 } from "../../../Redux/Thunks/OrderApi";
 import { getMenuThunk } from "../../../Redux/Thunks/MenuApi";
 import to24Hour from "../../../Utils/to24Hour";
+// CSS
+import "./Orders.scss";
 
 function Orders() {
   const dispatch = useDispatch();
@@ -248,11 +250,105 @@ function Details({ orderDetails, branches, menu }) {
 
   return (
     <>
-      <p>Customer Name {customerName}</p>
+      {/* --- New Design --- */}
+      <div className="Parent_UserOrderCart_Parent">
+        {/* Order ID */}
+        <div className="UserOrderCart_ID_Parent">
+          <p className="UserOrderCart_ID">
+            Order Id: <span>{orderId.slice(-5)}</span>
+          </p>
+        </div>
+        {/* Body */}
+        <div className="Parent_UserOrderCart_Parent_Sub">
+          {/* Part 1 */}
+          <div className="UserOrderCart_1">
+            <h1>Customer detail : -</h1>
+            {/* - Box - */}
+            <div className="UserOrderCart_1_Box">
+              <h2>Name :</h2>
+              <p>{customerName}</p>
+            </div>
+            {/* - Box - */}
+            {branchAddress && (
+              <div className="UserOrderCart_1_Box">
+                <h2>Address :</h2>
+                <p>
+                  <span>{branchAddress?.address}</span>
+                </p>
+              </div>
+            )}
+            {/* - Box - */}
+            {type == "Delivery" && (
+              <div className="UserOrderCart_1_Box">
+                <h2>Delivery :</h2>
+                <p>
+                  <span>{customerAddress}</span>
+                </p>
+              </div>
+            )}
+            {/* - Box - */}
+            <div className="UserOrderCart_1_Box">
+              <h2>Phone :</h2>
+              <p>0333-593239230</p>
+            </div>
+            {/* - Box - */}
+            <div className="UserOrderCart_1_Box">
+              <h2>Email :</h2>
+              <p>User@gmail.com</p>
+            </div>
+          </div>
+          {/* Part 2 */}
+          <div className="UserOrderCart_2">
+            {/* Sub Part 1 */}
+            <div className="UserOrderCart_2_Box_1">
+              <h4>Items : </h4>
+              {/* .Map () */}
+              {order?.map((orderItem) => {
+                const menuItem = menu[orderItem?.category]?.find(
+                  ({ _id }) => orderItem.itemId == _id
+                );
+                return (
+                  <>
+                    <div className="UserOrderCart_2_Box_1_Main">
+                      <h3>
+                        {orderItem?.qty} x {menuItem?.name ?? "Zinger"}
+                      </h3>
+                      <p>Rs {orderItem?.price}</p>
+                    </div>
+                  </>
+                );
+              })}
+            </div>
+            {/* Sub Part 2 */}
+            <div className="UserOrderCart_2_Box_2">
+              <p>Total Bill = {totalBill}</p>
+            </div>
+            {/* Sub Part 3 */}
+            <div className="UserOrderCart_2_Box_3">
+              <p className="UserOrderCart_2_Box_3_P1">Status : <span>{status}</span></p>
+              <Select
+                defaultValue={status}
+                style={{ width: 150, margin: "1em 0em", letterSpacing: "1px", }}
+                // className="UserOrderCart_2_Box_3"
+                onChange={(value) => handleStatusChange(value)}
+                options={[
+                  { value: "pending", label: "Pending" },
+                  { value: "prepairing", label: "Prepairing" },
+                  { value: "ready", label: "Ready" },
+                  { value: "disabled", label: "Disabled", disabled: true },
+                ]}
+              />
+              <p>Type : <span>{type}</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* --- Old Design --- */}
+      {/* <p>Customer Name {customerName}</p>
       {branchAddress && <p>Address: {branchAddress?.address}</p>}
-      {type == "Delivery" && <p>Deleivery Address {customerAddress}</p>}
-      <p>order ID {orderId.slice(-5)}</p>
-      <div>
+      {type == "Delivery" && <p>Deleivery Address {customerAddress}</p>} */}
+      {/* <p>order ID {orderId.slice(-5)}</p> */}
+      {/* <div>
         Items
         {order?.map((orderItem) => {
           const menuItem = menu[orderItem?.category]?.find(
@@ -267,9 +363,9 @@ function Details({ orderDetails, branches, menu }) {
             </>
           );
         })}
-      </div>
-      <div>Total Bill {totalBill}</div>
-      <p>Status {status}</p>
+      </div> */}
+      {/* <div>Total Bill {totalBill}</div> */}
+      {/* <p>Status {status}</p>
       <Select
         defaultValue={status}
         style={{ width: 120 }}
@@ -281,7 +377,7 @@ function Details({ orderDetails, branches, menu }) {
           { value: "disabled", label: "Disabled", disabled: true },
         ]}
       />
-      <p>Type {type}</p>
+      <p>Type {type}</p> */}
     </>
   );
 }
