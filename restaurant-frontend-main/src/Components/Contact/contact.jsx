@@ -36,7 +36,46 @@ function Contact() {
     setIsInputVisible_1((prev) => !prev);
   };
   // --- Responsive Input Search Btn ---
+  // ---------------------------------------------
+    // 3 - Number Scroll
+    const [activated, setActivated] = useState(false);
+    useEffect(() => {
+        const counters = document.querySelectorAll(".BottomInfo_Box_Part_2_Box span");
+        const container = document.querySelector(".BottomInfo_Box_Part_2_Box");
 
+        const handleScroll = () => {
+            if (window.pageYOffset > container.offsetTop - container.offsetHeight - 200 && !activated) {
+                counters.forEach(counter => {
+                    counter.innerText = 0;
+                    let count = 0;
+
+                    const updateCount = () => {
+                        const target = parseInt(counter.dataset.count);
+                        if (count < target) {
+                            count++;
+                            counter.innerText = count;
+                            setTimeout(updateCount, 10);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    }
+
+                    updateCount();
+                    setActivated(true);
+                });
+            }
+            else if ((window.pageYOffset < container.offsetTop - container.offsetHeight - 500 || window.pageYOffset === 0) && activated) {
+                counters.forEach(counter => {
+                    counter.innerText = 0;
+                });
+                setActivated(false);
+            }
+        }
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        }
+    }, [activated]);
   // Main Body
   return (
     <div className="My_Parent_About_C">
@@ -156,6 +195,57 @@ function Contact() {
                 <div className="GetConnect_Box_Part_2_Box_Part2">
                   <h1>Access Portal</h1>
                   <p>Sign-In to Track Order</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* --- 4 - BottomInfo --- */}
+      <div className="Parent_BottomInfo_Whole">
+        <div className="Parent_BottomInfo_Whole_Sub">
+          {/* Box */}
+          <div className="BottomInfo_Box">
+            {/* Part */}
+            <div className="BottomInfo_Box_Part_1">
+              {/* Background Contact */}
+            </div>
+            {/* Part */}
+            <div className="BottomInfo_Box_Part_2">
+              {/* Sub Part */}
+              <h3>Explore Our Plus-Point</h3>
+              {/* Row */}
+              <div className="BottomInfo_Box_Part_2_Box">
+                {/* Small Box */}
+                <div className="BottomInfo_Box_Part_2_Box_SmallBox">
+                  <h1>
+                    <span data-count="95">0</span> %
+                  </h1>
+                  <h2>Unmatched Taste</h2>
+                </div>
+                {/* Small Box */}
+                <div className="BottomInfo_Box_Part_2_Box_SmallBox">
+                  <h1>
+                    <span data-count="85">0</span> +
+                  </h1>
+                  <h2>Signature Dishes</h2>
+                </div>
+              </div>
+              {/* Row */}
+              <div className="BottomInfo_Box_Part_2_Box">
+                {/* Small Box */}
+                <div className="BottomInfo_Box_Part_2_Box_SmallBox">
+                  <h1>
+                    <span data-count="100">0</span> %
+                  </h1>
+                  <h2>Freshness</h2>
+                </div>
+                {/* Small Box */}
+                <div className="BottomInfo_Box_Part_2_Box_SmallBox">
+                  <h1>
+                    <span data-count="70">0</span> +
+                  </h1>
+                  <h2>Expert Chef</h2>
                 </div>
               </div>
             </div>
