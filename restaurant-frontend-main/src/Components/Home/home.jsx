@@ -242,7 +242,7 @@ function Home() {
                 <li id="Special_Li">Home</li>
                 {/* <li>Services</li> */}
                 <li onClick={() => navigate("/about")}>About</li>
-                <li>Contact</li>
+                <li onClick={() => navigate("/contact")}>Contact</li>
               </ul>
             </div>
             {/* - Part 3 - */}
