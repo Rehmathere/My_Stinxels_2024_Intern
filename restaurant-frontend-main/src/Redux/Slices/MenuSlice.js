@@ -5,6 +5,12 @@ import {
   updateMenuThunk,
   deleteMenuThunk,
 } from "../Thunks/MenuApi";
+import {
+  showError,
+  showPending,
+  showSuccess,
+  removePending,
+} from "../../Components/Toaster/Toaster";
 import { act } from "react";
 
 const initialState = {
@@ -58,33 +64,48 @@ const menuSlice = createSlice({
         state.menu[key] = value;
       }
     });
-
+    builder.addCase(getMenuThunk.pending, (state, action) => {});
     builder.addCase(getMenuThunk.rejected, (state, action) => {
-      // add show Error toast here
+      removePending();
+      showError(action.payload?.message);
     });
 
     builder.addCase(addMenuThunk.fulfilled, (state, action) => {
-      state.status = "success";
+      removePending();
+      showSuccess(action.payload?.message);
+    });
+    builder.addCase(addMenuThunk.pending, (state, action) => {
+      showPending("Submitting Data ");
     });
 
     builder.addCase(addMenuThunk.rejected, (state, action) => {
-      // add show Error toast here
+      removePending();
+      showError(action.payload?.message);
     });
 
     builder.addCase(updateMenuThunk.fulfilled, (state, action) => {
-      state.status = "success";
+      removePending();
+      showSuccess(action.payload?.message);
     });
-
+    builder.addCase(updateMenuThunk.pending, (state, action) => {
+      showPending("Updating Data ");
+    });
     builder.addCase(updateMenuThunk.rejected, (state, action) => {
-      // add show Error toast here
+      removePending();
+      showError(action.payload?.message);
     });
 
     builder.addCase(deleteMenuThunk.fulfilled, (state, action) => {
-      state.status = "success";
+      removePending();
+      showSuccess(action.payload?.message);
+    });
+    builder.addCase(deleteMenuThunk.pending, (state, action) => {
+      showPending("Deleting Data ");
     });
 
     builder.addCase(deleteMenuThunk.rejected, (state, action) => {
-      // add show Error toast here
+      removePending();
+      showError(action.payload?.message);
     });
   },
 });

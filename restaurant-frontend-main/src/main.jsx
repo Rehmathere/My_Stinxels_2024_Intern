@@ -76,6 +76,7 @@ import {
   RouterProvider,
   Navigate,
 } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import { Provider } from "react-redux";
 import { store } from "../store.js";
 import App from "../src/App.jsx";
@@ -171,7 +172,7 @@ const router = createBrowserRouter([
     path: "/user",
     element: (
       <ProtectedRoutes allowedRole={["user"]}>
-        <Layout Menu={UserSiderMenu} />
+        <Layout Menu={UserSiderMenu} User={true} />
       </ProtectedRoutes>
     ),
     children: [

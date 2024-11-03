@@ -9,7 +9,7 @@ import {
   InputNumber,
   Select,
 } from "antd";
-import { UserOutlined } from "@ant-design/icons";
+import { UserOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { getBranchThunk } from "../../../Redux/Thunks/BranchApi";
 import {
   addReservationThunk,
@@ -199,7 +199,7 @@ function Reservation() {
           FormContent={FormContent}
           handleCancel={handleCancel}
         />
-        {dummyData?.map(
+        {reservations?.map(
           ({
             branchId,
             peopleQty,
@@ -268,12 +268,7 @@ function Reservation() {
                       <p className="Reserve_Row_Data_P1">
                         <i class="fa fa-institution"></i> Address :
                       </p>
-                      <p className="Reserve_Row_Data_P_Special">
-                        {/* {address} */}
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Odit, vero. Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit. Possimus, facere!
-                      </p>
+                      <p className="Reserve_Row_Data_P_Special">{address}</p>
                     </div>
                   </div>
                   {/* Btn Parent */}
@@ -294,11 +289,11 @@ function Reservation() {
                       }
                       style={{ backgroundColor: "rgb(27, 27, 255)" }}
                     >
-                      Edit <i class="fa fa-edit"></i>
+                      Edit <EditOutlined />
                     </Button>
                     {/* Btn - 2 */}
                     <Button onClick={() => deleteReservation(_id, customerId)}>
-                      Delete <i class="fa fa-close"></i>
+                      Delete <DeleteOutlined />
                     </Button>
                   </div>
                 </div>

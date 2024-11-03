@@ -6,5 +6,9 @@ export const getUserId = () => {
     const { role, _id } = jwtDecode(token);
 
     return { _id, role };
-  } catch (error) {}
+  } catch (error) {
+    return {
+      _id: false,
+    };
+  }
 };

@@ -68,7 +68,7 @@
             letter-spacing: 1.5px;
             font-weight: 600;
             font-size: 1.15em;
-            border-radius: 5px;
+            border-radius: 50px;
 
             .anticon {
               padding: 0em 1em;
@@ -83,61 +83,139 @@
           }
         }
       }
-
-      .ShowData_Box_Part_3 {
-        border: 0px solid transparent;
-        padding: 1em 2em;
-        width: 98%;
-        position: absolute;
-        bottom: 0px;
-
-        ul {
-          border: 0px solid transparent;
-          padding: 0.5em 2em;
-          display: flex;
-          flex-direction: row;
-          justify-content: right;
-          align-items: center;
-
-          li {
-            background-color: red;
-            color: white;
-            margin: 1em 0em;
-            padding: 0.5em 2em;
-            letter-spacing: 1.5px;
-            font-size: 0.9em;
-            border-radius: 5px;
-            text-align: center;
-            border-radius: 50px;
-
-            .anticon {
-              color: white;
-              font-size: 1.1em;
-            }
-          }
-
-          li:hover {
-            background-color: rgba(255, 0, 0, 0.87);
-            cursor: pointer;
-          }
-        }
-      }
     }
   }
 }
 
+// --- 2 - Bottom ---
+.ShowData_Box_Part_3_Footer {
+  border: 0px solid transparent;
+  padding: 0em 0.8em 0em 0.8em;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  position: absolute;
+  top: 700px;
+
+  button {
+    border: 0px solid transparent;
+    background-color: red;
+    color: white;
+    display: block;
+    padding: 0.45em 1.7em;
+    letter-spacing: 1.5px;
+    font-size: 0.85em;
+    border-radius: 5px;
+    text-align: center;
+    border-radius: 50px;
+
+    .anticon {
+      color: white;
+      font-size: 1.1em;
+    }
+  }
+
+  button:hover,
+  button:focus {
+    background-color: rgba(211, 3, 3, 0.87);
+    cursor: pointer;
+  }
+}
+
+// --- 4 - Sign Out Button When Collpased ---
+.MyBtnParent_Collapsed {
+  border: 0px solid transparent;
+  padding: 0em 0em 0em 0em;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  position: absolute;
+  top: 700px;
+
+  button {
+    border: 0px solid transparent;
+    background-color: red;
+    color: white;
+    display: block;
+    padding: 0.45em 1.7em;
+    letter-spacing: 1.5px;
+    font-size: 0.8em;
+    border-radius: 5px;
+    text-align: center;
+    border-radius: 20px;
+    line-height: 2.5vh;
+
+    .anticon {
+      color: white;
+      font-size: 1.1em;
+    }
+  }
+
+  button:hover,
+  button:focus {
+    background-color: rgba(211, 3, 3, 0.87);
+    cursor: pointer;
+  }
+}
+
+
+
 /* -------------------------------- */
 /* ----- Media Queries In CSS ----- */
 /* -------------------------------- */
-// /* 0 - First Media Queries */
-// @media screen and (min-width: 1px) and (max-width: 1400px) {
-//   // --- 2 - Responsive Layout ---
-// }
+/* 0 - First Media Queries */
+@media screen and (min-width: 1px) and (max-width: 1400px) {
+  // --- 2 - Bottom ---
+  .ShowData_Box_Part_3_Footer {
+    padding: 0em 0.8em 0em 0.8em;
+    width: 100%;
+    top: 685px;
+
+    button {
+      padding: 0.45em 1.7em;
+      letter-spacing: 1.5px;
+      font-size: 0.85em;
+
+      .anticon {
+        font-size: 1.1em;
+      }
+    }
+
+    button:hover,
+    button:focus {
+      background-color: rgba(211, 3, 3, 0.87);
+      cursor: pointer;
+    }
+  }
+}
 
 // /* 1 - First Media Queries */
-// @media screen and (min-width: 1px) and (max-width: 1200px) {
-//   // --- 1 - Responsive Layout ---
-// }
+@media screen and (min-width: 1px) and (max-width: 1200px) {
+  // --- 2 - Bottom ---
+  .ShowData_Box_Part_3_Footer {
+    padding: 0em 0.8em 0em 0.8em;
+    width: 100%;
+    top: 650px;
+
+    button {
+      padding: 0.45em 1.7em;
+      letter-spacing: 1.5px;
+      font-size: 0.8em;
+
+      .anticon {
+        font-size: 1.05em;
+      }
+    }
+
+    button:hover,
+    button:focus {
+      background-color: rgba(211, 3, 3, 0.87);
+      cursor: pointer;
+    }
+  }
+}
 
 /* 2 - First Media Queries */
 @media screen and (min-width: 1px) and (max-width: 1000px) {
@@ -190,27 +268,6 @@
 
               .anticon {
                 padding: 0em 1em;
-                font-size: 1.1em;
-              }
-            }
-          }
-        }
-
-        .ShowData_Box_Part_3 {
-          padding: 1.5em 1em;
-          width: 98%;
-
-          ul {
-            padding: 1.5em 1em;
-
-            li {
-              margin: 0em 0em;
-              padding: 0.5em 2em;
-              letter-spacing: 1.5px;
-              font-size: 0.9em;
-              border-radius: 50px;
-
-              .anticon {
                 font-size: 1.1em;
               }
             }
@@ -269,27 +326,6 @@
             }
           }
         }
-
-        .ShowData_Box_Part_3 {
-          padding: 1.5em 1em;
-          width: 98%;
-
-          ul {
-            padding: 1.5em 1em;
-
-            li {
-              margin: 0em 0em;
-              padding: 0.5em 2em;
-              letter-spacing: 1.5px;
-              font-size: 0.9em;
-              border-radius: 50px;
-
-              .anticon {
-                font-size: 1.1em;
-              }
-            }
-          }
-        }
       }
     }
   }
@@ -343,27 +379,6 @@
             }
           }
         }
-
-        .ShowData_Box_Part_3 {
-          padding: 1.5em 1em;
-          width: 98%;
-
-          ul {
-            padding: 1.5em 1em;
-
-            li {
-              margin: 0em 0em;
-              padding: 0.5em 2em;
-              letter-spacing: 1.5px;
-              font-size: 0.89em;
-              border-radius: 50px;
-
-              .anticon {
-                font-size: 1.1em;
-              }
-            }
-          }
-        }
       }
     }
   }
@@ -413,28 +428,6 @@
               .anticon {
                 padding: 0em 1em;
                 font-size: 1.05em;
-              }
-            }
-          }
-        }
-
-        .ShowData_Box_Part_3 {
-          padding: 0em 0.5em 2.5em 1em;
-          // width: 98%;
-          bottom: 250px;
-
-          ul {
-            padding: 0em 1em;
-
-            li {
-              margin: 0em 0em;
-              padding: 0.5em 1.7em;
-              letter-spacing: 1.5px;
-              font-size: 0.89em;
-              border-radius: 50px;
-
-              .anticon {
-                font-size: 1.1em;
               }
             }
           }

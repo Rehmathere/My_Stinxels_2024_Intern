@@ -47,7 +47,8 @@ export const updateOrderStatusThunk = createAsyncThunk(
     } catch (error) {
       console.log(error);
       return rejectWithValue({
-        message: error?.response?.data?.error ?? `Failed to Create Record`,
+        message:
+          error?.response?.data?.error ?? `Failed to Update Order Status`,
       });
     }
   }

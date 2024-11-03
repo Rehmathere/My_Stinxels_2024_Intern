@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 // CSS
 import "./UserDash.scss";
 // Images
+import { getUserInfoThunk } from "../../../Redux/Thunks/UserApi";
 import User_Dash from "../../../assets/User_Dash.png";
 
 function UserDash() {
+  const dispatch = useDispatch();
   // Get current date and time in the specified format
+  const user = useSelector((state) => state.userSlice.userInfo);
   const currentDateTime = new Date().toLocaleString("en-US", {
     month: "short",
     day: "numeric",
@@ -14,6 +18,10 @@ function UserDash() {
     minute: "numeric",
     hour12: true,
   });
+
+  useEffect(() => {
+    dispatch(getUserInfoThunk());
+  }, []);
 
   return (
     <div className="min-h-[80vh] max-w-[100vw]">
@@ -27,7 +35,7 @@ function UserDash() {
             {/* Row */}
             <div className="UserDash_Box_Part_1">
               <p>{currentDateTime}</p>
-              <h1>Hello Rehmat Qazi !</h1>
+              <h1>Hello {user?.name} !</h1>
               <h2>Deliciousness Is In Progress.</h2>
             </div>
             <div className="UserDash_Box_Part_2">

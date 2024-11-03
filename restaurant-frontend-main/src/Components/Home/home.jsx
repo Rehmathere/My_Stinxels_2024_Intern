@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { ShoppingCartOutlined } from "@ant-design/icons";
-import { Button } from "antd";
+import { Button, Badge } from "antd";
 import { getMenuThunk } from "../../Redux/Thunks/MenuApi";
 import CartDrawer from "../User/CartDrawer/CartDrawer";
 import { addToCart } from "../../Redux/Slices/UserSlice";
@@ -47,6 +47,7 @@ function Home() {
   const { Fries, Burger, Chicken, Salads, Drinks, Sauces } = useSelector(
     (state) => state.menuSlice.menu
   );
+  const cart = useSelector((state) => state.userSlice.cart);
 
   const [openDrawer, setOpenDrawer] = useState(false);
 
@@ -257,10 +258,16 @@ function Home() {
                 </div>
               </div>
               {/* --- My Cart Btn --- */}
-              <Button className="My_Cart_Btn" type="link" onClick={() => setOpenDrawer(true)}>
-                {/* <ShoppingCartOutlined color="white" /> */}
-                <i class="fa fa-cart-plus"></i>
-              </Button>
+              <Badge count={cart?.length} color="green">
+                <Button
+                  className="My_Cart_Btn"
+                  type="link"
+                  onClick={() => setOpenDrawer(true)}
+                >
+                  {/* <ShoppingCartOutlined color="white" /> */}
+                  <i class="fa fa-cart-plus"></i>
+                </Button>
+              </Badge>
               <input
                 type="search"
                 placeholder=" Search Item here ... "

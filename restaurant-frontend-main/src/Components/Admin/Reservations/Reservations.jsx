@@ -175,7 +175,7 @@ function Reservations() {
       dataIndex: "customerName",
       key: "customerName",
       render: (_, record) => {
-        return <>{"Rehmat Qazi"}</>;
+        return <>{record?.customerName}</>;
       },
     },
     {
@@ -183,10 +183,9 @@ function Reservations() {
       dataIndex: "branchId",
       key: "branchId",
       render: (_, record) => {
-        const address = "house abc, street 123, sector abc, pwd, Rawalpindi";
-        // const address = branches?.find(
-        //   ({ _id }) => record.branchId === _id
-        // )?.address;
+        const address = branches?.find(
+          ({ _id }) => record.branchId === _id
+        )?.address;
         return <>{address}</>;
       },
     },
@@ -247,7 +246,7 @@ function Reservations() {
           FormContent={FormContent}
           handleCancel={handleCancel}
         />
-        <Table dataSource={dummyData} columns={columns} />
+        <Table dataSource={reservations} columns={columns} />
       </div>
     </>
   );

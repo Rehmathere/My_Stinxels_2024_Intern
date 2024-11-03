@@ -5,17 +5,45 @@ import {
   CoffeeOutlined,
   ShopOutlined,
   CheckCircleOutlined,
+  ShoppingCartOutlined,
+  BellOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
-import { Button, Layout as AntdLayout, theme } from "antd";
+import { IoFastFoodOutline } from "react-icons/io5";
+import { MdTableRestaurant } from "react-icons/md";
+import {
+  Button,
+  Dropdown,
+  Badge,
+  Divider,
+  Avatar,
+  Layout as AntdLayout,
+  theme,
+  Menu as AntdMenu,
+} from "antd";
+import { useDispatch, useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import "./layout.scss"; // Import the SCSS file for styles
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import CartDrawer from "../User/CartDrawer/CartDrawer";
+import { readAllNotifications } from "../../Redux/Slices/UserSlice";
+import {
+  inProgressOrders,
+  completedOrders,
+} from "../../Redux/Slices/OrderSlice";
 
 const { Header, Sider, Content } = AntdLayout;
 
-const Layout = ({ Menu }) => {
+const Layout = ({ Menu, User = false }) => {
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const cart = useSelector((state) => state.userSlice.cart);
+  const notifications = useSelector((state) => state.userSlice.notifications);
+  const unReadNotifications = useSelector(
+    (state) => state.userSlice.unreadNotificationsCounter
+  );
+  const [openDrawer, setOpenDrawer] = useState(false);
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
   const [isMobileView, setIsMobileView] = useState(false); // To handle media query behavior
@@ -25,6 +53,33 @@ const Layout = ({ Menu }) => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
+  const notificationIcon = {
+    order: <IoFastFoodOutline />,
+    reservation: <MdTableRestaurant />,
+  };
+
+  console.log(location.pathname);
+
+  const items = [
+    {
+      key: "1",
+      label: (
+        <div className="flex flex-col gap-3 ">
+          {notifications?.map((notification) => (
+            <>
+              <div className="flex items-center gap-2 ">
+                <Avatar icon={notificationIcon[notification?.icon]} />
+                <p className="break-words max-w-[170px]">
+                  {notification?.message}
+                </p>
+              </div>
+              <hr />
+            </>
+          ))}
+        </div>
+      ),
+    },
+  ];
   // Effect to handle window resize and update mobile view state
   useEffect(() => {
     const handleResize = () => {
@@ -98,13 +153,6 @@ const Layout = ({ Menu }) => {
                   </li>
                 </ul>
               </div>
-              {/* <div className="ShowData_Box_Part_3">
-                <ul>
-                  <li>
-                    <LogoutOutlined /> Logout
-                  </li>
-                </ul>
-              </div> */}
             </div>
           </div>
         </div>
@@ -113,55 +161,124 @@ const Layout = ({ Menu }) => {
     return null; // Return null if not visible
   };
 
+  const orderMenu = [
+    {
+      label: "In Progress Orders",
+      key: "inProgress",
+      onClick: () => dispatch(inProgressOrders()),
+    },
+    {
+      label: "Completed Orders",
+      key: "completed",
+      onClick: () => dispatch(completedOrders()),
+    },
+  ];
+
   return (
-    <AntdLayout>
-      <Sider
-        trigger={null}
-        collapsible
-        collapsed={isMobileView ? true : collapsed}
-        className={`bg-green-950 ${collapsed ? "sider-collapsed" : ""}`}
-      >
-        <div className="demo-logo-vertical" />
-        <div className="menu_logo">
-          <img src={logo} alt="logo" />
-        </div>
-        <Menu />
-      </Sider>
+    <>
+      <CartDrawer open={openDrawer} setOpen={setOpenDrawer} />
       <AntdLayout>
-        <Header
-          style={{
-            padding: 0,
-            background: "white",
-          }}
+        <Sider
+          trigger={null}
+          collapsible
+          collapsed={isMobileView ? true : collapsed}
+          className={`bg-green-950 ${collapsed ? "sider-collapsed" : ""}`}
         >
-          <Button
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={handleToggle} // Toggle collapse and My_Data visibility
-            className="collapsed-button"
+          <div className="demo-logo-vertical" />
+          {/* Bottom */}
+          <div
+            className={
+              collapsed ? "MyBtnParent_Collapsed" : "ShowData_Box_Part_3_Footer"
+            }
+          >
+            <button>
+              <LogoutOutlined /> Logout
+            </button>
+          </div>
+          {/* Bottom */}
+          <div className="menu_logo">
+            <img src={logo} alt="logo" />
+          </div>
+          <Menu />
+        </Sider>
+        <AntdLayout>
+          <Header
             style={{
-              fontSize: "10px",
-              width: 64,
-              height: 64,
-              backgroundColor: "white",
-              color: "#0a4621",
+              padding: 0,
+              background: "white",
             }}
-          />
-        </Header>
-        <Content
-          style={{
-            margin: "24px 16px",
-            padding: 24,
-            background: colorBgContainer,
-            borderRadius: borderRadiusLG,
-          }}
-        >
-          <Outlet />
-          {/* Call My_Data to display its content conditionally */}
-          {My_Data()}
-        </Content>
+          >
+            <div className="flex justify-between">
+              <Button
+                type="text"
+                icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+                onClick={handleToggle} // Toggle collapse and My_Data visibility
+                className="collapsed-button"
+                style={{
+                  fontSize: "10px",
+                  width: 64,
+                  height: 64,
+                  backgroundColor: "white",
+                  color: "#0a4621",
+                }}
+              />
+              <div className="flex gap-4 items-center pr-4">
+                <Dropdown
+                  onOpenChange={() => dispatch(readAllNotifications())}
+                  menu={{ items }}
+                  overlayStyle={{
+                    maxHeight: "440px",
+                    overflowY: "scroll",
+                    maxWidth: "250px",
+                    overflowX: "hidden",
+                  }}
+                >
+                  <Badge count={unReadNotifications} color="green">
+                    <Avatar
+                      style={{ backgroundColor: "#0a4621", cursor: "pointer" }}
+                      icon={<BellOutlined />}
+                    />
+                  </Badge>
+                </Dropdown>
+                {User && (
+                  <Badge count={cart?.length} color="green">
+                    <Avatar
+                      style={{ backgroundColor: "#0a4621", cursor: "pointer" }}
+                      onClick={() => setOpenDrawer(true)}
+                      icon={<ShoppingCartOutlined />}
+                    />
+                  </Badge>
+                )}
+              </div>
+            </div>
+          </Header>
+          {(location.pathname == "/admin/orders" ||
+            location.pathname == "/user/order") && (
+            <div className="border-2 border-t-stone-100">
+              <AntdMenu
+                mode="horizontal"
+                items={orderMenu}
+                defaultSelectedKeys={["inProgress"]}
+              />
+            </div>
+          )}
+          <Content
+            style={{
+              margin: "24px 16px",
+              padding: 24,
+              background: colorBgContainer,
+              borderRadius: borderRadiusLG,
+            }}
+          >
+            {/* <div className="max-h-[100vh] overflow-scroll"> */}
+            <Outlet />
+            {/* </div> */}
+            {/* Call My_Data to display its content conditionally */}
+            {My_Data()}
+          </Content>
+        </AntdLayout>
       </AntdLayout>
-    </AntdLayout>
+    </>
   );
 };
 

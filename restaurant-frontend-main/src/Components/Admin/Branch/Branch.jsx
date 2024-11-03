@@ -13,6 +13,7 @@ import {
 } from "../../../Redux/Thunks/BranchApi";
 // CSS
 import "./Branch.scss";
+import { showSuccess } from "../../Toaster/Toaster";
 
 function Branch() {
   const [form] = Form.useForm();
@@ -139,10 +140,10 @@ function Branch() {
         <div className="flex flex-col items-center">
           <div className="w-full flex justify-around">
             <Button ghost type="link" className="My_Branch_Btn">
-              S
+              Seating Size
             </Button>
             <Button ghost type="link" className="My_Branch_Btn">
-              T
+              Table qty
             </Button>
           </div>
           <div className="w-full">
@@ -213,7 +214,7 @@ function Branch() {
           setForm={setForm}
         />
         <Table
-          dataSource={dummyData}
+          dataSource={branches}
           columns={columns}
           rowClassName="custom-table-row"
         />

@@ -5,6 +5,12 @@ import {
   updateBranchThunk,
   deleteBranchThunk,
 } from "../Thunks/BranchApi";
+import {
+  showSuccess,
+  showError,
+  showPending,
+  removePending,
+} from "../../Components/Toaster/Toaster";
 
 const initialState = {
   status: "initails menu api status",
@@ -39,24 +45,44 @@ const branchSlice = createSlice({
     builder.addCase(getBranchThunk.fulfilled, (state, action) => {
       state.branches = action.payload.data;
     });
+    builder.addCase(getBranchThunk.pending, (state, action) => {});
 
     builder.addCase(getBranchThunk.rejected, (state, action) => {
-      // add show Error toast here
+      showError(action.payload?.message);
     });
-    builder.addCase(addBranchThunk.fulfilled, (state, action) => {});
+    builder.addCase(addBranchThunk.fulfilled, (state, action) => {
+      removePending();
+      showSuccess(action.payload?.message);
+    });
+    builder.addCase(addBranchThunk.pending, (state, action) => {
+      showPending("Submitting Data ");
+    });
 
     builder.addCase(addBranchThunk.rejected, (state, action) => {
-      // add show Error toast here
+      removePending();
+      showError(action.payload?.message);
     });
-    builder.addCase(updateBranchThunk.fulfilled, (state, action) => {});
-
+    builder.addCase(updateBranchThunk.fulfilled, (state, action) => {
+      removePending();
+      showSuccess(action.payload?.message);
+    });
+    builder.addCase(updateBranchThunk.pending, (state, action) => {
+      showPending("Updating Branch Data ");
+    });
     builder.addCase(updateBranchThunk.rejected, (state, action) => {
-      // add show Error toast here
+      removePending();
+      showError(action.payload?.message);
     });
-    builder.addCase(deleteBranchThunk.fulfilled, (state, action) => {});
+    builder.addCase(deleteBranchThunk.fulfilled, (state, action) => {
+      removePending();
+    });
+    builder.addCase(deleteBranchThunk.pending, (state, action) => {
+      showPending("Deleting Branch  ");
+    });
 
     builder.addCase(deleteBranchThunk.rejected, (state, action) => {
-      // add show Error toast here
+      removePending();
+      showError(action.payload?.message);
     });
   },
 });

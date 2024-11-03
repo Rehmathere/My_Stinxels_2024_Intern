@@ -5,6 +5,12 @@ import {
   deleteReservationThunk,
   getReservationThunk,
 } from "../Thunks/ReservationApi";
+import {
+  showError,
+  showPending,
+  showSuccess,
+  removePending,
+} from "../../Components/Toaster/Toaster";
 
 const initialState = {
   status: "initails menu api status",
@@ -38,50 +44,43 @@ const reservationSlice = createSlice({
     });
 
     builder.addCase(getReservationThunk.rejected, (state, action) => {
-      console.log(action.payload);
-
-      // add show Error toast here
+      showError(action.payload?.message);
     });
-    builder.addCase(addReservationThunk.fulfilled, (state, action) => {});
 
+    builder.addCase(addReservationThunk.fulfilled, (state, action) => {
+      removePending();
+      showSuccess(action.payload?.message);
+    });
+    builder.addCase(addReservationThunk.pending, (state, action) => {
+      showPending("Submitting Data");
+    });
     builder.addCase(addReservationThunk.rejected, (state, action) => {
-      console.log(action.payload);
-
-      // add show Error toast here
+      removePending();
+      showError(action.payload?.message);
     });
+
     builder.addCase(updateReservationThunk.fulfilled, (state, action) => {
-      const { time, ...restObj } = action.payload.data;
-      console.log("in updateThunk Slice Reservation", restObj);
-
-      // state.reservations = state.reservations?.map((reservation) => {
-      //   console.log(reservation._id === restObj._id);
-
-      //   if (reservation._id == restObj._id) {
-      //     console.log(reservation._id, "      ", restObj._id);
-
-      //     return { ...restObj };
-      //   } else {
-      //     return { ...reservation };
-      //   }
-      // });
+      removePending();
+      showSuccess(action.payload?.message);
     });
-
+    builder.addCase(updateReservationThunk.pending, (state, action) => {
+      showPending("Updating Reservation");
+    });
     builder.addCase(updateReservationThunk.rejected, (state, action) => {
-      console.log(action.payload);
-
-      // add show Error toast here
+      removePending();
+      showError(action.payload?.message);
     });
 
     builder.addCase(deleteReservationThunk.fulfilled, (state, action) => {
-      // state.reservations = state.reservations?.filter(
-      //   (reservation) => reservation._id != action.payload._id
-      // );
+      removePending();
+      showSuccess(action.payload?.message);
     });
-
+    builder.addCase(deleteReservationThunk.pending, (state, action) => {
+      showPending("Deleting Reservation");
+    });
     builder.addCase(deleteReservationThunk.rejected, (state, action) => {
-      console.log(action.payload);
-
-      // add show Error toast here
+      removePending();
+      showError(action.payload?.message);
     });
   },
 });

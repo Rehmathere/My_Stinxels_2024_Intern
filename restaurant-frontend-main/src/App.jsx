@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import socket from "../src/Socket/socket";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import { ToastContainer } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addMenuItem,
@@ -22,13 +23,16 @@ import {
 import { addOrder, updateOrderStatus } from "./Redux/Slices/OrderSlice";
 import { Navigate, useNavigate } from "react-router-dom";
 
-import { setSocketId } from "./Redux/Slices/UserSlice";
+import { setSocketId, addNotification } from "./Redux/Slices/UserSlice";
 import { getUserId } from "./Utils/getUserId";
 import { message } from "antd";
 
 function App({ children }) {
   const dispatch = useDispatch();
   // const navigate = useNavigate();
+  const reservations = useSelector(
+    (state) => state.reservationSlice.reservations
+  );
   const socketId = useSelector((state) => state.userSlice.socketId);
 
   useEffect(() => {
@@ -77,24 +81,43 @@ function App({ children }) {
     socket.on("reservation_added", (message) => {
       console.log("reservation_added socket", message);
       const { role, _id } = getUserId();
+      const { date } = message;
 
       if (role == "admin") {
         dispatch(addReservation(message));
+        dispatch(
+          addNotification({
+            icon: "reservation",
+            message: `A new Reservation has been made at ${date}`,
+          })
+        );
       } else if (_id == message.customerId) {
         dispatch(addReservation(message));
       }
     });
 
     socket.on("reservation_updated", (message) => {
-      console.log("admin trigrred update reservation");
-
+      const { date } = message;
       const { role, _id } = getUserId();
 
-      if (role == "admin") {
+      if (_id == message.customerId) {
         dispatch(updateReservation(message));
-      } else if (_id == message.customerId) {
+        dispatch(
+          addNotification({
+            icon: "reservation",
+            message: `Reservation at ${date} has been updated `,
+          })
+        );
+      } else if (role == "admin") {
         dispatch(updateReservation(message));
+        dispatch(
+          addNotification({
+            icon: "reservation",
+            message: `Reservation at ${date} has been updated `,
+          })
+        );
       }
+
       console.log("reservation_updated socket", message);
     });
 
@@ -104,8 +127,20 @@ function App({ children }) {
 
       if (role == "admin") {
         dispatch(deleteReservation(message));
+        dispatch(
+          addNotification({
+            icon: "reservation",
+            message: `Your Reservation at ${message.date} has been updated `,
+          })
+        );
       } else if (_id == message.customerId) {
         dispatch(deleteReservation(message));
+        dispatch(
+          addNotification({
+            icon: "reservation",
+            message: `Your Reservation at ${message.date} has been updated `,
+          })
+        );
       }
     });
 
@@ -115,6 +150,14 @@ function App({ children }) {
 
       if (role == "admin") {
         dispatch(addOrder(message));
+        dispatch(
+          addNotification({
+            icon: "order",
+            message: `A new Order has been made at ${
+              message.createdAt.split("T")[0]
+            }`,
+          })
+        );
       } else if (_id == message.customerId) {
         dispatch(addOrder(message));
       }
@@ -126,8 +169,24 @@ function App({ children }) {
 
       if (role == "admin") {
         dispatch(updateOrderStatus(message));
+        dispatch(
+          addNotification({
+            icon: "order",
+            message: `Order ID: ${message.orderId.slice(-5)} status is ${
+              message.status
+            }`,
+          })
+        );
       } else if (_id == message.customerId) {
         dispatch(updateOrderStatus(message));
+        dispatch(
+          addNotification({
+            icon: "order",
+            message: `Order ID: ${message.orderId.slice(-5)} status is ${
+              message.status
+            }`,
+          })
+        );
       }
     });
 
@@ -145,7 +204,11 @@ function App({ children }) {
       socket.off("order_status_update");
     };
   }, []);
-  return <>{children}</>;
+  return (
+    <>
+      {children} <ToastContainer />
+    </>
+  );
 }
 
 export default App;

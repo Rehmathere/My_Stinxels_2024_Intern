@@ -13,133 +13,133 @@ import "./Orders.scss";
 
 function Orders() {
   const dispatch = useDispatch();
-  //   const orders = useSelector((state) => state.orderSlice.orders);
-  //   const branches = useSelector((state) => state.branchSlice.branches);
+  const orders = useSelector((state) => state.orderSlice.orders);
+  const branches = useSelector((state) => state.branchSlice.branches);
   const menu = useSelector((state) => state.menuSlice.menu);
   const [orderDetailsId, setOrderDetailsId] = useState();
   const [openDrawer, setOpenDrawer] = useState(false);
 
-  const orders = [
-    {
-      _id: "671e6ff04bea31ba71bb80b1",
-      customerId: "671660cfee058464c3f8ea78",
-      branchId: "670fd77c110152d4ef2319a3",
-      type: "Takeaway",
-      status: "Pending",
-      order: [
-        {
-          qty: 1,
-          itemId: "67135a5bb6b12376db14d7bc",
-          category: "Burger",
-          price: 400,
-        },
-        {
-          qty: 1,
-          itemId: "670d6dd5f5fd09ffcde6b8d8",
-          category: "Fries",
-          price: 1232,
-        },
-      ],
-      totalBill: 1632,
-      createdAt: "2024-10-27T16:53:04.176Z",
-      updatedAt: "2024-10-27T16:53:04.176Z",
-      __v: 0,
-      customerName: "ads",
-      customerAddress: "gulshand address",
-    },
-    {
-      _id: "671e6ff04bea31ba71bb80b1",
-      customerId: "671660cfee058464c3f8ea78",
-      branchId: "670fd77c110152d4ef2319a3",
-      type: "Delivery",
-      status: "Pending",
-      order: [
-        {
-          qty: 1,
-          itemId: "67135a5bb6b12376db14d7bc",
-          category: "Burger",
-          price: 400,
-        },
-        {
-          qty: 1,
-          itemId: "670d6dd5f5fd09ffcde6b8d8",
-          category: "Fries",
-          price: 1232,
-        },
-      ],
-      totalBill: 1632,
-      createdAt: "2024-10-27T16:53:04.176Z",
-      updatedAt: "2024-10-27T16:53:04.176Z",
-      __v: 0,
-      customerName: "ads",
-      customerAddress: "gulshand address",
-    },
-    {
-      _id: "671e6ff04bea31ba71bb80b1",
-      customerId: "671660cfee058464c3f8ea78",
-      branchId: "670fd77c110152d4ef2319a3",
-      type: "Takeaway",
-      status: "Pending",
-      order: [
-        {
-          qty: 1,
-          itemId: "67135a5bb6b12376db14d7bc",
-          category: "Burger",
-          price: 400,
-        },
-        {
-          qty: 1,
-          itemId: "670d6dd5f5fd09ffcde6b8d8",
-          category: "Fries",
-          price: 1232,
-        },
-      ],
-      totalBill: 1632,
-      createdAt: "2024-10-27T16:53:04.176Z",
-      updatedAt: "2024-10-27T16:53:04.176Z",
-      __v: 0,
-      customerName: "ads",
-      customerAddress: "gulshand address",
-    },
-  ];
+  // const orders = [
+  //   {
+  //     _id: "671e6ff04bea31ba71bb80b1",
+  //     customerId: "671660cfee058464c3f8ea78",
+  //     branchId: "670fd77c110152d4ef2319a3",
+  //     type: "Takeaway",
+  //     status: "Pending",
+  //     order: [
+  //       {
+  //         qty: 1,
+  //         itemId: "67135a5bb6b12376db14d7bc",
+  //         category: "Burger",
+  //         price: 400,
+  //       },
+  //       {
+  //         qty: 1,
+  //         itemId: "670d6dd5f5fd09ffcde6b8d8",
+  //         category: "Fries",
+  //         price: 1232,
+  //       },
+  //     ],
+  //     totalBill: 1632,
+  //     createdAt: "2024-10-27T16:53:04.176Z",
+  //     updatedAt: "2024-10-27T16:53:04.176Z",
+  //     __v: 0,
+  //     customerName: "ads",
+  //     customerAddress: "gulshand address",
+  //   },
+  //   {
+  //     _id: "671e6ff04bea31ba71bb80b1",
+  //     customerId: "671660cfee058464c3f8ea78",
+  //     branchId: "670fd77c110152d4ef2319a3",
+  //     type: "Delivery",
+  //     status: "Pending",
+  //     order: [
+  //       {
+  //         qty: 1,
+  //         itemId: "67135a5bb6b12376db14d7bc",
+  //         category: "Burger",
+  //         price: 400,
+  //       },
+  //       {
+  //         qty: 1,
+  //         itemId: "670d6dd5f5fd09ffcde6b8d8",
+  //         category: "Fries",
+  //         price: 1232,
+  //       },
+  //     ],
+  //     totalBill: 1632,
+  //     createdAt: "2024-10-27T16:53:04.176Z",
+  //     updatedAt: "2024-10-27T16:53:04.176Z",
+  //     __v: 0,
+  //     customerName: "ads",
+  //     customerAddress: "gulshand address",
+  //   },
+  //   {
+  //     _id: "671e6ff04bea31ba71bb80b1",
+  //     customerId: "671660cfee058464c3f8ea78",
+  //     branchId: "670fd77c110152d4ef2319a3",
+  //     type: "Takeaway",
+  //     status: "Pending",
+  //     order: [
+  //       {
+  //         qty: 1,
+  //         itemId: "67135a5bb6b12376db14d7bc",
+  //         category: "Burger",
+  //         price: 400,
+  //       },
+  //       {
+  //         qty: 1,
+  //         itemId: "670d6dd5f5fd09ffcde6b8d8",
+  //         category: "Fries",
+  //         price: 1232,
+  //       },
+  //     ],
+  //     totalBill: 1632,
+  //     createdAt: "2024-10-27T16:53:04.176Z",
+  //     updatedAt: "2024-10-27T16:53:04.176Z",
+  //     __v: 0,
+  //     customerName: "ads",
+  //     customerAddress: "gulshand address",
+  //   },
+  // ];
 
-  const branches = [
-    {
-      _id: "670fd77c110152d4ef2319a3",
-      address: "house abc, street 123, sector abc, pwd, Rawalpindi",
-      contactNum: "923245653423",
-      tables: [
-        {
-          seatingSize: "4",
-          qty: "9",
-          id: "88f7ec33-b884-4d6e-8722-20a678701d5d",
-        },
-      ],
-      createdAt: "2024-10-16T15:10:52.762Z",
-      updatedAt: "2024-10-19T13:52:14.649Z",
-      __v: 0,
-    },
-    {
-      _id: "670fd7c2110152d4ef2319a6",
-      address: "asdfaad",
-      contactNum: "925467677777",
-      tables: [
-        {
-          seatingSize: "2",
-          qty: "10",
-          id: "d12f01cc-64f7-498c-98ef-4107d252fb60",
-        },
-        {
-          seatingSize: "4",
-          qty: "5",
-          id: "d6f00c37-8fdf-4537-b642-72ea093f898b",
-        },
-      ],
-      createdAt: "2024-10-16T15:12:02.898Z",
-      updatedAt: "2024-10-21T17:50:47.800Z",
-      __v: 0,
-    },
-  ];
+  // const branches = [
+  //   {
+  //     _id: "670fd77c110152d4ef2319a3",
+  //     address: "house abc, street 123, sector abc, pwd, Rawalpindi",
+  //     contactNum: "923245653423",
+  //     tables: [
+  //       {
+  //         seatingSize: "4",
+  //         qty: "9",
+  //         id: "88f7ec33-b884-4d6e-8722-20a678701d5d",
+  //       },
+  //     ],
+  //     createdAt: "2024-10-16T15:10:52.762Z",
+  //     updatedAt: "2024-10-19T13:52:14.649Z",
+  //     __v: 0,
+  //   },
+  //   {
+  //     _id: "670fd7c2110152d4ef2319a6",
+  //     address: "asdfaad",
+  //     contactNum: "925467677777",
+  //     tables: [
+  //       {
+  //         seatingSize: "2",
+  //         qty: "10",
+  //         id: "d12f01cc-64f7-498c-98ef-4107d252fb60",
+  //       },
+  //       {
+  //         seatingSize: "4",
+  //         qty: "5",
+  //         id: "d6f00c37-8fdf-4537-b642-72ea093f898b",
+  //       },
+  //     ],
+  //     createdAt: "2024-10-16T15:12:02.898Z",
+  //     updatedAt: "2024-10-21T17:50:47.800Z",
+  //     __v: 0,
+  //   },
+  // ];
 
   useEffect(() => {
     dispatch(getOrdersThunk());
@@ -157,7 +157,7 @@ function Orders() {
       title: "Order ID ",
       dataIndex: "_id",
       key: "_id",
-      render: (_, record) => record?._id?.slice(-6),
+      render: (_, record) => record?._id?.slice(-6).toUpperCase(),
     },
     {
       title: "Order Type",
@@ -214,6 +214,7 @@ function Orders() {
           onClose={() => setOpenDrawer(false)}
         >
           <Details
+            setOpenDrawer={setOpenDrawer}
             orderDetails={orders?.find(({ _id }) => orderDetailsId == _id)}
             branches={branches}
             menu={menu}
@@ -224,18 +225,21 @@ function Orders() {
   );
 }
 
-function Details({ orderDetails, branches, menu }) {
+function Details({ orderDetails, branches, menu, setOpenDrawer }) {
+  if (!orderDetails) {
+    setOpenDrawer(false);
+  }
   const {
-    order,
-    branchId,
-    customerName,
-    customerId,
-    totalBill,
-    status,
-    type,
-    customerAddress,
-    _id: orderId,
-  } = orderDetails;
+    order = null,
+    branchId = null,
+    customerName = null,
+    customerId = null,
+    totalBill = null,
+    status = null,
+    type = null,
+    customerAddress = null,
+    _id: orderId = null,
+  } = orderDetails || {};
   console.log(branches);
 
   const dispatch = useDispatch();
@@ -255,7 +259,7 @@ function Details({ orderDetails, branches, menu }) {
         {/* Order ID */}
         <div className="UserOrderCart_ID_Parent">
           <p className="UserOrderCart_ID">
-            Order Id: <span>{orderId.slice(-5)}</span>
+            Order Id: <span>{orderId?.slice(-5)}</span>
           </p>
         </div>
         {/* Body */}
@@ -271,7 +275,7 @@ function Details({ orderDetails, branches, menu }) {
             {/* - Box - */}
             {branchAddress && (
               <div className="UserOrderCart_1_Box">
-                <h2>Address :</h2>
+                <h2>Branch Address :</h2>
                 <p>
                   <span>{branchAddress?.address}</span>
                 </p>
@@ -325,20 +329,24 @@ function Details({ orderDetails, branches, menu }) {
             </div>
             {/* Sub Part 3 */}
             <div className="UserOrderCart_2_Box_3">
-              <p className="UserOrderCart_2_Box_3_P1">Status : <span>{status}</span></p>
+              <p className="UserOrderCart_2_Box_3_P1">
+                Status : <span>{status}</span>
+              </p>
               <Select
                 defaultValue={status}
-                style={{ width: 150, margin: "1em 0em", letterSpacing: "1px", }}
+                style={{ width: 150, margin: "1em 0em", letterSpacing: "1px" }}
                 // className="UserOrderCart_2_Box_3"
                 onChange={(value) => handleStatusChange(value)}
                 options={[
-                  { value: "pending", label: "Pending" },
-                  { value: "prepairing", label: "Prepairing" },
-                  { value: "ready", label: "Ready" },
+                  { value: "Pending", label: "Pending" },
+                  { value: "Prepairing", label: "Prepairing" },
+                  { value: "Ready", label: "Ready" },
                   { value: "disabled", label: "Disabled", disabled: true },
                 ]}
               />
-              <p>Type : <span>{type}</span></p>
+              <p>
+                Type : <span>{type}</span>
+              </p>
             </div>
           </div>
         </div>

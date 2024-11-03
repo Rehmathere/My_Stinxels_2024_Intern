@@ -8,6 +8,42 @@ const initialState = {
   _id: "",
   cart: [],
   address: "",
+  userInfo: {},
+  notifications: [
+    // {
+    //   icon: "reservation",
+    //   message: `Your Reservation at  has been updated `,
+    // },
+    // {
+    //   icon: "reservation",
+    //   message: `Your Reservation at    has been updated `,
+    // },
+    // {
+    //   icon: "reservation",
+    //   message: `Your Reservation at    has been updated `,
+    // },
+    // {
+    //   icon: "order",
+    //   message: `Your Reservation at    has been updated `,
+    // },
+    // {
+    //   icon: "reservation",
+    //   message: `Your Reservation at    has been updated `,
+    // },
+    // {
+    //   icon: "reservation",
+    //   message: `Your Reservation at    has been updated `,
+    // },
+    // {
+    //   icon: "reservation",
+    //   message: `Your Reservation at    has been updated `,
+    // },
+    // {
+    //   icon: "reservation",
+    //   message: `Your Reservation at    has been updated `,
+    // },
+  ],
+  unreadNotificationsCounter: 0,
 };
 
 const userSlice = createSlice({
@@ -53,6 +89,18 @@ const userSlice = createSlice({
     removeFromCart: (state, action) => {
       state.cart = state.cart?.filter(({ _id }) => _id != action.payload._id);
     },
+
+    emptyCart: (state, action) => {
+      state.cart = [];
+    },
+
+    addNotification: (state, action) => {
+      state.notifications?.unshift(action.payload);
+      state.unreadNotificationsCounter += 1;
+    },
+    readAllNotifications: (state, action) => {
+      state.unreadNotificationsCounter = 0;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(signUpThunk.fulfilled, (state, action) => {
@@ -77,6 +125,7 @@ const userSlice = createSlice({
 
     builder.addCase(getUserInfoThunk.fulfilled, (state, action) => {
       state.address = action.payload.data.address;
+      state.userInfo = action.payload.data;
     });
 
     builder.addCase(getUserInfoThunk.rejected, (state, action) => {
@@ -85,7 +134,14 @@ const userSlice = createSlice({
   },
 });
 
-export const { setSocketId, addToCart, decrementQty, removeFromCart } =
-  userSlice.actions;
+export const {
+  setSocketId,
+  addToCart,
+  decrementQty,
+  removeFromCart,
+  emptyCart,
+  addNotification,
+  readAllNotifications,
+} = userSlice.actions;
 
 export default userSlice.reducer;

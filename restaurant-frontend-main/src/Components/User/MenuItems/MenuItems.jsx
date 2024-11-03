@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { getMenuThunk } from "../../../Redux/Thunks/MenuApi";
-import { addToCart } from "../../../Redux/Slices/UserSlice";
+import { addToCart, decrementQty } from "../../../Redux/Slices/UserSlice";
 
 import "../../Home/home";
 
@@ -60,58 +60,74 @@ function MenuItem({ categoryText, ItemArray }) {
       <div className="grid grid-cols-12 gap-2">
         {" "}
         {/*class name Menu_Box*/}
-        <div className=" col-span-12 lg:col-span-4 md:col-span-6 sm:col-span-6 hover:scale-105 transition-transform duration-300">
-          {" "}
-          {/*class name Menu_Box_Sub*/}
-          <ItemCards />
-        </div>
+        {ItemArray?.map((menuItem) => (
+          <div className=" col-span-12 lg:col-span-4 md:col-span-6 sm:col-span-6 hover:scale-105 transition-transform duration-300">
+            {" "}
+            {/*class name Menu_Box_Sub*/}
+            <ItemCards menuItem={menuItem} />
+          </div>
+        ))}
       </div>
     </>
   );
 }
 
-function ItemCards() {
+function ItemCards({ menuItem }) {
+  console.log(menuItem);
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.userSlice.cart);
+  const { name, price, img, description, _id, category } = menuItem;
+
   const [qty, setQty] = useState(0);
-  const [show, setShow] = useState(false);
 
-  const handleAnimation = () => {
-    setShow(true); // Trigger animation
+  useEffect(() => {
+    const cartObj = cart?.find((cartItem) => _id === cartItem?._id);
+    setQty(cartObj?.qty ?? 0);
+  }, [cart]);
 
-    // Hide the animation after 500ms
-    setTimeout(() => setShow(false), 500);
-  };
+  const addItem = (body) => {
+    const { category, _id } = body;
+    // console.log({ category, _id });
 
-  const handleAdd = () => {
+    dispatch(addToCart({ category, _id }));
     setQty(qty + 1);
-    handleAnimation();
+  };
+  const decreaseItemQty = (body) => {
+    const { category, _id } = body;
+    // console.log({ category, _id });
+
+    dispatch(decrementQty({ category, _id }));
+    setQty(qty - 1);
   };
 
   return (
     <>
-      <div className="  grid grid-cols-12  border-2 border-gray-200 rounded-md p-1 ">
+      <div
+        key={_id}
+        className="  grid grid-cols-12  border-2 border-gray-200 rounded-md p-1 "
+      >
         <div className=" col-span-6 flex flex-col gap-3">
           <div className="flex flex-col gap-2">
-            <h5 className="font-semibold lg:text-lg">Paneer Makhni</h5>
-            <p className="text-gray-500 text-xs text-left  ">
-              Paneer Makhni Paneer Makhni Paneer Makhni Paneer Makhni Paneer
-              Makhni
-            </p>
+            <h5 className="font-semibold lg:text-lg">{name}</h5>
+            <p className="text-gray-500 text-xs text-left  ">{description}</p>
           </div>
           <div className="flex gap-2">
-            <p className="text-green-400">1299</p>
-            <Svg />
+            <p className="text-green-400">{price}</p>
+            <SvgHalal />
           </div>
         </div>
         <div className="flex items-center justify-end col-span-6">
           <div className="relative w-[174px] h-[116px] overflow-hidden">
             <img
               className="rounded-md w-full object-cover"
-              src="https://imageproxy.wolt.com/menu/menu-images/5f71921263a6ac41b4e98c3c/8f2cae5a-67a5-11eb-aa3c-46efe57ab807__mann_o_salwa_45.jpeg?w=200"
+              src={
+                "https://imageproxy.wolt.com/menu/menu-images/5f71921263a6ac41b4e98c3c/8f2cae5a-67a5-11eb-aa3c-46efe57ab807__mann_o_salwa_45.jpeg?w=200"
+              }
               alt=""
             />
             {qty == 0 ? (
               <div
-                onClick={handleAdd}
+                onClick={() => addItem({ category, _id })}
                 className="absolute top-0 right-0 h-[44px] w-[46px] flex justify-center items-center bg-green-100 hover:bg-green-200 rounded-l-lg"
               >
                 <FaPlus color="green" />
@@ -119,25 +135,14 @@ function ItemCards() {
             ) : (
               <div className="absolute top-0 right-0 h-[44px] max-w-[140px] w-full flex justify-center items-center gap-6 p-2 bg-green-100 hover:bg-green-200 rounded-l-lg">
                 <div
-                  onClick={() => setQty(qty - 1)}
+                  onClick={() => decreaseItemQty({ category, _id })}
                   className="w-[32px] h-[32px] bg-white flex justify-center items-center rounded-full"
                 >
                   <FaMinus color="green" />
                 </div>
-                <p className="relative text-green-950 font-semibold">
-                  {qty}{" "}
-                  {show && (
-                    <span
-                      className={`absolute text-xl font-bold text-blue-500 
-          transition-transform duration-500 transform 
-          ${show ? "opacity-100 -translate-y-10" : "opacity-0 translate-y-5"}`}
-                    >
-                      +1
-                    </span>
-                  )}
-                </p>
+                <p className="relative text-green-950 font-semibold">{qty} </p>
                 <div
-                  onClick={() => setQty(qty + 1)}
+                  onClick={() => addItem({ category, _id })}
                   className="w-[32px] h-[32px] bg-white flex justify-center items-center rounded-full"
                 >
                   <FaPlus color="green" />
@@ -165,7 +170,7 @@ function SvgPlus() {
   );
 }
 
-function Svg() {
+function SvgHalal() {
   return (
     <svg
       viewBox="0 0 24 24"

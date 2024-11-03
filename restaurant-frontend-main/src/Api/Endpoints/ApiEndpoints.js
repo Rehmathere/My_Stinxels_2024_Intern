@@ -10,7 +10,7 @@ export const signIn = (body) => api.post(`${unauthEndpoint}/sign-in`, body);
 
 export const getUserInfo = () => api.get(`${authEndpoint}/employee`);
 
-export const getMenu = () => api.get(`${authEndpoint}/admin/menu`);
+export const getMenu = () => api.get(`${unauthEndpoint}/menu`);
 
 export const addMenu = (menuItem) =>
   api.post(`${authEndpoint}/admin/menu`, menuItem);
