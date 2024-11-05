@@ -688,7 +688,7 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        background-color: #F8FFD2;
+        background-color: #f8ffd2;
 
         .BottomInfo_Box_Part_1 {
           position: relative; // To position the pseudo-element
@@ -766,6 +766,107 @@
                 font-size: 0.9em;
               }
             }
+          }
+        }
+      }
+    }
+  }
+
+  // --- 5 - FinalContact ---
+  .Parent_FinalContact_Whole {
+    border: 0px solid transparent;
+    padding: 3em 1em;
+
+    .FinalContact_Box {
+      border: 0px solid transparent;
+      padding: 1em 1em;
+
+      .FinalContact_Box_Part_1 {
+        border: 0px solid transparent;
+        padding: 1em 1em;
+
+        h1 {
+          border: 0px solid transparent;
+          padding: 0.2em 0.1em 0.2em 0.1em;
+          font-size: 2.8em;
+          font-weight: bold;
+          text-align: center;
+          letter-spacing: 3.5px;
+          color: #0a4621;
+          text-transform: capitalize;
+        }
+
+        p {
+          border: 0px solid transparent;
+          padding: 0.5em 0.2em 0.5em 0.2em;
+          font-size: 1em;
+          letter-spacing: 3px;
+          width: 100%;
+          text-align: center;
+          text-transform: capitalize;
+          color: rgb(94, 94, 94);
+        }
+      }
+
+      .FinalContact_Box_Part_2 {
+        border: 0px solid transparent;
+        padding: 1.5em 1em;
+
+        .FinalContact_Box_Part_2_MiniBox_Whole {
+          border: 0px solid transparent;
+          padding: 2em 3em;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 2em;
+          row-gap: 2em;
+
+          .FinalContact_Box_Part_2_MiniBox {
+            border: 0.1px solid rgb(194, 194, 194);
+            width: 100%;
+            border-radius: 10px;
+
+            .FinalContact_Box_Part_2_MiniBox_Part1 {
+              border: 0px solid transparent;
+              padding: 2em 0em;
+
+              img {
+                border: 0px solid transparent;
+                width: 20%;
+                display: block;
+                margin: 0em auto;
+              }
+            }
+
+            .FinalContact_Box_Part_2_MiniBox_Part2 {
+              border: 0px solid transparent;
+              padding: 1.5em 1.5em;
+              background: linear-gradient(to top, #bcc4bc, #e7f0e7);
+              border-bottom-left-radius: 10px;
+              border-bottom-right-radius: 10px;
+
+              h2 {
+                border: 0px solid transparent;
+                padding: 0.1em 0.1em 0.1em 0.1em;
+                font-size: 1.4em;
+                font-weight: bold;
+                letter-spacing: 3.5px;
+                color: #0a4621;
+                text-transform: capitalize;
+              }
+
+              p {
+                border: 0px solid transparent;
+                padding: 0.4em 0.2em 0.4em 0.2em;
+                font-size: 0.9em;
+                letter-spacing: 3px;
+                color: rgb(94, 94, 94);
+              }
+            }
+          }
+
+          .FinalContact_Box_Part_2_MiniBox:hover {
+            cursor: pointer;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
           }
         }
       }
@@ -1210,6 +1311,67 @@
         }
       }
     }
+
+    // --- 5 - FinalContact ---
+    .Parent_FinalContact_Whole {
+      padding: 3em 1em;
+
+      .FinalContact_Box {
+        padding: 1em 1em;
+
+        .FinalContact_Box_Part_1 {
+          padding: 1em 1em;
+
+          h1 {
+            padding: 0.2em 0.1em 0.2em 0.1em;
+            font-size: 2.5em;
+            letter-spacing: 3.5px;
+          }
+
+          p {
+            padding: 0.45em 0.2em 0.45em 0.2em;
+            font-size: 0.95em;
+            letter-spacing: 3px;
+          }
+        }
+
+        .FinalContact_Box_Part_2 {
+          padding: 1.5em 1em;
+
+          .FinalContact_Box_Part_2_MiniBox_Whole {
+            padding: 2em 3em;
+
+            .FinalContact_Box_Part_2_MiniBox {
+              width: 100%;
+
+              .FinalContact_Box_Part_2_MiniBox_Part1 {
+                padding: 2em 0em;
+
+                img {
+                  width: 20%;
+                }
+              }
+
+              .FinalContact_Box_Part_2_MiniBox_Part2 {
+                padding: 1.5em 1.5em;
+
+                h2 {
+                  padding: 0.1em 0.1em 0.1em 0.1em;
+                  font-size: 1.3em;
+                  letter-spacing: 3.5px;
+                }
+
+                p {
+                  padding: 0.4em 0.2em 0.4em 0.2em;
+                  font-size: 0.85em;
+                  letter-spacing: 3px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     // -
   }
 }
@@ -1600,6 +1762,67 @@
                   padding: 0.3em 0em;
                   letter-spacing: 1.5px;
                   font-size: 0.88em;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // --- 5 - FinalContact ---
+    .Parent_FinalContact_Whole {
+      padding: 3em 1em;
+
+      .FinalContact_Box {
+        padding: 1em 1em;
+
+        .FinalContact_Box_Part_1 {
+          padding: 1em 1em;
+
+          h1 {
+            padding: 0.2em 0.1em 0.5em 0.1em;
+            font-size: 2.2em;
+            letter-spacing: 3.5px;
+          }
+
+          p {
+            padding: 0.45em 0.2em 0.45em 0.2em;
+            font-size: 0.9em;
+            letter-spacing: 3px;
+          }
+        }
+
+        .FinalContact_Box_Part_2 {
+          padding: 1.5em 1em;
+
+          .FinalContact_Box_Part_2_MiniBox_Whole {
+            padding: 2em 2.8em;
+
+            .FinalContact_Box_Part_2_MiniBox {
+              width: 100%;
+
+              .FinalContact_Box_Part_2_MiniBox_Part1 {
+                padding: 2em 0em;
+
+                img {
+                  width: 25%;
+                }
+              }
+
+              .FinalContact_Box_Part_2_MiniBox_Part2 {
+                padding: 1.1em 1.2em;
+
+                h2 {
+                  padding: 0.1em 0.05em 0.1em 0.05em;
+                  font-size: 1.25em;
+                  letter-spacing: 3px;
+                }
+
+                p {
+                  padding: 0.5em 0.2em 0.5em 0.2em;
+                  font-size: 0.82em;
+                  letter-spacing: 2px;
                 }
               }
             }
@@ -2005,6 +2228,67 @@
         }
       }
     }
+
+    // --- 5 - FinalContact ---
+    .Parent_FinalContact_Whole {
+      padding: 3em 1em;
+
+      .FinalContact_Box {
+        padding: 1em 1em;
+
+        .FinalContact_Box_Part_1 {
+          padding: 1em 1em;
+
+          h1 {
+            padding: 0.2em 0.1em 1em 0.1em;
+            font-size: 1.9em;
+            letter-spacing: 3px;
+          }
+
+          p {
+            padding: 0.45em 0.2em 0.45em 0.2em;
+            font-size: 0.8em;
+            letter-spacing: 3px;
+          }
+        }
+
+        .FinalContact_Box_Part_2 {
+          padding: 1.4em 0.5em;
+
+          .FinalContact_Box_Part_2_MiniBox_Whole {
+            padding: 2em 1.5em;
+
+            .FinalContact_Box_Part_2_MiniBox {
+              width: 100%;
+
+              .FinalContact_Box_Part_2_MiniBox_Part1 {
+                padding: 2em 0em;
+
+                img {
+                  width: 25%;
+                }
+              }
+
+              .FinalContact_Box_Part_2_MiniBox_Part2 {
+                padding: 1em 1.2em;
+
+                h2 {
+                  padding: 0.15em 0.05em 0.15em 0.05em;
+                  font-size: 1em;
+                  letter-spacing: 1.5px;
+                }
+
+                p {
+                  padding: 0.5em 0.2em 0.5em 0.2em;
+                  font-size: 0.75em;
+                  letter-spacing: 0.6px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     // -
   }
 }
@@ -2399,6 +2683,71 @@
                   padding: 0.3em 0em;
                   letter-spacing: 1.5px;
                   font-size: 0.7em;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // --- 5 - FinalContact ---
+    .Parent_FinalContact_Whole {
+      padding: 2em 1em;
+
+      .FinalContact_Box {
+        padding: 1em 1em;
+
+        .FinalContact_Box_Part_1 {
+          padding: 1em 1em;
+
+          h1 {
+            padding: 0.2em 0.1em 1em 0.1em;
+            font-size: 1.5em;
+            letter-spacing: 3px;
+          }
+
+          p {
+            padding: 0.45em 0.2em 0.45em 0.2em;
+            font-size: 0.75em;
+            letter-spacing: 3px;
+          }
+        }
+
+        .FinalContact_Box_Part_2 {
+          padding: 1.4em 0.5em;
+
+          .FinalContact_Box_Part_2_MiniBox_Whole {
+            padding: 2em 1.5em;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2em;
+            row-gap: 2em;
+
+            .FinalContact_Box_Part_2_MiniBox {
+              width: 100%;
+
+              .FinalContact_Box_Part_2_MiniBox_Part1 {
+                padding: 2em 0em;
+
+                img {
+                  width: 25%;
+                }
+              }
+
+              .FinalContact_Box_Part_2_MiniBox_Part2 {
+                padding: 1em 1.2em;
+
+                h2 {
+                  padding: 0.15em 0.05em 0.15em 0.05em;
+                  font-size: 1em;
+                  letter-spacing: 1.5px;
+                }
+
+                p {
+                  padding: 0.5em 0.2em 0.5em 0.2em;
+                  font-size: 0.75em;
+                  letter-spacing: 0.6px;
                 }
               }
             }
@@ -2948,6 +3297,71 @@
         }
       }
     }
+
+    // --- 5 - FinalContact ---
+    .Parent_FinalContact_Whole {
+      padding: 2em 1em;
+
+      .FinalContact_Box {
+        padding: 1em 1em;
+
+        .FinalContact_Box_Part_1 {
+          padding: 1em 1em;
+
+          h1 {
+            padding: 0.2em 0.1em 1em 0.1em;
+            font-size: 1.4em;
+            letter-spacing: 3px;
+          }
+
+          p {
+            padding: 0.45em 0.2em 0.45em 0.2em;
+            font-size: 0.73em;
+            letter-spacing: 3px;
+          }
+        }
+
+        .FinalContact_Box_Part_2 {
+          padding: 1.4em 0.5em;
+
+          .FinalContact_Box_Part_2_MiniBox_Whole {
+            padding: 1em 1.5em;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2em;
+            row-gap: 1.2em;
+
+            .FinalContact_Box_Part_2_MiniBox {
+              width: 100%;
+
+              .FinalContact_Box_Part_2_MiniBox_Part1 {
+                padding: 1.5em 0em;
+
+                img {
+                  width: 15%;
+                }
+              }
+
+              .FinalContact_Box_Part_2_MiniBox_Part2 {
+                padding: 0.8em 1.2em;
+
+                h2 {
+                  padding: 0.15em 0.05em 0.15em 0.05em;
+                  font-size: 0.95em;
+                  letter-spacing: 1.7px;
+                }
+
+                p {
+                  padding: 0.5em 0.2em 0.5em 0.2em;
+                  font-size: 0.75em;
+                  letter-spacing: 0.6px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     // -
   }
 }
@@ -3477,6 +3891,71 @@
                   padding: 0.3em 0em;
                   letter-spacing: 1.5px;
                   font-size: 0.65em;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // --- 5 - FinalContact ---
+    .Parent_FinalContact_Whole {
+      padding: 2em 0em;
+
+      .FinalContact_Box {
+        padding: 1em 0em;
+
+        .FinalContact_Box_Part_1 {
+          padding: 1em 1em;
+
+          h1 {
+            padding: 0.2em 0.1em 1em 0.1em;
+            font-size: 1.1em;
+            letter-spacing: 3px;
+          }
+
+          p {
+            padding: 0.45em 0.2em 0.45em 0.2em;
+            font-size: 0.7em;
+            letter-spacing: 2.5px;
+          }
+        }
+
+        .FinalContact_Box_Part_2 {
+          padding: 1.4em 0em;
+
+          .FinalContact_Box_Part_2_MiniBox_Whole {
+            padding: 1em 1.5em;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2em;
+            row-gap: 1.2em;
+
+            .FinalContact_Box_Part_2_MiniBox {
+              width: 100%;
+
+              .FinalContact_Box_Part_2_MiniBox_Part1 {
+                padding: 1.5em 0em;
+
+                img {
+                  width: 15%;
+                }
+              }
+
+              .FinalContact_Box_Part_2_MiniBox_Part2 {
+                padding: 0.8em 1.2em;
+
+                h2 {
+                  padding: 0.15em 0.05em 0.15em 0.05em;
+                  font-size: 0.95em;
+                  letter-spacing: 1.7px;
+                }
+
+                p {
+                  padding: 0.5em 0.2em 0.5em 0.2em;
+                  font-size: 0.75em;
+                  letter-spacing: 0.6px;
                 }
               }
             }

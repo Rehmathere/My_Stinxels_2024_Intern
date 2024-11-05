@@ -13,6 +13,9 @@ import search from "../../assets/search.png";
 import con_1 from "../../assets/con_1.png";
 import con_2 from "../../assets/con_2.png";
 import con_3 from "../../assets/con_3.png";
+import F_1 from "../../assets/F_1.png";
+import F_2 from "../../assets/F_2.png";
+import F_3 from "../../assets/F_3.png";
 
 function Contact() {
   // useNavigate Variable
@@ -37,45 +40,55 @@ function Contact() {
   };
   // --- Responsive Input Search Btn ---
   // ---------------------------------------------
-    // 3 - Number Scroll
-    const [activated, setActivated] = useState(false);
-    useEffect(() => {
-        const counters = document.querySelectorAll(".BottomInfo_Box_Part_2_Box span");
-        const container = document.querySelector(".BottomInfo_Box_Part_2_Box");
+  // 3 - Number Scroll
+  const [activated, setActivated] = useState(false);
+  useEffect(() => {
+    const counters = document.querySelectorAll(
+      ".BottomInfo_Box_Part_2_Box span"
+    );
+    const container = document.querySelector(".BottomInfo_Box_Part_2_Box");
 
-        const handleScroll = () => {
-            if (window.pageYOffset > container.offsetTop - container.offsetHeight - 200 && !activated) {
-                counters.forEach(counter => {
-                    counter.innerText = 0;
-                    let count = 0;
+    const handleScroll = () => {
+      if (
+        window.pageYOffset >
+          container.offsetTop - container.offsetHeight - 200 &&
+        !activated
+      ) {
+        counters.forEach((counter) => {
+          counter.innerText = 0;
+          let count = 0;
 
-                    const updateCount = () => {
-                        const target = parseInt(counter.dataset.count);
-                        if (count < target) {
-                            count++;
-                            counter.innerText = count;
-                            setTimeout(updateCount, 10);
-                        } else {
-                            counter.innerText = target;
-                        }
-                    }
-
-                    updateCount();
-                    setActivated(true);
-                });
+          const updateCount = () => {
+            const target = parseInt(counter.dataset.count);
+            if (count < target) {
+              count++;
+              counter.innerText = count;
+              setTimeout(updateCount, 10);
+            } else {
+              counter.innerText = target;
             }
-            else if ((window.pageYOffset < container.offsetTop - container.offsetHeight - 500 || window.pageYOffset === 0) && activated) {
-                counters.forEach(counter => {
-                    counter.innerText = 0;
-                });
-                setActivated(false);
-            }
-        }
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        }
-    }, [activated]);
+          };
+
+          updateCount();
+          setActivated(true);
+        });
+      } else if (
+        (window.pageYOffset <
+          container.offsetTop - container.offsetHeight - 500 ||
+          window.pageYOffset === 0) &&
+        activated
+      ) {
+        counters.forEach((counter) => {
+          counter.innerText = 0;
+        });
+        setActivated(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [activated]);
   // Main Body
   return (
     <div className="My_Parent_About_C">
@@ -137,7 +150,6 @@ function Contact() {
           </div>
         </div>
       </div>
-
       {/* --- 2 - SecondContact --- */}
       <div className="Parent_SecondContact_Whole">
         <div className="SecondContact_Box">
@@ -246,6 +258,57 @@ function Contact() {
                     <span data-count="70">0</span> +
                   </h1>
                   <h2>Expert Chef</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* --- 4 - FinalContact --- */}
+      <div className="Parent_FinalContact_Whole">
+        {/* - Box - */}
+        <div className="FinalContact_Box">
+          {/* Part 1 */}
+          <div className="FinalContact_Box_Part_1">
+            <h1>Reach Out To Us</h1>
+            <p>
+              If You Have Any Queries Then Feel Free To Ask Us. We Are Here To
+              Help You Out.
+            </p>
+          </div>
+          {/* Part 2 */}
+          <div className="FinalContact_Box_Part_2">
+            {/* MiniBox Parent */}
+            <div className="FinalContact_Box_Part_2_MiniBox_Whole">
+              {/* MiniBox */}
+              <div className="FinalContact_Box_Part_2_MiniBox">
+                <div className="FinalContact_Box_Part_2_MiniBox_Part1">
+                  <img src={F_1} alt="NA" />
+                </div>
+                <div className="FinalContact_Box_Part_2_MiniBox_Part2">
+                  <h2>Call Us</h2>
+                  <p>+92 51 4457171</p>
+                </div>
+              </div>
+              {/* MiniBox */}
+              <div className="FinalContact_Box_Part_2_MiniBox">
+                <div className="FinalContact_Box_Part_2_MiniBox_Part1">
+                  <img src={F_2} alt="NA" />
+                </div>
+                <div className="FinalContact_Box_Part_2_MiniBox_Part2">
+                  <h2>Visit Us</h2>
+                  <p>Maan O Salwa, Germany</p>
+                </div>
+              </div>
+              {/* MiniBox */}
+              <div className="FinalContact_Box_Part_2_MiniBox">
+                <div className="FinalContact_Box_Part_2_MiniBox_Part1">
+                  <img src={F_3} alt="NA" />
+                </div>
+                <div className="FinalContact_Box_Part_2_MiniBox_Part2">
+                  <h2>Mail Us</h2>
+                  <p>Maan_O_Salwa@gmail.com</p>
                 </div>
               </div>
             </div>
