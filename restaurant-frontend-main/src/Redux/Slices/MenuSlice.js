@@ -16,14 +16,7 @@ import { act } from "react";
 const initialState = {
   status: "initails menu api status",
   message: "",
-  menu: {
-    Chicken: [],
-    Burger: [],
-    Fries: [],
-    Salads: [],
-    Drinks: [],
-    Sauces: [],
-  },
+  menu: {},
 };
 
 const menuSlice = createSlice({
@@ -32,12 +25,16 @@ const menuSlice = createSlice({
   reducers: {
     defaultReducer: (state, action) => {},
     addMenuItem: (state, action) => {
-      state.menu[action.payload.category]?.push(action.payload);
+      if (!state.menu[action.payload.categoryId]) {
+        state.menu[action.payload.categoryId] = [action.payload];
+      } else {
+        state.menu[action.payload.categoryId]?.push(action.payload);
+      }
     },
 
     updateMenuItem: (state, action) => {
-      const { _id, category } = action.payload;
-      state.menu[category] = state.menu[category]?.map((menuItem) => {
+      const { _id, categoryId } = action.payload;
+      state.menu[categoryId] = state.menu[categoryId]?.map((menuItem) => {
         if (menuItem._id == _id) {
           return { ...action.payload };
         }
@@ -47,22 +44,22 @@ const menuSlice = createSlice({
 
     deleteMenuItem: (state, action) => {
       console.log(action.payload);
-      const { category } = action.payload;
+      const { categoryId } = action.payload;
 
-      state.menu[category] = state.menu[category]?.filter(
+      state.menu[categoryId] = state.menu[categoryId]?.filter(
         ({ _id }) => action.payload._id != _id
         // console.log(_id, " |||||  ", action.payload, action.payload._id == _id)
       );
+    },
+
+    deleteWholeCategory: (state, action) => {
+      delete state.menu[action.payload._id];
     },
   },
   extraReducers: (builder) => {
     builder.addCase(getMenuThunk.fulfilled, (state, action) => {
       console.log(action.payload.data);
-
-      for (const [key, value] of Object.entries(action.payload.data)) {
-        console.log(`${key}: ${value}`);
-        state.menu[key] = value;
-      }
+      state.menu = action.payload.data;
     });
     builder.addCase(getMenuThunk.pending, (state, action) => {});
     builder.addCase(getMenuThunk.rejected, (state, action) => {
@@ -110,7 +107,12 @@ const menuSlice = createSlice({
   },
 });
 
-export const { defaultReducer, addMenuItem, updateMenuItem, deleteMenuItem } =
-  menuSlice.actions;
+export const {
+  defaultReducer,
+  addMenuItem,
+  updateMenuItem,
+  deleteMenuItem,
+  deleteWholeCategory,
+} = menuSlice.actions;
 
 export default menuSlice.reducer;

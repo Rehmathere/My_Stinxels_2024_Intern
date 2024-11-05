@@ -183,7 +183,7 @@ function Details({ orderDetails, branches, menu }) {
   } = orderDetails;
 
   const branchAddress = branches?.find(({ _id }) => _id == branchId);
-  //   console.log(address);
+  console.log(branchAddress, "branchAddress");
 
   return (
     // --- New User Admin Part Design ---
@@ -266,7 +266,7 @@ function Details({ orderDetails, branches, menu }) {
               <div className="UserOrder_Box_Part_2_Box_Part_2">
                 {/* All Items Small Box */}
                 {order?.map((orderItem) => {
-                  const menuItem = menu[orderItem.category]?.find(
+                  const menuItem = menu[orderItem?.categoryId]?.find(
                     ({ _id }) => orderItem.itemId == _id
                   );
                   return (

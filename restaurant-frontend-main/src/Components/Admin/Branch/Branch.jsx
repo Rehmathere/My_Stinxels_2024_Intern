@@ -80,25 +80,61 @@ function Branch() {
       setIsModalOpen(false);
     };
     return (
-      <Form form={form} onFinish={handleFinish} layout="vertical">
-        <Form.Item name={"contactNum"} label="Contact Number">
+      <Form
+        form={form}
+        onFinish={handleFinish}
+        layout="vertical"
+        requiredMark={false}
+      >
+        <Form.Item
+          name={"contactNum"}
+          label="Contact Number"
+          rules={[
+            { required: true, message: "Please input your Contact Number" },
+          ]}
+        >
           <PhoneInput country={"pk"} />
         </Form.Item>
-        <Form.Item name={"address"} label="Address">
+        <Form.Item
+          name={"address"}
+          label="Address"
+          rules={[{ required: true, message: "Please input your Address" }]}
+        >
           <Input />
         </Form.Item>
-        <Form.Item label="Tables">
-          <Form.List name={["tables"]}>
+        <Form.Item
+          label="Tables"
+          rules={[{ required: true, message: "Add a Table Size" }]}
+        >
+          <Form.List
+            name={["tables"]}
+            rules={[{ required: true, message: "Add a Table Size" }]}
+          >
             {(subFields, subOpt) => (
               <div
                 style={{ display: "flex", flexDirection: "column", rowGap: 16 }}
               >
                 {subFields.map((subField) => (
                   <Space key={subField.key}>
-                    <Form.Item noStyle name={[subField.name, "seatingSize"]}>
+                    <Form.Item
+                      noStyle
+                      name={[subField.name, "seatingSize"]}
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please input Seating Size",
+                        },
+                      ]}
+                    >
                       <Input placeholder="Enter Seating Size" type="number" />
                     </Form.Item>
-                    <Form.Item noStyle name={[subField.name, "qty"]}>
+                    <Form.Item
+                      noStyle
+                      name={[subField.name, "qty"]}
+                      rules={[
+                        { required: true, message: "Please input Table Qty" },
+                      ]}
+                    >
                       <Input
                         placeholder="Enter Quantity of Table"
                         type="number"

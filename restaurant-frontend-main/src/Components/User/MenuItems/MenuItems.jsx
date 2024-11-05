@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { getMenuThunk } from "../../../Redux/Thunks/MenuApi";
+import { getMenuCategoryThunk } from "../../../Redux/Thunks/MenuCategoryApi";
 import { addToCart, decrementQty } from "../../../Redux/Slices/UserSlice";
 
 import "../../Home/home";
@@ -9,35 +10,24 @@ import "../../Home/home";
 function MenuItems() {
   // Chicken API Item
   const dispatch = useDispatch();
-  const { Fries, Burger, Chicken, Salads, Drinks, Sauces } = useSelector(
-    (state) => state.menuSlice.menu
+  const menu = useSelector((state) => state.menuSlice.menu);
+  const menuCategory = useSelector(
+    (state) => state.menuCategorySlice.menuCategory
   );
 
   useEffect(() => {
     dispatch(getMenuThunk());
+    dispatch(getMenuCategoryThunk());
   }, []);
   return (
     <>
-      {Chicken.length != 0 && (
-        <MenuItem categoryText={"Chicken"} ItemArray={Chicken} />
-      )}
-      {Burger.length != 0 && (
-        <MenuItem categoryText={"Burger"} ItemArray={Burger} />
-      )}
-
-      {Fries.length != 0 && (
-        <MenuItem categoryText={"Fries"} ItemArray={Fries} />
-      )}
-
-      {Salads.length != 0 && (
-        <MenuItem categoryText={"Salads"} ItemArray={Salads} />
-      )}
-      {Drinks.length != 0 && (
-        <MenuItem categoryText={"Drinks"} ItemArray={Drinks} />
-      )}
-      {Sauces.length != 0 && (
-        <MenuItem categoryText={"Sauces"} ItemArray={Sauces} />
-      )}
+      {menuCategory?.map(({ _id, category }) => (
+        <>
+          {!!menu[_id] && menu[_id]?.length != 0 && (
+            <MenuItem categoryText={category} ItemArray={menu[_id]} />
+          )}
+        </>
+      ))}
     </>
   );
 }
@@ -76,7 +66,7 @@ function ItemCards({ menuItem }) {
   console.log(menuItem);
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.userSlice.cart);
-  const { name, price, img, description, _id, category } = menuItem;
+  const { name, price, img, description, _id, categoryId } = menuItem;
 
   const [qty, setQty] = useState(0);
 
@@ -86,17 +76,17 @@ function ItemCards({ menuItem }) {
   }, [cart]);
 
   const addItem = (body) => {
-    const { category, _id } = body;
+    const { categoryId, _id } = body;
     // console.log({ category, _id });
 
-    dispatch(addToCart({ category, _id }));
+    dispatch(addToCart({ categoryId, _id }));
     setQty(qty + 1);
   };
   const decreaseItemQty = (body) => {
-    const { category, _id } = body;
+    const { categoryId, _id } = body;
     // console.log({ category, _id });
 
-    dispatch(decrementQty({ category, _id }));
+    dispatch(decrementQty({ categoryId, _id }));
     setQty(qty - 1);
   };
 
@@ -127,7 +117,7 @@ function ItemCards({ menuItem }) {
             />
             {qty == 0 ? (
               <div
-                onClick={() => addItem({ category, _id })}
+                onClick={() => addItem({ categoryId, _id })}
                 className="absolute top-0 right-0 h-[44px] w-[46px] flex justify-center items-center bg-green-100 hover:bg-green-200 rounded-l-lg"
               >
                 <FaPlus color="green" />
@@ -135,14 +125,14 @@ function ItemCards({ menuItem }) {
             ) : (
               <div className="absolute top-0 right-0 h-[44px] max-w-[140px] w-full flex justify-center items-center gap-6 p-2 bg-green-100 hover:bg-green-200 rounded-l-lg">
                 <div
-                  onClick={() => decreaseItemQty({ category, _id })}
+                  onClick={() => decreaseItemQty({ categoryId, _id })}
                   className="w-[32px] h-[32px] bg-white flex justify-center items-center rounded-full"
                 >
                   <FaMinus color="green" />
                 </div>
                 <p className="relative text-green-950 font-semibold">{qty} </p>
                 <div
-                  onClick={() => addItem({ category, _id })}
+                  onClick={() => addItem({ categoryId, _id })}
                   className="w-[32px] h-[32px] bg-white flex justify-center items-center rounded-full"
                 >
                   <FaPlus color="green" />

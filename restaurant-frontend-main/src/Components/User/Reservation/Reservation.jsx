@@ -140,11 +140,29 @@ function Reservation() {
       form.resetFields();
       setIsModalOpen(false);
     };
+
+    const disabledDate = (current) => {
+      return current && current < moment().startOf("day");
+    };
     const format = "HH:mm";
     return (
       <>
-        <Form form={form} onFinish={handleFinsih} layout="vertical">
-          <Form.Item name={"branchId"} label="Select Branch for Reservation ">
+        <Form
+          form={form}
+          onFinish={handleFinsih}
+          layout="vertical"
+          requiredMark={false}
+        >
+          <Form.Item
+            name={"branchId"}
+            label="Select Branch for Reservation "
+            rules={[
+              {
+                required: true,
+                message: "Please select branch for reservation",
+              },
+            ]}
+          >
             <Select
               placeholder="Select Branch"
               allowClear={true}
@@ -154,22 +172,42 @@ function Reservation() {
               }))}
             />
           </Form.Item>
-          <Form.Item name={"date"} label="Select Reservation Date">
+          <Form.Item
+            name={"date"}
+            label="Select Reservation Date"
+            rules={[
+              { required: true, message: "Please select reservation date" },
+            ]}
+          >
             <DatePicker
+              disabledDate={disabledDate}
               format={{
                 format: "YYYY-MM-DD",
               }}
             />
           </Form.Item>
-          <Form.Item name={"time"} label="Select Reservation Time">
+          <Form.Item
+            name={"time"}
+            label="Select Reservation Time"
+            rules={[
+              { required: true, message: "Please select reservation time" },
+            ]}
+          >
             <TimePicker.RangePicker
+              disabledTime={(e) => console.log(e)}
               format={format}
               minuteStep={30}
               showNow={true}
               needConfirm={true}
             />
           </Form.Item>
-          <Form.Item name={"peopleQty"} label="Select Number of People">
+          <Form.Item
+            name={"peopleQty"}
+            label="Select Number of People"
+            rules={[
+              { required: true, message: "Please select Number of People" },
+            ]}
+          >
             <InputNumber
               addonBefore={<UserOutlined />}
               placeholder="Enter Qty of People"

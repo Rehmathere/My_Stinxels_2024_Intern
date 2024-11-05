@@ -125,33 +125,11 @@ const Layout = ({ Menu, User = false }) => {
               <div className="ShowData_Box_Part_1">
                 <img src={logo} alt="NA" />
               </div>
-              <div className="ShowData_Box_Part_2">
-                <ul>
-                  <li
-                    onClick={() => {
-                      navigate("/admin/menu");
-                      setShowMyData(false);
-                    }}
-                  >
-                    <CoffeeOutlined /> Menu
-                  </li>
-                  <li
-                    onClick={() => {
-                      navigate("/admin/branch");
-                      setShowMyData(false);
-                    }}
-                  >
-                    <ShopOutlined /> Branch
-                  </li>
-                  <li
-                    onClick={() => {
-                      navigate("/admin/reservations");
-                      setShowMyData(false);
-                    }}
-                  >
-                    <CheckCircleOutlined /> Reservations
-                  </li>
-                </ul>
+              <Menu />
+              <div className="ShowData_Box_Part_3">
+                <button>
+                  <LogoutOutlined /> Logout
+                </button>
               </div>
             </div>
           </div>
@@ -186,20 +164,25 @@ const Layout = ({ Menu, User = false }) => {
         >
           <div className="demo-logo-vertical" />
           {/* Bottom */}
-          <div
-            className={
-              collapsed ? "MyBtnParent_Collapsed" : "ShowData_Box_Part_3_Footer"
-            }
-          >
-            <button>
-              <LogoutOutlined /> Logout
-            </button>
-          </div>
+
           {/* Bottom */}
           <div className="menu_logo">
             <img src={logo} alt="logo" />
           </div>
-          <Menu />
+          <div className="menu_content_wrapper">
+            <Menu />
+            <div
+              className={
+                collapsed
+                  ? "MyBtnParent_Collapsed"
+                  : "ShowData_Box_Part_3_Footer"
+              }
+            >
+              <button>
+                <LogoutOutlined /> Logout
+              </button>
+            </div>
+          </div>
         </Sider>
         <AntdLayout>
           <Header

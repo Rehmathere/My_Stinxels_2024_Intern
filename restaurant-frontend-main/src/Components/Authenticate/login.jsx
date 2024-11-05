@@ -46,7 +46,15 @@ function Login() {
                 {/* Field Box */}
                 <div className="Login_Field_Box_Signup">
                   <Form onFinish={handleFinish}>
-                    <Form.Item name={"email"}>
+                    <Form.Item
+                      name={"email"}
+                      rules={[
+                        { required: true, message: "Please input your Email" },
+                        {
+                          type: "email",
+                        },
+                      ]}
+                    >
                       <Input
                         className="My_Signup_Inp"
                         type="email"

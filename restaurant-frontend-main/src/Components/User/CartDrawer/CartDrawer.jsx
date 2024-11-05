@@ -17,14 +17,18 @@ import { EditOutlined } from "@ant-design/icons";
 import { useForm } from "antd/es/form/Form";
 // CSS
 import "./CartDrawer.scss";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import { useNavigate } from "react-router-dom";
 import { showError } from "../../Toaster/Toaster";
+
+import { parsePhoneNumberFromString } from "libphonenumber-js";
 
 function CartDrawer({ open, setOpen }) {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.userSlice.cart);
   const navigate = useNavigate();
-  const address = useSelector((state) => state.userSlice.address);
+  const userInfo = useSelector((state) => state.userSlice.userInfo);
   const menu = useSelector((state) => state.menuSlice.menu);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [form] = useForm();
@@ -57,14 +61,21 @@ function CartDrawer({ open, setOpen }) {
   // ];
 
   const Footer = () => {
-    const findPrice = (category, _id) => {
-      const { price } = menu[category]?.find(
+    const findPrice = (categoryId, _id) => {
+      console.log("categoryId", categoryId, "_id", _id);
+
+      const { price } = menu[categoryId]?.find(
         (menuItems) => menuItems._id == _id
       );
       return parseInt(price);
     };
 
     const handleOrder = () => {
+      if (cart?.length == 0) {
+        showError("Cart is Empty");
+        return;
+      }
+
       const { _id } = getUserId();
       if (!_id) {
         showError("Please SignIn to place Order");
@@ -82,8 +93,8 @@ function CartDrawer({ open, setOpen }) {
             <p>Total Cost</p>
             <h1>
               {cart.reduce(
-                (accumulator, { category, qty, _id }) =>
-                  accumulator + findPrice(category, _id) * qty,
+                (accumulator, { categoryId, qty, _id }) =>
+                  accumulator + findPrice(categoryId, _id) * qty,
                 0
               )}
             </h1>
@@ -107,19 +118,20 @@ function CartDrawer({ open, setOpen }) {
 
   const CartItem = ({ cartItem }) => {
     const [editOptions, setEditOptions] = useState(true);
-    const menuItem = menu[cartItem?.category]?.find(
+    const menuItem = menu[cartItem?.categoryId]?.find(
       (menuItems) => menuItems?._id == cartItem?._id
     );
     console.log(menuItem, "cartItem map");
+    console.log("cartItem -----", cartItem);
 
     const addItem = () => {
-      const { category, _id } = menuItem;
-      dispatch(addToCart({ category, _id }));
+      const { categoryId, _id } = menuItem;
+      dispatch(addToCart({ categoryId, _id }));
     };
 
     const decreaseQty = () => {
-      const { category, _id } = menuItem;
-      dispatch(decrementQty({ category, _id }));
+      const { categoryId, _id } = menuItem;
+      dispatch(decrementQty({ categoryId, _id }));
     };
 
     const removeItem = () => {
@@ -202,7 +214,7 @@ function CartDrawer({ open, setOpen }) {
         form={form}
         setForm={setForm}
         FormContent={() =>
-          ConfirmOrder(form, address, handleCancel, navigate, setOpen)
+          ConfirmOrder(form, userInfo, handleCancel, navigate, setOpen)
         }
         handleCancel={handleCancel}
       />
@@ -210,28 +222,44 @@ function CartDrawer({ open, setOpen }) {
   );
 }
 
-const ConfirmOrder = (form, address, handleCancel, navigate, setOpen) => {
+const ConfirmOrder = (form, userInfo, handleCancel, navigate, setOpen) => {
   const branches = useSelector((state) => state.branchSlice?.branches);
   const cart = useSelector((state) => state.userSlice.cart);
+  const { address, contactNum, email } = userInfo;
   // const address = useSelector((state) => state.userSlice.address);
   const dispatch = useDispatch();
   const [render, setRender] = useState(1);
   const [editAddress, setEditAddress] = useState(true);
+  const [editEmail, setEditEmail] = useState(true);
 
   useEffect(() => {
     dispatch(getBranchThunk());
     // dispatch(getUserInfoThunk());
-    form.setFields([{ name: "address", value: address }]);
+    form.setFields([
+      { name: "address", value: address },
+      { name: "contactNum", value: contactNum },
+      { name: "email", value: email },
+    ]);
   }, []);
 
   const handleFinish = (body) => {
+    const address =
+      body.address == userInfo.address ? userInfo.address : body.address;
+    const contactNum =
+      body.contactNum == userInfo.contactNum
+        ? userInfo.contactNum
+        : body.contactNum;
+    const email = body.email == userInfo.email ? userInfo.email : body.email;
     body = {
       ...body,
+      address,
+      contactNum,
+      email,
       type: render == 1 ? "Delivery" : "Takeaway",
-      order: cart?.map(({ category, _id, qty }) => ({
+      order: cart?.map(({ categoryId, _id, qty }) => ({
         qty,
         itemId: _id,
-        category,
+        categoryId,
       })),
     };
 
@@ -244,8 +272,43 @@ const ConfirmOrder = (form, address, handleCancel, navigate, setOpen) => {
 
   return (
     <>
-      <Form form={form} onFinish={handleFinish} layout="vertical">
-        <Form.Item>
+      <Form
+        form={form}
+        onFinish={handleFinish}
+        layout="vertical"
+        requiredMark={false}
+      >
+        <Form.Item
+          name={"contactNum"}
+          label="Contact Number"
+          rules={[
+            { required: true, message: "Please input your Contact Number" },
+          ]}
+        >
+          <PhoneInput country={"pk"} />
+        </Form.Item>
+        <Form.Item
+          name={"email"}
+          label="Email"
+          rules={[
+            { required: true, message: "Please input your Email" },
+            {
+              type: "email",
+            },
+          ]}
+        >
+          <Input
+            readOnly={editEmail}
+            suffix={
+              <div onClick={() => setEditEmail(false)}>
+                <EditOutlined />
+              </div>
+            }
+          ></Input>
+        </Form.Item>
+        <Form.Item
+          rules={[{ required: true, message: "Please select an Option" }]}
+        >
           <Radio.Group
             onChange={(e) => setRender(e.target.value)}
             value={render}
@@ -256,7 +319,10 @@ const ConfirmOrder = (form, address, handleCancel, navigate, setOpen) => {
         </Form.Item>
 
         {render == 1 && (
-          <Form.Item name={"address"}>
+          <Form.Item
+            name={"address"}
+            rules={[{ required: true, message: "Please input your Address" }]}
+          >
             <Input
               value={address}
               readOnly={editAddress}
@@ -269,7 +335,10 @@ const ConfirmOrder = (form, address, handleCancel, navigate, setOpen) => {
           </Form.Item>
         )}
         {render == 2 && (
-          <Form.Item name={"branchId"}>
+          <Form.Item
+            name={"branchId"}
+            rules={[{ required: true, message: "Please select a Branch" }]}
+          >
             <Select
               placeholder="Select Branch"
               allowClear={true}

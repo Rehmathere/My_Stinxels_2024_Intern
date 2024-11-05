@@ -7,6 +7,7 @@ import {
   updateMenuThunk,
   deleteMenuThunk,
 } from "../../../Redux/Thunks/MenuApi";
+import { getMenuCategoryThunk } from "../../../Redux/Thunks/MenuCategoryApi";
 
 import { InboxOutlined, UploadOutlined } from "@ant-design/icons";
 import ModalComponent from "../../ModalComponent/ModalComponent";
@@ -49,8 +50,9 @@ function Menu() {
   // --- Menu Burger Dummy Araray ---
 
   const dispatch = useDispatch();
-  const { Fries, Burger, Chicken, Salads, Drinks, Sauces } = useSelector(
-    (state) => state.menuSlice.menu
+  const menu = useSelector((state) => state.menuSlice.menu);
+  const menuCategory = useSelector(
+    (state) => state.menuCategorySlice.menuCategory
   );
 
   const [form] = Form.useForm();
@@ -80,6 +82,8 @@ function Menu() {
     const img = dragger[0].thumbUrl;
     delete body["dragger"];
     // console.log({ ...body, img: dragger[0].thumbUrl });
+    // console.log(body);
+
     dispatch(addMenuThunk({ ...body, img }));
   };
 
@@ -88,32 +92,38 @@ function Menu() {
 
     const img = body.dragger[0]?.thumbUrl;
     delete body["dragger"];
+    console.log(body, "update item body");
+
     dispatch(updateMenuThunk({ ...body, _id, img }));
     setUpdateMenuItemObj({});
   };
 
-  const deleteMenuItem = (_id, category) => {
+  const deleteMenuItem = (_id, categoryId) => {
+    console.log("categorruId", category);
+
     const deleteParam = new URLSearchParams({
       _id,
-      category,
+      categoryId,
     });
     dispatch(deleteMenuThunk(deleteParam));
   };
 
   useEffect(() => {
     dispatch(getMenuThunk());
+    dispatch(getMenuCategoryThunk());
   }, []);
 
   const setForm = () => {
-    const { name, price, category, description, img } = updateMenuItemObj;
+    const { name, price, categoryId, description, img } = updateMenuItemObj;
+
     return [
       {
         name: "name",
         value: name,
       },
       {
-        name: "category",
-        value: category,
+        name: "categoryId",
+        value: categoryId,
       },
       {
         name: "price",
@@ -147,14 +157,6 @@ function Menu() {
       form.resetFields();
       setIsModalOpen(false);
     };
-    const categoryOptions = [
-      { value: "Chicken", label: "Chicken" },
-      { value: "Burger", label: "Burger" },
-      { value: "Fries", label: "Fries" },
-      { value: "Salads", label: "Salads" },
-      { value: "Drinks", label: "Drinks" },
-      { value: "Sauces", label: "Chicken" },
-    ];
 
     const normFile = (e) => {
       console.log("Upload event:", e);
@@ -166,21 +168,61 @@ function Menu() {
 
     return (
       <>
-        <Form onFinish={handleFinish} form={form} layout="vertical">
-          <Form.Item label="Name" name={"name"}>
+        <Form
+          onFinish={handleFinish}
+          form={form}
+          layout="vertical"
+          requiredMark={false}
+        >
+          <Form.Item
+            label="Name"
+            name={"name"}
+            rules={[{ required: true, message: "Please enter a menu name" }]}
+          >
             <Input placeholder={"Enter Name"}></Input>
           </Form.Item>
-          <Form.Item label="Price" name={"price"}>
+          <Form.Item
+            label="Price"
+            name={"price"}
+            rules={[
+              { required: true, message: "Please enter a menu price" },
+              {
+                validator: (_, value) => {
+                  if (value <= 0) {
+                    return Promise.reject(
+                      new Error("Value must be greater than 0 ")
+                    );
+                  }
+                  return Promise.resolve();
+                },
+              },
+            ]}
+          >
             <Input placeholder={"Enter Price"} type="number"></Input>
           </Form.Item>
-          <Form.Item label="Category" name={"category"}>
+          <Form.Item
+            label="Category"
+            name={"categoryId"}
+            rules={[
+              { required: true, message: "Please select a menu category" },
+            ]}
+          >
             <Select
               allowClear
-              options={categoryOptions}
+              options={menuCategory?.map(({ _id, category }) => ({
+                value: _id,
+                label: category,
+              }))}
               placeholder="select Category"
             />
           </Form.Item>
-          <Form.Item label="Description" name={"description"}>
+          <Form.Item
+            label="Description"
+            name={"description"}
+            rules={[
+              { required: true, message: "Please enter a menu description" },
+            ]}
+          >
             <Input placeholder={"Enter Description"}></Input>
           </Form.Item>
 
@@ -190,6 +232,7 @@ function Menu() {
               valuePropName="fileList"
               getValueFromEvent={normFile}
               noStyle
+              rules={[{ required: true, message: "Please select an image" }]}
             >
               <Upload.Dragger maxCount={1} name="files" listType="picture">
                 <p className="ant-upload-drag-icon">
@@ -267,54 +310,18 @@ function Menu() {
           handleCancel={handleCancel}
           setForm={setForm}
         />
-        {Chicken.length != 0 && (
-          <MenuCategory
-            categoryText={"Chicken"}
-            menuItemsArray={Chicken}
-            updateModal={updateModal}
-            deleteMenuItem={deleteMenuItem}
-          />
-        )}
-        {Burger.length != 0 && (
-          <MenuCategory
-            categoryText={"Burger"}
-            menuItemsArray={Burger}
-            updateModal={updateModal}
-            deleteMenuItem={deleteMenuItem}
-          />
-        )}
-        {Fries.length != 0 && (
-          <MenuCategory
-            categoryText={"Fries"}
-            menuItemsArray={Fries}
-            updateModal={updateModal}
-            deleteMenuItem={deleteMenuItem}
-          />
-        )}
-        {Salads.length != 0 && (
-          <MenuCategory
-            categoryText={"Salads"}
-            menuItemsArray={Salads}
-            updateModal={updateModal}
-            deleteMenuItem={deleteMenuItem}
-          />
-        )}
-        {Drinks.length != 0 && (
-          <MenuCategory
-            categoryText={"Drinks"}
-            menuItemsArray={Drinks}
-            updateModal={updateModal}
-            deleteMenuItem={deleteMenuItem}
-          />
-        )}
-        {Sauces.length != 0 && (
-          <MenuCategory
-            categoryText={"Sauces"}
-            menuItemsArray={Sauces}
-            updateModal={updateModal}
-            deleteMenuItem={deleteMenuItem}
-          />
-        )}
+        {menuCategory?.map(({ _id, category }) => (
+          <>
+            {!!menu[_id] && menu[_id]?.length != 0 && (
+              <MenuCategory
+                categoryText={category}
+                menuItemsArray={menu[_id]}
+                updateModal={updateModal}
+                deleteMenuItem={deleteMenuItem}
+              />
+            )}
+          </>
+        ))}
       </div>
     </>
   );
@@ -333,14 +340,14 @@ function MenuCategory({
         <h1>{categoryText}</h1>
         <div className="New_Menu_Box_Sub">
           {menuItemsArray?.map(
-            ({ description, name, price, img, _id, category }) => (
+            ({ description, name, price, img, _id, categoryId }) => (
               <MenuItem
                 description={description}
                 name={name}
                 price={price}
                 img={img}
                 _id={_id}
-                category={category}
+                categoryId={categoryId}
                 updateModal={updateModal}
                 deleteMenuItem={deleteMenuItem}
               />
@@ -358,7 +365,7 @@ function MenuItem({
   price,
   img,
   _id,
-  category,
+  categoryId,
   updateModal,
   deleteMenuItem,
 }) {
@@ -376,14 +383,21 @@ function MenuItem({
             <div className="New_Btn_Parent">
               <button
                 onClick={() =>
-                  updateModal({ price, category, name, description, _id, img })
+                  updateModal({
+                    price,
+                    categoryId,
+                    name,
+                    description,
+                    _id,
+                    img,
+                  })
                 }
                 className="New_Btn_1"
               >
                 <i class="fa fa-pencil"></i>
               </button>
               <button
-                onClick={() => deleteMenuItem(_id, category)}
+                onClick={() => deleteMenuItem(_id, categoryId)}
                 className="New_Btn_2"
               >
                 <i class="fa fa-trash"></i>

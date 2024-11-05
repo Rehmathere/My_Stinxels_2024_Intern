@@ -9,19 +9,20 @@ import "./login.scss";
 // Img
 import login from "../../assets/signup.png";
 import Back from "../../assets/back.png";
+import { setSocketId } from "../../Redux/Slices/UserSlice";
 
 function Signup() {
   // useNavigate Variable
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const socketId = useSelector((state) => state.userSlice.socketId);
+  const [inValidName, setInvalidName] = useState(false);
   // Password Logic
 
   const handleFinish = (body) => {
     dispatch(signUpThunk({ ...body, socketId, navigate }));
   };
 
-  // Main Body
   return (
     <div className="My_Parent_Login">
       {/* --- 0 - Login Navbar --- */}
@@ -50,23 +51,71 @@ function Signup() {
                 {/* Field Box */}
                 <div className="Login_Field_Box_Signup">
                   <Form onFinish={handleFinish}>
-                    <Form.Item name={"name"}>
+                    <Form.Item
+                      name={"name"}
+                      rules={[
+                        { required: true, message: "Please input your Name" },
+                        {
+                          pattern: new RegExp(/^[a-zA-Z]+(-[a-zA-Z]+)*$/),
+                          message:
+                            "Name must not contain any special characters ",
+                        },
+                      ]}
+                    >
                       <Input
                         className="My_Signup_Inp"
                         placeholder="Enter Name"
                       ></Input>
                     </Form.Item>
-                    <Form.Item name={"email"}>
+                    <Form.Item
+                      name={"email"}
+                      rules={[
+                        { required: true, message: "Please input your Email" },
+                        {
+                          type: "email",
+                        },
+                      ]}
+                    >
                       <Input
                         className="My_Signup_Inp"
                         type="email"
                         placeholder="Enter Email"
                       ></Input>
                     </Form.Item>
-                    <Form.Item name={"password"}>
+                    <Form.Item
+                      name={"password"}
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please input your Password",
+                        },
+                        {
+                          pattern: new RegExp(/^(?=.*[A-Z]).*$/),
+                          message: "At least one Uppercase letter",
+                        },
+                        {
+                          pattern: new RegExp(/^(?=.*[a-z]).*$/),
+                          message: "At least one Lowercase letter",
+                        },
+                        {
+                          pattern: new RegExp(/^(?=.*[0-9]).*$/),
+                          message: "At least one number",
+                        },
+                        {
+                          pattern: new RegExp(
+                            /^(?=.*[!@#$%^&*()_+[\]{};':"\\|,.<>/?`~\-]).*$/
+                          ),
+                          message: "At least one special character",
+                        },
+                        {
+                          pattern: new RegExp(/^.{8,}$/),
+                          message:
+                            "Password must be at least 8 characters long",
+                        },
+                      ]}
+                    >
                       <Input.Password
                         className="My_Signup_Inp_Pass"
-                        type="email"
                         placeholder="Enter Password"
                       ></Input.Password>
                     </Form.Item>

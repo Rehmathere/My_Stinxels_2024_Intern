@@ -308,7 +308,7 @@ function Details({ orderDetails, branches, menu, setOpenDrawer }) {
               <h4>Items : </h4>
               {/* .Map () */}
               {order?.map((orderItem) => {
-                const menuItem = menu[orderItem?.category]?.find(
+                const menuItem = menu[orderItem?.categoryId]?.find(
                   ({ _id }) => orderItem.itemId == _id
                 );
                 return (

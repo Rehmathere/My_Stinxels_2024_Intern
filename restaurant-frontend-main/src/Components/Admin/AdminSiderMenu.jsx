@@ -39,7 +39,11 @@ function AdminSiderMenu() {
         items={[
           {
             key: "0",
-            icon: <HomeOutlined style={{ color: activeKey === "0" ? "#0a4621" : "white" }} />,
+            icon: (
+              <HomeOutlined
+                style={{ color: activeKey === "0" ? "#0a4621" : "white" }}
+              />
+            ),
             label: "Dashboard",
             style: activeKey === "0" ? activeStyle : style,
             onClick: () => {
@@ -50,7 +54,11 @@ function AdminSiderMenu() {
           },
           {
             key: "1",
-            icon: <CoffeeOutlined style={{ color: activeKey === "1" ? "#0a4621" : "white" }} />,
+            icon: (
+              <CoffeeOutlined
+                style={{ color: activeKey === "1" ? "#0a4621" : "white" }}
+              />
+            ),
             label: "Menu",
             style: activeKey === "1" ? activeStyle : style,
             onClick: () => {
@@ -61,7 +69,11 @@ function AdminSiderMenu() {
           },
           {
             key: "2",
-            icon: <ShopOutlined style={{ color: activeKey === "2" ? "#0a4621" : "white" }} />,
+            icon: (
+              <ShopOutlined
+                style={{ color: activeKey === "2" ? "#0a4621" : "white" }}
+              />
+            ),
             label: "Branch",
             style: activeKey === "2" ? activeStyle : style,
             onClick: () => {
@@ -72,7 +84,11 @@ function AdminSiderMenu() {
           },
           {
             key: "3",
-            icon: <CheckCircleOutlined style={{ color: activeKey === "3" ? "#0a4621" : "white" }} />,
+            icon: (
+              <CheckCircleOutlined
+                style={{ color: activeKey === "3" ? "#0a4621" : "white" }}
+              />
+            ),
             label: "Reservations",
             style: activeKey === "3" ? activeStyle : style,
             onClick: () => {
@@ -83,7 +99,11 @@ function AdminSiderMenu() {
           },
           {
             key: "4",
-            icon: <ShoppingOutlined style={{ color: activeKey === "4" ? "#0a4621" : "white" }} />,
+            icon: (
+              <ShoppingOutlined
+                style={{ color: activeKey === "4" ? "#0a4621" : "white" }}
+              />
+            ),
             label: "Orders",
             style: activeKey === "4" ? activeStyle : style,
             onClick: () => {
@@ -91,6 +111,21 @@ function AdminSiderMenu() {
               navigate("/admin/orders");
             },
             className: activeKey !== "4" ? "menu-item-hover" : "",
+          },
+          {
+            key: "5",
+            icon: (
+              <ShoppingOutlined
+                style={{ color: activeKey === "5" ? "#0a4621" : "white" }}
+              />
+            ),
+            label: "Category ",
+            style: activeKey === "5" ? activeStyle : style,
+            onClick: () => {
+              setActiveKey("5");
+              navigate("/admin/menuCategory");
+            },
+            className: activeKey !== "5" ? "menu-item-hover" : "",
           },
         ]}
       />

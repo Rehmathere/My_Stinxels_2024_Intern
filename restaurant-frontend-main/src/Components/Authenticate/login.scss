@@ -4,7 +4,8 @@
   // --- 1 - Login.jsx ---
   .Parent_Login_Whole {
     border: 0px solid transparent;
-    padding: 3em 1em 3em 1em;
+    // padding: 3em 1em 3em 1em;
+    height: calc(100vh - 83px);
 
     .Sub_Login_Whole {
       border: 0px solid transparent;

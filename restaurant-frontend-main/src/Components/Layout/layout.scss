@@ -19,7 +19,7 @@
       padding: 0.5em 0.5em;
       width: 30%;
       height: 770px;
-      background-color: #0a4621;
+      background-color: #052e16;
       position: relative;
 
       .ShowData_Box_Part_0 {
@@ -88,41 +88,47 @@
 }
 
 // --- 2 - Bottom ---
-.ShowData_Box_Part_3_Footer {
-  border: 0px solid transparent;
-  padding: 0em 0.8em 0em 0.8em;
-  width: 100%;
+.menu_content_wrapper {
   display: flex;
-  flex-direction: row;
-  justify-content: right;
-  position: absolute;
-  top: 700px;
+  flex-direction: column;
+  height: calc(100vh - 300px);
+  justify-content: space-between;
 
-  button {
+  .ShowData_Box_Part_3_Footer {
     border: 0px solid transparent;
-    background-color: red;
-    color: white;
-    display: block;
-    padding: 0.45em 1.7em;
-    letter-spacing: 1.5px;
-    font-size: 0.85em;
-    border-radius: 5px;
-    text-align: center;
-    border-radius: 50px;
+    padding: 0em 0.8em 0em 0.8em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    // position: absolute;
+    // top: 700px;
 
-    .anticon {
+    button {
+      border: 0px solid transparent;
+      background-color: red;
       color: white;
-      font-size: 1.1em;
+      display: block;
+      padding: 0.45em 1.7em;
+      letter-spacing: 1.5px;
+      font-size: 0.85em;
+      border-radius: 5px;
+      text-align: center;
+      border-radius: 50px;
+
+      .anticon {
+        color: white;
+        font-size: 1.1em;
+      }
+    }
+
+    button:hover,
+    button:focus {
+      background-color: rgba(211, 3, 3, 0.87);
+      cursor: pointer;
     }
   }
-
-  button:hover,
-  button:focus {
-    background-color: rgba(211, 3, 3, 0.87);
-    cursor: pointer;
-  }
 }
-
 // --- 4 - Sign Out Button When Collpased ---
 .MyBtnParent_Collapsed {
   border: 0px solid transparent;
@@ -159,8 +165,6 @@
     cursor: pointer;
   }
 }
-
-
 
 /* -------------------------------- */
 /* ----- Media Queries In CSS ----- */
@@ -271,6 +275,37 @@
                 font-size: 1.1em;
               }
             }
+          }
+        }
+
+        .ShowData_Box_Part_3 {
+          border: 0px solid transparent;
+          padding: 5em 1em 0em 1em;
+
+          button {
+            border: 0px solid transparent;
+            background-color: red;
+            color: white;
+            display: block;
+            margin: 0em auto;
+            padding: 0.45em 1.7em;
+            letter-spacing: 1.5px;
+            font-size: 0.8em;
+            border-radius: 5px;
+            text-align: center;
+            border-radius: 20px;
+            line-height: 2.5vh;
+
+            .anticon {
+              color: white;
+              font-size: 1.1em;
+            }
+          }
+
+          button:hover,
+          button:focus {
+            background-color: rgba(211, 3, 3, 0.87);
+            cursor: pointer;
           }
         }
       }

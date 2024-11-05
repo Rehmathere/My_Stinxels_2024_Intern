@@ -21,6 +21,20 @@ export const updateMenu = (menuItem) =>
 export const deleteMenu = (menuItemId) =>
   api.delete(`${authEndpoint}/admin/menu?${menuItemId.toString()}`);
 
+export const getMenuCategory = () =>
+  api.get(`${authEndpoint}/admin/menu-category`);
+
+export const addMenuCategory = (MenuCategory) =>
+  api.post(`${authEndpoint}/admin/menu-category`, MenuCategory);
+
+export const updateMenuCategory = (MenuCategory) =>
+  api.patch(`${authEndpoint}/admin/menu-category`, MenuCategory);
+
+export const deleteMenuCategory = (menuCategoryId) =>
+  api.delete(
+    `${authEndpoint}/admin/menu-category?${menuCategoryId.toString()}`
+  );
+
 export const getBranch = () => api.get(`${authEndpoint}/admin/branch`);
 
 export const addBranch = (branch) =>

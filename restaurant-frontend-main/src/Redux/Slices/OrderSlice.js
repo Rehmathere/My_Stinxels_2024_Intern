@@ -76,6 +76,9 @@ const orderSlice = createSlice({
     builder.addCase(getOrdersThunk.fulfilled, (state, action) => {
       state.orders = action.payload.data;
       state.allOrders = action.payload.data;
+      state.orders = state.orders?.filter(
+        (orders) => orders.status == "Pending" || orders.status == "Prepairing"
+      );
     });
 
     builder.addCase(getOrdersThunk.rejected, (state, action) => {
