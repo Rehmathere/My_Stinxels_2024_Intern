@@ -294,7 +294,7 @@ function Contact() {
               {/* MiniBox */}
               <div className="FinalContact_Box_Part_2_MiniBox">
                 <div className="FinalContact_Box_Part_2_MiniBox_Part1">
-                  <img src={F_2} alt="NA" />
+                  <img src={F_3} alt="NA" />
                 </div>
                 <div className="FinalContact_Box_Part_2_MiniBox_Part2">
                   <h2>Visit Us</h2>
@@ -304,7 +304,7 @@ function Contact() {
               {/* MiniBox */}
               <div className="FinalContact_Box_Part_2_MiniBox">
                 <div className="FinalContact_Box_Part_2_MiniBox_Part1">
-                  <img src={F_3} alt="NA" />
+                  <img src={F_2} alt="NA" />
                 </div>
                 <div className="FinalContact_Box_Part_2_MiniBox_Part2">
                   <h2>Mail Us</h2>
