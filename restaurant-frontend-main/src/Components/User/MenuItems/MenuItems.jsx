@@ -14,7 +14,6 @@ function MenuItems() {
   const menuCategory = useSelector(
     (state) => state.menuCategorySlice.menuCategory
   );
-
   useEffect(() => {
     dispatch(getMenuThunk());
     dispatch(getMenuCategoryThunk());

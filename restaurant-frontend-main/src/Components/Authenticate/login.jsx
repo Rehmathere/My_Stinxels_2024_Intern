@@ -68,7 +68,14 @@ function Login() {
                         placeholder="Enter Password"
                       ></Input.Password>
                     </Form.Item>
-
+                    {/* --- Forget Pass --- */}
+                    <p
+                      className="My_ForgetPass"
+                      onClick={() => navigate("/forgetPassword")}
+                    >
+                      Forget Password?
+                    </p>
+                    {/* --- Forget Pass --- */}
                     <Form.Item>
                       <Button className="My_Signup_Inp_Btn" htmlType="submit">
                         Sign In

@@ -1,5 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { signIn, signUp, getUserInfo } from "../../Api/Endpoints/ApiEndpoints";
+import {
+  signIn,
+  signUp,
+  getUserInfo,
+  forgetPassword,
+  verifyOtp,
+  createNewPassword,
+} from "../../Api/Endpoints/ApiEndpoints";
 
 export const signUpThunk = createAsyncThunk(
   "signUpThunk",
@@ -56,6 +63,73 @@ export const getUserInfoThunk = createAsyncThunk(
       console.log(error);
       return rejectWithValue({
         message: error?.response?.data?.error ?? `Failed `,
+      });
+    }
+  }
+);
+
+export const forgetPasswordThunk = createAsyncThunk(
+  "forgetPasswordThunk",
+  async (body, { rejectWithValue }) => {
+    try {
+      const { navigate, ...emailBody } = body;
+      console.log(emailBody);
+
+      const res = await forgetPassword(emailBody);
+
+      return {
+        email: body.email,
+        navigate,
+        message: res?.data?.message,
+      };
+    } catch (error) {
+      console.log(error);
+      return rejectWithValue({
+        message: error?.response?.data?.error ?? `Failed to send OTP`,
+      });
+    }
+  }
+);
+
+export const verifyOtpThunk = createAsyncThunk(
+  "verifyOtpThunk",
+  async (body, { rejectWithValue }) => {
+    try {
+      const { navigate } = body;
+      const res = await verifyOtp(body);
+      console.log(res);
+
+      return {
+        passwordResetToken: res?.data,
+        navigate,
+        message: res?.data?.message ?? "Success",
+      };
+    } catch (error) {
+      console.log(error);
+      return rejectWithValue({
+        message: error?.response?.data?.error ?? `Failed to send OTP`,
+      });
+    }
+  }
+);
+
+export const createNewPasswordThunk = createAsyncThunk(
+  "createNewPasswordThunk",
+  async (body, { rejectWithValue }) => {
+    try {
+      const { navigate } = body;
+      const res = await createNewPassword(body);
+      console.log(res);
+
+      return {
+        navigate,
+        message: res?.data?.message ?? "Success",
+      };
+    } catch (error) {
+      console.log(error);
+      return rejectWithValue({
+        message:
+          error?.response?.data?.error ?? `Failed to create new Password`,
       });
     }
   }

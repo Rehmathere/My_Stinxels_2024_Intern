@@ -1,5 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { signInThunk, signUpThunk, getUserInfoThunk } from "../Thunks/UserApi";
+import {
+  signInThunk,
+  signUpThunk,
+  getUserInfoThunk,
+  forgetPasswordThunk,
+  verifyOtpThunk,
+  createNewPasswordThunk,
+} from "../Thunks/UserApi";
+import { showError, showSuccess } from "../../Components/Toaster/Toaster";
 
 const initialState = {
   status: "initails menu api status",
@@ -53,6 +61,12 @@ const userSlice = createSlice({
     defaultReducer: (state, action) => {},
     setSocketId: (state, action) => {
       state.socketId = action.payload.socketId;
+    },
+
+    logout: (state, action) => {
+      const { navigate } = action.payload;
+      localStorage.setItem("token", "");
+      navigate("/");
     },
 
     addToCart: (state, action) => {
@@ -131,6 +145,47 @@ const userSlice = createSlice({
     builder.addCase(getUserInfoThunk.rejected, (state, action) => {
       // add show Error toast here
     });
+
+    builder.addCase(forgetPasswordThunk.fulfilled, (state, action) => {
+      const { message, navigate, email } = action.payload;
+      // console.log(action.payload.message);
+      localStorage.setItem("verified_email", email);
+      showSuccess(message);
+      navigate("/enterOtp");
+    });
+
+    builder.addCase(forgetPasswordThunk.rejected, (state, action) => {
+      // add show Error toast here
+      showError(action.payload.message);
+    });
+
+    builder.addCase(verifyOtpThunk.fulfilled, (state, action) => {
+      const { message, navigate, passwordResetToken } = action.payload;
+      console.log(passwordResetToken);
+
+      localStorage.setItem("token", passwordResetToken);
+      showSuccess(message);
+      navigate("/createNewPassword");
+    });
+
+    builder.addCase(verifyOtpThunk.rejected, (state, action) => {
+      // add show Error toast here
+      showError(action.payload.message);
+    });
+
+    builder.addCase(createNewPasswordThunk.fulfilled, (state, action) => {
+      const { message, navigate } = action.payload;
+
+      localStorage.setItem("token", "");
+      localStorage.setItem("verified_email", "");
+      showSuccess(message);
+      navigate("/login");
+    });
+
+    builder.addCase(createNewPasswordThunk.rejected, (state, action) => {
+      // add show Error toast here
+      showError(action.payload.message);
+    });
   },
 });
 
@@ -142,6 +197,7 @@ export const {
   emptyCart,
   addNotification,
   readAllNotifications,
+  logout,
 } = userSlice.actions;
 
 export default userSlice.reducer;

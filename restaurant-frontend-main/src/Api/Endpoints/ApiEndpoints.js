@@ -8,6 +8,15 @@ export const signUp = (body) => api.post(`${unauthEndpoint}/sign-up`, body);
 
 export const signIn = (body) => api.post(`${unauthEndpoint}/sign-in`, body);
 
+export const forgetPassword = (body) =>
+  api.post(`${unauthEndpoint}/forget-password`, body);
+
+export const verifyOtp = (body) =>
+  api.post(`${unauthEndpoint}/verify-otp`, body);
+
+export const createNewPassword = (body) =>
+  api.post(`${authEndpoint}/employee/create-new-password`, body);
+
 export const getUserInfo = () => api.get(`${authEndpoint}/employee`);
 
 export const getMenu = () => api.get(`${unauthEndpoint}/menu`);
@@ -21,8 +30,7 @@ export const updateMenu = (menuItem) =>
 export const deleteMenu = (menuItemId) =>
   api.delete(`${authEndpoint}/admin/menu?${menuItemId.toString()}`);
 
-export const getMenuCategory = () =>
-  api.get(`${authEndpoint}/admin/menu-category`);
+export const getMenuCategory = () => api.get(`${unauthEndpoint}/menu-category`);
 
 export const addMenuCategory = (MenuCategory) =>
   api.post(`${authEndpoint}/admin/menu-category`, MenuCategory);

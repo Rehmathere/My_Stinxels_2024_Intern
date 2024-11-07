@@ -27,7 +27,7 @@ import logo from "../../assets/logo.png";
 import "./layout.scss"; // Import the SCSS file for styles
 import { useNavigate, useLocation } from "react-router-dom";
 import CartDrawer from "../User/CartDrawer/CartDrawer";
-import { readAllNotifications } from "../../Redux/Slices/UserSlice";
+import { readAllNotifications, logout } from "../../Redux/Slices/UserSlice";
 import {
   inProgressOrders,
   completedOrders,
@@ -127,7 +127,7 @@ const Layout = ({ Menu, User = false }) => {
               </div>
               <Menu />
               <div className="ShowData_Box_Part_3">
-                <button>
+                <button onClick={() => dispatch(logout({ navigate }))}>
                   <LogoutOutlined /> Logout
                 </button>
               </div>
@@ -178,7 +178,7 @@ const Layout = ({ Menu, User = false }) => {
                   : "ShowData_Box_Part_3_Footer"
               }
             >
-              <button>
+              <button onClick={() => dispatch(logout({ navigate }))}>
                 <LogoutOutlined /> Logout
               </button>
             </div>
