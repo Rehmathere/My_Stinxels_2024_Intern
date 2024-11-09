@@ -1417,6 +1417,30 @@
             padding: 0.2em 0.2em 0.2em 0.2em;
             width: 20%;
 
+            // - Search Bar -
+            .searchBar {
+              width: 0px;
+              opacity: 0;
+              padding: 0px;
+              border: none;
+              transition: width 0.7s ease, opacity 0.7s ease;
+              margin-left: 10px;
+              position: absolute;
+              top: 90px;
+              right: 80px;
+            }
+
+            .searchBar.show {
+              width: 350px;
+              opacity: 1;
+              padding: 3px 5px 3px 15px;
+              border: 1px solid #ccc;
+              border-radius: 50px;
+              letter-spacing: 2px;
+              font-size: 0.9em;
+              text-transform: capitalize;
+            }
+
             .Navbar_Main_Part_3_A {
               padding: 0.2em 0.2em 0.2em 0.2em;
 
@@ -1874,6 +1898,30 @@
           .Navbar_Main_Part_3 {
             padding: 0.1em 0.1em 0.1em 0.1em;
             width: 20%;
+
+            // - Search Bar -
+            .searchBar {
+              width: 0px;
+              opacity: 0;
+              padding: 0px;
+              border: none;
+              transition: width 0.7s ease, opacity 0.7s ease;
+              margin-left: 10px;
+              position: absolute;
+              top: 90px;
+              right: 80px;
+            }
+
+            .searchBar.show {
+              width: 300px;
+              opacity: 1;
+              padding: 3px 5px 3px 15px;
+              border: 1px solid #ccc;
+              border-radius: 50px;
+              letter-spacing: 2px;
+              font-size: 0.9em;
+              text-transform: capitalize;
+            }
 
             .Navbar_Main_Part_3_A {
               padding: 0.1em 0.1em 0.1em 0.1em;
@@ -2334,6 +2382,30 @@
             padding: 0.1em 0.1em 0.1em 0.1em;
             width: 21%;
 
+            // - Search Bar -
+            .searchBar {
+              width: 0px;
+              opacity: 0;
+              padding: 0px;
+              border: none;
+              transition: width 0.7s ease, opacity 0.7s ease;
+              margin-left: 10px;
+              position: absolute;
+              top: 80px;
+              right: 80px;
+            }
+
+            .searchBar.show {
+              width: 250px;
+              opacity: 1;
+              padding: 1.5px 5px 3.5px 15px;
+              border: 1px solid #ccc;
+              border-radius: 50px;
+              letter-spacing: 2px;
+              font-size: 0.8em;
+              text-transform: capitalize;
+            }
+
             .Navbar_Main_Part_3_A {
               padding: 0.1em 0.1em 0.1em 0.1em;
 
@@ -2782,6 +2854,31 @@
           }
 
           .Navbar_Main_Part_3 {
+            // - Search Bar -
+            .searchBar {
+              width: 0px;
+              opacity: 0;
+              padding: 0px;
+              border: none;
+              transition: width 0.7s ease, opacity 0.7s ease;
+              margin-left: 10px;
+              position: absolute;
+              top: 80px;
+              right: 80px;
+              display: none;
+            }
+
+            .searchBar.show {
+              width: 250px;
+              opacity: 1;
+              padding: 1.5px 5px 3.5px 15px;
+              border: 1px solid #ccc;
+              border-radius: 50px;
+              letter-spacing: 2px;
+              font-size: 0.8em;
+              text-transform: capitalize;
+            }
+
             .Navbar_Main_Part_3_A {
               display: none;
             }
@@ -3389,6 +3486,31 @@
           }
 
           .Navbar_Main_Part_3 {
+            // - Search Bar -
+            .searchBar {
+              width: 0px;
+              opacity: 0;
+              padding: 0px;
+              border: none;
+              transition: width 0.7s ease, opacity 0.7s ease;
+              margin-left: 10px;
+              position: absolute;
+              top: 80px;
+              right: 80px;
+              display: none;
+            }
+
+            .searchBar.show {
+              width: 250px;
+              opacity: 1;
+              padding: 1.5px 5px 3.5px 15px;
+              border: 1px solid #ccc;
+              border-radius: 50px;
+              letter-spacing: 2px;
+              font-size: 0.8em;
+              text-transform: capitalize;
+            }
+
             .Navbar_Main_Part_4 {
               display: block;
               visibility: visible;
